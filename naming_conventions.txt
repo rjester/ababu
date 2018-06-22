@@ -1,0 +1,9 @@
+Flow FlowLayoutPanel
+Tmi ToolStripMenuItem
+Tdb	ToolStripDropDownButton
+Tsb ToolStripButton
+Tlp TableLayoutPanel
+Btn	Button
+Txt TextBox
+Frm From
+Ctrl User Control
