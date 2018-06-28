@@ -71,7 +71,7 @@
             // 
             this.BtnVisitDelete.Image = global::Ababu.Properties.Resources.delete;
             this.BtnVisitDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnVisitDelete.Location = new System.Drawing.Point(587, 413);
+            this.BtnVisitDelete.Location = new System.Drawing.Point(720, 415);
             this.BtnVisitDelete.Name = "BtnVisitDelete";
             this.BtnVisitDelete.Size = new System.Drawing.Size(75, 23);
             this.BtnVisitDelete.TabIndex = 49;
@@ -83,13 +83,14 @@
             // 
             this.BtnVisitSave.Image = global::Ababu.Properties.Resources.accept;
             this.BtnVisitSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnVisitSave.Location = new System.Drawing.Point(506, 413);
+            this.BtnVisitSave.Location = new System.Drawing.Point(639, 415);
             this.BtnVisitSave.Name = "BtnVisitSave";
             this.BtnVisitSave.Size = new System.Drawing.Size(75, 23);
             this.BtnVisitSave.TabIndex = 48;
             this.BtnVisitSave.Text = "Save";
             this.BtnVisitSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnVisitSave.UseVisualStyleBackColor = true;
+            this.BtnVisitSave.Click += new System.EventHandler(this.BtnVisitSave_Click);
             // 
             // CtrlVisitEdit
             // 
@@ -101,7 +102,7 @@
             this.Controls.Add(this.TxtPid);
             this.Controls.Add(this.PicIsModified);
             this.Name = "CtrlVisitEdit";
-            this.Size = new System.Drawing.Size(787, 452);
+            this.Size = new System.Drawing.Size(813, 452);
             ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
