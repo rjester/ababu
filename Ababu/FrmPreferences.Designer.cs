@@ -78,7 +78,7 @@
             this.tabPageDatabase.Location = new System.Drawing.Point(4, 22);
             this.tabPageDatabase.Name = "tabPageDatabase";
             this.tabPageDatabase.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDatabase.Size = new System.Drawing.Size(825, 233);
+            this.tabPageDatabase.Size = new System.Drawing.Size(522, 233);
             this.tabPageDatabase.TabIndex = 1;
             this.tabPageDatabase.Text = "Database";
             this.tabPageDatabase.UseVisualStyleBackColor = true;
@@ -171,7 +171,7 @@
             this.tabPageGeneral.Location = new System.Drawing.Point(4, 22);
             this.tabPageGeneral.Name = "tabPageGeneral";
             this.tabPageGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGeneral.Size = new System.Drawing.Size(825, 233);
+            this.tabPageGeneral.Size = new System.Drawing.Size(522, 233);
             this.tabPageGeneral.TabIndex = 0;
             this.tabPageGeneral.Text = "Generali";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
@@ -248,6 +248,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPreferences";
             this.Text = "Preferences";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPreferences_FormClosing);
             this.Load += new System.EventHandler(this.FrmPreferences_Load);
             this.TabPreferences.ResumeLayout(false);
             this.tabPageDatabase.ResumeLayout(false);

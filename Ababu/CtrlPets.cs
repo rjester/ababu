@@ -123,26 +123,53 @@ namespace Ababu
                 }
 
             }
-
-            /*
-            if (this.GrdPets.Columns[e.ColumnIndex].Name == "deleted")
-            {
-                if (e.Value != null)
-                {
-                    e.CellStyle.BackColor = Color.Pink;
-                }
-                else
-                {
-                    e.CellStyle.BackColor = Color.Red;
-                }
-            }
-            */
-
         }
 
         private void TsbPetRefreshList_Click(object sender, EventArgs e)
         {
             GridPetResultReload();
         }
+
+
+
+        
+
+
+        private void TsbPetVisit_Click(object sender, EventArgs e)
+        {
+            if (GrdPets.SelectedCells.Count > 0)
+            {
+                DataGridViewRow selectedRow = GrdPets.SelectedRows[0];
+                Pet pet = new Pet((int)selectedRow.Cells["pid"].Value);
+
+                if (pet.Deleted != null)
+                {
+                    DialogResult result = MessageBox.Show("You can't visit a deleted patient", "Warning");
+                }
+                else
+                {
+                    // bubble the event up to the parent
+                    if (this.OnPetSelectionToVisit != null)
+                    {
+                        // raise the event
+                        this.OnPetSelectionToVisit(this, new PetEventArgs(pet.Pid));
+                    }
+                }
+            }
+        }
+
+        // define a standard event
+        public event EventHandler<PetEventArgs> OnPetSelectionToVisit;
+    }
+
+    // define a custom eventargs class to pass Pet ID
+    public class PetEventArgs : EventArgs
+    {
+        public PetEventArgs(int pid)
+        {
+            this.Pid = pid;
+        }
+
+        public int Pid { get; private set; }
     }
 }

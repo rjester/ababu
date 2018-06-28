@@ -87,7 +87,28 @@ namespace Ababu
             TabAbabu.TabPages.Add(TpPet);
             TabAbabu.SelectedTab = TpPet;
 
+            // subscribe the event. Tell me when it occurs
+            ctrlPets.OnPetSelectionToVisit += new EventHandler<PetEventArgs>(VisitPet);
         }
+
+
+
+
+        protected void VisitPet(object sender, PetEventArgs e)
+        {
+            //handle the event 
+            TabPage TpVisit = new TabPage("Visits");
+            CtrlVisits ctrlVisits = new CtrlVisits(e.Pid);
+            ctrlVisits.Dock = DockStyle.Fill;
+            TpVisit.Controls.Add(ctrlVisits);
+
+
+            TabAbabu.TabPages.Add(TpVisit);
+            TabAbabu.SelectedTab = TpVisit;
+        }
+
+
+
 
         private void TsbTags_Click(object sender, EventArgs e)
         {
@@ -112,4 +133,6 @@ namespace Ababu
             frmPreferences.ShowDialog();
         }
     }
+
+    
 }

@@ -138,6 +138,7 @@
             this.TsbPetVisit.Name = "TsbPetVisit";
             this.TsbPetVisit.Size = new System.Drawing.Size(23, 22);
             this.TsbPetVisit.Text = "Visit selected pet";
+            this.TsbPetVisit.Click += new System.EventHandler(this.TsbPetVisit_Click);
             // 
             // TsbPetSearch
             // 

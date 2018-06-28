@@ -74,6 +74,12 @@
     <Compile Include="CtrlPets.Designer.cs">
       <DependentUpon>CtrlPets.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtrlVisitEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlVisitEdit.Designer.cs">
+      <DependentUpon>CtrlVisitEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtrlVisitListItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CtrlPets.resx">
       <DependentUpon>CtrlPets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlVisitEdit.resx">
+      <DependentUpon>CtrlVisitEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlVisitListItem.resx">
       <DependentUpon>CtrlVisitListItem.cs</DependentUpon>

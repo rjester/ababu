@@ -13,9 +13,18 @@ namespace Ababu
 {
     public partial class CtrlVisits : UserControl
     {
-        public CtrlVisits()
+        public Visit V { get; set; }
+        public int Pid { get; set; }
+
+        public CtrlVisits(int pid = 0)
         {
             InitializeComponent();
+            V = new Visit();
+
+            if(pid > 0)
+            {
+                Pid = pid;
+            }
         }
 
         private void CtrlVisits_Load(object sender, EventArgs e)
@@ -25,14 +34,10 @@ namespace Ababu
 
         private void LoadVisitList()
         {
-
-
-
-            DataTable VisitList = Visit.GetVisitsList();
+            // DataTable VisitList = Visit.GetVisitsList();
+            DataTable VisitList = Visit.GetVisitListByPid(Pid);
 
             GrdVisitsList.DataSource = VisitList;
-
-
 
             foreach(DataRow row in VisitList.Rows)
             {
@@ -40,13 +45,6 @@ namespace Ababu
                 CtrlVisitListItem ctrlVisitListItem = new CtrlVisitListItem(v);
                 FlowVisitList.Controls.Add(ctrlVisitListItem);
             }
-
-
-
-
-
-
-
         }
     }
 }

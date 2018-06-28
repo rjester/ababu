@@ -13,10 +13,9 @@ namespace OldAuntie
         public int Pid { get; set; }
         public int Oid { get; set; }
         public int ReasonId { get; set; }
-
-
         public int DiagnosisId { get; set; }
         public string Description { get; set; }
+
         public int StatusId { get; set; }
         public int TypeId { get; set; }
 
@@ -53,7 +52,8 @@ namespace OldAuntie
                     Vid = vid;
                     Pid = (int)result["pid"];
                     Oid = (int)result["oid"];
-                    ReasonId= (int)result["reason_id"];
+                    ReasonId = (int)result["reason_id"];
+                    DiagnosisId = (int)result["diagnosis_id"];
 
 
                     Description = result["description"].ToString();
@@ -88,7 +88,18 @@ namespace OldAuntie
         }
 
 
+        static public DataTable GetVisitListByPid(int pid)
+        {
+            string query = "SELECT a.vid as vid, a.description as description, b.name as name " +
+                "FROM visit a, pets b " +
+                "WHERE a.pid = b.pid " +
+                "AND a.pid=" + pid + " " + 
+                "ORDER BY a.vid DESC";
 
+            DataTable result = Globals.DBCon.Execute(query);
+
+            return result;
+        }
 
 
         public void Dispose()
@@ -96,6 +107,7 @@ namespace OldAuntie
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
 
         protected virtual void Dispose(bool disposing)
         {

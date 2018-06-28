@@ -78,15 +78,16 @@
             // TlpVisitBody
             // 
             this.TlpVisitBody.ColumnCount = 2;
-            this.TlpVisitBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TlpVisitBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TlpVisitBody.Controls.Add(this.GrdVisitsList, 0, 0);
-            this.TlpVisitBody.Controls.Add(this.FlowVisitList, 1, 0);
+            this.TlpVisitBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 302F));
+            this.TlpVisitBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TlpVisitBody.Controls.Add(this.GrdVisitsList, 1, 0);
+            this.TlpVisitBody.Controls.Add(this.FlowVisitList, 0, 0);
+            this.TlpVisitBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TlpVisitBody.Location = new System.Drawing.Point(3, 30);
             this.TlpVisitBody.Name = "TlpVisitBody";
             this.TlpVisitBody.RowCount = 1;
-            this.TlpVisitBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TlpVisitBody.Size = new System.Drawing.Size(685, 352);
+            this.TlpVisitBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TlpVisitBody.Size = new System.Drawing.Size(743, 451);
             this.TlpVisitBody.TabIndex = 1;
             // 
             // GrdVisitsList
@@ -96,19 +97,20 @@
             this.GrdVisitsList.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.GrdVisitsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GrdVisitsList.Dock = System.Windows.Forms.DockStyle.Top;
-            this.GrdVisitsList.Location = new System.Drawing.Point(3, 3);
+            this.GrdVisitsList.Location = new System.Drawing.Point(305, 3);
             this.GrdVisitsList.Name = "GrdVisitsList";
             this.GrdVisitsList.ReadOnly = true;
-            this.GrdVisitsList.Size = new System.Drawing.Size(336, 122);
+            this.GrdVisitsList.Size = new System.Drawing.Size(435, 122);
             this.GrdVisitsList.TabIndex = 0;
             // 
             // FlowVisitList
             // 
             this.FlowVisitList.AutoScroll = true;
             this.FlowVisitList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FlowVisitList.Location = new System.Drawing.Point(345, 3);
+            this.FlowVisitList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FlowVisitList.Location = new System.Drawing.Point(3, 3);
             this.FlowVisitList.Name = "FlowVisitList";
-            this.FlowVisitList.Size = new System.Drawing.Size(337, 281);
+            this.FlowVisitList.Size = new System.Drawing.Size(296, 445);
             this.FlowVisitList.TabIndex = 1;
             // 
             // CtrlVisits

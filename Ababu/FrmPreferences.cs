@@ -146,5 +146,19 @@ namespace Ababu
             this.Close();
             this.Dispose();
         }
+
+        private void FrmPreferences_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (IsModified == true)
+            {
+                DialogResult result = MessageBox.Show("Form has been modified. Would you like to discard changes ?", "Warning", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    //code for No
+                    e.Cancel = true;
+                    return;
+                }
+            }
+        }
     }
 }

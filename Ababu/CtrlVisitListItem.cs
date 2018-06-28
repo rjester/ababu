@@ -35,6 +35,8 @@ namespace Ababu
 
             // LblReasonForVisit.Text = Venom.GetReasonForVisit(V.ReasonId);
             LblReasonForVisit.Text += Venom.GetTermNameById(V.ReasonId);
+            LblDiagnosis.Text += Venom.GetTermNameById(V.DiagnosisId);
+
 
             LblVisitDate.Text += Utility.UnixTimeStampToDateTime(V.Created).ToString();
 
