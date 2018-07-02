@@ -249,4 +249,15 @@ namespace OldAuntie
             }
         }
     }
+
+    // define a custom eventargs class to pass Pet ID
+    public class PetEventArgs : EventArgs
+    {
+        public PetEventArgs(int pid)
+        {
+            this.Pid = pid;
+        }
+
+        public int Pid { get; private set; }
+    }
 }

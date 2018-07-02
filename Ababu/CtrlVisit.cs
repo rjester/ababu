@@ -11,12 +11,12 @@ using OldAuntie;
 
 namespace Ababu
 {
-    public partial class CtrlVisits : UserControl
+    public partial class CtrlVisit : UserControl
     {
         public Visit V { get; set; }
         public int Pid { get; set; }
 
-        public CtrlVisits(int pid = 0)
+        public CtrlVisit(int pid = 0)
         {
             InitializeComponent();
             V = new Visit();
@@ -37,14 +37,25 @@ namespace Ababu
             // DataTable VisitList = Visit.GetVisitsList();
             DataTable VisitList = Visit.GetVisitListByPid(Pid);
 
-            GrdVisitsList.DataSource = VisitList;
-
             foreach(DataRow row in VisitList.Rows)
             {
                 Visit v = new Visit((int)row[0]);
                 CtrlVisitListItem ctrlVisitListItem = new CtrlVisitListItem(v);
                 FlowVisitList.Controls.Add(ctrlVisitListItem);
+
+                ctrlVisitListItem.OnVisitSelection += new EventHandler<VisitEventArgs>(LoadVisit);
             }
+        }
+
+        public void LoadVisit(object sender, VisitEventArgs e)
+        {
+            // clean panel from all user controls
+            PanVisitEdit.Controls.Clear();
+
+            CtrlVisitEdit ctrlVisitEdit = new CtrlVisitEdit(e.V);
+
+            ctrlVisitEdit.Dock = DockStyle.Fill;
+            PanVisitEdit.Controls.Add(ctrlVisitEdit);
         }
     }
 }

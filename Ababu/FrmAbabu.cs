@@ -98,7 +98,7 @@ namespace Ababu
         {
             //handle the event 
             TabPage TpVisit = new TabPage("Visits");
-            CtrlVisits ctrlVisits = new CtrlVisits(e.Pid);
+            CtrlVisit ctrlVisits = new CtrlVisit(e.Pid);
             ctrlVisits.Dock = DockStyle.Fill;
             TpVisit.Controls.Add(ctrlVisits);
 
@@ -118,7 +118,7 @@ namespace Ababu
         private void TsbVisits_Click(object sender, EventArgs e)
         {
             TabPage TpVisit = new TabPage("Visits");
-            CtrlVisits ctrlVisits = new CtrlVisits();
+            CtrlVisit ctrlVisits = new CtrlVisit();
             ctrlVisits.Dock = DockStyle.Fill;
             TpVisit.Controls.Add(ctrlVisits);
 

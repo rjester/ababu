@@ -86,11 +86,11 @@
     <Compile Include="CtrlVisitListItem.Designer.cs">
       <DependentUpon>CtrlVisitListItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="CtrlVisits.cs">
+    <Compile Include="CtrlVisit.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CtrlVisits.Designer.cs">
-      <DependentUpon>CtrlVisits.cs</DependentUpon>
+    <Compile Include="CtrlVisit.Designer.cs">
+      <DependentUpon>CtrlVisit.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAbabu.cs">
       <SubType>Form</SubType>
@@ -133,8 +133,8 @@
     <EmbeddedResource Include="CtrlVisitListItem.resx">
       <DependentUpon>CtrlVisitListItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CtrlVisits.resx">
-      <DependentUpon>CtrlVisits.cs</DependentUpon>
+    <EmbeddedResource Include="CtrlVisit.resx">
+      <DependentUpon>CtrlVisit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbabu.resx">
       <DependentUpon>FrmAbabu.cs</DependentUpon>

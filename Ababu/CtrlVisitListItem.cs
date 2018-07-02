@@ -42,5 +42,22 @@ namespace Ababu
 
             LblStatus.Text += V.StatusDescription;
         }
+
+        
+        private void CtrlVisitListItem_Click(object sender, EventArgs e)
+        {
+            // bubble the event up to the parent
+            if (this.OnVisitSelection != null)
+            {
+                // raise the event
+                this.OnVisitSelection(this, new VisitEventArgs(V));
+            }
+        }
+
+        // define a standard event
+        public event EventHandler<VisitEventArgs> OnVisitSelection;
     }
+
+
+    
 }

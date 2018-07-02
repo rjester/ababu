@@ -1,6 +1,6 @@
 ﻿namespace Ababu
 {
-    partial class CtrlVisits
+    partial class CtrlVisit
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,12 +32,11 @@
             this.TsVisits = new System.Windows.Forms.ToolStrip();
             this.TsbVisitAdd = new System.Windows.Forms.ToolStripButton();
             this.TlpVisitBody = new System.Windows.Forms.TableLayoutPanel();
-            this.GrdVisitsList = new System.Windows.Forms.DataGridView();
             this.FlowVisitList = new System.Windows.Forms.FlowLayoutPanel();
+            this.PanVisitEdit = new System.Windows.Forms.Panel();
             this.TlpVisits.SuspendLayout();
             this.TsVisits.SuspendLayout();
             this.TlpVisitBody.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GrdVisitsList)).BeginInit();
             this.SuspendLayout();
             // 
             // TlpVisits
@@ -80,8 +79,8 @@
             this.TlpVisitBody.ColumnCount = 2;
             this.TlpVisitBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 302F));
             this.TlpVisitBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TlpVisitBody.Controls.Add(this.GrdVisitsList, 1, 0);
             this.TlpVisitBody.Controls.Add(this.FlowVisitList, 0, 0);
+            this.TlpVisitBody.Controls.Add(this.PanVisitEdit, 1, 0);
             this.TlpVisitBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TlpVisitBody.Location = new System.Drawing.Point(3, 30);
             this.TlpVisitBody.Name = "TlpVisitBody";
@@ -89,19 +88,6 @@
             this.TlpVisitBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TlpVisitBody.Size = new System.Drawing.Size(743, 451);
             this.TlpVisitBody.TabIndex = 1;
-            // 
-            // GrdVisitsList
-            // 
-            this.GrdVisitsList.AllowUserToAddRows = false;
-            this.GrdVisitsList.AllowUserToDeleteRows = false;
-            this.GrdVisitsList.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.GrdVisitsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GrdVisitsList.Dock = System.Windows.Forms.DockStyle.Top;
-            this.GrdVisitsList.Location = new System.Drawing.Point(305, 3);
-            this.GrdVisitsList.Name = "GrdVisitsList";
-            this.GrdVisitsList.ReadOnly = true;
-            this.GrdVisitsList.Size = new System.Drawing.Size(435, 122);
-            this.GrdVisitsList.TabIndex = 0;
             // 
             // FlowVisitList
             // 
@@ -113,12 +99,20 @@
             this.FlowVisitList.Size = new System.Drawing.Size(296, 445);
             this.FlowVisitList.TabIndex = 1;
             // 
-            // CtrlVisits
+            // PanVisitEdit
+            // 
+            this.PanVisitEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanVisitEdit.Location = new System.Drawing.Point(333, 39);
+            this.PanVisitEdit.Name = "PanVisitEdit";
+            this.PanVisitEdit.Size = new System.Drawing.Size(397, 378);
+            this.PanVisitEdit.TabIndex = 2;
+            // 
+            // CtrlVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.TlpVisits);
-            this.Name = "CtrlVisits";
+            this.Name = "CtrlVisit";
             this.Size = new System.Drawing.Size(749, 514);
             this.Load += new System.EventHandler(this.CtrlVisits_Load);
             this.TlpVisits.ResumeLayout(false);
@@ -126,7 +120,6 @@
             this.TsVisits.ResumeLayout(false);
             this.TsVisits.PerformLayout();
             this.TlpVisitBody.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GrdVisitsList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -137,7 +130,7 @@
         private System.Windows.Forms.ToolStrip TsVisits;
         private System.Windows.Forms.ToolStripButton TsbVisitAdd;
         private System.Windows.Forms.TableLayoutPanel TlpVisitBody;
-        private System.Windows.Forms.DataGridView GrdVisitsList;
         private System.Windows.Forms.FlowLayoutPanel FlowVisitList;
+        private System.Windows.Forms.Panel PanVisitEdit;
     }
 }

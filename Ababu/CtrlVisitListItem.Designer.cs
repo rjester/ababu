@@ -108,6 +108,7 @@
             this.Name = "CtrlVisitListItem";
             this.Size = new System.Drawing.Size(287, 96);
             this.Load += new System.EventHandler(this.CtrlVisitListItem_Load);
+            this.Click += new System.EventHandler(this.CtrlVisitListItem_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

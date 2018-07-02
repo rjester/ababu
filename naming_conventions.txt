@@ -7,3 +7,4 @@ Btn	Button
 Txt TextBox
 Frm From
 Ctrl User Control
+Pan Panel

@@ -126,4 +126,17 @@ namespace OldAuntie
     }
 
 
+    // define a custom eventargs class to pass Pet ID
+    public class VisitEventArgs : EventArgs
+    {
+        public VisitEventArgs(Visit visit)
+        {
+            // this.Vid = vid;
+            this.V = visit;
+        }
+
+        public int Vid { get; private set; }
+        public Visit V { get; private set; }
+    }
+
 }
