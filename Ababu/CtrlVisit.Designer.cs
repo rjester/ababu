@@ -32,11 +32,8 @@
             this.TsVisits = new System.Windows.Forms.ToolStrip();
             this.TsbVisitAdd = new System.Windows.Forms.ToolStripButton();
             this.TlpVisitBody = new System.Windows.Forms.TableLayoutPanel();
-            this.FlowVisitList = new System.Windows.Forms.FlowLayoutPanel();
-            this.PanVisitEdit = new System.Windows.Forms.Panel();
             this.TlpVisits.SuspendLayout();
             this.TsVisits.SuspendLayout();
-            this.TlpVisitBody.SuspendLayout();
             this.SuspendLayout();
             // 
             // TlpVisits
@@ -76,36 +73,18 @@
             // 
             // TlpVisitBody
             // 
+            this.TlpVisitBody.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.TlpVisitBody.ColumnCount = 2;
-            this.TlpVisitBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 302F));
-            this.TlpVisitBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TlpVisitBody.Controls.Add(this.FlowVisitList, 0, 0);
-            this.TlpVisitBody.Controls.Add(this.PanVisitEdit, 1, 0);
+            this.TlpVisitBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TlpVisitBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TlpVisitBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TlpVisitBody.Location = new System.Drawing.Point(3, 30);
             this.TlpVisitBody.Name = "TlpVisitBody";
-            this.TlpVisitBody.RowCount = 1;
-            this.TlpVisitBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TlpVisitBody.RowCount = 2;
+            this.TlpVisitBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TlpVisitBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TlpVisitBody.Size = new System.Drawing.Size(743, 451);
             this.TlpVisitBody.TabIndex = 1;
-            // 
-            // FlowVisitList
-            // 
-            this.FlowVisitList.AutoScroll = true;
-            this.FlowVisitList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FlowVisitList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FlowVisitList.Location = new System.Drawing.Point(3, 3);
-            this.FlowVisitList.Name = "FlowVisitList";
-            this.FlowVisitList.Size = new System.Drawing.Size(296, 445);
-            this.FlowVisitList.TabIndex = 1;
-            // 
-            // PanVisitEdit
-            // 
-            this.PanVisitEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanVisitEdit.Location = new System.Drawing.Point(333, 39);
-            this.PanVisitEdit.Name = "PanVisitEdit";
-            this.PanVisitEdit.Size = new System.Drawing.Size(397, 378);
-            this.PanVisitEdit.TabIndex = 2;
             // 
             // CtrlVisit
             // 
@@ -119,7 +98,6 @@
             this.TlpVisits.PerformLayout();
             this.TsVisits.ResumeLayout(false);
             this.TsVisits.PerformLayout();
-            this.TlpVisitBody.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -130,7 +108,5 @@
         private System.Windows.Forms.ToolStrip TsVisits;
         private System.Windows.Forms.ToolStripButton TsbVisitAdd;
         private System.Windows.Forms.TableLayoutPanel TlpVisitBody;
-        private System.Windows.Forms.FlowLayoutPanel FlowVisitList;
-        private System.Windows.Forms.Panel PanVisitEdit;
     }
 }

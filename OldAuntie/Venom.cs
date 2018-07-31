@@ -11,6 +11,7 @@ namespace OldAuntie
     {
 
         public const string REASON_FOR_VISIT = "Reason for visit";
+        public const string DIAGNOSIS = "Diagnosis";
 
         public Venom(long id)
         {
@@ -18,21 +19,6 @@ namespace OldAuntie
             DataRow DrResult = Globals.DBCon.SelectOneRow(query);
         }
 
-
-        /*
-        public static string GetReasonForVisit(long reason_id)
-        {
-            string result = String.Empty;
-            DataTable DtResult = Search(REASON_FOR_VISIT, reason_id.ToString());
-
-            if(DtResult != null)
-            {
-                result = DtResult.Rows[0].ItemArray[0].ToString();
-            }
-
-            return result;
-        }
-        */
 
         public static DataTable Search(string label = "", string search_string = "")
         {

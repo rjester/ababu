@@ -37,27 +37,27 @@
             this.TlpVisitEdit = new System.Windows.Forms.TableLayoutPanel();
             this.PanVisitEditAction = new System.Windows.Forms.Panel();
             this.PanVisitEditBody = new System.Windows.Forms.Panel();
-            this.CmbStatus = new System.Windows.Forms.ComboBox();
-            this.CmbOwner = new System.Windows.Forms.ComboBox();
-            this.LblDescription = new System.Windows.Forms.Label();
-            this.TxtDescription = new System.Windows.Forms.TextBox();
-            this.LblOwner = new System.Windows.Forms.Label();
-            this.LblStatus = new System.Windows.Forms.Label();
-            this.ErrVisitEdit = new System.Windows.Forms.ErrorProvider(this.components);
-            this.LblReason = new System.Windows.Forms.Label();
-            this.CmbReason = new System.Windows.Forms.ComboBox();
-            this.LblDiagnosis = new System.Windows.Forms.Label();
-            this.CmbDiagnosis = new System.Windows.Forms.ComboBox();
-            this.LblProcedure = new System.Windows.Forms.Label();
-            this.CmbProcedure = new System.Windows.Forms.ComboBox();
-            this.LblDrug = new System.Windows.Forms.Label();
-            this.CmbDrug = new System.Windows.Forms.ComboBox();
-            this.LblDiagnosticTest = new System.Windows.Forms.Label();
-            this.CmbDiagnosticTest = new System.Windows.Forms.ComboBox();
-            this.LblNoteTitle = new System.Windows.Forms.Label();
-            this.TxtNoteTitle = new System.Windows.Forms.TextBox();
             this.LblNoteText = new System.Windows.Forms.Label();
             this.TxtNoteText = new System.Windows.Forms.TextBox();
+            this.LblNoteTitle = new System.Windows.Forms.Label();
+            this.TxtNoteTitle = new System.Windows.Forms.TextBox();
+            this.LblDiagnosticTest = new System.Windows.Forms.Label();
+            this.CmbDiagnosticTest = new System.Windows.Forms.ComboBox();
+            this.LblDrug = new System.Windows.Forms.Label();
+            this.CmbDrug = new System.Windows.Forms.ComboBox();
+            this.LblProcedure = new System.Windows.Forms.Label();
+            this.CmbProcedure = new System.Windows.Forms.ComboBox();
+            this.LblDiagnosis = new System.Windows.Forms.Label();
+            this.CmbDiagnosis = new System.Windows.Forms.ComboBox();
+            this.LblReason = new System.Windows.Forms.Label();
+            this.CmbReason = new System.Windows.Forms.ComboBox();
+            this.LblStatus = new System.Windows.Forms.Label();
+            this.LblOwner = new System.Windows.Forms.Label();
+            this.LblDescription = new System.Windows.Forms.Label();
+            this.TxtDescription = new System.Windows.Forms.TextBox();
+            this.CmbOwner = new System.Windows.Forms.ComboBox();
+            this.CmbStatus = new System.Windows.Forms.ComboBox();
+            this.ErrVisitEdit = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).BeginInit();
             this.TlpVisitEdit.SuspendLayout();
             this.PanVisitEditAction.SuspendLayout();
@@ -141,9 +141,9 @@
             this.PanVisitEditAction.Controls.Add(this.BtnVisitSave);
             this.PanVisitEditAction.Controls.Add(this.BtnVisitDelete);
             this.PanVisitEditAction.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PanVisitEditAction.Location = new System.Drawing.Point(604, 393);
+            this.PanVisitEditAction.Location = new System.Drawing.Point(604, 394);
             this.PanVisitEditAction.Name = "PanVisitEditAction";
-            this.PanVisitEditAction.Size = new System.Drawing.Size(200, 54);
+            this.PanVisitEditAction.Size = new System.Drawing.Size(200, 53);
             this.PanVisitEditAction.TabIndex = 0;
             // 
             // PanVisitEditBody
@@ -174,155 +174,45 @@
             this.PanVisitEditBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanVisitEditBody.Location = new System.Drawing.Point(3, 3);
             this.PanVisitEditBody.Name = "PanVisitEditBody";
-            this.PanVisitEditBody.Size = new System.Drawing.Size(801, 384);
+            this.PanVisitEditBody.Size = new System.Drawing.Size(801, 385);
             this.PanVisitEditBody.TabIndex = 1;
             // 
-            // CmbStatus
+            // LblNoteText
             // 
-            this.CmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbStatus.FormattingEnabled = true;
-            this.CmbStatus.Location = new System.Drawing.Point(15, 84);
-            this.CmbStatus.Name = "CmbStatus";
-            this.CmbStatus.Size = new System.Drawing.Size(373, 24);
-            this.CmbStatus.TabIndex = 25;
+            this.LblNoteText.AutoSize = true;
+            this.LblNoteText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNoteText.Location = new System.Drawing.Point(410, 113);
+            this.LblNoteText.Name = "LblNoteText";
+            this.LblNoteText.Size = new System.Drawing.Size(94, 16);
+            this.LblNoteText.TabIndex = 66;
+            this.LblNoteText.Text = "Annotation text";
             // 
-            // CmbOwner
+            // TxtNoteText
             // 
-            this.CmbOwner.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.CmbOwner.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CmbOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbOwner.FormattingEnabled = true;
-            this.CmbOwner.Location = new System.Drawing.Point(14, 142);
-            this.CmbOwner.Name = "CmbOwner";
-            this.CmbOwner.Size = new System.Drawing.Size(373, 24);
-            this.CmbOwner.TabIndex = 26;
+            this.TxtNoteText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNoteText.Location = new System.Drawing.Point(413, 132);
+            this.TxtNoteText.Multiline = true;
+            this.TxtNoteText.Name = "TxtNoteText";
+            this.TxtNoteText.Size = new System.Drawing.Size(373, 67);
+            this.TxtNoteText.TabIndex = 65;
             // 
-            // LblDescription
+            // LblNoteTitle
             // 
-            this.LblDescription.AutoSize = true;
-            this.LblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDescription.Location = new System.Drawing.Point(12, 11);
-            this.LblDescription.Name = "LblDescription";
-            this.LblDescription.Size = new System.Drawing.Size(134, 16);
-            this.LblDescription.TabIndex = 30;
-            this.LblDescription.Text = "Visit short description";
+            this.LblNoteTitle.AutoSize = true;
+            this.LblNoteTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNoteTitle.Location = new System.Drawing.Point(410, 65);
+            this.LblNoteTitle.Name = "LblNoteTitle";
+            this.LblNoteTitle.Size = new System.Drawing.Size(113, 16);
+            this.LblNoteTitle.TabIndex = 64;
+            this.LblNoteTitle.Text = "Title of annotation";
             // 
-            // TxtDescription
+            // TxtNoteTitle
             // 
-            this.TxtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDescription.Location = new System.Drawing.Point(15, 30);
-            this.TxtDescription.Name = "TxtDescription";
-            this.TxtDescription.Size = new System.Drawing.Size(373, 22);
-            this.TxtDescription.TabIndex = 29;
-            // 
-            // LblOwner
-            // 
-            this.LblOwner.AutoSize = true;
-            this.LblOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblOwner.Location = new System.Drawing.Point(11, 123);
-            this.LblOwner.Name = "LblOwner";
-            this.LblOwner.Size = new System.Drawing.Size(46, 16);
-            this.LblOwner.TabIndex = 51;
-            this.LblOwner.Text = "Owner";
-            // 
-            // LblStatus
-            // 
-            this.LblStatus.AutoSize = true;
-            this.LblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblStatus.Location = new System.Drawing.Point(12, 65);
-            this.LblStatus.Name = "LblStatus";
-            this.LblStatus.Size = new System.Drawing.Size(45, 16);
-            this.LblStatus.TabIndex = 52;
-            this.LblStatus.Text = "Status";
-            // 
-            // ErrVisitEdit
-            // 
-            this.ErrVisitEdit.ContainerControl = this;
-            // 
-            // LblReason
-            // 
-            this.LblReason.AutoSize = true;
-            this.LblReason.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblReason.Location = new System.Drawing.Point(11, 183);
-            this.LblReason.Name = "LblReason";
-            this.LblReason.Size = new System.Drawing.Size(232, 16);
-            this.LblReason.TabIndex = 54;
-            this.LblReason.Text = "Main reason for visit (e.g. Vaccination)";
-            // 
-            // CmbReason
-            // 
-            this.CmbReason.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.CmbReason.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CmbReason.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbReason.FormattingEnabled = true;
-            this.CmbReason.Location = new System.Drawing.Point(14, 202);
-            this.CmbReason.Name = "CmbReason";
-            this.CmbReason.Size = new System.Drawing.Size(373, 24);
-            this.CmbReason.TabIndex = 53;
-            // 
-            // LblDiagnosis
-            // 
-            this.LblDiagnosis.AutoSize = true;
-            this.LblDiagnosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDiagnosis.Location = new System.Drawing.Point(12, 238);
-            this.LblDiagnosis.Name = "LblDiagnosis";
-            this.LblDiagnosis.Size = new System.Drawing.Size(267, 16);
-            this.LblDiagnosis.TabIndex = 56;
-            this.LblDiagnosis.Text = "Diagnosis / Suspect (e.g. Diabetes mellitus)";
-            // 
-            // CmbDiagnosis
-            // 
-            this.CmbDiagnosis.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.CmbDiagnosis.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CmbDiagnosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbDiagnosis.FormattingEnabled = true;
-            this.CmbDiagnosis.Location = new System.Drawing.Point(15, 257);
-            this.CmbDiagnosis.Name = "CmbDiagnosis";
-            this.CmbDiagnosis.Size = new System.Drawing.Size(373, 24);
-            this.CmbDiagnosis.TabIndex = 55;
-            // 
-            // LblProcedure
-            // 
-            this.LblProcedure.AutoSize = true;
-            this.LblProcedure.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblProcedure.Location = new System.Drawing.Point(12, 300);
-            this.LblProcedure.Name = "LblProcedure";
-            this.LblProcedure.Size = new System.Drawing.Size(246, 16);
-            this.LblProcedure.TabIndex = 58;
-            this.LblProcedure.Text = "Procedure or treatment (e.g. Bandaging)";
-            // 
-            // CmbProcedure
-            // 
-            this.CmbProcedure.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.CmbProcedure.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CmbProcedure.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbProcedure.FormattingEnabled = true;
-            this.CmbProcedure.Location = new System.Drawing.Point(15, 319);
-            this.CmbProcedure.Name = "CmbProcedure";
-            this.CmbProcedure.Size = new System.Drawing.Size(373, 24);
-            this.CmbProcedure.TabIndex = 57;
-            // 
-            // LblDrug
-            // 
-            this.LblDrug.AutoSize = true;
-            this.LblDrug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDrug.Location = new System.Drawing.Point(410, 238);
-            this.LblDrug.Name = "LblDrug";
-            this.LblDrug.Size = new System.Drawing.Size(117, 16);
-            this.LblDrug.TabIndex = 60;
-            this.LblDrug.Text = "Drug prescriptions";
-            // 
-            // CmbDrug
-            // 
-            this.CmbDrug.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.CmbDrug.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CmbDrug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbDrug.FormattingEnabled = true;
-            this.CmbDrug.Location = new System.Drawing.Point(413, 257);
-            this.CmbDrug.Name = "CmbDrug";
-            this.CmbDrug.Size = new System.Drawing.Size(373, 24);
-            this.CmbDrug.TabIndex = 59;
+            this.TxtNoteTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNoteTitle.Location = new System.Drawing.Point(413, 84);
+            this.TxtNoteTitle.Name = "TxtNoteTitle";
+            this.TxtNoteTitle.Size = new System.Drawing.Size(373, 22);
+            this.TxtNoteTitle.TabIndex = 63;
             // 
             // LblDiagnosticTest
             // 
@@ -345,42 +235,152 @@
             this.CmbDiagnosticTest.Size = new System.Drawing.Size(373, 24);
             this.CmbDiagnosticTest.TabIndex = 61;
             // 
-            // LblNoteTitle
+            // LblDrug
             // 
-            this.LblNoteTitle.AutoSize = true;
-            this.LblNoteTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNoteTitle.Location = new System.Drawing.Point(410, 65);
-            this.LblNoteTitle.Name = "LblNoteTitle";
-            this.LblNoteTitle.Size = new System.Drawing.Size(113, 16);
-            this.LblNoteTitle.TabIndex = 64;
-            this.LblNoteTitle.Text = "Title of annotation";
+            this.LblDrug.AutoSize = true;
+            this.LblDrug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDrug.Location = new System.Drawing.Point(410, 238);
+            this.LblDrug.Name = "LblDrug";
+            this.LblDrug.Size = new System.Drawing.Size(117, 16);
+            this.LblDrug.TabIndex = 60;
+            this.LblDrug.Text = "Drug prescriptions";
             // 
-            // TxtNoteTitle
+            // CmbDrug
             // 
-            this.TxtNoteTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtNoteTitle.Location = new System.Drawing.Point(413, 84);
-            this.TxtNoteTitle.Name = "TxtNoteTitle";
-            this.TxtNoteTitle.Size = new System.Drawing.Size(373, 22);
-            this.TxtNoteTitle.TabIndex = 63;
+            this.CmbDrug.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CmbDrug.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CmbDrug.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbDrug.FormattingEnabled = true;
+            this.CmbDrug.Location = new System.Drawing.Point(413, 257);
+            this.CmbDrug.Name = "CmbDrug";
+            this.CmbDrug.Size = new System.Drawing.Size(373, 24);
+            this.CmbDrug.TabIndex = 59;
             // 
-            // LblNoteText
+            // LblProcedure
             // 
-            this.LblNoteText.AutoSize = true;
-            this.LblNoteText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNoteText.Location = new System.Drawing.Point(410, 113);
-            this.LblNoteText.Name = "LblNoteText";
-            this.LblNoteText.Size = new System.Drawing.Size(94, 16);
-            this.LblNoteText.TabIndex = 66;
-            this.LblNoteText.Text = "Annotation text";
+            this.LblProcedure.AutoSize = true;
+            this.LblProcedure.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblProcedure.Location = new System.Drawing.Point(12, 300);
+            this.LblProcedure.Name = "LblProcedure";
+            this.LblProcedure.Size = new System.Drawing.Size(246, 16);
+            this.LblProcedure.TabIndex = 58;
+            this.LblProcedure.Text = "Procedure or treatment (e.g. Bandaging)";
             // 
-            // TxtNoteText
+            // CmbProcedure
             // 
-            this.TxtNoteText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtNoteText.Location = new System.Drawing.Point(413, 132);
-            this.TxtNoteText.Multiline = true;
-            this.TxtNoteText.Name = "TxtNoteText";
-            this.TxtNoteText.Size = new System.Drawing.Size(373, 67);
-            this.TxtNoteText.TabIndex = 65;
+            this.CmbProcedure.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CmbProcedure.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CmbProcedure.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbProcedure.FormattingEnabled = true;
+            this.CmbProcedure.Location = new System.Drawing.Point(15, 319);
+            this.CmbProcedure.Name = "CmbProcedure";
+            this.CmbProcedure.Size = new System.Drawing.Size(373, 24);
+            this.CmbProcedure.TabIndex = 57;
+            // 
+            // LblDiagnosis
+            // 
+            this.LblDiagnosis.AutoSize = true;
+            this.LblDiagnosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDiagnosis.Location = new System.Drawing.Point(12, 238);
+            this.LblDiagnosis.Name = "LblDiagnosis";
+            this.LblDiagnosis.Size = new System.Drawing.Size(267, 16);
+            this.LblDiagnosis.TabIndex = 56;
+            this.LblDiagnosis.Text = "Diagnosis / Suspect (e.g. Diabetes mellitus)";
+            // 
+            // CmbDiagnosis
+            // 
+            this.CmbDiagnosis.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CmbDiagnosis.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CmbDiagnosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbDiagnosis.FormattingEnabled = true;
+            this.CmbDiagnosis.Location = new System.Drawing.Point(15, 257);
+            this.CmbDiagnosis.Name = "CmbDiagnosis";
+            this.CmbDiagnosis.Size = new System.Drawing.Size(373, 24);
+            this.CmbDiagnosis.TabIndex = 55;
+            // 
+            // LblReason
+            // 
+            this.LblReason.AutoSize = true;
+            this.LblReason.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblReason.Location = new System.Drawing.Point(11, 183);
+            this.LblReason.Name = "LblReason";
+            this.LblReason.Size = new System.Drawing.Size(232, 16);
+            this.LblReason.TabIndex = 54;
+            this.LblReason.Text = "Main reason for visit (e.g. Vaccination)";
+            // 
+            // CmbReason
+            // 
+            this.CmbReason.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CmbReason.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CmbReason.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbReason.FormattingEnabled = true;
+            this.CmbReason.Location = new System.Drawing.Point(14, 202);
+            this.CmbReason.Name = "CmbReason";
+            this.CmbReason.Size = new System.Drawing.Size(373, 24);
+            this.CmbReason.TabIndex = 53;
+            // 
+            // LblStatus
+            // 
+            this.LblStatus.AutoSize = true;
+            this.LblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblStatus.Location = new System.Drawing.Point(12, 65);
+            this.LblStatus.Name = "LblStatus";
+            this.LblStatus.Size = new System.Drawing.Size(45, 16);
+            this.LblStatus.TabIndex = 52;
+            this.LblStatus.Text = "Status";
+            // 
+            // LblOwner
+            // 
+            this.LblOwner.AutoSize = true;
+            this.LblOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblOwner.Location = new System.Drawing.Point(11, 123);
+            this.LblOwner.Name = "LblOwner";
+            this.LblOwner.Size = new System.Drawing.Size(46, 16);
+            this.LblOwner.TabIndex = 51;
+            this.LblOwner.Text = "Owner";
+            // 
+            // LblDescription
+            // 
+            this.LblDescription.AutoSize = true;
+            this.LblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDescription.Location = new System.Drawing.Point(12, 11);
+            this.LblDescription.Name = "LblDescription";
+            this.LblDescription.Size = new System.Drawing.Size(134, 16);
+            this.LblDescription.TabIndex = 30;
+            this.LblDescription.Text = "Visit short description";
+            // 
+            // TxtDescription
+            // 
+            this.TxtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDescription.Location = new System.Drawing.Point(15, 30);
+            this.TxtDescription.Name = "TxtDescription";
+            this.TxtDescription.Size = new System.Drawing.Size(373, 22);
+            this.TxtDescription.TabIndex = 29;
+            // 
+            // CmbOwner
+            // 
+            this.CmbOwner.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CmbOwner.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CmbOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbOwner.FormattingEnabled = true;
+            this.CmbOwner.Location = new System.Drawing.Point(14, 142);
+            this.CmbOwner.Name = "CmbOwner";
+            this.CmbOwner.Size = new System.Drawing.Size(373, 24);
+            this.CmbOwner.TabIndex = 26;
+            // 
+            // CmbStatus
+            // 
+            this.CmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbStatus.FormattingEnabled = true;
+            this.CmbStatus.Location = new System.Drawing.Point(15, 84);
+            this.CmbStatus.Name = "CmbStatus";
+            this.CmbStatus.Size = new System.Drawing.Size(373, 24);
+            this.CmbStatus.TabIndex = 25;
+            // 
+            // ErrVisitEdit
+            // 
+            this.ErrVisitEdit.ContainerControl = this;
             // 
             // CtrlVisitEdit
             // 

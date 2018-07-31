@@ -35,27 +35,31 @@ namespace Ababu
         private void LoadVisitList()
         {
             // DataTable VisitList = Visit.GetVisitsList();
+
+            /*
             DataTable VisitList = Visit.GetVisitListByPid(Pid);
 
             foreach(DataRow row in VisitList.Rows)
             {
                 Visit v = new Visit((int)row[0]);
                 CtrlVisitListItem ctrlVisitListItem = new CtrlVisitListItem(v);
-                FlowVisitList.Controls.Add(ctrlVisitListItem);
-
+            
                 ctrlVisitListItem.OnVisitSelection += new EventHandler<VisitEventArgs>(LoadVisit);
             }
+            */
+
+            CtrlProblems ctrlProblems = new CtrlProblems();
+            ctrlProblems.Dock = DockStyle.Fill;
+
+
+            TlpVisitBody.Controls.Add(ctrlProblems, 0, 0);
+
+
+
         }
 
         public void LoadVisit(object sender, VisitEventArgs e)
         {
-            // clean panel from all user controls
-            PanVisitEdit.Controls.Clear();
-
-            CtrlVisitEdit ctrlVisitEdit = new CtrlVisitEdit(e.V);
-
-            ctrlVisitEdit.Dock = DockStyle.Fill;
-            PanVisitEdit.Controls.Add(ctrlVisitEdit);
         }
     }
 }

@@ -74,6 +74,12 @@
     <Compile Include="CtrlPets.Designer.cs">
       <DependentUpon>CtrlPets.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtrlProblem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlProblem.Designer.cs">
+      <DependentUpon>CtrlProblem.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtrlVisitEdit.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -116,6 +122,12 @@
     <Compile Include="FrmPreferences.Designer.cs">
       <DependentUpon>FrmPreferences.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProblemEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProblemEdit.Designer.cs">
+      <DependentUpon>FrmProblemEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +138,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CtrlPets.resx">
       <DependentUpon>CtrlPets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlProblem.resx">
+      <DependentUpon>CtrlProblem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlVisitEdit.resx">
       <DependentUpon>CtrlVisitEdit.cs</DependentUpon>
@@ -147,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPreferences.resx">
       <DependentUpon>FrmPreferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProblemEdit.resx">
+      <DependentUpon>FrmProblemEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsers.resx">
       <DependentUpon>FrmUsers.cs</DependentUpon>
@@ -225,6 +243,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\arrow_refresh_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightbulb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightbulb_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hourglass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anchor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bullet_arrow_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bullet_arrow_down.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets')" />
