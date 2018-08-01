@@ -43,8 +43,12 @@ namespace Ababu
 
                 switch (status_id)
                 {
+                    case -1:
+                        DtProblems.Rows[j]["status_image"] = (Image)Properties.Resources.brick_edit;
+                        break;
+
                     case 0:
-                        DtProblems.Rows[j]["status_image"] = (Image)Properties.Resources.bullet_arrow_down;
+                        DtProblems.Rows[j]["status_image"] = (Image)Properties.Resources.lock_closed;
                         break;
 
                     case 1:

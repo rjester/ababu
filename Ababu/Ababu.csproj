@@ -80,18 +80,6 @@
     <Compile Include="CtrlProblem.Designer.cs">
       <DependentUpon>CtrlProblem.cs</DependentUpon>
     </Compile>
-    <Compile Include="CtrlVisitEdit.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CtrlVisitEdit.Designer.cs">
-      <DependentUpon>CtrlVisitEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CtrlVisitListItem.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CtrlVisitListItem.Designer.cs">
-      <DependentUpon>CtrlVisitListItem.cs</DependentUpon>
-    </Compile>
     <Compile Include="CtrlVisit.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -141,12 +129,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlProblem.resx">
       <DependentUpon>CtrlProblem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CtrlVisitEdit.resx">
-      <DependentUpon>CtrlVisitEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CtrlVisitListItem.resx">
-      <DependentUpon>CtrlVisitListItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlVisit.resx">
       <DependentUpon>CtrlVisit.cs</DependentUpon>
@@ -273,6 +255,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bullet_arrow_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick_edit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets')" />

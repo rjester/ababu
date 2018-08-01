@@ -1,4 +1,10 @@
 Flow FlowLayoutPanel
+
+Grb	GroupBox
+
+Sts StatusBar
+Stl	StatusBarLabel
+
 Tmi ToolStripMenuItem
 Tdb	ToolStripDropDownButton
 Tsb ToolStripButton

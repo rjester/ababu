@@ -28,7 +28,7 @@ namespace OldAuntie
         {
             if (id > 0)
             {
-                string query = "SELECT * FROM problems a, visit_status b " +
+                string query = "SELECT * FROM problems a, problem_status b " +
                     "WHERE a.status_id = b.status_id " +
                     "AND a.id = " + id.ToString();
                 DataRow result = Globals.DBCon.SelectOneRow(query);
@@ -68,7 +68,7 @@ namespace OldAuntie
         static public DataTable GetProblemsByPid(int pid)
         {
             string query = "SELECT a.id, a.status_id, b.id, b.term_name, a.essential " +
-                "FROM problems a, venom_codes b, visit_status c " +
+                "FROM problems a, venom_codes b, problem_status c " +
                 "WHERE a.diagnosis_id = b.id " +
                 "AND a.status_id = c.status_id " +
                 "ORDER BY a.status_id DESC";

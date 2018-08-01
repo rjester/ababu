@@ -76,7 +76,6 @@
     <Compile Include="User.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="Venom.cs" />
-    <Compile Include="Visit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
