@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProblemEdit));
             this.PicIsModified = new System.Windows.Forms.PictureBox();
             this.BtnProblemDelete = new System.Windows.Forms.Button();
@@ -35,40 +36,54 @@
             this.StsProblemEdit = new System.Windows.Forms.StatusStrip();
             this.StlRecordInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.GrbProblemStatus = new System.Windows.Forms.GroupBox();
-            this.PicLongTermActive = new System.Windows.Forms.PictureBox();
-            this.RadLongTermActive = new System.Windows.Forms.RadioButton();
-            this.RadActive = new System.Windows.Forms.RadioButton();
-            this.PicActive = new System.Windows.Forms.PictureBox();
-            this.PicClosed = new System.Windows.Forms.PictureBox();
-            this.RadClosed = new System.Windows.Forms.RadioButton();
-            this.PicSuspect = new System.Windows.Forms.PictureBox();
-            this.RadSuspect = new System.Windows.Forms.RadioButton();
             this.RadInEvidence = new System.Windows.Forms.RadioButton();
             this.PicInEvidence = new System.Windows.Forms.PictureBox();
+            this.RadSuspect = new System.Windows.Forms.RadioButton();
+            this.PicSuspect = new System.Windows.Forms.PictureBox();
+            this.RadClosed = new System.Windows.Forms.RadioButton();
+            this.PicClosed = new System.Windows.Forms.PictureBox();
+            this.RadActive = new System.Windows.Forms.RadioButton();
+            this.PicActive = new System.Windows.Forms.PictureBox();
+            this.RadLongTermActive = new System.Windows.Forms.RadioButton();
+            this.PicLongTermActive = new System.Windows.Forms.PictureBox();
             this.TxtSubjectiveAnalysis = new System.Windows.Forms.TextBox();
             this.LblSubjectiveAnalysis = new System.Windows.Forms.Label();
             this.TxtObjectiveAnalysis = new System.Windows.Forms.TextBox();
             this.LblObjectiveAnalysis = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.TxtNotes = new System.Windows.Forms.TextBox();
+            this.LblNotes = new System.Windows.Forms.Label();
             this.GrbEssential = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ChkEssential = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DtpActiveFrom = new System.Windows.Forms.DateTimePicker();
             this.LblActiveFrom = new System.Windows.Forms.Label();
             this.LblAge = new System.Windows.Forms.Label();
             this.TxtAge = new System.Windows.Forms.TextBox();
             this.CmbProblem = new System.Windows.Forms.ComboBox();
+            this.ErrProblemEdit = new System.Windows.Forms.ErrorProvider(this.components);
+            this.TxtDiagnosisId = new System.Windows.Forms.TextBox();
+            this.TxtPid = new System.Windows.Forms.TextBox();
+            this.GrbPetDetail = new System.Windows.Forms.GroupBox();
+            this.TxtPetName = new System.Windows.Forms.TextBox();
+            this.LblPetYears = new System.Windows.Forms.Label();
+            this.LblPetSpecie = new System.Windows.Forms.Label();
+            this.LblPetName = new System.Windows.Forms.Label();
+            this.TxtPetSpecie = new System.Windows.Forms.TextBox();
+            this.TxtPetYears = new System.Windows.Forms.TextBox();
+            this.TxtPetMonths = new System.Windows.Forms.TextBox();
+            this.LblPetMonths = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).BeginInit();
             this.StsProblemEdit.SuspendLayout();
             this.GrbProblemStatus.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicLongTermActive)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicActive)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicClosed)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicSuspect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicInEvidence)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicSuspect)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicClosed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicActive)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicLongTermActive)).BeginInit();
             this.GrbEssential.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrProblemEdit)).BeginInit();
+            this.GrbPetDetail.SuspendLayout();
             this.SuspendLayout();
             // 
             // PicIsModified
@@ -142,27 +157,71 @@
             this.GrbProblemStatus.TabStop = false;
             this.GrbProblemStatus.Text = "Problem Status";
             // 
-            // PicLongTermActive
+            // RadInEvidence
             // 
-            this.PicLongTermActive.ErrorImage = null;
-            this.PicLongTermActive.Image = global::Ababu.Properties.Resources.hourglass;
-            this.PicLongTermActive.InitialImage = null;
-            this.PicLongTermActive.Location = new System.Drawing.Point(21, 44);
-            this.PicLongTermActive.Name = "PicLongTermActive";
-            this.PicLongTermActive.Size = new System.Drawing.Size(17, 18);
-            this.PicLongTermActive.TabIndex = 52;
-            this.PicLongTermActive.TabStop = false;
+            this.RadInEvidence.AutoSize = true;
+            this.RadInEvidence.Location = new System.Drawing.Point(44, 20);
+            this.RadInEvidence.Name = "RadInEvidence";
+            this.RadInEvidence.Size = new System.Drawing.Size(82, 17);
+            this.RadInEvidence.TabIndex = 4;
+            this.RadInEvidence.TabStop = true;
+            this.RadInEvidence.Text = "In Evidence";
+            this.RadInEvidence.UseVisualStyleBackColor = true;
             // 
-            // RadLongTermActive
+            // PicInEvidence
             // 
-            this.RadLongTermActive.AutoSize = true;
-            this.RadLongTermActive.Location = new System.Drawing.Point(44, 44);
-            this.RadLongTermActive.Name = "RadLongTermActive";
-            this.RadLongTermActive.Size = new System.Drawing.Size(109, 17);
-            this.RadLongTermActive.TabIndex = 5;
-            this.RadLongTermActive.TabStop = true;
-            this.RadLongTermActive.Text = "Long Term Active";
-            this.RadLongTermActive.UseVisualStyleBackColor = true;
+            this.PicInEvidence.ErrorImage = null;
+            this.PicInEvidence.Image = global::Ababu.Properties.Resources.star;
+            this.PicInEvidence.InitialImage = null;
+            this.PicInEvidence.Location = new System.Drawing.Point(21, 20);
+            this.PicInEvidence.Name = "PicInEvidence";
+            this.PicInEvidence.Size = new System.Drawing.Size(17, 18);
+            this.PicInEvidence.TabIndex = 56;
+            this.PicInEvidence.TabStop = false;
+            // 
+            // RadSuspect
+            // 
+            this.RadSuspect.AutoSize = true;
+            this.RadSuspect.Location = new System.Drawing.Point(44, 116);
+            this.RadSuspect.Name = "RadSuspect";
+            this.RadSuspect.Size = new System.Drawing.Size(64, 17);
+            this.RadSuspect.TabIndex = 3;
+            this.RadSuspect.TabStop = true;
+            this.RadSuspect.Text = "Suspect";
+            this.RadSuspect.UseVisualStyleBackColor = true;
+            // 
+            // PicSuspect
+            // 
+            this.PicSuspect.ErrorImage = null;
+            this.PicSuspect.Image = global::Ababu.Properties.Resources.brick_edit;
+            this.PicSuspect.InitialImage = null;
+            this.PicSuspect.Location = new System.Drawing.Point(21, 116);
+            this.PicSuspect.Name = "PicSuspect";
+            this.PicSuspect.Size = new System.Drawing.Size(17, 18);
+            this.PicSuspect.TabIndex = 54;
+            this.PicSuspect.TabStop = false;
+            // 
+            // RadClosed
+            // 
+            this.RadClosed.AutoSize = true;
+            this.RadClosed.Location = new System.Drawing.Point(44, 92);
+            this.RadClosed.Name = "RadClosed";
+            this.RadClosed.Size = new System.Drawing.Size(57, 17);
+            this.RadClosed.TabIndex = 2;
+            this.RadClosed.TabStop = true;
+            this.RadClosed.Text = "Closed";
+            this.RadClosed.UseVisualStyleBackColor = true;
+            // 
+            // PicClosed
+            // 
+            this.PicClosed.ErrorImage = null;
+            this.PicClosed.Image = global::Ababu.Properties.Resources.lock_closed;
+            this.PicClosed.InitialImage = null;
+            this.PicClosed.Location = new System.Drawing.Point(21, 92);
+            this.PicClosed.Name = "PicClosed";
+            this.PicClosed.Size = new System.Drawing.Size(17, 18);
+            this.PicClosed.TabIndex = 54;
+            this.PicClosed.TabStop = false;
             // 
             // RadActive
             // 
@@ -186,71 +245,27 @@
             this.PicActive.TabIndex = 54;
             this.PicActive.TabStop = false;
             // 
-            // PicClosed
+            // RadLongTermActive
             // 
-            this.PicClosed.ErrorImage = null;
-            this.PicClosed.Image = global::Ababu.Properties.Resources.lock_closed;
-            this.PicClosed.InitialImage = null;
-            this.PicClosed.Location = new System.Drawing.Point(21, 92);
-            this.PicClosed.Name = "PicClosed";
-            this.PicClosed.Size = new System.Drawing.Size(17, 18);
-            this.PicClosed.TabIndex = 54;
-            this.PicClosed.TabStop = false;
+            this.RadLongTermActive.AutoSize = true;
+            this.RadLongTermActive.Location = new System.Drawing.Point(44, 44);
+            this.RadLongTermActive.Name = "RadLongTermActive";
+            this.RadLongTermActive.Size = new System.Drawing.Size(109, 17);
+            this.RadLongTermActive.TabIndex = 5;
+            this.RadLongTermActive.TabStop = true;
+            this.RadLongTermActive.Text = "Long Term Active";
+            this.RadLongTermActive.UseVisualStyleBackColor = true;
             // 
-            // RadClosed
+            // PicLongTermActive
             // 
-            this.RadClosed.AutoSize = true;
-            this.RadClosed.Location = new System.Drawing.Point(44, 92);
-            this.RadClosed.Name = "RadClosed";
-            this.RadClosed.Size = new System.Drawing.Size(57, 17);
-            this.RadClosed.TabIndex = 2;
-            this.RadClosed.TabStop = true;
-            this.RadClosed.Text = "Closed";
-            this.RadClosed.UseVisualStyleBackColor = true;
-            // 
-            // PicSuspect
-            // 
-            this.PicSuspect.ErrorImage = null;
-            this.PicSuspect.Image = global::Ababu.Properties.Resources.brick_edit;
-            this.PicSuspect.InitialImage = null;
-            this.PicSuspect.Location = new System.Drawing.Point(21, 116);
-            this.PicSuspect.Name = "PicSuspect";
-            this.PicSuspect.Size = new System.Drawing.Size(17, 18);
-            this.PicSuspect.TabIndex = 54;
-            this.PicSuspect.TabStop = false;
-            // 
-            // RadSuspect
-            // 
-            this.RadSuspect.AutoSize = true;
-            this.RadSuspect.Location = new System.Drawing.Point(44, 116);
-            this.RadSuspect.Name = "RadSuspect";
-            this.RadSuspect.Size = new System.Drawing.Size(64, 17);
-            this.RadSuspect.TabIndex = 3;
-            this.RadSuspect.TabStop = true;
-            this.RadSuspect.Text = "Suspect";
-            this.RadSuspect.UseVisualStyleBackColor = true;
-            // 
-            // RadInEvidence
-            // 
-            this.RadInEvidence.AutoSize = true;
-            this.RadInEvidence.Location = new System.Drawing.Point(44, 20);
-            this.RadInEvidence.Name = "RadInEvidence";
-            this.RadInEvidence.Size = new System.Drawing.Size(82, 17);
-            this.RadInEvidence.TabIndex = 4;
-            this.RadInEvidence.TabStop = true;
-            this.RadInEvidence.Text = "In Evidence";
-            this.RadInEvidence.UseVisualStyleBackColor = true;
-            // 
-            // PicInEvidence
-            // 
-            this.PicInEvidence.ErrorImage = null;
-            this.PicInEvidence.Image = global::Ababu.Properties.Resources.star;
-            this.PicInEvidence.InitialImage = null;
-            this.PicInEvidence.Location = new System.Drawing.Point(21, 20);
-            this.PicInEvidence.Name = "PicInEvidence";
-            this.PicInEvidence.Size = new System.Drawing.Size(17, 18);
-            this.PicInEvidence.TabIndex = 56;
-            this.PicInEvidence.TabStop = false;
+            this.PicLongTermActive.ErrorImage = null;
+            this.PicLongTermActive.Image = global::Ababu.Properties.Resources.hourglass;
+            this.PicLongTermActive.InitialImage = null;
+            this.PicLongTermActive.Location = new System.Drawing.Point(21, 44);
+            this.PicLongTermActive.Name = "PicLongTermActive";
+            this.PicLongTermActive.Size = new System.Drawing.Size(17, 18);
+            this.PicLongTermActive.TabIndex = 52;
+            this.PicLongTermActive.TabStop = false;
             // 
             // TxtSubjectiveAnalysis
             // 
@@ -271,7 +286,7 @@
             // 
             // TxtObjectiveAnalysis
             // 
-            this.TxtObjectiveAnalysis.Location = new System.Drawing.Point(209, 192);
+            this.TxtObjectiveAnalysis.Location = new System.Drawing.Point(209, 194);
             this.TxtObjectiveAnalysis.Multiline = true;
             this.TxtObjectiveAnalysis.Name = "TxtObjectiveAnalysis";
             this.TxtObjectiveAnalysis.Size = new System.Drawing.Size(464, 86);
@@ -286,22 +301,22 @@
             this.LblObjectiveAnalysis.TabIndex = 53;
             this.LblObjectiveAnalysis.Text = "Objective Analysis";
             // 
-            // textBox1
+            // TxtNotes
             // 
-            this.textBox1.Location = new System.Drawing.Point(209, 303);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(464, 86);
-            this.textBox1.TabIndex = 10;
+            this.TxtNotes.Location = new System.Drawing.Point(209, 303);
+            this.TxtNotes.Multiline = true;
+            this.TxtNotes.Name = "TxtNotes";
+            this.TxtNotes.Size = new System.Drawing.Size(464, 86);
+            this.TxtNotes.TabIndex = 10;
             // 
-            // label1
+            // LblNotes
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(206, 287);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
-            this.label1.TabIndex = 53;
-            this.label1.Text = "Objective Analysis";
+            this.LblNotes.AutoSize = true;
+            this.LblNotes.Location = new System.Drawing.Point(206, 287);
+            this.LblNotes.Name = "LblNotes";
+            this.LblNotes.Size = new System.Drawing.Size(35, 13);
+            this.LblNotes.TabIndex = 53;
+            this.LblNotes.Text = "Notes";
             // 
             // GrbEssential
             // 
@@ -309,10 +324,20 @@
             this.GrbEssential.Controls.Add(this.pictureBox1);
             this.GrbEssential.Location = new System.Drawing.Point(12, 176);
             this.GrbEssential.Name = "GrbEssential";
-            this.GrbEssential.Size = new System.Drawing.Size(188, 62);
+            this.GrbEssential.Size = new System.Drawing.Size(188, 52);
             this.GrbEssential.TabIndex = 2;
             this.GrbEssential.TabStop = false;
             this.GrbEssential.Text = "Essential";
+            // 
+            // ChkEssential
+            // 
+            this.ChkEssential.AutoSize = true;
+            this.ChkEssential.Location = new System.Drawing.Point(44, 20);
+            this.ChkEssential.Name = "ChkEssential";
+            this.ChkEssential.Size = new System.Drawing.Size(78, 17);
+            this.ChkEssential.TabIndex = 1;
+            this.ChkEssential.Text = "Is essential";
+            this.ChkEssential.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -324,16 +349,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(17, 18);
             this.pictureBox1.TabIndex = 56;
             this.pictureBox1.TabStop = false;
-            // 
-            // ChkEssential
-            // 
-            this.ChkEssential.AutoSize = true;
-            this.ChkEssential.Location = new System.Drawing.Point(44, 20);
-            this.ChkEssential.Name = "ChkEssential";
-            this.ChkEssential.Size = new System.Drawing.Size(78, 17);
-            this.ChkEssential.TabIndex = 1;
-            this.ChkEssential.Text = "Is essential";
-            this.ChkEssential.UseVisualStyleBackColor = true;
             // 
             // DtpActiveFrom
             // 
@@ -362,9 +377,9 @@
             this.LblAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblAge.Location = new System.Drawing.Point(343, 9);
             this.LblAge.Name = "LblAge";
-            this.LblAge.Size = new System.Drawing.Size(33, 16);
+            this.LblAge.Size = new System.Drawing.Size(47, 16);
             this.LblAge.TabIndex = 57;
-            this.LblAge.Text = "Age";
+            this.LblAge.Text = "At age";
             // 
             // TxtAge
             // 
@@ -385,22 +400,136 @@
             this.CmbProblem.Size = new System.Drawing.Size(246, 21);
             this.CmbProblem.TabIndex = 13;
             // 
+            // ErrProblemEdit
+            // 
+            this.ErrProblemEdit.ContainerControl = this;
+            // 
+            // TxtDiagnosisId
+            // 
+            this.TxtDiagnosisId.Location = new System.Drawing.Point(697, 169);
+            this.TxtDiagnosisId.Name = "TxtDiagnosisId";
+            this.TxtDiagnosisId.ReadOnly = true;
+            this.TxtDiagnosisId.Size = new System.Drawing.Size(80, 20);
+            this.TxtDiagnosisId.TabIndex = 58;
+            this.TxtDiagnosisId.TabStop = false;
+            // 
+            // TxtPid
+            // 
+            this.TxtPid.Location = new System.Drawing.Point(697, 128);
+            this.TxtPid.Name = "TxtPid";
+            this.TxtPid.ReadOnly = true;
+            this.TxtPid.Size = new System.Drawing.Size(80, 20);
+            this.TxtPid.TabIndex = 59;
+            this.TxtPid.TabStop = false;
+            // 
+            // GrbPetDetail
+            // 
+            this.GrbPetDetail.Controls.Add(this.TxtPetMonths);
+            this.GrbPetDetail.Controls.Add(this.LblPetMonths);
+            this.GrbPetDetail.Controls.Add(this.TxtPetYears);
+            this.GrbPetDetail.Controls.Add(this.TxtPetSpecie);
+            this.GrbPetDetail.Controls.Add(this.TxtPetName);
+            this.GrbPetDetail.Controls.Add(this.LblPetYears);
+            this.GrbPetDetail.Controls.Add(this.LblPetSpecie);
+            this.GrbPetDetail.Controls.Add(this.LblPetName);
+            this.GrbPetDetail.Location = new System.Drawing.Point(12, 234);
+            this.GrbPetDetail.Name = "GrbPetDetail";
+            this.GrbPetDetail.Size = new System.Drawing.Size(188, 158);
+            this.GrbPetDetail.TabIndex = 57;
+            this.GrbPetDetail.TabStop = false;
+            this.GrbPetDetail.Text = "Pet detail";
+            // 
+            // TxtPetName
+            // 
+            this.TxtPetName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtPetName.Location = new System.Drawing.Point(48, 32);
+            this.TxtPetName.Name = "TxtPetName";
+            this.TxtPetName.ReadOnly = true;
+            this.TxtPetName.Size = new System.Drawing.Size(134, 13);
+            this.TxtPetName.TabIndex = 3;
+            // 
+            // LblPetYears
+            // 
+            this.LblPetYears.AutoSize = true;
+            this.LblPetYears.Location = new System.Drawing.Point(7, 72);
+            this.LblPetYears.Name = "LblPetYears";
+            this.LblPetYears.Size = new System.Drawing.Size(37, 13);
+            this.LblPetYears.TabIndex = 2;
+            this.LblPetYears.Text = "Years:";
+            // 
+            // LblPetSpecie
+            // 
+            this.LblPetSpecie.AutoSize = true;
+            this.LblPetSpecie.Location = new System.Drawing.Point(7, 52);
+            this.LblPetSpecie.Name = "LblPetSpecie";
+            this.LblPetSpecie.Size = new System.Drawing.Size(40, 13);
+            this.LblPetSpecie.TabIndex = 1;
+            this.LblPetSpecie.Text = "Specie";
+            // 
+            // LblPetName
+            // 
+            this.LblPetName.AutoSize = true;
+            this.LblPetName.Location = new System.Drawing.Point(7, 32);
+            this.LblPetName.Name = "LblPetName";
+            this.LblPetName.Size = new System.Drawing.Size(41, 13);
+            this.LblPetName.TabIndex = 0;
+            this.LblPetName.Text = "Name: ";
+            // 
+            // TxtPetSpecie
+            // 
+            this.TxtPetSpecie.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtPetSpecie.Location = new System.Drawing.Point(48, 53);
+            this.TxtPetSpecie.Name = "TxtPetSpecie";
+            this.TxtPetSpecie.ReadOnly = true;
+            this.TxtPetSpecie.Size = new System.Drawing.Size(140, 13);
+            this.TxtPetSpecie.TabIndex = 4;
+            // 
+            // TxtPetYears
+            // 
+            this.TxtPetYears.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtPetYears.Location = new System.Drawing.Point(47, 72);
+            this.TxtPetYears.Name = "TxtPetYears";
+            this.TxtPetYears.ReadOnly = true;
+            this.TxtPetYears.Size = new System.Drawing.Size(23, 13);
+            this.TxtPetYears.TabIndex = 5;
+            // 
+            // TxtPetMonths
+            // 
+            this.TxtPetMonths.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtPetMonths.Location = new System.Drawing.Point(121, 72);
+            this.TxtPetMonths.Name = "TxtPetMonths";
+            this.TxtPetMonths.ReadOnly = true;
+            this.TxtPetMonths.Size = new System.Drawing.Size(23, 13);
+            this.TxtPetMonths.TabIndex = 7;
+            // 
+            // LblPetMonths
+            // 
+            this.LblPetMonths.AutoSize = true;
+            this.LblPetMonths.Location = new System.Drawing.Point(73, 72);
+            this.LblPetMonths.Name = "LblPetMonths";
+            this.LblPetMonths.Size = new System.Drawing.Size(45, 13);
+            this.LblPetMonths.TabIndex = 6;
+            this.LblPetMonths.Text = "Months:";
+            // 
             // FrmProblemEdit
             // 
             this.AcceptButton = this.BtnProblemSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.GrbPetDetail);
+            this.Controls.Add(this.TxtPid);
+            this.Controls.Add(this.TxtDiagnosisId);
             this.Controls.Add(this.CmbProblem);
             this.Controls.Add(this.TxtAge);
             this.Controls.Add(this.LblAge);
             this.Controls.Add(this.DtpActiveFrom);
             this.Controls.Add(this.LblActiveFrom);
             this.Controls.Add(this.GrbEssential);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LblNotes);
             this.Controls.Add(this.LblObjectiveAnalysis);
             this.Controls.Add(this.LblSubjectiveAnalysis);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TxtNotes);
             this.Controls.Add(this.TxtObjectiveAnalysis);
             this.Controls.Add(this.TxtSubjectiveAnalysis);
             this.Controls.Add(this.GrbProblemStatus);
@@ -411,19 +540,24 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmProblemEdit";
             this.Text = "Problem Edit";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmProblemEdit_FormClosing);
+            this.Load += new System.EventHandler(this.FrmProblemEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).EndInit();
             this.StsProblemEdit.ResumeLayout(false);
             this.StsProblemEdit.PerformLayout();
             this.GrbProblemStatus.ResumeLayout(false);
             this.GrbProblemStatus.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicLongTermActive)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicActive)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicClosed)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicSuspect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicInEvidence)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicSuspect)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicClosed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicActive)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicLongTermActive)).EndInit();
             this.GrbEssential.ResumeLayout(false);
             this.GrbEssential.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrProblemEdit)).EndInit();
+            this.GrbPetDetail.ResumeLayout(false);
+            this.GrbPetDetail.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -451,8 +585,8 @@
         private System.Windows.Forms.Label LblSubjectiveAnalysis;
         private System.Windows.Forms.TextBox TxtObjectiveAnalysis;
         private System.Windows.Forms.Label LblObjectiveAnalysis;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TxtNotes;
+        private System.Windows.Forms.Label LblNotes;
         private System.Windows.Forms.GroupBox GrbEssential;
         private System.Windows.Forms.CheckBox ChkEssential;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -461,5 +595,17 @@
         private System.Windows.Forms.Label LblAge;
         private System.Windows.Forms.TextBox TxtAge;
         private System.Windows.Forms.ComboBox CmbProblem;
+        private System.Windows.Forms.ErrorProvider ErrProblemEdit;
+        private System.Windows.Forms.TextBox TxtDiagnosisId;
+        private System.Windows.Forms.TextBox TxtPid;
+        private System.Windows.Forms.GroupBox GrbPetDetail;
+        private System.Windows.Forms.Label LblPetSpecie;
+        private System.Windows.Forms.Label LblPetName;
+        private System.Windows.Forms.Label LblPetYears;
+        private System.Windows.Forms.TextBox TxtPetName;
+        private System.Windows.Forms.TextBox TxtPetSpecie;
+        private System.Windows.Forms.TextBox TxtPetYears;
+        private System.Windows.Forms.TextBox TxtPetMonths;
+        private System.Windows.Forms.Label LblPetMonths;
     }
 }

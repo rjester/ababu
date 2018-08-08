@@ -13,14 +13,49 @@ namespace Ababu
 {
     public partial class FrmProblemEdit : Form
     {
-        public Problem P = new Problem();
+        // In honor of hellenika
+        public Problem Problema { get; set; }
+        public Pet P { get; set; }
 
         private bool IsModified = false;
 
-        public FrmProblemEdit()
+        public FrmProblemEdit(int diagnosis_id, int pid)
         {
+            Problema = new Problem(diagnosis_id, pid);
+            P = new Pet(pid);
+
             InitializeComponent();
         }
+
+
+        private void FrmProblemEdit_Load(object sender, EventArgs e)
+        {
+            FillProblemForm();
+        }
+
+
+        private void FillProblemForm()
+        {
+            TxtPid.Text = Problema.Pid.ToString();
+            TxtDiagnosisId.Text = Problema.DiagnosisId.ToString();
+
+            TxtSubjectiveAnalysis.Text = Problema.SubjectiveAnalysis;
+            TxtObjectiveAnalysis.Text = Problema.ObjectiveAnalysis;
+            TxtNotes.Text = Problema.Notes;
+
+
+
+            // filling pet detail GroupBox
+            TxtPetName.Text = P.Name.ToString();
+
+            Species species = new Species((int)P.Tsn);
+            TxtPetSpecie.Text = species.FamiliarName;
+
+            TxtPetYears.Text = P.Years.ToString();
+            TxtPetMonths.Text = P.Months.ToString();
+
+        }
+
 
 
         void AddOnChangeHandlerToInputControls(Control ctrl)
@@ -81,7 +116,40 @@ namespace Ababu
 
         private void BtnProblemSave_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (IsValidForm())
+            {
+
+            }
+        }
+
+
+        private bool IsValidForm()
+        {
+            bool result = true;
+            ErrProblemEdit.Clear();
+
+
+            if (CmbProblem.SelectedValue == null)
+            {
+                result = result & false;
+                ErrProblemEdit.SetError(CmbProblem, "Select a specie / breed for the patient");
+            }
+
+            return result;
+        }
+
+        private void FrmProblemEdit_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (IsModified == true)
+            {
+                DialogResult result = MessageBox.Show("Form has been modified. Would you like to discard changes ?", "Warning", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    //code for No
+                    e.Cancel = true;
+                    return;
+                }
+            }
         }
     }
 }

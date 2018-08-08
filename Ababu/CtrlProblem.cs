@@ -13,8 +13,13 @@ namespace Ababu
 {
     public partial class CtrlProblems : UserControl
     {
-        public CtrlProblems()
+        public Pet P { get; set; }
+        public Problem Problema { get; set; }
+
+        public CtrlProblems(Pet pet)
         {
+            P = pet;
+
             InitializeComponent();
         }
 
@@ -30,7 +35,7 @@ namespace Ababu
             CmbProblem.DisplayMember = "value";
             CmbProblem.SelectedValue = 0;
 
-            DataTable DtProblems = Problem.GetProblemsByPid(0);
+            DataTable DtProblems = Problem.GetProblemsByPid(P.Pid);
             DataColumn DcProblemStatusImage = DtProblems.Columns.Add("status_image", typeof(Image));
             DataColumn DcProblemEssential = DtProblems.Columns.Add("essential_image", typeof(Image));
             DcProblemStatusImage.SetOrdinal(0);
@@ -77,50 +82,19 @@ namespace Ababu
 
 
             GrdProblems.DataSource = DtProblems;
+            GrdProblems.Columns["pid"].Visible = false;
             GrdProblems.Columns["status_id"].Visible = false;
-            GrdProblems.Columns["id"].Visible = false;
             GrdProblems.Columns["essential"].Visible = false;
             GrdProblems.Columns["term_name"].Width = 400;
         }
 
-        private void GrdProblems_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // var io = GrdProblems.Rows[][].value;
-            if (e.ColumnIndex == 6)
-            {
-                // String io = GrdProblems.Columns[e.ColumnIndex];
-                int io = (int)GrdProblems.Rows[e.RowIndex].Cells[1].Value;
-                MessageBox.Show(io.ToString());
-            }
-        }
+        
 
 
-        private void CmbProblem_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                ProblemSelect();
-            }
-        }
+        
 
 
-        private void BtnProblemSelect_Click(object sender, EventArgs e)
-        {
-            ProblemSelect();
-        }
 
-
-        private void ProblemSelect()
-        {
-            if(CmbProblem.SelectedItem != null && CmbProblem.SelectedValue != null)
-            {
-                // MessageBox.Show(CmbProblem.SelectedValue.ToString());
-                FrmProblemEdit frmProblemEdit = new FrmProblemEdit();
-                // frmPetEdit.P = new Pet(pid);
-                frmProblemEdit.FormClosing += new FormClosingEventHandler(ProblemEdit_FormClosing);
-                frmProblemEdit.Show();
-            }
-        }
 
 
         private void ProblemEdit_FormClosing(object sender, FormClosingEventArgs e)
@@ -128,5 +102,47 @@ namespace Ababu
             FillControl();
         }
 
+
+        private void CmbProblem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                OpenProblemEdit();
+            }
+        }
+
+
+        private void GrdProblems_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = (int)GrdProblems.Rows[e.RowIndex].Cells[1].Value;
+
+            if (e.ColumnIndex == 6)
+            {
+                MessageBox.Show("change evidence to ... " + id.ToString());
+            }
+            else
+            {
+                OpenProblemEdit();
+            }
+        }
+
+
+        private void BtnProblemSelect_Click(object sender, EventArgs e)
+        {
+            OpenProblemEdit();
+        }
+
+        private void OpenProblemEdit()
+        {
+            if (CmbProblem.SelectedItem != null && CmbProblem.SelectedValue != null)
+            {
+                FrmProblemEdit frmProblemEdit = new FrmProblemEdit((int)CmbProblem.SelectedValue, P.Pid);
+
+                frmProblemEdit.Problema.DiagnosisId = (int)CmbProblem.SelectedValue;
+
+                frmProblemEdit.FormClosing += new FormClosingEventHandler(ProblemEdit_FormClosing);
+                frmProblemEdit.Show();
+            }
+        }
     }
 }

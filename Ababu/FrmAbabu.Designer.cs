@@ -33,13 +33,12 @@
             this.TsAbabu = new System.Windows.Forms.ToolStrip();
             this.TsbDashboard = new System.Windows.Forms.ToolStripButton();
             this.TsbPets = new System.Windows.Forms.ToolStripButton();
-            this.TsbVisits = new System.Windows.Forms.ToolStripButton();
             this.TsbTags = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.TsbSearch = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripSeparator();
             this.TsbUsers = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripSeparator();
             this.TsbPreferences = new System.Windows.Forms.ToolStripButton();
             this.TabAbabu = new System.Windows.Forms.TabControl();
             this.TpDashboard = new System.Windows.Forms.TabPage();
@@ -71,7 +70,6 @@
             this.TsAbabu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TsbDashboard,
             this.TsbPets,
-            this.TsbVisits,
             this.TsbTags,
             this.toolStripSeparator1,
             this.TsbSearch,
@@ -105,16 +103,6 @@
             this.TsbPets.Text = "Pets management";
             this.TsbPets.Click += new System.EventHandler(this.TsbPets_Click);
             // 
-            // TsbVisits
-            // 
-            this.TsbVisits.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TsbVisits.Image = global::Ababu.Properties.Resources.pill;
-            this.TsbVisits.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TsbVisits.Name = "TsbVisits";
-            this.TsbVisits.Size = new System.Drawing.Size(23, 22);
-            this.TsbVisits.Text = "Visits";
-            this.TsbVisits.Click += new System.EventHandler(this.TsbVisits_Click);
-            // 
             // TsbTags
             // 
             this.TsbTags.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -144,11 +132,6 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(6, 25);
-            // 
             // TsbUsers
             // 
             this.TsbUsers.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -158,6 +141,11 @@
             this.TsbUsers.Size = new System.Drawing.Size(23, 22);
             this.TsbUsers.Text = "Users management";
             this.TsbUsers.Click += new System.EventHandler(this.TsbUsers_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(6, 25);
             // 
             // TsbPreferences
             // 
@@ -197,7 +185,7 @@
             this.TlpDashboard.ColumnCount = 3;
             this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.79722F));
             this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.20278F));
-            this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166F));
+            this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 167F));
             this.TlpDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TlpDashboard.Location = new System.Drawing.Point(3, 3);
             this.TlpDashboard.Name = "TlpDashboard";
@@ -241,7 +229,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.TableLayoutPanel TlpDashboard;
         private System.Windows.Forms.ToolStripButton TsbPets;
-        private System.Windows.Forms.ToolStripButton TsbVisits;
         private System.Windows.Forms.ToolStripSeparator toolStripButton1;
         private System.Windows.Forms.ToolStripButton TsbPreferences;
     }

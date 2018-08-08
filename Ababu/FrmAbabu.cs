@@ -25,6 +25,7 @@ namespace Ababu
             Globals.DBCon.Connect();
         }
 
+
         private void FrmAbabu_Load(object sender, EventArgs e)
         {
             // show login form
@@ -33,6 +34,7 @@ namespace Ababu
 
             this.WindowState = FormWindowState.Maximized;
         }
+
 
         private void TabAbabu_MouseUp(object sender, MouseEventArgs e)
         {
@@ -53,6 +55,7 @@ namespace Ababu
             }
         }
 
+
         private void TsbUsers_Click(object sender, EventArgs e)
         {
             FrmUsers frmUsers = new FrmUsers();
@@ -60,10 +63,12 @@ namespace Ababu
             frmUsers.ShowDialog();
         }
 
+
         private void FrmAbabu_FormClosing(object sender, FormClosingEventArgs e)
         {
             Globals.DBCon.Close();
         }
+
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
@@ -72,10 +77,12 @@ namespace Ababu
             TabAbabu.SelectedTab = TpPet;
         }
 
+
         private void TsbDashboard_Click(object sender, EventArgs e)
         {
             TabAbabu.SelectedTab = TabAbabu.TabPages[0];
         }
+
 
         private void TsbPets_Click(object sender, EventArgs e)
         {
@@ -93,38 +100,23 @@ namespace Ababu
 
 
 
-
         protected void VisitPet(object sender, PetEventArgs e)
         {
             //handle the event 
             TabPage TpVisit = new TabPage("Visits");
-            CtrlVisit ctrlVisits = new CtrlVisit(e.Pid);
+            CtrlVisit ctrlVisits = new CtrlVisit(new Pet(e.Pid));
             ctrlVisits.Dock = DockStyle.Fill;
             TpVisit.Controls.Add(ctrlVisits);
-
 
             TabAbabu.TabPages.Add(TpVisit);
             TabAbabu.SelectedTab = TpVisit;
         }
-
 
 
 
         private void TsbTags_Click(object sender, EventArgs e)
         {
             Utility.d(Utility.Now());
-        }
-
-        private void TsbVisits_Click(object sender, EventArgs e)
-        {
-            TabPage TpVisit = new TabPage("Visits");
-            CtrlVisit ctrlVisits = new CtrlVisit();
-            ctrlVisits.Dock = DockStyle.Fill;
-            TpVisit.Controls.Add(ctrlVisits);
-
-
-            TabAbabu.TabPages.Add(TpVisit);
-            TabAbabu.SelectedTab = TpVisit;
         }
 
         private void TsbPreferences_Click(object sender, EventArgs e)

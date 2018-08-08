@@ -9,36 +9,49 @@ namespace OldAuntie
 {
     public class Problem
     {
-        public int Id { get; set; }
+        public int DiagnosisId { get; set; }
         public int Pid { get; set; }
+        public int Uid { get; set; }
+        public long DateFrom { get; set; }
+        public int StatusId { get; set; }
+        public bool Essential { get; set; }
+        public string SubjectiveAnalysis { get; set; }
+        public string ObjectiveAnalysis { get; set; }
+        public string Notes { get; set; }
+
+        public long Created { get; set; }
+        public long? Updated { get; set; }
 
         private bool disposed = false;
 
 
-        public Problem(int id = 0)
+        public Problem(int diagnosis_id, int pid)
         {
-            if (id > 0)
-            {
-                Load(id);
-            }
+               Load(diagnosis_id, pid);
         }
 
 
-        public Problem Load(int id)
+        public Problem Load(int diagnosis_id, int pid)
         {
-            if (id > 0)
-            {
-                string query = "SELECT * FROM problems a, problem_status b " +
+            string query = "SELECT * FROM problems a, problem_status b " +
                     "WHERE a.status_id = b.status_id " +
-                    "AND a.id = " + id.ToString();
-                DataRow result = Globals.DBCon.SelectOneRow(query);
+                    "AND a.pid = " + pid.ToString() + " " +
+                    "AND a.diagnosis_id = " + diagnosis_id.ToString();
+            DataRow result = Globals.DBCon.SelectOneRow(query);
 
-                if (result != null && result.ItemArray.Count() > 0)
+            if (result != null && result.ItemArray.Count() > 0)
                 {
-                    Id = id;
+                    DiagnosisId = (int)result["diagnosis_id"];
                     Pid = (int)result["pid"];
-                    
-                }
+                    DateFrom = (long)result["date_from"];
+                    StatusId = (int)result["status_id"];
+                    Essential = (bool)result["essential"];
+                    SubjectiveAnalysis = result["subjective_analysis"].ToString();
+                    ObjectiveAnalysis = result["objective_analysis"].ToString();
+                    Notes = result["notes"].ToString();
+
+                    Created = (long)result["created"];
+                    Updated = Utility.IfDBNull(result["updated"], null);
             }
 
             return this;
@@ -67,10 +80,11 @@ namespace OldAuntie
 
         static public DataTable GetProblemsByPid(int pid)
         {
-            string query = "SELECT a.id, a.status_id, b.id, b.term_name, a.essential " +
+            string query = "SELECT a.pid, a.diagnosis_id, a.status_id, b.term_name, a.essential " +
                 "FROM problems a, venom_codes b, problem_status c " +
                 "WHERE a.diagnosis_id = b.id " +
                 "AND a.status_id = c.status_id " +
+                "AND a.pid = " + pid +" " +
                 "ORDER BY a.status_id DESC";
 
             DataTable result = Globals.DBCon.Execute(query);

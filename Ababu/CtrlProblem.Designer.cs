@@ -59,7 +59,7 @@
             this.GrdProblems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GrdProblems.Size = new System.Drawing.Size(411, 184);
             this.GrdProblems.TabIndex = 2;
-            this.GrdProblems.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdProblems_CellClick);
+            this.GrdProblems.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdProblems_CellDoubleClick);
             // 
             // TlpProblems
             // 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Lug 31, 2018 alle 16:41
+-- Creato il: Ago 08, 2018 alle 11:52
 -- Versione del server: 10.1.30-MariaDB
 -- Versione PHP: 7.2.2
 
@@ -120,27 +120,51 @@ INSERT INTO `pets` (`pid`, `tsn`, `oid`, `name`, `gender`, `date_of_birth`, `dat
 --
 
 CREATE TABLE `problems` (
-  `id` int(11) NOT NULL,
-  `pid` int(11) NOT NULL,
-  `oid` int(11) NOT NULL,
   `diagnosis_id` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `date_from` bigint(20) NOT NULL,
   `status_id` int(11) NOT NULL,
   `essential` tinyint(1) NOT NULL,
+  `subjective_analysis` text,
+  `objective_analysis` text,
+  `notes` text,
   `created` bigint(20) NOT NULL,
-  `updated` bigint(20) DEFAULT NULL,
-  `deleted` bigint(20) DEFAULT NULL
+  `updated` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dump dei dati per la tabella `problems`
 --
 
-INSERT INTO `problems` (`id`, `pid`, `oid`, `diagnosis_id`, `status_id`, `essential`, `created`, `updated`, `deleted`) VALUES
-(1, 1, 5, 524, 3, 0, 1492592799, 1494006746, NULL),
-(2, 3, 3, 325, 0, 0, 1493899500, 1493899543, NULL),
-(3, 1, 5, 524, 0, 1, 1493997982, 1493997982, NULL),
-(4, 1, 5, 524, 1, 0, 1493998947, 1493999108, NULL),
-(5, 2, 2, 324, 2, 0, 1494430623, 1494430623, NULL);
+INSERT INTO `problems` (`diagnosis_id`, `pid`, `uid`, `date_from`, `status_id`, `essential`, `subjective_analysis`, `objective_analysis`, `notes`, `created`, `updated`) VALUES
+(324, 3, 2, 0, 2, 0, NULL, NULL, NULL, 1494430623, 1494430623),
+(325, 3, 3, 0, 0, 0, NULL, NULL, NULL, 1493899500, 1493899543),
+(524, 3, 5, 0, 3, 0, 'Subjective', 'Objective', NULL, 1492592799, 1494006746),
+(525, 3, 5, 0, -1, 1, NULL, NULL, NULL, 1493997982, 1493997982),
+(526, 3, 5, 0, 1, 0, NULL, NULL, NULL, 1493998947, 1493999108);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `problem_status`
+--
+
+CREATE TABLE `problem_status` (
+  `status_id` int(10) NOT NULL,
+  `status_description` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `problem_status`
+--
+
+INSERT INTO `problem_status` (`status_id`, `status_description`) VALUES
+(-1, 'suspect'),
+(0, 'closed'),
+(1, 'active / in progress'),
+(2, 'long term active'),
+(3, 'in evidence');
 
 -- --------------------------------------------------------
 
@@ -4332,27 +4356,6 @@ INSERT INTO `visit` (`vid`, `pid`, `oid`, `reason_id`, `diagnosis_id`, `descript
 (4, 1, 5, 18779, 524, 'un ricovero', 2, 2, 1493998947, 1493999108, NULL),
 (5, 2, 2, 19034, 324, 'Vaccination (2nd.)', 2, 1, 1494430623, 1494430623, NULL);
 
--- --------------------------------------------------------
-
---
--- Struttura della tabella `visit_status`
---
-
-CREATE TABLE `visit_status` (
-  `status_id` int(10) NOT NULL,
-  `status_description` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dump dei dati per la tabella `visit_status`
---
-
-INSERT INTO `visit_status` (`status_id`, `status_description`) VALUES
-(0, 'closed'),
-(1, 'active / in progress'),
-(2, 'long term active'),
-(3, 'in evidence');
-
 --
 -- Indici per le tabelle scaricate
 --
@@ -4380,7 +4383,13 @@ ALTER TABLE `pets`
 -- Indici per le tabelle `problems`
 --
 ALTER TABLE `problems`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`pid`,`diagnosis_id`);
+
+--
+-- Indici per le tabelle `problem_status`
+--
+ALTER TABLE `problem_status`
+  ADD PRIMARY KEY (`status_id`);
 
 --
 -- Indici per le tabelle `roles`
@@ -4408,12 +4417,6 @@ ALTER TABLE `visit`
   ADD PRIMARY KEY (`vid`);
 
 --
--- Indici per le tabelle `visit_status`
---
-ALTER TABLE `visit_status`
-  ADD PRIMARY KEY (`status_id`);
-
---
 -- AUTO_INCREMENT per le tabelle scaricate
 --
 
@@ -4428,12 +4431,6 @@ ALTER TABLE `owners`
 --
 ALTER TABLE `pets`
   MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT per la tabella `problems`
---
-ALTER TABLE `problems`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT per la tabella `users`
