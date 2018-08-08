@@ -107,42 +107,43 @@ namespace Ababu
         {
             if (e.KeyCode == Keys.Enter)
             {
-                OpenProblemEdit();
+                if (CmbProblem.SelectedItem != null && CmbProblem.SelectedValue != null)
+                {
+                    OpenProblemEdit((int)CmbProblem.SelectedValue, P.Pid);
+                }
             }
         }
 
 
         private void GrdProblems_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id = (int)GrdProblems.Rows[e.RowIndex].Cells[1].Value;
-
+            int pid = (int)GrdProblems.Rows[e.RowIndex].Cells[1].Value;
+            int diangosis_id = (int)GrdProblems.Rows[e.RowIndex].Cells[2].Value;
             if (e.ColumnIndex == 6)
             {
-                MessageBox.Show("change evidence to ... " + id.ToString());
+                MessageBox.Show("change evidence to ... " + pid.ToString());
             }
             else
             {
-                OpenProblemEdit();
+                OpenProblemEdit(diangosis_id, P.Pid);
             }
         }
 
 
         private void BtnProblemSelect_Click(object sender, EventArgs e)
         {
-            OpenProblemEdit();
+            
         }
 
-        private void OpenProblemEdit()
+        private void OpenProblemEdit(int diagnosis_id, int pid)
         {
-            if (CmbProblem.SelectedItem != null && CmbProblem.SelectedValue != null)
-            {
-                FrmProblemEdit frmProblemEdit = new FrmProblemEdit((int)CmbProblem.SelectedValue, P.Pid);
+            FrmProblemEdit frmProblemEdit = new FrmProblemEdit(diagnosis_id, pid);
 
-                frmProblemEdit.Problema.DiagnosisId = (int)CmbProblem.SelectedValue;
+            frmProblemEdit.Problema.DiagnosisId = diagnosis_id;
+            frmProblemEdit.Problema.Pid = pid;
 
-                frmProblemEdit.FormClosing += new FormClosingEventHandler(ProblemEdit_FormClosing);
-                frmProblemEdit.Show();
-            }
+            frmProblemEdit.FormClosing += new FormClosingEventHandler(ProblemEdit_FormClosing);
+            frmProblemEdit.ShowDialog();
         }
     }
 }

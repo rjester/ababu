@@ -13,6 +13,13 @@ namespace OldAuntie
         public const string REASON_FOR_VISIT = "Reason for visit";
         public const string DIAGNOSIS = "Diagnosis";
 
+
+        public string CoutryIs { get; set; }
+        public int Id { get; set; }
+        public string Label { get; set; }
+        public string TermName { get; set; }
+
+
         public Venom(long id)
         {
             string query = "SELECT * FROM venom_codes WHERE id = " + id.ToString();

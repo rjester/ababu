@@ -38,22 +38,37 @@ namespace Ababu
         {
             TxtPid.Text = Problema.Pid.ToString();
             TxtDiagnosisId.Text = Problema.DiagnosisId.ToString();
+            TxtDiagnosis.Text = Venom.GetTermNameById((int)Problema.DiagnosisId);
+
+            DtpActiveFrom.Value = Utility.UnixTimeStampToDateTime((int)Problema.DateFrom);
+
+            ChkEssential.Checked = (bool)Problema.Essential;
 
             TxtSubjectiveAnalysis.Text = Problema.SubjectiveAnalysis;
             TxtObjectiveAnalysis.Text = Problema.ObjectiveAnalysis;
             TxtNotes.Text = Problema.Notes;
 
+            // setting problem status
+            foreach (Control control in this.GrbProblemStatus.Controls)
+            {
+                if (control is RadioButton)
+                {
+                    RadioButton radio = control as RadioButton;
 
+
+                    if (radio.Tag.ToString() == Problema.StatusId.ToString())
+                    {
+                        radio.Checked = true;
+                    }
+                }
+            }
 
             // filling pet detail GroupBox
             TxtPetName.Text = P.Name.ToString();
-
             Species species = new Species((int)P.Tsn);
             TxtPetSpecie.Text = species.FamiliarName;
-
             TxtPetYears.Text = P.Years.ToString();
             TxtPetMonths.Text = P.Months.ToString();
-
         }
 
 
@@ -116,6 +131,21 @@ namespace Ababu
 
         private void BtnProblemSave_Click(object sender, EventArgs e)
         {
+            foreach(Control control in this.GrbProblemStatus.Controls)
+            {
+                if(control is RadioButton)
+                {
+                    RadioButton radio = control as RadioButton;
+                    if (radio.Checked)
+                    {
+                        MessageBox.Show(radio.Text);
+                    }
+                }
+            }
+
+
+
+
             if (IsValidForm())
             {
 
@@ -127,13 +157,6 @@ namespace Ababu
         {
             bool result = true;
             ErrProblemEdit.Clear();
-
-
-            if (CmbProblem.SelectedValue == null)
-            {
-                result = result & false;
-                ErrProblemEdit.SetError(CmbProblem, "Select a specie / breed for the patient");
-            }
 
             return result;
         }

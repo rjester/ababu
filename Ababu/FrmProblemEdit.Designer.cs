@@ -59,19 +59,21 @@
             this.LblActiveFrom = new System.Windows.Forms.Label();
             this.LblAge = new System.Windows.Forms.Label();
             this.TxtAge = new System.Windows.Forms.TextBox();
-            this.CmbProblem = new System.Windows.Forms.ComboBox();
             this.ErrProblemEdit = new System.Windows.Forms.ErrorProvider(this.components);
             this.TxtDiagnosisId = new System.Windows.Forms.TextBox();
             this.TxtPid = new System.Windows.Forms.TextBox();
             this.GrbPetDetail = new System.Windows.Forms.GroupBox();
+            this.TxtPetMonths = new System.Windows.Forms.TextBox();
+            this.LblPetMonths = new System.Windows.Forms.Label();
+            this.TxtPetYears = new System.Windows.Forms.TextBox();
+            this.TxtPetSpecie = new System.Windows.Forms.TextBox();
             this.TxtPetName = new System.Windows.Forms.TextBox();
             this.LblPetYears = new System.Windows.Forms.Label();
             this.LblPetSpecie = new System.Windows.Forms.Label();
             this.LblPetName = new System.Windows.Forms.Label();
-            this.TxtPetSpecie = new System.Windows.Forms.TextBox();
-            this.TxtPetYears = new System.Windows.Forms.TextBox();
-            this.TxtPetMonths = new System.Windows.Forms.TextBox();
-            this.LblPetMonths = new System.Windows.Forms.Label();
+            this.TxtDiagnosis = new System.Windows.Forms.TextBox();
+            this.LblDiagnosis = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).BeginInit();
             this.StsProblemEdit.SuspendLayout();
             this.GrbProblemStatus.SuspendLayout();
@@ -165,6 +167,7 @@
             this.RadInEvidence.Size = new System.Drawing.Size(82, 17);
             this.RadInEvidence.TabIndex = 4;
             this.RadInEvidence.TabStop = true;
+            this.RadInEvidence.Tag = "3";
             this.RadInEvidence.Text = "In Evidence";
             this.RadInEvidence.UseVisualStyleBackColor = true;
             // 
@@ -187,6 +190,7 @@
             this.RadSuspect.Size = new System.Drawing.Size(64, 17);
             this.RadSuspect.TabIndex = 3;
             this.RadSuspect.TabStop = true;
+            this.RadSuspect.Tag = "-1";
             this.RadSuspect.Text = "Suspect";
             this.RadSuspect.UseVisualStyleBackColor = true;
             // 
@@ -209,6 +213,7 @@
             this.RadClosed.Size = new System.Drawing.Size(57, 17);
             this.RadClosed.TabIndex = 2;
             this.RadClosed.TabStop = true;
+            this.RadClosed.Tag = "0";
             this.RadClosed.Text = "Closed";
             this.RadClosed.UseVisualStyleBackColor = true;
             // 
@@ -231,6 +236,7 @@
             this.RadActive.Size = new System.Drawing.Size(118, 17);
             this.RadActive.TabIndex = 1;
             this.RadActive.TabStop = true;
+            this.RadActive.Tag = "1";
             this.RadActive.Text = "Active / In progress";
             this.RadActive.UseVisualStyleBackColor = true;
             // 
@@ -253,6 +259,7 @@
             this.RadLongTermActive.Size = new System.Drawing.Size(109, 17);
             this.RadLongTermActive.TabIndex = 5;
             this.RadLongTermActive.TabStop = true;
+            this.RadLongTermActive.Tag = "2";
             this.RadLongTermActive.Text = "Long Term Active";
             this.RadLongTermActive.UseVisualStyleBackColor = true;
             // 
@@ -390,43 +397,36 @@
             this.TxtAge.TabIndex = 56;
             this.TxtAge.TabStop = false;
             // 
-            // CmbProblem
-            // 
-            this.CmbProblem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.CmbProblem.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CmbProblem.FormattingEnabled = true;
-            this.CmbProblem.Location = new System.Drawing.Point(427, 28);
-            this.CmbProblem.Name = "CmbProblem";
-            this.CmbProblem.Size = new System.Drawing.Size(246, 21);
-            this.CmbProblem.TabIndex = 13;
-            // 
             // ErrProblemEdit
             // 
             this.ErrProblemEdit.ContainerControl = this;
             // 
             // TxtDiagnosisId
             // 
-            this.TxtDiagnosisId.Location = new System.Drawing.Point(697, 169);
+            this.TxtDiagnosisId.Location = new System.Drawing.Point(427, 29);
             this.TxtDiagnosisId.Name = "TxtDiagnosisId";
             this.TxtDiagnosisId.ReadOnly = true;
-            this.TxtDiagnosisId.Size = new System.Drawing.Size(80, 20);
+            this.TxtDiagnosisId.Size = new System.Drawing.Size(41, 20);
             this.TxtDiagnosisId.TabIndex = 58;
             this.TxtDiagnosisId.TabStop = false;
             // 
             // TxtPid
             // 
-            this.TxtPid.Location = new System.Drawing.Point(697, 128);
+            this.TxtPid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtPid.Location = new System.Drawing.Point(47, 28);
             this.TxtPid.Name = "TxtPid";
             this.TxtPid.ReadOnly = true;
-            this.TxtPid.Size = new System.Drawing.Size(80, 20);
+            this.TxtPid.Size = new System.Drawing.Size(80, 13);
             this.TxtPid.TabIndex = 59;
             this.TxtPid.TabStop = false;
             // 
             // GrbPetDetail
             // 
+            this.GrbPetDetail.Controls.Add(this.label1);
             this.GrbPetDetail.Controls.Add(this.TxtPetMonths);
             this.GrbPetDetail.Controls.Add(this.LblPetMonths);
             this.GrbPetDetail.Controls.Add(this.TxtPetYears);
+            this.GrbPetDetail.Controls.Add(this.TxtPid);
             this.GrbPetDetail.Controls.Add(this.TxtPetSpecie);
             this.GrbPetDetail.Controls.Add(this.TxtPetName);
             this.GrbPetDetail.Controls.Add(this.LblPetYears);
@@ -439,64 +439,10 @@
             this.GrbPetDetail.TabStop = false;
             this.GrbPetDetail.Text = "Pet detail";
             // 
-            // TxtPetName
-            // 
-            this.TxtPetName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtPetName.Location = new System.Drawing.Point(48, 32);
-            this.TxtPetName.Name = "TxtPetName";
-            this.TxtPetName.ReadOnly = true;
-            this.TxtPetName.Size = new System.Drawing.Size(134, 13);
-            this.TxtPetName.TabIndex = 3;
-            // 
-            // LblPetYears
-            // 
-            this.LblPetYears.AutoSize = true;
-            this.LblPetYears.Location = new System.Drawing.Point(7, 72);
-            this.LblPetYears.Name = "LblPetYears";
-            this.LblPetYears.Size = new System.Drawing.Size(37, 13);
-            this.LblPetYears.TabIndex = 2;
-            this.LblPetYears.Text = "Years:";
-            // 
-            // LblPetSpecie
-            // 
-            this.LblPetSpecie.AutoSize = true;
-            this.LblPetSpecie.Location = new System.Drawing.Point(7, 52);
-            this.LblPetSpecie.Name = "LblPetSpecie";
-            this.LblPetSpecie.Size = new System.Drawing.Size(40, 13);
-            this.LblPetSpecie.TabIndex = 1;
-            this.LblPetSpecie.Text = "Specie";
-            // 
-            // LblPetName
-            // 
-            this.LblPetName.AutoSize = true;
-            this.LblPetName.Location = new System.Drawing.Point(7, 32);
-            this.LblPetName.Name = "LblPetName";
-            this.LblPetName.Size = new System.Drawing.Size(41, 13);
-            this.LblPetName.TabIndex = 0;
-            this.LblPetName.Text = "Name: ";
-            // 
-            // TxtPetSpecie
-            // 
-            this.TxtPetSpecie.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtPetSpecie.Location = new System.Drawing.Point(48, 53);
-            this.TxtPetSpecie.Name = "TxtPetSpecie";
-            this.TxtPetSpecie.ReadOnly = true;
-            this.TxtPetSpecie.Size = new System.Drawing.Size(140, 13);
-            this.TxtPetSpecie.TabIndex = 4;
-            // 
-            // TxtPetYears
-            // 
-            this.TxtPetYears.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtPetYears.Location = new System.Drawing.Point(47, 72);
-            this.TxtPetYears.Name = "TxtPetYears";
-            this.TxtPetYears.ReadOnly = true;
-            this.TxtPetYears.Size = new System.Drawing.Size(23, 13);
-            this.TxtPetYears.TabIndex = 5;
-            // 
             // TxtPetMonths
             // 
             this.TxtPetMonths.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtPetMonths.Location = new System.Drawing.Point(121, 72);
+            this.TxtPetMonths.Location = new System.Drawing.Point(124, 88);
             this.TxtPetMonths.Name = "TxtPetMonths";
             this.TxtPetMonths.ReadOnly = true;
             this.TxtPetMonths.Size = new System.Drawing.Size(23, 13);
@@ -505,11 +451,92 @@
             // LblPetMonths
             // 
             this.LblPetMonths.AutoSize = true;
-            this.LblPetMonths.Location = new System.Drawing.Point(73, 72);
+            this.LblPetMonths.Location = new System.Drawing.Point(73, 88);
             this.LblPetMonths.Name = "LblPetMonths";
             this.LblPetMonths.Size = new System.Drawing.Size(45, 13);
             this.LblPetMonths.TabIndex = 6;
             this.LblPetMonths.Text = "Months:";
+            // 
+            // TxtPetYears
+            // 
+            this.TxtPetYears.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtPetYears.Location = new System.Drawing.Point(47, 88);
+            this.TxtPetYears.Name = "TxtPetYears";
+            this.TxtPetYears.ReadOnly = true;
+            this.TxtPetYears.Size = new System.Drawing.Size(23, 13);
+            this.TxtPetYears.TabIndex = 5;
+            // 
+            // TxtPetSpecie
+            // 
+            this.TxtPetSpecie.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtPetSpecie.Location = new System.Drawing.Point(47, 68);
+            this.TxtPetSpecie.Name = "TxtPetSpecie";
+            this.TxtPetSpecie.ReadOnly = true;
+            this.TxtPetSpecie.Size = new System.Drawing.Size(140, 13);
+            this.TxtPetSpecie.TabIndex = 4;
+            // 
+            // TxtPetName
+            // 
+            this.TxtPetName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtPetName.Location = new System.Drawing.Point(47, 48);
+            this.TxtPetName.Name = "TxtPetName";
+            this.TxtPetName.ReadOnly = true;
+            this.TxtPetName.Size = new System.Drawing.Size(134, 13);
+            this.TxtPetName.TabIndex = 3;
+            // 
+            // LblPetYears
+            // 
+            this.LblPetYears.AutoSize = true;
+            this.LblPetYears.Location = new System.Drawing.Point(7, 88);
+            this.LblPetYears.Name = "LblPetYears";
+            this.LblPetYears.Size = new System.Drawing.Size(37, 13);
+            this.LblPetYears.TabIndex = 2;
+            this.LblPetYears.Text = "Years:";
+            // 
+            // LblPetSpecie
+            // 
+            this.LblPetSpecie.AutoSize = true;
+            this.LblPetSpecie.Location = new System.Drawing.Point(7, 68);
+            this.LblPetSpecie.Name = "LblPetSpecie";
+            this.LblPetSpecie.Size = new System.Drawing.Size(40, 13);
+            this.LblPetSpecie.TabIndex = 1;
+            this.LblPetSpecie.Text = "Specie";
+            // 
+            // LblPetName
+            // 
+            this.LblPetName.AutoSize = true;
+            this.LblPetName.Location = new System.Drawing.Point(7, 48);
+            this.LblPetName.Name = "LblPetName";
+            this.LblPetName.Size = new System.Drawing.Size(41, 13);
+            this.LblPetName.TabIndex = 0;
+            this.LblPetName.Text = "Name: ";
+            // 
+            // TxtDiagnosis
+            // 
+            this.TxtDiagnosis.Location = new System.Drawing.Point(474, 29);
+            this.TxtDiagnosis.Name = "TxtDiagnosis";
+            this.TxtDiagnosis.ReadOnly = true;
+            this.TxtDiagnosis.Size = new System.Drawing.Size(199, 20);
+            this.TxtDiagnosis.TabIndex = 60;
+            // 
+            // LblDiagnosis
+            // 
+            this.LblDiagnosis.AutoSize = true;
+            this.LblDiagnosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDiagnosis.Location = new System.Drawing.Point(427, 9);
+            this.LblDiagnosis.Name = "LblDiagnosis";
+            this.LblDiagnosis.Size = new System.Drawing.Size(59, 16);
+            this.LblDiagnosis.TabIndex = 61;
+            this.LblDiagnosis.Text = "Problem";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 60;
+            this.label1.Text = "Pet Id: ";
             // 
             // FrmProblemEdit
             // 
@@ -517,10 +544,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.LblDiagnosis);
+            this.Controls.Add(this.TxtDiagnosis);
             this.Controls.Add(this.GrbPetDetail);
-            this.Controls.Add(this.TxtPid);
             this.Controls.Add(this.TxtDiagnosisId);
-            this.Controls.Add(this.CmbProblem);
             this.Controls.Add(this.TxtAge);
             this.Controls.Add(this.LblAge);
             this.Controls.Add(this.DtpActiveFrom);
@@ -594,7 +621,6 @@
         private System.Windows.Forms.Label LblActiveFrom;
         private System.Windows.Forms.Label LblAge;
         private System.Windows.Forms.TextBox TxtAge;
-        private System.Windows.Forms.ComboBox CmbProblem;
         private System.Windows.Forms.ErrorProvider ErrProblemEdit;
         private System.Windows.Forms.TextBox TxtDiagnosisId;
         private System.Windows.Forms.TextBox TxtPid;
@@ -607,5 +633,8 @@
         private System.Windows.Forms.TextBox TxtPetYears;
         private System.Windows.Forms.TextBox TxtPetMonths;
         private System.Windows.Forms.Label LblPetMonths;
+        private System.Windows.Forms.TextBox TxtDiagnosis;
+        private System.Windows.Forms.Label LblDiagnosis;
+        private System.Windows.Forms.Label label1;
     }
 }
