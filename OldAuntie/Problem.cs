@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -58,6 +59,130 @@ namespace OldAuntie
         }
 
 
+
+        public int Save()
+        {
+            if (Exists())
+            {
+                return Update();
+            }
+            else
+            {
+                return Insert();
+            }
+        }
+
+
+        public int Update()
+        {
+            int affetcedRows = 0;
+            int updated_id = 0;
+
+            string query = "UPDATE problems SET " +
+                                    "uid=@uid, " +
+                                    "date_from=@date_from, " +
+                                    "status_id=@status_id, " +
+                                    "essential=@essential, " +
+                                    "subjective_analysis=@subjective_analysis, " +
+                                    "objective_analysis=@objective_analysis, " +
+                                    "notes=@notes, " +
+                                    "created=@created, " +
+                                    "updated=@updated " +
+                                "WHERE diagnosis_id=@diagnosis_id AND pid=@pid";
+
+
+            MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
+            Cmd.Parameters.AddWithValue("@pid", Pid);
+            Cmd.Parameters.AddWithValue("@uid", Uid);
+            Cmd.Parameters.AddWithValue("@date_from", DateFrom);
+            Cmd.Parameters.AddWithValue("@status_id", StatusId);
+            Cmd.Parameters.AddWithValue("@essential", Essential);
+            Cmd.Parameters.AddWithValue("@subjective_analysis", SubjectiveAnalysis);
+            Cmd.Parameters.AddWithValue("@objective_analysis", ObjectiveAnalysis);
+            Cmd.Parameters.AddWithValue("@notes", Notes);
+            Cmd.Parameters.AddWithValue("@created", Created);
+            Cmd.Parameters.AddWithValue("@updated", Utility.Now());
+
+            affetcedRows = Cmd.ExecuteNonQuery();
+            if (affetcedRows > 0)
+            {
+                updated_id = Pid;
+            }
+
+            return updated_id;
+        }
+
+
+        public int Insert()
+        {
+            int affetcedRows = 0;
+            
+            string query = "INSERT into problems (diagnosis_id, pid, uid, date_from, status_id, essential, subjective_analysis, objective_analysis, notes, created) " +
+                        "VALUES (@diagnosis_id, @pid, @uid, @date_from, @status_id, @essential, @subjective_analysis, @objective_analysis, @notes, @created)";
+
+            MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
+            Cmd.Parameters.AddWithValue("@pid", Pid);
+            Cmd.Parameters.AddWithValue("@uid", Uid);
+            Cmd.Parameters.AddWithValue("@date_from", DateFrom);
+            Cmd.Parameters.AddWithValue("@status_id", StatusId);
+            Cmd.Parameters.AddWithValue("@essential", Essential);
+            Cmd.Parameters.AddWithValue("@subjective_analysis", SubjectiveAnalysis);
+            Cmd.Parameters.AddWithValue("@objective_analysis", ObjectiveAnalysis);
+            Cmd.Parameters.AddWithValue("@notes", Notes);
+            Cmd.Parameters.AddWithValue("@created", Utility.Now());
+
+            affetcedRows = Cmd.ExecuteNonQuery();
+
+            return affetcedRows;
+        }
+
+
+        public int Delete()
+        {
+            int affetcedRows = 0;
+            string query = "DELETE FROM problems WHERE diagnosis_id=@diagnosis_id AND pid=@pid";
+
+            MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
+            Cmd.Parameters.AddWithValue("@pid", Pid);
+
+
+            return affetcedRows;
+        }
+
+
+
+        public bool Exists()
+        {
+            string query = "SELECT pid FROM problems " +
+                "WHERE pid = " + Pid + " " +
+                "AND diagnosis_id = " + DiagnosisId;
+
+            bool result = Globals.DBCon.Exists(query);
+
+            return result;
+        }
+
+
+        // @todo: @delete
+        /*
+        public static bool Exists(int diagnosis_id, int pid)
+        {
+            string query = "SELECT pid FROM problems " +
+                "WHERE pid = " + pid + " " +
+                "AND diagnosis_id = " + diagnosis_id;
+
+            bool result = Globals.DBCon.Exists(query);
+
+            return result;
+        }
+        */
+
+
+        // @todo: @delete
+        /*
         static public DataTable Search(string what = "", bool IncludeDeleted = false)
         {
             string query = "SELECT a.pid as pid, a.name, b.familiar_name as species, a.microchip, a.description, a.color, a.deleted " +
@@ -75,7 +200,7 @@ namespace OldAuntie
             DataTable result = Globals.DBCon.Execute(query);
             return result;
         }
-
+        */
 
 
         static public DataTable GetProblemsByPid(int pid)

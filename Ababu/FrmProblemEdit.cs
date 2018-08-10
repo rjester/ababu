@@ -40,7 +40,7 @@ namespace Ababu
             TxtDiagnosisId.Text = Problema.DiagnosisId.ToString();
             TxtDiagnosis.Text = Venom.GetTermNameById((int)Problema.DiagnosisId);
 
-            DtpActiveFrom.Value = Utility.UnixTimeStampToDateTime((int)Problema.DateFrom);
+            DtpDateFrom.Value = Utility.UnixTimeStampToDateTime((int)Problema.DateFrom);
 
             ChkEssential.Checked = (bool)Problema.Essential;
 
@@ -131,7 +131,9 @@ namespace Ababu
 
         private void BtnProblemSave_Click(object sender, EventArgs e)
         {
-            foreach(Control control in this.GrbProblemStatus.Controls)
+
+            /*
+            foreach (Control control in this.GrbProblemStatus.Controls)
             {
                 if(control is RadioButton)
                 {
@@ -142,13 +144,46 @@ namespace Ababu
                     }
                 }
             }
-
-
-
+            */
 
             if (IsValidForm())
             {
+                Problema.DiagnosisId = Convert.ToInt32(TxtDiagnosisId.Text);
+                Problema.Pid = Convert.ToInt32(TxtPid.Text);
+                Problema.Uid = Globals.Me.Uid;
+                Problema.DateFrom = Utility.DateTimeToUnixTimestamp(DtpDateFrom.Value);
 
+                foreach (Control control in this.GrbProblemStatus.Controls)
+                {
+                    if (control is RadioButton)
+                    {
+                        RadioButton radio = control as RadioButton;
+                        if (radio.Checked)
+                        {
+                            Problema.StatusId = Convert.ToInt32(radio.Tag);
+                        }
+                    }
+                }
+                Problema.Essential = ChkEssential.Checked;
+                Problema.SubjectiveAnalysis = TxtSubjectiveAnalysis.Text;
+                Problema.ObjectiveAnalysis = TxtObjectiveAnalysis.Text;
+                Problema.Notes = TxtNotes.Text;
+
+                try
+                {
+                    // save the problem
+                    int affected_id = Problema.Save();
+                    if (affected_id > 0)
+                    {
+                        P.Load(affected_id);
+                        FillProblemForm();
+                        UnlockForm();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Globals.log.Write(ex.ToString());
+                }
             }
         }
 
@@ -157,6 +192,19 @@ namespace Ababu
         {
             bool result = true;
             ErrProblemEdit.Clear();
+
+            if (TxtDiagnosisId.Text.Trim() == string.Empty)
+            {
+                result = result & false;
+                ErrProblemEdit.SetError(TxtDiagnosis, "Problem cannot be empty");
+            }
+
+
+            if (TxtPid.Text.Trim() == string.Empty)
+            {
+                result = result & false;
+                ErrProblemEdit.SetError(TxtPid, "Pet ID cannot be empty");
+            }
 
             return result;
         }

@@ -55,7 +55,7 @@
             this.GrbEssential = new System.Windows.Forms.GroupBox();
             this.ChkEssential = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.DtpActiveFrom = new System.Windows.Forms.DateTimePicker();
+            this.DtpDateFrom = new System.Windows.Forms.DateTimePicker();
             this.LblActiveFrom = new System.Windows.Forms.Label();
             this.LblAge = new System.Windows.Forms.Label();
             this.TxtAge = new System.Windows.Forms.TextBox();
@@ -63,6 +63,7 @@
             this.TxtDiagnosisId = new System.Windows.Forms.TextBox();
             this.TxtPid = new System.Windows.Forms.TextBox();
             this.GrbPetDetail = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.TxtPetMonths = new System.Windows.Forms.TextBox();
             this.LblPetMonths = new System.Windows.Forms.Label();
             this.TxtPetYears = new System.Windows.Forms.TextBox();
@@ -73,7 +74,6 @@
             this.LblPetName = new System.Windows.Forms.Label();
             this.TxtDiagnosis = new System.Windows.Forms.TextBox();
             this.LblDiagnosis = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).BeginInit();
             this.StsProblemEdit.SuspendLayout();
             this.GrbProblemStatus.SuspendLayout();
@@ -357,16 +357,16 @@
             this.pictureBox1.TabIndex = 56;
             this.pictureBox1.TabStop = false;
             // 
-            // DtpActiveFrom
+            // DtpDateFrom
             // 
-            this.DtpActiveFrom.CustomFormat = "dd/MM/yyyy";
-            this.DtpActiveFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DtpActiveFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpActiveFrom.Location = new System.Drawing.Point(209, 28);
-            this.DtpActiveFrom.Name = "DtpActiveFrom";
-            this.DtpActiveFrom.Size = new System.Drawing.Size(116, 22);
-            this.DtpActiveFrom.TabIndex = 7;
-            this.DtpActiveFrom.Value = new System.DateTime(2018, 4, 21, 0, 0, 0, 0);
+            this.DtpDateFrom.CustomFormat = "dd/MM/yyyy";
+            this.DtpDateFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtpDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpDateFrom.Location = new System.Drawing.Point(209, 28);
+            this.DtpDateFrom.Name = "DtpDateFrom";
+            this.DtpDateFrom.Size = new System.Drawing.Size(116, 22);
+            this.DtpDateFrom.TabIndex = 7;
+            this.DtpDateFrom.Value = new System.DateTime(2018, 4, 21, 0, 0, 0, 0);
             // 
             // LblActiveFrom
             // 
@@ -438,6 +438,15 @@
             this.GrbPetDetail.TabIndex = 57;
             this.GrbPetDetail.TabStop = false;
             this.GrbPetDetail.Text = "Pet detail";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 60;
+            this.label1.Text = "Pet Id: ";
             // 
             // TxtPetMonths
             // 
@@ -529,15 +538,6 @@
             this.LblDiagnosis.TabIndex = 61;
             this.LblDiagnosis.Text = "Problem";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 60;
-            this.label1.Text = "Pet Id: ";
-            // 
             // FrmProblemEdit
             // 
             this.AcceptButton = this.BtnProblemSave;
@@ -550,7 +550,7 @@
             this.Controls.Add(this.TxtDiagnosisId);
             this.Controls.Add(this.TxtAge);
             this.Controls.Add(this.LblAge);
-            this.Controls.Add(this.DtpActiveFrom);
+            this.Controls.Add(this.DtpDateFrom);
             this.Controls.Add(this.LblActiveFrom);
             this.Controls.Add(this.GrbEssential);
             this.Controls.Add(this.LblNotes);
@@ -617,7 +617,7 @@
         private System.Windows.Forms.GroupBox GrbEssential;
         private System.Windows.Forms.CheckBox ChkEssential;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DateTimePicker DtpActiveFrom;
+        private System.Windows.Forms.DateTimePicker DtpDateFrom;
         private System.Windows.Forms.Label LblActiveFrom;
         private System.Windows.Forms.Label LblAge;
         private System.Windows.Forms.TextBox TxtAge;
