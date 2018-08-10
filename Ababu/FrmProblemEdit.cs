@@ -40,7 +40,8 @@ namespace Ababu
             TxtDiagnosisId.Text = Problema.DiagnosisId.ToString();
             TxtDiagnosis.Text = Venom.GetTermNameById((int)Problema.DiagnosisId);
 
-            DtpDateFrom.Value = Utility.UnixTimeStampToDateTime((int)Problema.DateFrom);
+            // setting date from 
+            DtpDateFrom.Value = Utility.UnixTimeStampToDateTime(Utility.IfNull(Problema.DateFrom, Utility.Now()));
 
             ChkEssential.Checked = (bool)Problema.Essential;
 
@@ -67,8 +68,16 @@ namespace Ababu
             TxtPetName.Text = P.Name.ToString();
             Species species = new Species((int)P.Tsn);
             TxtPetSpecie.Text = species.FamiliarName;
+            TxtDateOfBirth.Text = Utility.UnixTimeStampToDateTime(P.DateOfBirth).ToString();
             TxtPetYears.Text = P.Years.ToString();
             TxtPetMonths.Text = P.Months.ToString();
+
+
+            if(Problema.Exists() == false)
+            {
+                BtnProblemDelete.Enabled = false;
+            }
+
         }
 
 
@@ -131,21 +140,6 @@ namespace Ababu
 
         private void BtnProblemSave_Click(object sender, EventArgs e)
         {
-
-            /*
-            foreach (Control control in this.GrbProblemStatus.Controls)
-            {
-                if(control is RadioButton)
-                {
-                    RadioButton radio = control as RadioButton;
-                    if (radio.Checked)
-                    {
-                        MessageBox.Show(radio.Text);
-                    }
-                }
-            }
-            */
-
             if (IsValidForm())
             {
                 Problema.DiagnosisId = Convert.ToInt32(TxtDiagnosisId.Text);
@@ -176,8 +170,10 @@ namespace Ababu
                     if (affected_id > 0)
                     {
                         P.Load(affected_id);
-                        FillProblemForm();
+                        // FillProblemForm();
                         UnlockForm();
+                        this.Close();
+                        this.Dispose();
                     }
                 }
                 catch (Exception ex)
@@ -192,6 +188,23 @@ namespace Ababu
         {
             bool result = true;
             ErrProblemEdit.Clear();
+
+            if(Utility.DateTimeToUnixTimestamp(DtpDateFrom.Value) > Utility.Now())
+            {
+                result = result & false;
+                ErrProblemEdit.SetError(DtpDateFrom, "Cannot set date in the future");
+            }
+
+
+            if (Utility.DateTimeToUnixTimestamp(DtpDateFrom.Value) < P.DateOfBirth)
+            {
+                result = result & false;
+                ErrProblemEdit.SetError(DtpDateFrom, "Cannot set date from before the date of birth of the patient");
+            }
+
+
+
+
 
             if (TxtDiagnosisId.Text.Trim() == string.Empty)
             {
@@ -221,6 +234,33 @@ namespace Ababu
                     return;
                 }
             }
+        }
+
+        private void BtnProblemDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to delete selected problem (operation cannot be undone) ?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                Problema.Delete();
+                UnlockForm();
+                this.Close();
+                this.Dispose();
+            }
+        }
+
+        private void DtpDateFrom_ValueChanged(object sender, EventArgs e)
+        {
+            // DateTime Now = Utility.UnixTimeStampToDateTime(Utility.Now());
+            DateTime DateOfBirth = Utility.UnixTimeStampToDateTime(P.DateOfBirth);
+
+
+            int AtAge = Convert.ToInt32(DtpDateFrom.Value.Year - DateOfBirth.Year);
+
+            TxtAge.Text = AtAge.ToString();
+
+
+
+
         }
     }
 }

@@ -13,7 +13,7 @@ namespace OldAuntie
         public int DiagnosisId { get; set; }
         public int Pid { get; set; }
         public int Uid { get; set; }
-        public long DateFrom { get; set; }
+        public long? DateFrom { get; set; }
         public int StatusId { get; set; }
         public bool Essential { get; set; }
         public string SubjectiveAnalysis { get; set; }
@@ -148,6 +148,7 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
             Cmd.Parameters.AddWithValue("@pid", Pid);
 
+            affetcedRows = Cmd.ExecuteNonQuery();
 
             return affetcedRows;
         }
@@ -165,20 +166,7 @@ namespace OldAuntie
             return result;
         }
 
-
-        // @todo: @delete
-        /*
-        public static bool Exists(int diagnosis_id, int pid)
-        {
-            string query = "SELECT pid FROM problems " +
-                "WHERE pid = " + pid + " " +
-                "AND diagnosis_id = " + diagnosis_id;
-
-            bool result = Globals.DBCon.Exists(query);
-
-            return result;
-        }
-        */
+        
 
 
         // @todo: @delete
@@ -201,8 +189,8 @@ namespace OldAuntie
             return result;
         }
         */
-
-
+ 
+ 
         static public DataTable GetProblemsByPid(int pid)
         {
             string query = "SELECT a.pid, a.diagnosis_id, a.status_id, b.term_name, a.essential " +

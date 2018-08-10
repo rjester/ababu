@@ -27,10 +27,7 @@ namespace OldAuntie
 
             return sb.ToString();
         }
-
-
-
-
+        
 
         public static void d(dynamic what)
         {

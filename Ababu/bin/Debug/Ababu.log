@@ -1,0 +1,17 @@
+10/08/2018 08:14:10 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy'@'localhost' (using password: YES)
+10/08/2018 08:56:45 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy'@'localhost' (using password: YES)
+10/08/2018 08:56:47 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy'@'localhost' (using password: YES)
+10/08/2018 08:58:17 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy'@'localhost' (using password: YES)
+10/08/2018 08:58:19 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy'@'localhost' (using password: YES)
+10/08/2018 08:59:08 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy'@'localhost' (using password: YES)
+10/08/2018 08:59:10 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy'@'localhost' (using password: YES)
+10/08/2018 08:59:11 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy'@'localhost' (using password: YES)
+10/08/2018 08:59:11 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy'@'localhost' (using password: YES)
+10/08/2018 08:59:11 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy'@'localhost' (using password: YES)
+10/08/2018 08:59:11 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy'@'localhost' (using password: YES)
+10/08/2018 08:59:15 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy'@'localhost' (using password: YES)
+10/08/2018 08:59:24 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy'@'localhost' (using password: YES)
+10/08/2018 08:59:33 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy'@'localhost' (using password: YES)
+10/08/2018 08:59:36 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy'@'localhost' (using password: YES)
+10/08/2018 09:03:27 (error): Connection must be valid and open.
+10/08/2018 09:03:40 (error): Connection must be valid and open.
