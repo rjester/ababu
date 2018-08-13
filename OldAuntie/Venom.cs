@@ -14,7 +14,6 @@ namespace OldAuntie
         public const string DIAGNOSIS = "Diagnosis";
 
 
-        public string CoutryIs { get; set; }
         public int Id { get; set; }
         public string Label { get; set; }
         public string TermName { get; set; }
@@ -50,12 +49,11 @@ namespace OldAuntie
         }
 
 
-        public static string GetTermNameById(int id, string country_id = "gb")
+        public static string GetTermNameById(int id)
         {
             string query = "SELECT term_name " +
                 "FROM venom_codes " +
-                "WHERE country_id = '" + country_id + "' " +
-                "AND id = " + id.ToString() + " ORDER BY term_name ASC";
+                "WHERE id = " + id.ToString() + " ORDER BY term_name ASC";
 
             return Globals.DBCon.SelectOneValue(query);
         }

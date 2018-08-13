@@ -15,3 +15,41 @@
 10/08/2018 08:59:36 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy'@'localhost' (using password: YES)
 10/08/2018 09:03:27 (error): Connection must be valid and open.
 10/08/2018 09:03:40 (error): Connection must be valid and open.
+11/08/2018 10:51:03 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 10:51:08 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 10:51:18 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 10:51:20 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 10:51:32 (error): Connection must be valid and open.
+11/08/2018 14:07:47 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:07:52 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:07:54 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:08:00 (error): Connection must be valid and open.
+11/08/2018 14:08:02 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:15:02 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:15:03 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:15:09 (error): Connection must be valid and open.
+11/08/2018 14:16:40 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:16:49 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:17:22 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:21:11 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:21:11 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:21:29 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:22:43 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:22:47 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:22:49 (error): Connection must be valid and open.
+11/08/2018 14:22:51 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:28:19 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:28:25 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:29:04 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:34:49 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+11/08/2018 14:34:50 (error): Connection must be valid and open.
+11/08/2018 14:34:53 (error): Authentication to host 'localhost' for user 'ozzy1' using method 'mysql_native_password' failed with message: Access denied for user 'ozzy1'@'localhost' (using password: YES)
+12/08/2018 09:37:29 (error): Connection must be valid and open.
+12/08/2018 20:23:06 (error): Unknown column 'country_id' in 'where clause'
+12/08/2018 20:23:18 (error): Unknown column 'country_id' in 'where clause'
+12/08/2018 20:23:36 (error): Unknown column 'country_id' in 'where clause'
+12/08/2018 20:23:54 (error): Unknown column 'country_id' in 'where clause'
+12/08/2018 20:24:00 (error): Unknown column 'country_id' in 'where clause'
+12/08/2018 20:31:53 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Unknown database 'ababu'
+12/08/2018 20:31:57 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Unknown database 'ababu'
+12/08/2018 20:31:59 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Unknown database 'ababu'

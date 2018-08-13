@@ -18,13 +18,17 @@ namespace Ababu
             InitializeComponent();
         }
 
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            TestConnection();
+        }
+
+
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            
-
             if (IsValidForm())
             {
-
                 bool IsUserLogged = User.Check(TxtUsername.Text, TxtPassword.Text);
                 
                 if (IsUserLogged)
@@ -69,28 +73,39 @@ namespace Ababu
             }
         }
 
+
         private void BtnRestoreDefaultSettings_Click(object sender, EventArgs e)
         {
-            FrmPreferences frmPreferences = new FrmPreferences();
-            frmPreferences.ShowDialog();
-
+            FrmDatabaseConnection frmDatabaseConnection = new FrmDatabaseConnection();
+            frmDatabaseConnection.FormClosed += FrmDatabaseConnection_FormClosed;
+            frmDatabaseConnection.ShowDialog();
         }
 
-        private void FrmLogin_Load(object sender, EventArgs e)
+        private void FrmDatabaseConnection_FormClosed(object sender, FormClosedEventArgs e)
         {
             TestConnection();
         }
+        
 
         private void TestConnection()
         {
-            // BaseDatiMariaDB dbcon = BaseDati.Instance();
-            BaseDati dbcon = new BaseDati();
+            // initialize and connect to database
+            Globals.DBCon.Database = Properties.Settings.Default.database_name;
+            Globals.DBCon.Server = Properties.Settings.Default.database_server;
+            Globals.DBCon.Username = Properties.Settings.Default.database_username;
+            Globals.DBCon.Password = Properties.Settings.Default.database_password;
+            Globals.DBCon.Connect();
+
 
             try
             {
                 if (Globals.DBCon.IsConnected() == true)
                 {
                     PicTestConnection.Image = Properties.Resources.bullet_green;
+                }
+                else
+                {
+                    PicTestConnection.Image = Properties.Resources.bullet_red;
                 }
             }
             catch (Exception ex)

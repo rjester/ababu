@@ -17,12 +17,15 @@ namespace Ababu
         {
             InitializeComponent();
 
+            // @todo: delete me. moved insside the login form
             // initialize and connect to database
+            /*
             Globals.DBCon.Database = Properties.Settings.Default.database_name;
             Globals.DBCon.Server = Properties.Settings.Default.database_server;
             Globals.DBCon.Username = Properties.Settings.Default.database_username;
             Globals.DBCon.Password = Properties.Settings.Default.database_password;
             Globals.DBCon.Connect();
+            */
         }
 
 

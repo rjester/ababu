@@ -21,44 +21,8 @@ namespace Ababu
             InitializeComponent();
         }
 
-        private void BtnOptionsTestConnection_Click(object sender, EventArgs e)
-        {
-            TestConnection();
-        }
-
-
-        private void TestConnection()
-        {
-            // BaseDatiMariaDB dbcon = BaseDati.Instance();
-            BaseDati dbcon = new BaseDati();
-
-            try
-            {
-                if (dbcon.Connect(TxtDatabaseServer.Text, TxtDatabaseName.Text, TxtDatabaseUsername.Text, TxtDatabasePassword.Text))
-                {
-                    BtnOptionsTestConnection.BackColor = Color.Lime;
-
-                }
-                else
-                {
-                    BtnOptionsTestConnection.BackColor = Color.Orange;
-                }
-            }
-            catch (Exception ex)
-            {
-                Log mylog = new Log();
-                mylog.Write(ex.Message);
-            }
-        }
-
         private void FrmPreferences_Load(object sender, EventArgs e)
         {
-            TxtDatabaseServer.Text = Properties.Settings.Default.database_server;
-            TxtDatabaseName.Text = Properties.Settings.Default.database_name;
-            TxtDatabaseUsername.Text = Properties.Settings.Default.database_username;
-            TxtDatabasePassword.Text = Properties.Settings.Default.database_password;
-
-
             // load printer values
             foreach (var item in PrinterSettings.InstalledPrinters)
             {
@@ -67,8 +31,6 @@ namespace Ababu
 
             // setup printer settings
             // CmbDefaultPrinter.SelectedItem = Properties.Settings.Default.defaulut_printer_name;
-
-            TestConnection();
 
             // aggiungo l'handler per verificare se viene cambiato un elemento del form e richiedere all'utente l'eventuale salvataggio
             AddOnChangeHandlerToInputControls(this);
@@ -121,12 +83,6 @@ namespace Ababu
 
         private void BtnPreferencesApply_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.database_server = TxtDatabaseServer.Text;
-            Properties.Settings.Default.database_name = TxtDatabaseName.Text;
-            Properties.Settings.Default.database_username = TxtDatabaseUsername.Text;
-            Properties.Settings.Default.database_password = TxtDatabasePassword.Text;
-
-
             // save printers
             if (CmbDefaultPrinter.SelectedItem != null)
             {
@@ -144,7 +100,6 @@ namespace Ababu
         private void BtnPreferencesClose_Click(object sender, EventArgs e)
         {
             this.Close();
-            this.Dispose();
         }
 
         private void FrmPreferences_FormClosing(object sender, FormClosingEventArgs e)

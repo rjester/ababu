@@ -77,6 +77,12 @@
     <Compile Include="FrmAbabu.Designer.cs">
       <DependentUpon>FrmAbabu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDatabaseConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDatabaseConnection.Designer.cs">
+      <DependentUpon>FrmDatabaseConnection.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbabu.resx">
       <DependentUpon>FrmAbabu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDatabaseConnection.resx">
+      <DependentUpon>FrmDatabaseConnection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
