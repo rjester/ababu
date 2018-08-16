@@ -88,14 +88,6 @@ namespace Ababu
             GrdProblems.Columns["term_name"].Width = 400;
         }
 
-        
-
-
-        
-
-
-
-
 
         private void ProblemEdit_FormClosing(object sender, FormClosingEventArgs e)
         {

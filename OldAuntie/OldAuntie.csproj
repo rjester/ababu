@@ -50,6 +50,7 @@
     <Compile Include="Globals.cs" />
     <Compile Include="Locale.cs" />
     <Compile Include="Log.cs" />
+    <Compile Include="Note.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="Pet.cs" />
     <Compile Include="Problem.cs" />

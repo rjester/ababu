@@ -40,12 +40,12 @@ namespace Ababu
             // loading Problem section passing Pet to the user cotrol
             CtrlProblems ctrlProblems = new CtrlProblems(P);
             ctrlProblems.Dock = DockStyle.Fill;
-
             TlpVisitBody.Controls.Add(ctrlProblems, 0, 0);
 
-
-
             // loading Diary
+            CtrlDiary ctrlDiary = new CtrlDiary(P);
+            ctrlDiary.Dock = DockStyle.Fill;
+            TlpVisitBody.Controls.Add(ctrlDiary, 0, 1);
         }
 
     }

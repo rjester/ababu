@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Ago 12, 2018 alle 20:42
+-- Creato il: Ago 16, 2018 alle 20:50
 -- Versione del server: 10.1.34-MariaDB
 -- Versione PHP: 7.2.8
 
@@ -25,20 +25,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `diary`
---
-
-CREATE TABLE `diary` (
-  `id` int(11) NOT NULL,
-  `pid` int(11) NOT NULL,
-  `note` text NOT NULL,
-  `created` bigint(20) NOT NULL,
-  `updated` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Struttura della tabella `locales`
 --
 
@@ -54,6 +40,31 @@ CREATE TABLE `locales` (
 INSERT INTO `locales` (`lid`, `language`) VALUES
 ('en_GB', 'English - United Kingdom'),
 ('it_IT', 'Italian - Italy');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `notes`
+--
+
+CREATE TABLE `notes` (
+  `nid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `note_text` text NOT NULL,
+  `created` bigint(20) NOT NULL,
+  `updated` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `notes`
+--
+
+INSERT INTO `notes` (`nid`, `pid`, `uid`, `note_text`, `created`, `updated`) VALUES
+(1, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis', 0, NULL),
+(2, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 0, NULL),
+(3, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis', 0, NULL),
+(4, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -152,6 +163,7 @@ CREATE TABLE `problems` (
 --
 
 INSERT INTO `problems` (`diagnosis_id`, `pid`, `uid`, `date_from`, `status_id`, `essential`, `subjective_analysis`, `objective_analysis`, `notes`, `created`, `updated`) VALUES
+(655, 1, 2, 1534375055, 0, 1, '', '', '', 1534447062, 1534447072),
 (7503, 1, 2, 1533902951, 3, 1, 'No', 'Ob', 'Notes', 1533931768, 1533932440),
 (324, 3, 2, 0, 2, 0, NULL, NULL, NULL, 1494430623, 1494430623),
 (524, 3, 2, 3600, 3, 1, 'Subjective', 'Objective', '', 1492592799, 1534105388),
@@ -4394,16 +4406,16 @@ INSERT INTO `visit` (`vid`, `pid`, `oid`, `reason_id`, `diagnosis_id`, `descript
 --
 
 --
--- Indici per le tabelle `diary`
---
-ALTER TABLE `diary`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indici per le tabelle `locales`
 --
 ALTER TABLE `locales`
   ADD PRIMARY KEY (`lid`);
+
+--
+-- Indici per le tabelle `notes`
+--
+ALTER TABLE `notes`
+  ADD PRIMARY KEY (`nid`);
 
 --
 -- Indici per le tabelle `owners`
@@ -4466,10 +4478,10 @@ ALTER TABLE `visit`
 --
 
 --
--- AUTO_INCREMENT per la tabella `diary`
+-- AUTO_INCREMENT per la tabella `notes`
 --
-ALTER TABLE `diary`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `notes`
+  MODIFY `nid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `owners`

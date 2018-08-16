@@ -53,6 +53,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CtrlDiary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDiary.Designer.cs">
+      <DependentUpon>CtrlDiary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlNote.Designer.cs">
+      <DependentUpon>CtrlNote.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtrlPets.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -115,6 +127,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CtrlDiary.resx">
+      <DependentUpon>CtrlDiary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlNote.resx">
+      <DependentUpon>CtrlNote.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtrlPets.resx">
       <DependentUpon>CtrlPets.cs</DependentUpon>
     </EmbeddedResource>
