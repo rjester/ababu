@@ -121,7 +121,6 @@ namespace OldAuntie
         public int Delete()
         {
             int affetcedRows = 0;
-            int insert_id = 0;
 
             string query = "DELETE FROM notes WHERE nid=@nid";
 
@@ -130,15 +129,7 @@ namespace OldAuntie
 
             affetcedRows = Cmd.ExecuteNonQuery();
 
-            if (affetcedRows > 0)
-            {
-                insert_id = Convert.ToInt32(Globals.DBCon.InsertID());
-            }
-
-            return insert_id;
-
-
-
+            return affetcedRows;
         }
 
 
@@ -147,7 +138,7 @@ namespace OldAuntie
             string query = "SELECT * " +
                 "FROM notes a " +
                 "WHERE a.pid = " + pid + " " +
-                "ORDER BY a.pid DESC";
+                "ORDER BY a.nid DESC";
 
             DataTable result = Globals.DBCon.Execute(query);
 
