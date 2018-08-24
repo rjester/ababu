@@ -95,8 +95,7 @@ namespace Ababu
             Globals.DBCon.Username = Properties.Settings.Default.database_username;
             Globals.DBCon.Password = Properties.Settings.Default.database_password;
             Globals.DBCon.Connect();
-
-
+            
             try
             {
                 if (Globals.DBCon.IsConnected() == true)

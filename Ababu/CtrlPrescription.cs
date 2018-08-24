@@ -30,12 +30,38 @@ namespace Ababu
 
         public void FillControl()
         {
-            CmbMedicines.DataSource = Prescription.MedicineSearch();
+            CmbMedicines.DataSource = Medicine.Search();
+            
             CmbMedicines.ValueMember = "mid";
             CmbMedicines.DisplayMember = "value";
             CmbMedicines.SelectedValue = 0;
 
 
+        }
+
+        private void CmbMedicines_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (CmbMedicines.SelectedItem != null && CmbMedicines.SelectedValue != null)
+                {
+                    OpenPrescriptionEdit(CmbMedicines.SelectedValue.ToString(), P.Pid);
+                }
+            }
+        }
+
+
+        private void OpenPrescriptionEdit(string mid, int pid)
+        {
+            FrmPrescriptionEdit frmPrescriptionEdit = new FrmPrescriptionEdit(mid, pid);
+            frmPrescriptionEdit.FormClosing += new FormClosingEventHandler(PrescriptionEdit_FormClosing);
+            frmPrescriptionEdit.ShowDialog();
+        }
+
+
+        private void PrescriptionEdit_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FillControl();
         }
     }
 }

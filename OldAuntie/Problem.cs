@@ -76,7 +76,9 @@ namespace OldAuntie
         public int Update()
         {
             int affetcedRows = 0;
-            int updated_id = 0;
+
+            // @todo: delete this
+            // int updated_id = 0;
 
             string query = "UPDATE problems SET " +
                                     "uid=@uid, " +
@@ -105,12 +107,18 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@updated", Utility.Now());
 
             affetcedRows = Cmd.ExecuteNonQuery();
+
+
+            return affetcedRows;
+            // @todo: delete this
+            /*
             if (affetcedRows > 0)
             {
                 updated_id = Pid;
             }
 
             return updated_id;
+            */
         }
 
 

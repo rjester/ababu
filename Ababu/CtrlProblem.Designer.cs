@@ -88,12 +88,11 @@
             // BtnProblemSelect
             // 
             this.BtnProblemSelect.Image = global::Ababu.Properties.Resources.accept;
-            this.BtnProblemSelect.Location = new System.Drawing.Point(255, 3);
+            this.BtnProblemSelect.Location = new System.Drawing.Point(379, 2);
             this.BtnProblemSelect.Name = "BtnProblemSelect";
             this.BtnProblemSelect.Size = new System.Drawing.Size(25, 23);
             this.BtnProblemSelect.TabIndex = 6;
             this.BtnProblemSelect.UseVisualStyleBackColor = true;
-            this.BtnProblemSelect.Click += new System.EventHandler(this.BtnProblemSelect_Click);
             // 
             // CmbProblem
             // 
@@ -102,7 +101,7 @@
             this.CmbProblem.FormattingEnabled = true;
             this.CmbProblem.Location = new System.Drawing.Point(3, 3);
             this.CmbProblem.Name = "CmbProblem";
-            this.CmbProblem.Size = new System.Drawing.Size(246, 21);
+            this.CmbProblem.Size = new System.Drawing.Size(370, 21);
             this.CmbProblem.TabIndex = 5;
             this.CmbProblem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CmbProblem_KeyDown);
             // 

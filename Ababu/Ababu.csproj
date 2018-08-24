@@ -137,6 +137,12 @@
     <Compile Include="FrmPreferences.Designer.cs">
       <DependentUpon>FrmPreferences.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPrescriptionEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrescriptionEdit.Designer.cs">
+      <DependentUpon>FrmPrescriptionEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmProblemEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPreferences.resx">
       <DependentUpon>FrmPreferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrescriptionEdit.resx">
+      <DependentUpon>FrmPrescriptionEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProblemEdit.resx">
       <DependentUpon>FrmProblemEdit.cs</DependentUpon>

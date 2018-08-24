@@ -1,5 +1,6 @@
 ﻿using OldAuntie;
 using System;
+using System.Data;
 
 namespace OldAuntie
 {
@@ -10,7 +11,10 @@ namespace OldAuntie
         public static BaseDati DBCon = new BaseDati();
         public static Log log = new Log();
 
- 
+
+        public static DataTable problems;
+        public static DataTable medicines;
+
         static Globals()
         {
         }

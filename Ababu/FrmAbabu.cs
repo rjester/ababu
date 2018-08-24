@@ -13,6 +13,9 @@ namespace Ababu
 {
     public partial class FrmAbabu : Form
     {
+        public DataTable medicines;
+
+
         public FrmAbabu()
         {
             InitializeComponent();
@@ -26,6 +29,9 @@ namespace Ababu
             Globals.DBCon.Password = Properties.Settings.Default.database_password;
             Globals.DBCon.Connect();
             */
+
+
+            
         }
 
 
@@ -34,6 +40,7 @@ namespace Ababu
             // show login form
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.ShowDialog();
+            
 
             this.WindowState = FormWindowState.Maximized;
         }

@@ -80,7 +80,6 @@ namespace Ababu
                 }
             }
 
-
             GrdProblems.DataSource = DtProblems;
             GrdProblems.Columns["pid"].Visible = false;
             GrdProblems.Columns["status_id"].Visible = false;
@@ -121,12 +120,7 @@ namespace Ababu
             }
         }
 
-
-        private void BtnProblemSelect_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+        
         private void OpenProblemEdit(int diagnosis_id, int pid)
         {
             FrmProblemEdit frmProblemEdit = new FrmProblemEdit(diagnosis_id, pid);

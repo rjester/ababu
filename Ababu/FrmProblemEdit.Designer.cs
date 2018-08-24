@@ -54,7 +54,7 @@
             this.LblNotes = new System.Windows.Forms.Label();
             this.GrbEssential = new System.Windows.Forms.GroupBox();
             this.ChkEssential = new System.Windows.Forms.CheckBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PicEssential = new System.Windows.Forms.PictureBox();
             this.DtpDateFrom = new System.Windows.Forms.DateTimePicker();
             this.LblActiveFrom = new System.Windows.Forms.Label();
             this.LblAge = new System.Windows.Forms.Label();
@@ -63,6 +63,8 @@
             this.TxtDiagnosisId = new System.Windows.Forms.TextBox();
             this.TxtPid = new System.Windows.Forms.TextBox();
             this.GrbPetDetail = new System.Windows.Forms.GroupBox();
+            this.TxtDateOfBirth = new System.Windows.Forms.TextBox();
+            this.LblDateOfBirth = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtPetMonths = new System.Windows.Forms.TextBox();
             this.LblPetMonths = new System.Windows.Forms.Label();
@@ -74,8 +76,6 @@
             this.LblPetName = new System.Windows.Forms.Label();
             this.TxtDiagnosis = new System.Windows.Forms.TextBox();
             this.LblDiagnosis = new System.Windows.Forms.Label();
-            this.TxtDateOfBirth = new System.Windows.Forms.TextBox();
-            this.LblDateOfBirth = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).BeginInit();
             this.StsProblemEdit.SuspendLayout();
             this.GrbProblemStatus.SuspendLayout();
@@ -85,7 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PicActive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicLongTermActive)).BeginInit();
             this.GrbEssential.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicEssential)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrProblemEdit)).BeginInit();
             this.GrbPetDetail.SuspendLayout();
             this.SuspendLayout();
@@ -331,7 +331,7 @@
             // GrbEssential
             // 
             this.GrbEssential.Controls.Add(this.ChkEssential);
-            this.GrbEssential.Controls.Add(this.pictureBox1);
+            this.GrbEssential.Controls.Add(this.PicEssential);
             this.GrbEssential.Location = new System.Drawing.Point(12, 176);
             this.GrbEssential.Name = "GrbEssential";
             this.GrbEssential.Size = new System.Drawing.Size(188, 52);
@@ -349,16 +349,16 @@
             this.ChkEssential.Text = "Is essential";
             this.ChkEssential.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // PicEssential
             // 
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.Image = global::Ababu.Properties.Resources.lightbulb;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(21, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(17, 18);
-            this.pictureBox1.TabIndex = 56;
-            this.pictureBox1.TabStop = false;
+            this.PicEssential.ErrorImage = null;
+            this.PicEssential.Image = global::Ababu.Properties.Resources.lightbulb;
+            this.PicEssential.InitialImage = null;
+            this.PicEssential.Location = new System.Drawing.Point(21, 19);
+            this.PicEssential.Name = "PicEssential";
+            this.PicEssential.Size = new System.Drawing.Size(17, 18);
+            this.PicEssential.TabIndex = 56;
+            this.PicEssential.TabStop = false;
             // 
             // DtpDateFrom
             // 
@@ -444,6 +444,24 @@
             this.GrbPetDetail.TabIndex = 57;
             this.GrbPetDetail.TabStop = false;
             this.GrbPetDetail.Text = "Pet detail";
+            // 
+            // TxtDateOfBirth
+            // 
+            this.TxtDateOfBirth.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtDateOfBirth.Location = new System.Drawing.Point(78, 91);
+            this.TxtDateOfBirth.Name = "TxtDateOfBirth";
+            this.TxtDateOfBirth.ReadOnly = true;
+            this.TxtDateOfBirth.Size = new System.Drawing.Size(103, 13);
+            this.TxtDateOfBirth.TabIndex = 62;
+            // 
+            // LblDateOfBirth
+            // 
+            this.LblDateOfBirth.AutoSize = true;
+            this.LblDateOfBirth.Location = new System.Drawing.Point(7, 91);
+            this.LblDateOfBirth.Name = "LblDateOfBirth";
+            this.LblDateOfBirth.Size = new System.Drawing.Size(68, 13);
+            this.LblDateOfBirth.TabIndex = 61;
+            this.LblDateOfBirth.Text = "Date of birth:";
             // 
             // label1
             // 
@@ -544,24 +562,6 @@
             this.LblDiagnosis.TabIndex = 61;
             this.LblDiagnosis.Text = "Problem";
             // 
-            // TxtDateOfBirth
-            // 
-            this.TxtDateOfBirth.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtDateOfBirth.Location = new System.Drawing.Point(78, 91);
-            this.TxtDateOfBirth.Name = "TxtDateOfBirth";
-            this.TxtDateOfBirth.ReadOnly = true;
-            this.TxtDateOfBirth.Size = new System.Drawing.Size(103, 13);
-            this.TxtDateOfBirth.TabIndex = 62;
-            // 
-            // LblDateOfBirth
-            // 
-            this.LblDateOfBirth.AutoSize = true;
-            this.LblDateOfBirth.Location = new System.Drawing.Point(7, 91);
-            this.LblDateOfBirth.Name = "LblDateOfBirth";
-            this.LblDateOfBirth.Size = new System.Drawing.Size(68, 13);
-            this.LblDateOfBirth.TabIndex = 61;
-            this.LblDateOfBirth.Text = "Date of birth:";
-            // 
             // FrmProblemEdit
             // 
             this.AcceptButton = this.BtnProblemSave;
@@ -605,7 +605,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PicLongTermActive)).EndInit();
             this.GrbEssential.ResumeLayout(false);
             this.GrbEssential.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicEssential)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrProblemEdit)).EndInit();
             this.GrbPetDetail.ResumeLayout(false);
             this.GrbPetDetail.PerformLayout();
@@ -640,7 +640,7 @@
         private System.Windows.Forms.Label LblNotes;
         private System.Windows.Forms.GroupBox GrbEssential;
         private System.Windows.Forms.CheckBox ChkEssential;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PicEssential;
         private System.Windows.Forms.DateTimePicker DtpDateFrom;
         private System.Windows.Forms.Label LblActiveFrom;
         private System.Windows.Forms.Label LblAge;

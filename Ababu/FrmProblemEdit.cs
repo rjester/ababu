@@ -169,8 +169,7 @@ namespace Ababu
                     int affected_id = Problema.Save();
                     if (affected_id > 0)
                     {
-                        P.Load(affected_id);
-                        // FillProblemForm();
+                        // P.Load(affected_id);
                         UnlockForm();
                         this.Close();
                         this.Dispose();
