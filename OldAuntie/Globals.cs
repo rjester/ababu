@@ -1,9 +1,6 @@
 ﻿using OldAuntie;
 using System;
 
-
-
-
 namespace OldAuntie
 {
     public static class Globals
@@ -12,8 +9,8 @@ namespace OldAuntie
         public static User Me = null;
         public static BaseDati DBCon = new BaseDati();
         public static Log log = new Log();
-        
 
+ 
         static Globals()
         {
         }

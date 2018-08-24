@@ -90,7 +90,7 @@ namespace Ababu
         private void TsbPets_Click(object sender, EventArgs e)
         {
             TabPage TpPet = new TabPage("Pets");
-            CtrlPets ctrlPets = new CtrlPets();
+            CtrlPet ctrlPets = new CtrlPet();
             ctrlPets.Dock = DockStyle.Fill;
             TpPet.Controls.Add(ctrlPets);
 

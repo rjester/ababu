@@ -11,12 +11,12 @@ using OldAuntie;
 
 namespace Ababu
 {
-    public partial class CtrlProblems : UserControl
+    public partial class CtrlProblem : UserControl
     {
         public Pet P { get; set; }
         public Problem Problema { get; set; }
 
-        public CtrlProblems(Pet pet)
+        public CtrlProblem(Pet pet)
         {
             P = pet;
 
@@ -85,7 +85,7 @@ namespace Ababu
             GrdProblems.Columns["pid"].Visible = false;
             GrdProblems.Columns["status_id"].Visible = false;
             GrdProblems.Columns["essential"].Visible = false;
-            GrdProblems.Columns["term_name"].Width = 400;
+            GrdProblems.Columns["term_name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
 

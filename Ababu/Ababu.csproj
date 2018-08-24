@@ -59,23 +59,47 @@
     <Compile Include="CtrlDiary.Designer.cs">
       <DependentUpon>CtrlDiary.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtrlExamination.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlExamination.Designer.cs">
+      <DependentUpon>CtrlExamination.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlMaterial.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlMaterial.Designer.cs">
+      <DependentUpon>CtrlMaterial.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtrlNote.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CtrlNote.Designer.cs">
       <DependentUpon>CtrlNote.cs</DependentUpon>
     </Compile>
-    <Compile Include="CtrlPets.cs">
+    <Compile Include="CtrlPet.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CtrlPets.Designer.cs">
-      <DependentUpon>CtrlPets.cs</DependentUpon>
+    <Compile Include="CtrlPet.Designer.cs">
+      <DependentUpon>CtrlPet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlPrescription.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlPrescription.Designer.cs">
+      <DependentUpon>CtrlPrescription.cs</DependentUpon>
     </Compile>
     <Compile Include="CtrlProblem.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CtrlProblem.Designer.cs">
       <DependentUpon>CtrlProblem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlTherapy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlTherapy.Designer.cs">
+      <DependentUpon>CtrlTherapy.cs</DependentUpon>
     </Compile>
     <Compile Include="CtrlVisit.cs">
       <SubType>UserControl</SubType>
@@ -130,14 +154,26 @@
     <EmbeddedResource Include="CtrlDiary.resx">
       <DependentUpon>CtrlDiary.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CtrlExamination.resx">
+      <DependentUpon>CtrlExamination.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlMaterial.resx">
+      <DependentUpon>CtrlMaterial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtrlNote.resx">
       <DependentUpon>CtrlNote.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CtrlPets.resx">
-      <DependentUpon>CtrlPets.cs</DependentUpon>
+    <EmbeddedResource Include="CtrlPet.resx">
+      <DependentUpon>CtrlPet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlPrescription.resx">
+      <DependentUpon>CtrlPrescription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlProblem.resx">
       <DependentUpon>CtrlProblem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlTherapy.resx">
+      <DependentUpon>CtrlTherapy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlVisit.resx">
       <DependentUpon>CtrlVisit.cs</DependentUpon>
@@ -273,6 +309,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\brick_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\action_stop.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets')" />

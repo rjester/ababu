@@ -78,7 +78,8 @@ namespace Ababu
         {
             if(e.KeyCode == Keys.Enter)
             {
-                Utility.d("nanna !!!");
+                // Utility.d("nanna !!!");
+                NoteSave();
                 e.SuppressKeyPress = true;
                 // TxtNote.Text = TxtNote.Text.Substring(0, TxtNote.Text.Length - 1);
                 // BtnNoteSave_Click(this, new EventArgs());
@@ -151,9 +152,7 @@ namespace Ababu
                     OnNoteChanged(EventArgs.Empty);
                     FillControl();
                 }
-                
             }
-
         }
     }
 }

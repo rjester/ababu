@@ -7,12 +7,21 @@ Grb	GroupBox
 Sts StatusBar
 Stl	StatusBarLabel
 
+Tab TabControl
+Tp  TabControl->TabPage
+
+Ts  ToolStrip
 Tmi ToolStripMenuItem
 Tdb	ToolStripDropDownButton
 Tsb ToolStripButton
+
 Tlp TableLayoutPanel
 Btn	Button
 Txt TextBox
 Frm From
 Ctrl User Control
 Pan Panel
+
+GESTIONE RIFIUTI SPECIALI
+GESTIONE MAGAZZINO
+GESTIONE MAGAZZINO STUPEFACENTI

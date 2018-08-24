@@ -200,8 +200,8 @@ namespace Ababu
             }
 
 
-            // reset the form status (modified / not modified)
-            ResetFormStatus();
+            // unlock/reset the form status (modified / not modified)
+            UnlockForm();
         }
 
 
@@ -216,10 +216,10 @@ namespace Ababu
             CmbLocales.SelectedIndex = 0;
             TxtPhone.Text = String.Empty;
 
-            ResetFormStatus();
+            UnlockForm();
         }
 
-        private void ResetFormStatus()
+        private void UnlockForm()
         {
             // Reset error status
             ErrUser.Clear();
@@ -262,7 +262,6 @@ namespace Ababu
                     {
                         this.AddOnChangeHandlerToInputControls(subctrl);
                     }
-
                 }
             }
         }
@@ -299,8 +298,8 @@ namespace Ababu
                     {
                         MessageBox.Show("User saved.");
 
-                        // ResetFormStatus the status of the form (Saved / Not saved)
-                        ResetFormStatus();
+                        // Unlock form to reset the status of the form (Saved / Not saved)
+                        UnlockForm();
 
                         // reload User List
                         LoadUserList();
@@ -338,8 +337,8 @@ namespace Ababu
                 {
                     MessageBox.Show("User deleted.");
 
-                    // ResetFormStatus the status of the form (Saved / Not saved)
-                    ResetFormStatus();
+                    // Unlock the form to reset the status of the form (Saved / Not saved)
+                    UnlockForm();
 
                     // reload User List
                     LoadUserList();

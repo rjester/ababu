@@ -11,13 +11,13 @@ using OldAuntie;
 
 namespace Ababu
 {
-    public partial class CtrlPets : UserControl
+    public partial class CtrlPet : UserControl
     {
         private bool SearchOptionShowDeleted;
         private bool SearchOptionShowOnlyUnderTheraphy;
 
 
-        public CtrlPets()
+        public CtrlPet()
         {
             InitializeComponent();
 

@@ -38,7 +38,7 @@ namespace Ababu
         private void LoadVisitComponents()
         {
             // loading Problem section passing Pet to the user cotrol
-            CtrlProblems ctrlProblems = new CtrlProblems(P);
+            CtrlProblem ctrlProblems = new CtrlProblem(P);
             ctrlProblems.Dock = DockStyle.Fill;
             TlpVisitBody.Controls.Add(ctrlProblems, 0, 0);
 
@@ -46,6 +46,17 @@ namespace Ababu
             CtrlDiary ctrlDiary = new CtrlDiary(P);
             ctrlDiary.Dock = DockStyle.Fill;
             TlpVisitBody.Controls.Add(ctrlDiary, 0, 1);
+
+
+            CtrlTherapy ctrlTherapy = new CtrlTherapy();
+            ctrlTherapy.Dock = DockStyle.Fill;
+            TlpVisitBody.Controls.Add(ctrlTherapy, 1, 0);
+
+
+            CtrlExamination ctrlExamination = new CtrlExamination();
+            ctrlExamination.Dock = DockStyle.Fill;
+            TlpVisitBody.Controls.Add(ctrlExamination, 1, 1);
+
         }
 
     }

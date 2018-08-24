@@ -189,6 +189,9 @@ namespace Ababu
             bool result = true;
             ErrProblemEdit.Clear();
 
+
+            // @todo: check date consinstency
+            /*
             if(Utility.DateTimeToUnixTimestamp(DtpDateFrom.Value) > Utility.Now())
             {
                 result = result & false;
@@ -201,9 +204,7 @@ namespace Ababu
                 result = result & false;
                 ErrProblemEdit.SetError(DtpDateFrom, "Cannot set date from before the date of birth of the patient");
             }
-
-
-
+            */
 
 
             if (TxtDiagnosisId.Text.Trim() == string.Empty)

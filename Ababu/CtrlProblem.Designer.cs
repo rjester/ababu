@@ -1,6 +1,6 @@
 ﻿namespace Ababu
 {
-    partial class CtrlProblems
+    partial class CtrlProblem
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,12 +30,12 @@
         {
             this.GrdProblems = new System.Windows.Forms.DataGridView();
             this.TlpProblems = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.PanProblem = new System.Windows.Forms.Panel();
             this.BtnProblemSelect = new System.Windows.Forms.Button();
             this.CmbProblem = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.GrdProblems)).BeginInit();
             this.TlpProblems.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.PanProblem.SuspendLayout();
             this.SuspendLayout();
             // 
             // GrdProblems
@@ -50,14 +50,14 @@
             this.GrdProblems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GrdProblems.ColumnHeadersVisible = false;
             this.GrdProblems.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GrdProblems.Location = new System.Drawing.Point(3, 49);
+            this.GrdProblems.Location = new System.Drawing.Point(3, 48);
             this.GrdProblems.Name = "GrdProblems";
             this.GrdProblems.ReadOnly = true;
             this.GrdProblems.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.GrdProblems.RowHeadersVisible = false;
             this.GrdProblems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GrdProblems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GrdProblems.Size = new System.Drawing.Size(411, 184);
+            this.GrdProblems.Size = new System.Drawing.Size(411, 185);
             this.GrdProblems.TabIndex = 2;
             this.GrdProblems.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdProblems_CellDoubleClick);
             // 
@@ -66,24 +66,24 @@
             this.TlpProblems.ColumnCount = 1;
             this.TlpProblems.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TlpProblems.Controls.Add(this.GrdProblems, 0, 1);
-            this.TlpProblems.Controls.Add(this.panel1, 0, 0);
+            this.TlpProblems.Controls.Add(this.PanProblem, 0, 0);
             this.TlpProblems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TlpProblems.Location = new System.Drawing.Point(0, 0);
             this.TlpProblems.Name = "TlpProblems";
             this.TlpProblems.RowCount = 2;
-            this.TlpProblems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.TlpProblems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.TlpProblems.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TlpProblems.Size = new System.Drawing.Size(417, 236);
             this.TlpProblems.TabIndex = 2;
             // 
-            // panel1
+            // PanProblem
             // 
-            this.panel1.Controls.Add(this.BtnProblemSelect);
-            this.panel1.Controls.Add(this.CmbProblem);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(411, 33);
-            this.panel1.TabIndex = 3;
+            this.PanProblem.Controls.Add(this.BtnProblemSelect);
+            this.PanProblem.Controls.Add(this.CmbProblem);
+            this.PanProblem.Location = new System.Drawing.Point(3, 3);
+            this.PanProblem.Name = "PanProblem";
+            this.PanProblem.Size = new System.Drawing.Size(411, 33);
+            this.PanProblem.TabIndex = 3;
             // 
             // BtnProblemSelect
             // 
@@ -106,17 +106,17 @@
             this.CmbProblem.TabIndex = 5;
             this.CmbProblem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CmbProblem_KeyDown);
             // 
-            // CtrlProblems
+            // CtrlProblem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.TlpProblems);
-            this.Name = "CtrlProblems";
+            this.Name = "CtrlProblem";
             this.Size = new System.Drawing.Size(417, 236);
             this.Load += new System.EventHandler(this.CtrlProblems_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GrdProblems)).EndInit();
             this.TlpProblems.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.PanProblem.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -125,7 +125,7 @@
 
         private System.Windows.Forms.DataGridView GrdProblems;
         private System.Windows.Forms.TableLayoutPanel TlpProblems;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel PanProblem;
         private System.Windows.Forms.Button BtnProblemSelect;
         private System.Windows.Forms.ComboBox CmbProblem;
     }

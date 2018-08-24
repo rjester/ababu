@@ -1,6 +1,6 @@
 ﻿namespace Ababu
 {
-    partial class CtrlPets
+    partial class CtrlPet
     {
         /// <summary> 
         /// Required designer variable.
