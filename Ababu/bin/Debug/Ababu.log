@@ -83,3 +83,7 @@
 24/08/2018 21:51:59 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 0 AND a.diagnosis_id = 10347/4037' at line 1
 24/08/2018 21:53:21 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 0 AND a.diagnosis_id = 10347/4037' at line 1
 24/08/2018 21:54:21 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 0 AND a.diagnosis_id = 10347/4037' at line 1
+25/08/2018 18:05:39 (error): Unable to connect to any of the specified MySQL hosts.
+25/08/2018 18:12:50 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Unknown database 'ababu02'
+25/08/2018 18:12:53 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Unknown database 'ababu02'
+25/08/2018 18:13:07 (error): Table 'ababu.medicines' doesn't exist
