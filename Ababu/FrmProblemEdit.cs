@@ -31,6 +31,8 @@ namespace Ababu
         private void FrmProblemEdit_Load(object sender, EventArgs e)
         {
             FillProblemForm();
+
+            AddOnChangeHandlerToInputControls(this);
         }
 
 
@@ -121,12 +123,6 @@ namespace Ababu
 
         void InputControls_OnChange(object sender, EventArgs e)
         {
-            LockForm();
-        }
-
-
-        private void LockForm()
-        {
             IsModified = true;
             PicIsModified.Image = Properties.Resources.bullet_red;
         }
@@ -166,10 +162,9 @@ namespace Ababu
                 try
                 {
                     // save the problem
-                    int affected_id = Problema.Save();
-                    if (affected_id > 0)
+                    int affected_rows = Problema.Save();
+                    if (affected_rows > 0)
                     {
-                        // P.Load(affected_id);
                         UnlockForm();
                         this.Close();
                         this.Dispose();
@@ -187,24 +182,6 @@ namespace Ababu
         {
             bool result = true;
             ErrProblemEdit.Clear();
-
-
-            // @todo: check date consinstency
-            /*
-            if(Utility.DateTimeToUnixTimestamp(DtpDateFrom.Value) > Utility.Now())
-            {
-                result = result & false;
-                ErrProblemEdit.SetError(DtpDateFrom, "Cannot set date in the future");
-            }
-
-
-            if (Utility.DateTimeToUnixTimestamp(DtpDateFrom.Value) < P.DateOfBirth)
-            {
-                result = result & false;
-                ErrProblemEdit.SetError(DtpDateFrom, "Cannot set date from before the date of birth of the patient");
-            }
-            */
-
 
             if (TxtDiagnosisId.Text.Trim() == string.Empty)
             {
@@ -253,14 +230,9 @@ namespace Ababu
             // DateTime Now = Utility.UnixTimeStampToDateTime(Utility.Now());
             DateTime DateOfBirth = Utility.UnixTimeStampToDateTime(P.DateOfBirth);
 
-
             int AtAge = Convert.ToInt32(DtpDateFrom.Value.Year - DateOfBirth.Year);
 
             TxtAge.Text = AtAge.ToString();
-
-
-
-
         }
     }
 }

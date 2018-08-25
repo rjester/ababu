@@ -77,9 +77,6 @@ namespace OldAuntie
         {
             int affetcedRows = 0;
 
-            // @todo: delete this
-            // int updated_id = 0;
-
             string query = "UPDATE problems SET " +
                                     "uid=@uid, " +
                                     "date_from=@date_from, " +
@@ -110,15 +107,6 @@ namespace OldAuntie
 
 
             return affetcedRows;
-            // @todo: delete this
-            /*
-            if (affetcedRows > 0)
-            {
-                updated_id = Pid;
-            }
-
-            return updated_id;
-            */
         }
 
 

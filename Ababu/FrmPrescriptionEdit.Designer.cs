@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrescriptionEdit));
             this.TxtMedicine = new System.Windows.Forms.TextBox();
             this.StsPrescriptionEdit = new System.Windows.Forms.StatusStrip();
@@ -42,6 +43,14 @@
             this.TxtQty = new System.Windows.Forms.TextBox();
             this.LblMedicine = new System.Windows.Forms.Label();
             this.GrbMedicineDetail = new System.Windows.Forms.GroupBox();
+            this.TxtMedicineAdditionalForm = new System.Windows.Forms.TextBox();
+            this.LblMedicineAdditionalForm = new System.Windows.Forms.Label();
+            this.TxtMedicineDateOfWithDrawal = new System.Windows.Forms.TextBox();
+            this.LblMedicineDateOfWithDrawal = new System.Windows.Forms.Label();
+            this.TxtMedicineDateOfIssue = new System.Windows.Forms.TextBox();
+            this.TxtMedicineCompany = new System.Windows.Forms.TextBox();
+            this.LblMedicineCompany = new System.Windows.Forms.Label();
+            this.TxtMedicinePharmaceuticalForm = new System.Windows.Forms.TextBox();
             this.LblPharmaceuticalForm = new System.Windows.Forms.Label();
             this.LblMid = new System.Windows.Forms.Label();
             this.TxtMid = new System.Windows.Forms.TextBox();
@@ -49,34 +58,30 @@
             this.TxtMedicineName = new System.Windows.Forms.TextBox();
             this.LblMedicineDateOfIssue = new System.Windows.Forms.Label();
             this.LblMedicineName = new System.Windows.Forms.Label();
-            this.TxtMedicinePharmaceuticalForm = new System.Windows.Forms.TextBox();
-            this.TxtMedicineCompany = new System.Windows.Forms.TextBox();
-            this.LblMedicineCompany = new System.Windows.Forms.Label();
-            this.TxtMedicineDateOfIssue = new System.Windows.Forms.TextBox();
-            this.TxtMedicineDateOfWithDrawal = new System.Windows.Forms.TextBox();
-            this.LblMedicineDateOfWithDrawal = new System.Windows.Forms.Label();
-            this.TxtMedicineAdditionalForm = new System.Windows.Forms.TextBox();
-            this.LblMedicineAdditionalForm = new System.Windows.Forms.Label();
+            this.ErrPrescriptionEdit = new System.Windows.Forms.ErrorProvider(this.components);
+            this.PicIsModified = new System.Windows.Forms.PictureBox();
             this.StsPrescriptionEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicInEvidence)).BeginInit();
             this.GrbMedicineDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrPrescriptionEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).BeginInit();
             this.SuspendLayout();
             // 
             // TxtMedicine
             // 
-            this.TxtMedicine.Location = new System.Drawing.Point(12, 23);
+            this.TxtMedicine.Location = new System.Drawing.Point(12, 21);
             this.TxtMedicine.Name = "TxtMedicine";
             this.TxtMedicine.ReadOnly = true;
-            this.TxtMedicine.Size = new System.Drawing.Size(250, 20);
+            this.TxtMedicine.Size = new System.Drawing.Size(440, 20);
             this.TxtMedicine.TabIndex = 62;
             // 
             // StsPrescriptionEdit
             // 
             this.StsPrescriptionEdit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StlRecordInfo});
-            this.StsPrescriptionEdit.Location = new System.Drawing.Point(0, 218);
+            this.StsPrescriptionEdit.Location = new System.Drawing.Point(0, 382);
             this.StsPrescriptionEdit.Name = "StsPrescriptionEdit";
-            this.StsPrescriptionEdit.Size = new System.Drawing.Size(769, 22);
+            this.StsPrescriptionEdit.Size = new System.Drawing.Size(458, 22);
             this.StsPrescriptionEdit.TabIndex = 63;
             this.StsPrescriptionEdit.Text = "statusStrip1";
             // 
@@ -89,7 +94,7 @@
             // ChkInEvidence
             // 
             this.ChkInEvidence.AutoSize = true;
-            this.ChkInEvidence.Location = new System.Drawing.Point(223, 91);
+            this.ChkInEvidence.Location = new System.Drawing.Point(356, 70);
             this.ChkInEvidence.Name = "ChkInEvidence";
             this.ChkInEvidence.Size = new System.Drawing.Size(82, 17);
             this.ChkInEvidence.TabIndex = 1;
@@ -101,7 +106,7 @@
             this.PicInEvidence.ErrorImage = null;
             this.PicInEvidence.Image = global::Ababu.Properties.Resources.lightbulb;
             this.PicInEvidence.InitialImage = null;
-            this.PicInEvidence.Location = new System.Drawing.Point(200, 90);
+            this.PicInEvidence.Location = new System.Drawing.Point(332, 69);
             this.PicInEvidence.Name = "PicInEvidence";
             this.PicInEvidence.Size = new System.Drawing.Size(17, 18);
             this.PicInEvidence.TabIndex = 56;
@@ -111,7 +116,7 @@
             // 
             this.BtnPrescriptionDelete.Image = global::Ababu.Properties.Resources.delete;
             this.BtnPrescriptionDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPrescriptionDelete.Location = new System.Drawing.Point(205, 129);
+            this.BtnPrescriptionDelete.Location = new System.Drawing.Point(209, 352);
             this.BtnPrescriptionDelete.Name = "BtnPrescriptionDelete";
             this.BtnPrescriptionDelete.Size = new System.Drawing.Size(75, 23);
             this.BtnPrescriptionDelete.TabIndex = 58;
@@ -123,18 +128,19 @@
             // 
             this.BtnPrescriptionSave.Image = global::Ababu.Properties.Resources.accept;
             this.BtnPrescriptionSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPrescriptionSave.Location = new System.Drawing.Point(124, 129);
+            this.BtnPrescriptionSave.Location = new System.Drawing.Point(128, 352);
             this.BtnPrescriptionSave.Name = "BtnPrescriptionSave";
             this.BtnPrescriptionSave.Size = new System.Drawing.Size(75, 23);
             this.BtnPrescriptionSave.TabIndex = 57;
             this.BtnPrescriptionSave.Text = "Save";
             this.BtnPrescriptionSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnPrescriptionSave.UseVisualStyleBackColor = true;
+            this.BtnPrescriptionSave.Click += new System.EventHandler(this.BtnPrescriptionSave_Click);
             // 
             // LblQuantity
             // 
             this.LblQuantity.AutoSize = true;
-            this.LblQuantity.Location = new System.Drawing.Point(268, 7);
+            this.LblQuantity.Location = new System.Drawing.Point(12, 50);
             this.LblQuantity.Name = "LblQuantity";
             this.LblQuantity.Size = new System.Drawing.Size(46, 13);
             this.LblQuantity.TabIndex = 68;
@@ -143,7 +149,7 @@
             // LblDosage
             // 
             this.LblDosage.AutoSize = true;
-            this.LblDosage.Location = new System.Drawing.Point(12, 45);
+            this.LblDosage.Location = new System.Drawing.Point(74, 50);
             this.LblDosage.Name = "LblDosage";
             this.LblDosage.Size = new System.Drawing.Size(44, 13);
             this.LblDosage.TabIndex = 67;
@@ -151,14 +157,14 @@
             // 
             // TxtDosage
             // 
-            this.TxtDosage.Location = new System.Drawing.Point(12, 61);
+            this.TxtDosage.Location = new System.Drawing.Point(74, 67);
             this.TxtDosage.Name = "TxtDosage";
-            this.TxtDosage.Size = new System.Drawing.Size(286, 20);
+            this.TxtDosage.Size = new System.Drawing.Size(233, 20);
             this.TxtDosage.TabIndex = 66;
             // 
             // TxtQty
             // 
-            this.TxtQty.Location = new System.Drawing.Point(268, 23);
+            this.TxtQty.Location = new System.Drawing.Point(12, 67);
             this.TxtQty.Name = "TxtQty";
             this.TxtQty.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TxtQty.Size = new System.Drawing.Size(50, 20);
@@ -168,7 +174,7 @@
             // LblMedicine
             // 
             this.LblMedicine.AutoSize = true;
-            this.LblMedicine.Location = new System.Drawing.Point(9, 7);
+            this.LblMedicine.Location = new System.Drawing.Point(12, 7);
             this.LblMedicine.Name = "LblMedicine";
             this.LblMedicine.Size = new System.Drawing.Size(50, 13);
             this.LblMedicine.TabIndex = 69;
@@ -191,17 +197,90 @@
             this.GrbMedicineDetail.Controls.Add(this.TxtMedicineName);
             this.GrbMedicineDetail.Controls.Add(this.LblMedicineDateOfIssue);
             this.GrbMedicineDetail.Controls.Add(this.LblMedicineName);
-            this.GrbMedicineDetail.Location = new System.Drawing.Point(324, 7);
+            this.GrbMedicineDetail.Location = new System.Drawing.Point(12, 125);
             this.GrbMedicineDetail.Name = "GrbMedicineDetail";
             this.GrbMedicineDetail.Size = new System.Drawing.Size(431, 207);
             this.GrbMedicineDetail.TabIndex = 70;
             this.GrbMedicineDetail.TabStop = false;
             this.GrbMedicineDetail.Text = "Medicine detail";
             // 
+            // TxtMedicineAdditionalForm
+            // 
+            this.TxtMedicineAdditionalForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtMedicineAdditionalForm.Location = new System.Drawing.Point(87, 138);
+            this.TxtMedicineAdditionalForm.Multiline = true;
+            this.TxtMedicineAdditionalForm.Name = "TxtMedicineAdditionalForm";
+            this.TxtMedicineAdditionalForm.ReadOnly = true;
+            this.TxtMedicineAdditionalForm.Size = new System.Drawing.Size(338, 55);
+            this.TxtMedicineAdditionalForm.TabIndex = 69;
+            // 
+            // LblMedicineAdditionalForm
+            // 
+            this.LblMedicineAdditionalForm.AutoSize = true;
+            this.LblMedicineAdditionalForm.Location = new System.Drawing.Point(7, 138);
+            this.LblMedicineAdditionalForm.Name = "LblMedicineAdditionalForm";
+            this.LblMedicineAdditionalForm.Size = new System.Drawing.Size(74, 13);
+            this.LblMedicineAdditionalForm.TabIndex = 68;
+            this.LblMedicineAdditionalForm.Text = "Additional Info";
+            // 
+            // TxtMedicineDateOfWithDrawal
+            // 
+            this.TxtMedicineDateOfWithDrawal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtMedicineDateOfWithDrawal.Location = new System.Drawing.Point(301, 94);
+            this.TxtMedicineDateOfWithDrawal.Name = "TxtMedicineDateOfWithDrawal";
+            this.TxtMedicineDateOfWithDrawal.ReadOnly = true;
+            this.TxtMedicineDateOfWithDrawal.Size = new System.Drawing.Size(103, 13);
+            this.TxtMedicineDateOfWithDrawal.TabIndex = 67;
+            // 
+            // LblMedicineDateOfWithDrawal
+            // 
+            this.LblMedicineDateOfWithDrawal.AutoSize = true;
+            this.LblMedicineDateOfWithDrawal.Location = new System.Drawing.Point(194, 94);
+            this.LblMedicineDateOfWithDrawal.Name = "LblMedicineDateOfWithDrawal";
+            this.LblMedicineDateOfWithDrawal.Size = new System.Drawing.Size(101, 13);
+            this.LblMedicineDateOfWithDrawal.TabIndex = 66;
+            this.LblMedicineDateOfWithDrawal.Text = "Date of Withdrawal:";
+            // 
+            // TxtMedicineDateOfIssue
+            // 
+            this.TxtMedicineDateOfIssue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtMedicineDateOfIssue.Location = new System.Drawing.Point(85, 94);
+            this.TxtMedicineDateOfIssue.Name = "TxtMedicineDateOfIssue";
+            this.TxtMedicineDateOfIssue.ReadOnly = true;
+            this.TxtMedicineDateOfIssue.Size = new System.Drawing.Size(103, 13);
+            this.TxtMedicineDateOfIssue.TabIndex = 65;
+            // 
+            // TxtMedicineCompany
+            // 
+            this.TxtMedicineCompany.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtMedicineCompany.Location = new System.Drawing.Point(68, 72);
+            this.TxtMedicineCompany.Name = "TxtMedicineCompany";
+            this.TxtMedicineCompany.ReadOnly = true;
+            this.TxtMedicineCompany.Size = new System.Drawing.Size(357, 13);
+            this.TxtMedicineCompany.TabIndex = 64;
+            // 
+            // LblMedicineCompany
+            // 
+            this.LblMedicineCompany.AutoSize = true;
+            this.LblMedicineCompany.Location = new System.Drawing.Point(7, 72);
+            this.LblMedicineCompany.Name = "LblMedicineCompany";
+            this.LblMedicineCompany.Size = new System.Drawing.Size(57, 13);
+            this.LblMedicineCompany.TabIndex = 63;
+            this.LblMedicineCompany.Text = "Company: ";
+            // 
+            // TxtMedicinePharmaceuticalForm
+            // 
+            this.TxtMedicinePharmaceuticalForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtMedicinePharmaceuticalForm.Location = new System.Drawing.Point(62, 117);
+            this.TxtMedicinePharmaceuticalForm.Name = "TxtMedicinePharmaceuticalForm";
+            this.TxtMedicinePharmaceuticalForm.ReadOnly = true;
+            this.TxtMedicinePharmaceuticalForm.Size = new System.Drawing.Size(363, 13);
+            this.TxtMedicinePharmaceuticalForm.TabIndex = 62;
+            // 
             // LblPharmaceuticalForm
             // 
             this.LblPharmaceuticalForm.AutoSize = true;
-            this.LblPharmaceuticalForm.Location = new System.Drawing.Point(7, 116);
+            this.LblPharmaceuticalForm.Location = new System.Drawing.Point(7, 117);
             this.LblPharmaceuticalForm.Name = "LblPharmaceuticalForm";
             this.LblPharmaceuticalForm.Size = new System.Drawing.Size(49, 13);
             this.LblPharmaceuticalForm.TabIndex = 61;
@@ -262,84 +341,27 @@
             this.LblMedicineName.TabIndex = 0;
             this.LblMedicineName.Text = "Name: ";
             // 
-            // TxtMedicinePharmaceuticalForm
+            // ErrPrescriptionEdit
             // 
-            this.TxtMedicinePharmaceuticalForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtMedicinePharmaceuticalForm.Location = new System.Drawing.Point(62, 117);
-            this.TxtMedicinePharmaceuticalForm.Name = "TxtMedicinePharmaceuticalForm";
-            this.TxtMedicinePharmaceuticalForm.ReadOnly = true;
-            this.TxtMedicinePharmaceuticalForm.Size = new System.Drawing.Size(363, 13);
-            this.TxtMedicinePharmaceuticalForm.TabIndex = 62;
+            this.ErrPrescriptionEdit.ContainerControl = this;
             // 
-            // TxtMedicineCompany
+            // PicIsModified
             // 
-            this.TxtMedicineCompany.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtMedicineCompany.Location = new System.Drawing.Point(62, 76);
-            this.TxtMedicineCompany.Name = "TxtMedicineCompany";
-            this.TxtMedicineCompany.ReadOnly = true;
-            this.TxtMedicineCompany.Size = new System.Drawing.Size(363, 13);
-            this.TxtMedicineCompany.TabIndex = 64;
-            // 
-            // LblMedicineCompany
-            // 
-            this.LblMedicineCompany.AutoSize = true;
-            this.LblMedicineCompany.Location = new System.Drawing.Point(7, 72);
-            this.LblMedicineCompany.Name = "LblMedicineCompany";
-            this.LblMedicineCompany.Size = new System.Drawing.Size(57, 13);
-            this.LblMedicineCompany.TabIndex = 63;
-            this.LblMedicineCompany.Text = "Company: ";
-            // 
-            // TxtMedicineDateOfIssue
-            // 
-            this.TxtMedicineDateOfIssue.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtMedicineDateOfIssue.Location = new System.Drawing.Point(85, 94);
-            this.TxtMedicineDateOfIssue.Name = "TxtMedicineDateOfIssue";
-            this.TxtMedicineDateOfIssue.ReadOnly = true;
-            this.TxtMedicineDateOfIssue.Size = new System.Drawing.Size(103, 13);
-            this.TxtMedicineDateOfIssue.TabIndex = 65;
-            // 
-            // TxtMedicineDateOfWithDrawal
-            // 
-            this.TxtMedicineDateOfWithDrawal.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtMedicineDateOfWithDrawal.Location = new System.Drawing.Point(301, 94);
-            this.TxtMedicineDateOfWithDrawal.Name = "TxtMedicineDateOfWithDrawal";
-            this.TxtMedicineDateOfWithDrawal.ReadOnly = true;
-            this.TxtMedicineDateOfWithDrawal.Size = new System.Drawing.Size(103, 13);
-            this.TxtMedicineDateOfWithDrawal.TabIndex = 67;
-            // 
-            // LblMedicineDateOfWithDrawal
-            // 
-            this.LblMedicineDateOfWithDrawal.AutoSize = true;
-            this.LblMedicineDateOfWithDrawal.Location = new System.Drawing.Point(194, 94);
-            this.LblMedicineDateOfWithDrawal.Name = "LblMedicineDateOfWithDrawal";
-            this.LblMedicineDateOfWithDrawal.Size = new System.Drawing.Size(101, 13);
-            this.LblMedicineDateOfWithDrawal.TabIndex = 66;
-            this.LblMedicineDateOfWithDrawal.Text = "Date of Withdrawal:";
-            // 
-            // TxtMedicineAdditionalForm
-            // 
-            this.TxtMedicineAdditionalForm.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtMedicineAdditionalForm.Location = new System.Drawing.Point(87, 139);
-            this.TxtMedicineAdditionalForm.Multiline = true;
-            this.TxtMedicineAdditionalForm.Name = "TxtMedicineAdditionalForm";
-            this.TxtMedicineAdditionalForm.ReadOnly = true;
-            this.TxtMedicineAdditionalForm.Size = new System.Drawing.Size(338, 55);
-            this.TxtMedicineAdditionalForm.TabIndex = 69;
-            // 
-            // LblMedicineAdditionalForm
-            // 
-            this.LblMedicineAdditionalForm.AutoSize = true;
-            this.LblMedicineAdditionalForm.Location = new System.Drawing.Point(7, 138);
-            this.LblMedicineAdditionalForm.Name = "LblMedicineAdditionalForm";
-            this.LblMedicineAdditionalForm.Size = new System.Drawing.Size(74, 13);
-            this.LblMedicineAdditionalForm.TabIndex = 68;
-            this.LblMedicineAdditionalForm.Text = "Additional Info";
+            this.PicIsModified.ErrorImage = null;
+            this.PicIsModified.Image = global::Ababu.Properties.Resources.bullet_green;
+            this.PicIsModified.InitialImage = null;
+            this.PicIsModified.Location = new System.Drawing.Point(429, 2);
+            this.PicIsModified.Name = "PicIsModified";
+            this.PicIsModified.Size = new System.Drawing.Size(17, 18);
+            this.PicIsModified.TabIndex = 71;
+            this.PicIsModified.TabStop = false;
             // 
             // FrmPrescriptionEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(769, 240);
+            this.ClientSize = new System.Drawing.Size(458, 404);
+            this.Controls.Add(this.PicIsModified);
             this.Controls.Add(this.ChkInEvidence);
             this.Controls.Add(this.PicInEvidence);
             this.Controls.Add(this.GrbMedicineDetail);
@@ -355,12 +377,15 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPrescriptionEdit";
             this.Text = "Prescription";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPrescriptionEdit_FormClosing);
             this.Load += new System.EventHandler(this.FrmPrescriptionEdit_Load);
             this.StsPrescriptionEdit.ResumeLayout(false);
             this.StsPrescriptionEdit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicInEvidence)).EndInit();
             this.GrbMedicineDetail.ResumeLayout(false);
             this.GrbMedicineDetail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrPrescriptionEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,5 +421,7 @@
         private System.Windows.Forms.Label LblMedicineDateOfWithDrawal;
         private System.Windows.Forms.TextBox TxtMedicineAdditionalForm;
         private System.Windows.Forms.Label LblMedicineAdditionalForm;
+        private System.Windows.Forms.ErrorProvider ErrPrescriptionEdit;
+        private System.Windows.Forms.PictureBox PicIsModified;
     }
 }

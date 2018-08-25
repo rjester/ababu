@@ -90,3 +90,13 @@
 25/08/2018 18:59:18 (error): Unable to convert MySQL date/time value to System.DateTime
 25/08/2018 19:01:54 (error): Unable to convert MySQL date/time value to System.DateTime
 25/08/2018 19:03:49 (error): Unable to convert MySQL date/time value to System.DateTime
+26/08/2018 00:47:28 (error): Unable to connect to any of the specified MySQL hosts.
+26/08/2018 00:47:30 (error): Connection must be valid and open.
+26/08/2018 00:55:47 (error): Il tipo di valore non è conforme al tipo di colonnaImpossibile archiviare <01/01/0001 00:00:00> nella colonna date_of_withdrawal. Il tipo previsto è MySqlDateTime.
+26/08/2018 01:00:38 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 0 AND a.diagnosis_id = EU/2/08/088/004' at line 1
+26/08/2018 01:00:54 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 0 AND a.diagnosis_id = EU/2/11/137/001-003' at line 1
+26/08/2018 01:01:53 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 0 AND a.diagnosis_id = EU/2/10/118/007-008,018' at line 1
+26/08/2018 01:16:58 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 0 AND a.diagnosis_id = 15052/4141' at line 1
+26/08/2018 01:45:32 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 0 AND a.diagnosis_id = EU/2/10/118/007-008,018' at line 1
+26/08/2018 01:49:43 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 0 AND a.diagnosis_id = 00879/4011' at line 1
+26/08/2018 01:51:50 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 0 AND a.diagnosis_id = EU/2/10/118/009-010,019' at line 1
