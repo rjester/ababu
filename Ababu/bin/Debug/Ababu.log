@@ -87,3 +87,6 @@
 25/08/2018 18:12:50 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Unknown database 'ababu02'
 25/08/2018 18:12:53 (error): Authentication to host 'localhost' for user 'ozzy' using method 'mysql_native_password' failed with message: Unknown database 'ababu02'
 25/08/2018 18:13:07 (error): Table 'ababu.medicines' doesn't exist
+25/08/2018 18:59:18 (error): Unable to convert MySQL date/time value to System.DateTime
+25/08/2018 19:01:54 (error): Unable to convert MySQL date/time value to System.DateTime
+25/08/2018 19:03:49 (error): Unable to convert MySQL date/time value to System.DateTime

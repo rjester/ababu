@@ -15,7 +15,7 @@ namespace OldAuntie
         public DateTime DateOfIssue { get; set; }
         public DateTime? DateOfWithDrawal { get; set; }
         public string PharmaceuticalForm { get; set; }
-        public string TargetSpecied { get; set; }
+        public string TargetSpecies { get; set; }
         public string AdditionalInfo{ get; set; }
 
         public Medicine(string mid)
@@ -39,6 +39,7 @@ namespace OldAuntie
                 DateOfIssue = (DateTime)result["date_of_issue"];
                 DateOfWithDrawal = Utility.IfDBNull(result["date_of_withdrawal"], null);
                 PharmaceuticalForm = result["pharmaceutical_form"].ToString();
+                TargetSpecies = result["target_species"].ToString();
                 AdditionalInfo = result["additional_info"].ToString();
             }
 

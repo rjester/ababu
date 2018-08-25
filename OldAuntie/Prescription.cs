@@ -16,6 +16,7 @@ namespace OldAuntie
         public string Dosage { get; set; }
         public bool InEvidence { get; set; }
         public DateTime Created { get; set; }
+        public DateTime? Updated { get; set; }
 
         public Prescription(string mid, int pid)
         {
@@ -26,7 +27,7 @@ namespace OldAuntie
         public Prescription Load(string mid, int pid)
         {
             string query = "SELECT * FROM prescriptions a, medicines b " +
-                    "WHERE a.mdi = b.mid" +
+                    "WHERE a.mid = b.mid" +
                     "AND a.pid = " + pid.ToString() + " " +
                     "AND a.diagnosis_id = " + mid.ToString();
             DataRow result = Globals.DBCon.SelectOneRow(query);
@@ -37,8 +38,9 @@ namespace OldAuntie
                 Pid = (int)result["pid"];
                 Qty = (int)result["qty"];
                 Dosage = result["dosage"].ToString();
-                InEvidence = (bool)result["dosage"];
+                InEvidence = (bool)result["in_evidence"];
                 Created = (DateTime)result["created"];
+                Updated = (DateTime)result["updated"];
             }
 
             return this;
@@ -61,7 +63,7 @@ namespace OldAuntie
         public int Update()
         {
             int affetcedRows = 0;
-            int updated_id = 0;
+            // int updated_id = 0;
 
             string query = "UPDATE prescriptions  SET " +
                                     "qty=@qty, " +
