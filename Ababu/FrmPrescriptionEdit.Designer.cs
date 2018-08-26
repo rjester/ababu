@@ -63,19 +63,21 @@
             this.PicInEvidence = new System.Windows.Forms.PictureBox();
             this.BtnPrescriptionDelete = new System.Windows.Forms.Button();
             this.LblCreated = new System.Windows.Forms.Label();
+            this.GrbPrescription = new System.Windows.Forms.GroupBox();
             this.StsPrescriptionEdit.SuspendLayout();
             this.GrbMedicineDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrPrescriptionEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicInEvidence)).BeginInit();
+            this.GrbPrescription.SuspendLayout();
             this.SuspendLayout();
             // 
             // TxtMedicine
             // 
-            this.TxtMedicine.Location = new System.Drawing.Point(12, 21);
+            this.TxtMedicine.Location = new System.Drawing.Point(7, 33);
             this.TxtMedicine.Name = "TxtMedicine";
             this.TxtMedicine.ReadOnly = true;
-            this.TxtMedicine.Size = new System.Drawing.Size(440, 20);
+            this.TxtMedicine.Size = new System.Drawing.Size(418, 20);
             this.TxtMedicine.TabIndex = 62;
             // 
             // StsPrescriptionEdit
@@ -97,7 +99,7 @@
             // ChkInEvidence
             // 
             this.ChkInEvidence.AutoSize = true;
-            this.ChkInEvidence.Location = new System.Drawing.Point(348, 74);
+            this.ChkInEvidence.Location = new System.Drawing.Point(325, 76);
             this.ChkInEvidence.Name = "ChkInEvidence";
             this.ChkInEvidence.Size = new System.Drawing.Size(82, 17);
             this.ChkInEvidence.TabIndex = 1;
@@ -107,7 +109,7 @@
             // LblQuantity
             // 
             this.LblQuantity.AutoSize = true;
-            this.LblQuantity.Location = new System.Drawing.Point(111, 53);
+            this.LblQuantity.Location = new System.Drawing.Point(106, 56);
             this.LblQuantity.Name = "LblQuantity";
             this.LblQuantity.Size = new System.Drawing.Size(46, 13);
             this.LblQuantity.TabIndex = 68;
@@ -116,7 +118,7 @@
             // LblDosage
             // 
             this.LblDosage.AutoSize = true;
-            this.LblDosage.Location = new System.Drawing.Point(182, 53);
+            this.LblDosage.Location = new System.Drawing.Point(177, 56);
             this.LblDosage.Name = "LblDosage";
             this.LblDosage.Size = new System.Drawing.Size(44, 13);
             this.LblDosage.TabIndex = 67;
@@ -124,14 +126,14 @@
             // 
             // TxtDosage
             // 
-            this.TxtDosage.Location = new System.Drawing.Point(181, 71);
+            this.TxtDosage.Location = new System.Drawing.Point(176, 74);
             this.TxtDosage.Name = "TxtDosage";
-            this.TxtDosage.Size = new System.Drawing.Size(143, 20);
+            this.TxtDosage.Size = new System.Drawing.Size(130, 20);
             this.TxtDosage.TabIndex = 66;
             // 
             // TxtQuantity
             // 
-            this.TxtQuantity.Location = new System.Drawing.Point(114, 71);
+            this.TxtQuantity.Location = new System.Drawing.Point(109, 74);
             this.TxtQuantity.Name = "TxtQuantity";
             this.TxtQuantity.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TxtQuantity.Size = new System.Drawing.Size(43, 20);
@@ -141,7 +143,7 @@
             // LblMedicine
             // 
             this.LblMedicine.AutoSize = true;
-            this.LblMedicine.Location = new System.Drawing.Point(12, 7);
+            this.LblMedicine.Location = new System.Drawing.Point(7, 19);
             this.LblMedicine.Name = "LblMedicine";
             this.LblMedicine.Size = new System.Drawing.Size(50, 13);
             this.LblMedicine.TabIndex = 69;
@@ -164,9 +166,9 @@
             this.GrbMedicineDetail.Controls.Add(this.TxtMedicineName);
             this.GrbMedicineDetail.Controls.Add(this.LblMedicineDateOfIssue);
             this.GrbMedicineDetail.Controls.Add(this.LblMedicineName);
-            this.GrbMedicineDetail.Location = new System.Drawing.Point(12, 125);
+            this.GrbMedicineDetail.Location = new System.Drawing.Point(12, 118);
             this.GrbMedicineDetail.Name = "GrbMedicineDetail";
-            this.GrbMedicineDetail.Size = new System.Drawing.Size(431, 207);
+            this.GrbMedicineDetail.Size = new System.Drawing.Size(431, 214);
             this.GrbMedicineDetail.TabIndex = 70;
             this.GrbMedicineDetail.TabStop = false;
             this.GrbMedicineDetail.Text = "Medicine detail";
@@ -316,7 +318,7 @@
             // 
             this.DtpCreated.Enabled = false;
             this.DtpCreated.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpCreated.Location = new System.Drawing.Point(12, 71);
+            this.DtpCreated.Location = new System.Drawing.Point(7, 74);
             this.DtpCreated.Name = "DtpCreated";
             this.DtpCreated.Size = new System.Drawing.Size(96, 20);
             this.DtpCreated.TabIndex = 72;
@@ -362,7 +364,7 @@
             this.PicInEvidence.ErrorImage = null;
             this.PicInEvidence.Image = global::Ababu.Properties.Resources.tick;
             this.PicInEvidence.InitialImage = null;
-            this.PicInEvidence.Location = new System.Drawing.Point(435, 73);
+            this.PicInEvidence.Location = new System.Drawing.Point(412, 75);
             this.PicInEvidence.Name = "PicInEvidence";
             this.PicInEvidence.Size = new System.Drawing.Size(17, 18);
             this.PicInEvidence.TabIndex = 56;
@@ -384,11 +386,30 @@
             // LblCreated
             // 
             this.LblCreated.AutoSize = true;
-            this.LblCreated.Location = new System.Drawing.Point(9, 53);
+            this.LblCreated.Location = new System.Drawing.Point(4, 56);
             this.LblCreated.Name = "LblCreated";
             this.LblCreated.Size = new System.Drawing.Size(99, 13);
             this.LblCreated.TabIndex = 74;
             this.LblCreated.Text = "Date of prescription";
+            // 
+            // GrbPrescription
+            // 
+            this.GrbPrescription.Controls.Add(this.TxtDosage);
+            this.GrbPrescription.Controls.Add(this.LblCreated);
+            this.GrbPrescription.Controls.Add(this.TxtQuantity);
+            this.GrbPrescription.Controls.Add(this.ChkInEvidence);
+            this.GrbPrescription.Controls.Add(this.LblMedicine);
+            this.GrbPrescription.Controls.Add(this.PicInEvidence);
+            this.GrbPrescription.Controls.Add(this.LblDosage);
+            this.GrbPrescription.Controls.Add(this.DtpCreated);
+            this.GrbPrescription.Controls.Add(this.LblQuantity);
+            this.GrbPrescription.Controls.Add(this.TxtMedicine);
+            this.GrbPrescription.Location = new System.Drawing.Point(12, 12);
+            this.GrbPrescription.Name = "GrbPrescription";
+            this.GrbPrescription.Size = new System.Drawing.Size(434, 100);
+            this.GrbPrescription.TabIndex = 75;
+            this.GrbPrescription.TabStop = false;
+            this.GrbPrescription.Text = "Prescription";
             // 
             // FrmPrescriptionEdit
             // 
@@ -396,22 +417,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(458, 404);
-            this.Controls.Add(this.LblCreated);
-            this.Controls.Add(this.BtnPrescriptionPrint);
-            this.Controls.Add(this.DtpCreated);
             this.Controls.Add(this.PicIsModified);
-            this.Controls.Add(this.ChkInEvidence);
-            this.Controls.Add(this.PicInEvidence);
+            this.Controls.Add(this.GrbPrescription);
+            this.Controls.Add(this.BtnPrescriptionPrint);
             this.Controls.Add(this.GrbMedicineDetail);
-            this.Controls.Add(this.LblMedicine);
-            this.Controls.Add(this.LblQuantity);
-            this.Controls.Add(this.LblDosage);
-            this.Controls.Add(this.TxtDosage);
-            this.Controls.Add(this.TxtQuantity);
             this.Controls.Add(this.BtnPrescriptionDelete);
             this.Controls.Add(this.BtnPrescriptionSave);
             this.Controls.Add(this.StsPrescriptionEdit);
-            this.Controls.Add(this.TxtMedicine);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPrescriptionEdit";
             this.Text = "Prescription";
@@ -424,6 +436,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ErrPrescriptionEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicInEvidence)).EndInit();
+            this.GrbPrescription.ResumeLayout(false);
+            this.GrbPrescription.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -464,5 +478,6 @@
         private System.Windows.Forms.DateTimePicker DtpCreated;
         private System.Windows.Forms.Button BtnPrescriptionPrint;
         private System.Windows.Forms.Label LblCreated;
+        private System.Windows.Forms.GroupBox GrbPrescription;
     }
 }

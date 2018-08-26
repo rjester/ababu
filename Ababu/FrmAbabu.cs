@@ -40,8 +40,6 @@ namespace Ababu
             // show login form
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.ShowDialog();
-            
-
             this.WindowState = FormWindowState.Maximized;
 
 
@@ -53,8 +51,6 @@ namespace Ababu
 
             TabAbabu.TabPages.Add(TpVisit);
             TabAbabu.SelectedTab = TpVisit;
-
-
         }
 
 

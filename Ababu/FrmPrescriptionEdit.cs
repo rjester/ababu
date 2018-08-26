@@ -31,7 +31,7 @@ namespace Ababu
 
         private void FrmPrescriptionEdit_Load(object sender, EventArgs e)
         {
-            FillPrescriptionForm();
+            FillForm();
 
             AddOnChangeHandlerToInputControls(this);
         }
@@ -82,11 +82,21 @@ namespace Ababu
 
         private void LockForm()
         {
+            GrbPrescription.Enabled = false;
 
+            BtnPrescriptionSave.Enabled = false;
+            BtnPrescriptionDelete.Enabled = false;
+            BtnPrescriptionPrint.Enabled = false;
+            /*
+            BtnPrescriptionSave.Enabled = false;
+            TxtQuantity.Enabled = false;
+            TxtDosage.Enabled = false;
+            ChkInEvidence.Enabled = false;
+            */
         }
 
 
-        private void FillPrescriptionForm()
+        private void FillForm()
         {
             TxtMedicine.Text = M.Name;
 
@@ -103,12 +113,20 @@ namespace Ababu
             TxtMedicinePharmaceuticalForm.Text = M.PharmaceuticalForm;
             TxtMedicineAdditionalForm.Text = M.AdditionalInfo;
 
-            
+            // avoid to delete or print a recod that not exists
             if (Prescript.Exists() == false)
             {
                 BtnPrescriptionDelete.Enabled = false;
                 BtnPrescriptionPrint.Enabled = false;
             }
+
+            // check if Medicine is still available on the market to avoid modification
+            if (M.DateOfWithDrawal > DateTime.MinValue)
+            {
+                LockForm();
+            }
+
+
         }
 
         private void BtnPrescriptionSave_Click(object sender, EventArgs e)
@@ -147,15 +165,12 @@ namespace Ababu
         {
             bool result = true;
             ErrPrescriptionEdit.Clear();
-            
-
 
             if (TxtQuantity.Text.Trim() == string.Empty)
             {
                 result = result & false;
                 ErrPrescriptionEdit.SetError(TxtQuantity, "Quantity cannot be empty");
             }
-
 
             if (TxtDosage.Text.Trim() == string.Empty)
             {
