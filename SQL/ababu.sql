@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Ago 25, 2018 alle 19:04
+-- Creato il: Ago 26, 2018 alle 20:42
 -- Versione del server: 10.1.34-MariaDB
 -- Versione PHP: 7.2.8
 
@@ -2910,7 +2910,8 @@ INSERT INTO `notes` (`nid`, `pid`, `uid`, `note_text`, `created`, `updated`) VAL
 (1, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis', 0, NULL),
 (2, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 0, NULL),
 (3, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis', 0, NULL),
-(4, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 0, NULL);
+(4, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 0, NULL),
+(5, 1, 2, 'changed connection string', 1535245297, NULL);
 
 -- --------------------------------------------------------
 
@@ -2991,13 +2992,26 @@ INSERT INTO `pets` (`pid`, `tsn`, `oid`, `name`, `gender`, `date_of_birth`, `dat
 --
 
 CREATE TABLE `prescriptions` (
+  `created` datetime NOT NULL,
   `mid` varchar(255) NOT NULL,
   `pid` int(11) NOT NULL,
-  `qty` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
   `dosage` varchar(255) NOT NULL,
   `in_evidence` tinyint(1) NOT NULL,
-  `created` datetime NOT NULL
+  `updated` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `prescriptions`
+--
+
+INSERT INTO `prescriptions` (`created`, `mid`, `pid`, `quantity`, `dosage`, `in_evidence`, `updated`) VALUES
+('2018-08-26 17:34:05', '32742/4005', 1, 3, '3', 0, NULL),
+('2018-08-26 18:39:21', '32742/4005', 1, 3, '3', 0, NULL),
+('2018-08-26 18:43:02', '32742/4005', 1, 3, '3', 0, NULL),
+('2018-08-26 19:58:53', '32742/4005', 1, 3, 'dosaggio', 1, '2018-08-26 20:23:27'),
+('2018-08-26 20:21:02', '31592/4005', 1, 1, 'booo', 0, '2018-08-26 20:36:23'),
+('2018-08-26 20:21:26', '31592/4005', 1, 1, 'serio', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -3024,10 +3038,10 @@ CREATE TABLE `problems` (
 --
 
 INSERT INTO `problems` (`diagnosis_id`, `pid`, `uid`, `date_from`, `status_id`, `essential`, `subjective_analysis`, `objective_analysis`, `notes`, `created`, `updated`) VALUES
-(333, 1, 2, 1535230877, 3, 0, '', '', '', 1535223681, NULL),
+(333, 1, 2, 1535238077, 3, 0, '', '', '', 1535223681, 1535315520),
 (655, 1, 2, 1534375055, 0, 1, '', '', '', 1534447062, 1534447072),
 (1352, 1, 2, 1535230902, 1, 0, '', '', '', 1535223708, NULL),
-(7503, 1, 2, 1533917351, 3, 0, 'Sub', 'Objective analysis', 'Notes', 1533931768, 1535223674),
+(7503, 1, 2, 1533924551, 3, 0, 'Sub', 'Objective analysis', 'Notes', 1533931768, 1535315757),
 (16692, 1, 2, 1535230892, 0, 0, '', '', '', 1535223692, NULL),
 (324, 3, 2, 0, 2, 0, NULL, NULL, NULL, 1494430623, 1494430623),
 (524, 3, 2, 3600, 3, 1, 'Subjective', 'Objective', '', 1492592799, 1534105388),
@@ -7301,6 +7315,12 @@ ALTER TABLE `pets`
   ADD PRIMARY KEY (`pid`);
 
 --
+-- Indici per le tabelle `prescriptions`
+--
+ALTER TABLE `prescriptions`
+  ADD PRIMARY KEY (`created`,`mid`,`pid`);
+
+--
 -- Indici per le tabelle `problems`
 --
 ALTER TABLE `problems`
@@ -7351,7 +7371,7 @@ ALTER TABLE `visit`
 -- AUTO_INCREMENT per la tabella `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `nid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `nid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT per la tabella `owners`

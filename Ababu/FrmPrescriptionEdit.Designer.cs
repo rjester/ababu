@@ -116,7 +116,7 @@
             // LblDosage
             // 
             this.LblDosage.AutoSize = true;
-            this.LblDosage.Location = new System.Drawing.Point(167, 53);
+            this.LblDosage.Location = new System.Drawing.Point(182, 53);
             this.LblDosage.Name = "LblDosage";
             this.LblDosage.Size = new System.Drawing.Size(44, 13);
             this.LblDosage.TabIndex = 67;
@@ -124,9 +124,9 @@
             // 
             // TxtDosage
             // 
-            this.TxtDosage.Location = new System.Drawing.Point(170, 71);
+            this.TxtDosage.Location = new System.Drawing.Point(181, 71);
             this.TxtDosage.Name = "TxtDosage";
-            this.TxtDosage.Size = new System.Drawing.Size(171, 20);
+            this.TxtDosage.Size = new System.Drawing.Size(143, 20);
             this.TxtDosage.TabIndex = 66;
             // 
             // TxtQuantity
@@ -134,7 +134,7 @@
             this.TxtQuantity.Location = new System.Drawing.Point(114, 71);
             this.TxtQuantity.Name = "TxtQuantity";
             this.TxtQuantity.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TxtQuantity.Size = new System.Drawing.Size(50, 20);
+            this.TxtQuantity.Size = new System.Drawing.Size(43, 20);
             this.TxtQuantity.TabIndex = 65;
             this.TxtQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtMedicineQuantity_KeyPress);
             // 
@@ -314,6 +314,7 @@
             // 
             // DtpCreated
             // 
+            this.DtpCreated.Enabled = false;
             this.DtpCreated.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DtpCreated.Location = new System.Drawing.Point(12, 71);
             this.DtpCreated.Name = "DtpCreated";
@@ -378,6 +379,7 @@
             this.BtnPrescriptionDelete.Text = "Delete";
             this.BtnPrescriptionDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnPrescriptionDelete.UseVisualStyleBackColor = true;
+            this.BtnPrescriptionDelete.Click += new System.EventHandler(this.BtnPrescriptionDelete_Click);
             // 
             // LblCreated
             // 

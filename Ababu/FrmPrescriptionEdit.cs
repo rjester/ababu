@@ -90,7 +90,7 @@ namespace Ababu
         {
             TxtMedicine.Text = M.Name;
 
-            // DtpCreated.Value = Prescript.Created;
+            DtpCreated.Value = Prescript.Created;
             TxtQuantity.Text = Prescript.Quantity.ToString();
             TxtDosage.Text = Prescript.Dosage;
             ChkInEvidence.Checked = Prescript.InEvidence;
@@ -103,12 +103,12 @@ namespace Ababu
             TxtMedicinePharmaceuticalForm.Text = M.PharmaceuticalForm;
             TxtMedicineAdditionalForm.Text = M.AdditionalInfo;
 
-            /*
-            if (Problema.Exists() == false)
+            
+            if (Prescript.Exists() == false)
             {
-                BtnProblemDelete.Enabled = false;
+                BtnPrescriptionDelete.Enabled = false;
+                BtnPrescriptionPrint.Enabled = false;
             }
-            */
         }
 
         private void BtnPrescriptionSave_Click(object sender, EventArgs e)
@@ -195,6 +195,20 @@ namespace Ababu
                 }
             }
         }
-        
+
+        private void BtnPrescriptionDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to delete selected prescription (operation cannot be undone) ?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                int affected_rows = Prescript.Delete();
+
+                if (affected_rows > 0)
+                {
+                    this.Close();
+                    this.Dispose();
+                }
+            }
+        }
     }
 }

@@ -213,3 +213,109 @@
 26/08/2018 18:39:21 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '17:34:05 AND mid = 32742/4005 AND pid = 1' at line 1
 26/08/2018 18:43:02 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '18:39:21 AND mid = 32742/4005 AND pid = 1' at line 1
 26/08/2018 18:49:02 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '18:43:02 AND mid = 32742/4005 AND pid = 1' at line 1
+26/08/2018 19:58:16 (error): There is already an open DataReader associated with this Connection which must be closed first.
+26/08/2018 19:58:16 (error): There is already an open DataReader associated with this Connection which must be closed first.
+26/08/2018 19:58:51 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '19:58:43 AND mid = 32742/4005 AND pid = 1' at line 1
+26/08/2018 19:59:15 (error): There is already an open DataReader associated with this Connection which must be closed first.
+26/08/2018 19:59:15 (error): There is already an open DataReader associated with this Connection which must be closed first.
+26/08/2018 20:00:57 (error): There is already an open DataReader associated with this Connection which must be closed first.
+26/08/2018 20:00:57 (error): There is already an open DataReader associated with this Connection which must be closed first.
+26/08/2018 20:18:39 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND created = '2018-08-26 20:18:30.478239' AND pid = 1 AND mid = '43173/4002'' at line 1
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   in OldAuntie.Prescription.Exists() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 195
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 102
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 128
+26/08/2018 20:18:43 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND created = '2018-08-26 20:18:30.478239' AND pid = 1 AND mid = '43173/4002'' at line 1
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   in OldAuntie.Prescription.Exists() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 195
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 102
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 128
+26/08/2018 20:18:44 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND created = '2018-08-26 20:18:30.478239' AND pid = 1 AND mid = '43173/4002'' at line 1
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   in OldAuntie.Prescription.Exists() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 195
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 102
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 128
+26/08/2018 20:18:45 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND created = '2018-08-26 20:18:30.478239' AND pid = 1 AND mid = '43173/4002'' at line 1
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   in OldAuntie.Prescription.Exists() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 195
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 102
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 128
+26/08/2018 20:18:45 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND created = '2018-08-26 20:18:30.478239' AND pid = 1 AND mid = '43173/4002'' at line 1
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   in OldAuntie.Prescription.Exists() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 195
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 102
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 128
+26/08/2018 20:18:45 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND created = '2018-08-26 20:18:30.478239' AND pid = 1 AND mid = '43173/4002'' at line 1
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   in OldAuntie.Prescription.Exists() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 195
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 102
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 128
+26/08/2018 20:18:45 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND created = '2018-08-26 20:18:30.478239' AND pid = 1 AND mid = '43173/4002'' at line 1
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   in OldAuntie.Prescription.Exists() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 195
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 102
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 128
+26/08/2018 20:18:45 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND created = '2018-08-26 20:18:30.478239' AND pid = 1 AND mid = '43173/4002'' at line 1
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   in OldAuntie.Prescription.Exists() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 195
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 102
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 128
+26/08/2018 20:19:01 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND created = '2018-08-26 20:18:56.753995' AND pid = 1 AND mid = '32742/4005'' at line 1
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteScalar()
+   in OldAuntie.Prescription.Exists() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 195
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 102
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 128
