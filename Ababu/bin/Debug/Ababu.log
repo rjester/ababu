@@ -201,3 +201,15 @@
 26/08/2018 11:14:48 (error): Unknown column 'a.quantity' in 'field list'
 26/08/2018 11:15:54 (error): Unknown column 'a.quantity' in 'field list'
 26/08/2018 11:16:05 (error): Unknown column 'a.quantity' in 'field list'
+26/08/2018 17:21:17 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 1 AND a.diagnosis_id = 15052/4141' at line 1
+26/08/2018 17:33:59 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.created = 26/08/2018 17:33:59 AND a.pid = 1 AND a.mid = 32742/4005' at line 1
+26/08/2018 17:34:05 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '00:00:00 AND mid = 32742/4005 AND pid = 1' at line 1
+26/08/2018 17:36:09 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.created = 26/08/2018 17:34:05 AND a.pid = 1 AND a.mid = 32742/4005' at line 1
+26/08/2018 17:38:59 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.created = 26/08/2018 10:42:22 AND a.pid = 1 AND a.mid = 00879/4011' at line 1
+26/08/2018 17:39:09 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.created = 26/08/2018 17:21:45 AND a.pid = 1 AND a.mid = 15052/4141' at line 1
+26/08/2018 17:39:15 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.created = 26/08/2018 17:34:05 AND a.pid = 1 AND a.mid = 32742/4005' at line 1
+26/08/2018 17:53:46 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.created = 26/08/2018 17:21:45 AND a.pid = 1 AND a.mid = 15052/4141' at line 1
+26/08/2018 17:54:45 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.created = 26/08/2018 17:34:05 AND a.pid = 1 AND a.mid = 32742/4005' at line 1
+26/08/2018 18:39:21 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '17:34:05 AND mid = 32742/4005 AND pid = 1' at line 1
+26/08/2018 18:43:02 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '18:39:21 AND mid = 32742/4005 AND pid = 1' at line 1
+26/08/2018 18:49:02 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '18:43:02 AND mid = 32742/4005 AND pid = 1' at line 1

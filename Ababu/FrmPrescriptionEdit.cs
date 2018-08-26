@@ -19,11 +19,11 @@ namespace Ababu
 
         private bool IsModified = false;
 
-        public FrmPrescriptionEdit(string mid, int pid)
+        public FrmPrescriptionEdit(DateTime created, string mid, int pid)
         {
             M = new Medicine(mid);
             P = new Pet(pid);
-            Prescript = new Prescription(mid, pid);
+            Prescript = new Prescription(created, mid, pid);
             InitializeComponent();
         }
 
@@ -80,16 +80,20 @@ namespace Ababu
         }
 
 
-        private void UnlockForm()
+        private void LockForm()
         {
-            IsModified = false;
-            PicIsModified.Image = Properties.Resources.bullet_green;
+
         }
 
 
         private void FillPrescriptionForm()
         {
             TxtMedicine.Text = M.Name;
+
+            // DtpCreated.Value = Prescript.Created;
+            TxtQuantity.Text = Prescript.Quantity.ToString();
+            TxtDosage.Text = Prescript.Dosage;
+            ChkInEvidence.Checked = Prescript.InEvidence;
 
             TxtMid.Text = M.Mid;
             TxtMedicineName.Text = M.Name;
@@ -111,6 +115,7 @@ namespace Ababu
         {
             if (IsValidForm())
             {
+                Prescript.Created = DtpCreated.Value;
                 Prescript.Mid = M.Mid;
                 Prescript.Pid = P.Pid;
                 Prescript.Quantity = Convert.ToInt32(TxtQuantity.Text);
@@ -123,7 +128,8 @@ namespace Ababu
                     int affected_row = Prescript.Save();
                     if (affected_row > 0)
                     {
-                        UnlockForm();
+                        IsModified = false;
+                        PicIsModified.Image = Properties.Resources.bullet_green;
                         this.Close();
                         this.Dispose();
                     }
@@ -189,5 +195,6 @@ namespace Ababu
                 }
             }
         }
+        
     }
 }

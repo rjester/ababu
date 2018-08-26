@@ -18,32 +18,81 @@ namespace OldAuntie
         public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
 
-        public Prescription(string mid, int pid)
+        public Prescription(DateTime created, string mid, int pid)
         {
-            Load(mid, pid);    
+            Load(created, mid, pid);
         }
 
 
-        public Prescription Load(string mid, int pid)
+
+        // @todo: delete me ...
+        public Prescription Load_OLD(DateTime created, string mid, int pid)
         {
+            /*
             string query = "SELECT * FROM prescriptions a, medicines b " +
                     "WHERE a.mid = b.mid" +
+                    "AND a.created = " + created + " " +
                     "AND a.pid = " + pid.ToString() + " " +
-                    "AND a.diagnosis_id = " + mid.ToString();
+                    "AND a.mid = '" + mid.ToString() + "'";
             DataRow result = Globals.DBCon.SelectOneRow(query);
 
             if (result != null && result.ItemArray.Count() > 0)
             {
+                Created = (DateTime)result["created"];
                 Mid = result["mid"].ToString();
                 Pid = (int)result["pid"];
                 Quantity = (int)result["quantity"];
                 Dosage = result["dosage"].ToString();
                 InEvidence = (bool)result["in_evidence"];
-                Created = (DateTime)result["created"];
                 Updated = (DateTime)result["updated"];
             }
-
+            */
             return this;
+        }
+
+
+
+        public Prescription Load(DateTime created, string mid, int pid)
+        {
+            string query = "SELECT * FROM prescriptions a, medicines b " +
+                    "WHERE a.mid = b.mid " +
+                    "AND a.created = @created " +
+                    "AND a.pid = @pid " +
+                    "AND a.mid = @mid";
+
+
+
+            MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@created", created);
+            Cmd.Parameters.AddWithValue("@mid", mid);
+            Cmd.Parameters.AddWithValue("@pid", pid);
+            
+            MySqlDataReader reader =  Cmd.ExecuteReader();
+
+            if(reader.HasRows)
+            {
+                DataTable DtResult = new DataTable();
+                DtResult.Load(reader);
+                
+                DataRow result = DtResult.Rows[0];
+
+                if (result != null && result.ItemArray.Count() > 0)
+                {
+                    Created = (DateTime)result["created"];
+                    Mid = result["mid"].ToString();
+                    Pid = (int)result["pid"];
+                    Quantity = (int)result["quantity"];
+                    Dosage = result["dosage"].ToString();
+                    InEvidence = (bool)result["in_evidence"];
+                    Updated = Utility.IfDBNull(result["updated"], null);
+                }
+            }
+
+
+            
+            
+            return this;
+
         }
 
 
@@ -69,18 +118,17 @@ namespace OldAuntie
                                     "quantity=@quantity, " +
                                     "dosage=@dosage, " +
                                     "in_evidence=@in_evidence, " +
-                                    "created=@created, " +
                                     "updated=@updated " +
-                                "WHERE mid=@mid AND pid=@pid";
+                                "WHERE created=@created AND mid=@mid AND pid=@pid";
 
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@created", Created);
             Cmd.Parameters.AddWithValue("@mid", Mid);
             Cmd.Parameters.AddWithValue("@pid", Pid);
             Cmd.Parameters.AddWithValue("@quantity", Quantity);
             Cmd.Parameters.AddWithValue("@dosage", Dosage);
             Cmd.Parameters.AddWithValue("@in_evidence", InEvidence);
-            Cmd.Parameters.AddWithValue("@created", Created);
             Cmd.Parameters.AddWithValue("@updated", DateTime.Now);
 
             affetcedRows = Cmd.ExecuteNonQuery();
@@ -102,12 +150,12 @@ namespace OldAuntie
                         "VALUES (@mid, @pid, @quantity, @dosage, @in_evidence, @created)";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@created", DateTime.Now);
             Cmd.Parameters.AddWithValue("@mid", Mid);
             Cmd.Parameters.AddWithValue("@pid", Pid);
             Cmd.Parameters.AddWithValue("@quantity", Quantity);
             Cmd.Parameters.AddWithValue("@dosage", Dosage);
             Cmd.Parameters.AddWithValue("@in_evidence", InEvidence);
-            Cmd.Parameters.AddWithValue("@created", DateTime.Now);
 
             affetcedRows = Cmd.ExecuteNonQuery();
 
@@ -118,9 +166,10 @@ namespace OldAuntie
         public int Delete()
         {
             int affetcedRows = 0;
-            string query = "DELETE FROM prescriptions WHERE mid=@mid AND pid=@pid";
+            string query = "DELETE FROM prescriptions WHERE created=@created AND mid=@mid AND pid=@pid";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@created", Created);
             Cmd.Parameters.AddWithValue("@mid", Mid);
             Cmd.Parameters.AddWithValue("@pid", Pid);
 
@@ -132,8 +181,13 @@ namespace OldAuntie
 
         public bool Exists()
         {
+            
+
+
+
             string query = "SELECT mid FROM prescriptions " +
-                "WHERE mid = " + Mid + " " +
+                "WHERE created = " + Created + " " +
+                "AND mid = " + Mid + " " +
                 "AND pid = " + Pid;
 
             bool result = Globals.DBCon.Exists(query);
@@ -149,7 +203,7 @@ namespace OldAuntie
                 "FROM prescriptions a, medicines b " +
                 "WHERE a.mid = b.mid " +
                 "AND a.pid = " + pid + " " +
-                "ORDER BY a.created DESC";
+                "ORDER BY a.in_evidence, a.created DESC";
 
             DataTable result = Globals.DBCon.Execute(query);
 

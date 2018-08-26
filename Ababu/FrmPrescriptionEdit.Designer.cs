@@ -56,10 +56,13 @@
             this.LblMedicineDateOfIssue = new System.Windows.Forms.Label();
             this.LblMedicineName = new System.Windows.Forms.Label();
             this.ErrPrescriptionEdit = new System.Windows.Forms.ErrorProvider(this.components);
+            this.DtpCreated = new System.Windows.Forms.DateTimePicker();
+            this.BtnPrescriptionSave = new System.Windows.Forms.Button();
+            this.BtnPrescriptionPrint = new System.Windows.Forms.Button();
             this.PicIsModified = new System.Windows.Forms.PictureBox();
             this.PicInEvidence = new System.Windows.Forms.PictureBox();
             this.BtnPrescriptionDelete = new System.Windows.Forms.Button();
-            this.BtnPrescriptionSave = new System.Windows.Forms.Button();
+            this.LblCreated = new System.Windows.Forms.Label();
             this.StsPrescriptionEdit.SuspendLayout();
             this.GrbMedicineDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrPrescriptionEdit)).BeginInit();
@@ -94,7 +97,7 @@
             // ChkInEvidence
             // 
             this.ChkInEvidence.AutoSize = true;
-            this.ChkInEvidence.Location = new System.Drawing.Point(356, 70);
+            this.ChkInEvidence.Location = new System.Drawing.Point(348, 74);
             this.ChkInEvidence.Name = "ChkInEvidence";
             this.ChkInEvidence.Size = new System.Drawing.Size(82, 17);
             this.ChkInEvidence.TabIndex = 1;
@@ -104,7 +107,7 @@
             // LblQuantity
             // 
             this.LblQuantity.AutoSize = true;
-            this.LblQuantity.Location = new System.Drawing.Point(12, 50);
+            this.LblQuantity.Location = new System.Drawing.Point(111, 53);
             this.LblQuantity.Name = "LblQuantity";
             this.LblQuantity.Size = new System.Drawing.Size(46, 13);
             this.LblQuantity.TabIndex = 68;
@@ -113,7 +116,7 @@
             // LblDosage
             // 
             this.LblDosage.AutoSize = true;
-            this.LblDosage.Location = new System.Drawing.Point(74, 50);
+            this.LblDosage.Location = new System.Drawing.Point(167, 53);
             this.LblDosage.Name = "LblDosage";
             this.LblDosage.Size = new System.Drawing.Size(44, 13);
             this.LblDosage.TabIndex = 67;
@@ -121,14 +124,14 @@
             // 
             // TxtDosage
             // 
-            this.TxtDosage.Location = new System.Drawing.Point(74, 67);
+            this.TxtDosage.Location = new System.Drawing.Point(170, 71);
             this.TxtDosage.Name = "TxtDosage";
-            this.TxtDosage.Size = new System.Drawing.Size(233, 20);
+            this.TxtDosage.Size = new System.Drawing.Size(171, 20);
             this.TxtDosage.TabIndex = 66;
             // 
             // TxtQuantity
             // 
-            this.TxtQuantity.Location = new System.Drawing.Point(12, 67);
+            this.TxtQuantity.Location = new System.Drawing.Point(114, 71);
             this.TxtQuantity.Name = "TxtQuantity";
             this.TxtQuantity.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TxtQuantity.Size = new System.Drawing.Size(50, 20);
@@ -309,6 +312,39 @@
             // 
             this.ErrPrescriptionEdit.ContainerControl = this;
             // 
+            // DtpCreated
+            // 
+            this.DtpCreated.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpCreated.Location = new System.Drawing.Point(12, 71);
+            this.DtpCreated.Name = "DtpCreated";
+            this.DtpCreated.Size = new System.Drawing.Size(96, 20);
+            this.DtpCreated.TabIndex = 72;
+            // 
+            // BtnPrescriptionSave
+            // 
+            this.BtnPrescriptionSave.Image = global::Ababu.Properties.Resources.accept;
+            this.BtnPrescriptionSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnPrescriptionSave.Location = new System.Drawing.Point(128, 352);
+            this.BtnPrescriptionSave.Name = "BtnPrescriptionSave";
+            this.BtnPrescriptionSave.Size = new System.Drawing.Size(75, 23);
+            this.BtnPrescriptionSave.TabIndex = 57;
+            this.BtnPrescriptionSave.Text = "Save";
+            this.BtnPrescriptionSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPrescriptionSave.UseVisualStyleBackColor = true;
+            this.BtnPrescriptionSave.Click += new System.EventHandler(this.BtnPrescriptionSave_Click);
+            // 
+            // BtnPrescriptionPrint
+            // 
+            this.BtnPrescriptionPrint.Image = global::Ababu.Properties.Resources.printer;
+            this.BtnPrescriptionPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnPrescriptionPrint.Location = new System.Drawing.Point(290, 352);
+            this.BtnPrescriptionPrint.Name = "BtnPrescriptionPrint";
+            this.BtnPrescriptionPrint.Size = new System.Drawing.Size(75, 23);
+            this.BtnPrescriptionPrint.TabIndex = 73;
+            this.BtnPrescriptionPrint.Text = "Print";
+            this.BtnPrescriptionPrint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPrescriptionPrint.UseVisualStyleBackColor = true;
+            // 
             // PicIsModified
             // 
             this.PicIsModified.ErrorImage = null;
@@ -325,7 +361,7 @@
             this.PicInEvidence.ErrorImage = null;
             this.PicInEvidence.Image = global::Ababu.Properties.Resources.tick;
             this.PicInEvidence.InitialImage = null;
-            this.PicInEvidence.Location = new System.Drawing.Point(332, 69);
+            this.PicInEvidence.Location = new System.Drawing.Point(435, 73);
             this.PicInEvidence.Name = "PicInEvidence";
             this.PicInEvidence.Size = new System.Drawing.Size(17, 18);
             this.PicInEvidence.TabIndex = 56;
@@ -343,24 +379,24 @@
             this.BtnPrescriptionDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnPrescriptionDelete.UseVisualStyleBackColor = true;
             // 
-            // BtnPrescriptionSave
+            // LblCreated
             // 
-            this.BtnPrescriptionSave.Image = global::Ababu.Properties.Resources.accept;
-            this.BtnPrescriptionSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPrescriptionSave.Location = new System.Drawing.Point(128, 352);
-            this.BtnPrescriptionSave.Name = "BtnPrescriptionSave";
-            this.BtnPrescriptionSave.Size = new System.Drawing.Size(75, 23);
-            this.BtnPrescriptionSave.TabIndex = 57;
-            this.BtnPrescriptionSave.Text = "Save";
-            this.BtnPrescriptionSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPrescriptionSave.UseVisualStyleBackColor = true;
-            this.BtnPrescriptionSave.Click += new System.EventHandler(this.BtnPrescriptionSave_Click);
+            this.LblCreated.AutoSize = true;
+            this.LblCreated.Location = new System.Drawing.Point(9, 53);
+            this.LblCreated.Name = "LblCreated";
+            this.LblCreated.Size = new System.Drawing.Size(99, 13);
+            this.LblCreated.TabIndex = 74;
+            this.LblCreated.Text = "Date of prescription";
             // 
             // FrmPrescriptionEdit
             // 
+            this.AcceptButton = this.BtnPrescriptionSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(458, 404);
+            this.Controls.Add(this.LblCreated);
+            this.Controls.Add(this.BtnPrescriptionPrint);
+            this.Controls.Add(this.DtpCreated);
             this.Controls.Add(this.PicIsModified);
             this.Controls.Add(this.ChkInEvidence);
             this.Controls.Add(this.PicInEvidence);
@@ -423,5 +459,8 @@
         private System.Windows.Forms.Label LblMedicineAdditionalForm;
         private System.Windows.Forms.ErrorProvider ErrPrescriptionEdit;
         private System.Windows.Forms.PictureBox PicIsModified;
+        private System.Windows.Forms.DateTimePicker DtpCreated;
+        private System.Windows.Forms.Button BtnPrescriptionPrint;
+        private System.Windows.Forms.Label LblCreated;
     }
 }

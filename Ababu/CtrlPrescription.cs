@@ -78,15 +78,15 @@ namespace Ababu
             {
                 if (CmbMedicines.SelectedItem != null && CmbMedicines.SelectedValue != null)
                 {
-                    OpenPrescriptionEdit(CmbMedicines.SelectedValue.ToString(), P.Pid);
+                    OpenPrescriptionEdit(DateTime.Now, CmbMedicines.SelectedValue.ToString(), P.Pid);
                 }
             }
         }
 
 
-        private void OpenPrescriptionEdit(string mid, int pid)
+        private void OpenPrescriptionEdit(DateTime created, string mid, int pid)
         {
-            FrmPrescriptionEdit frmPrescriptionEdit = new FrmPrescriptionEdit(mid, pid);
+            FrmPrescriptionEdit frmPrescriptionEdit = new FrmPrescriptionEdit(created, mid, pid);
             frmPrescriptionEdit.FormClosing += new FormClosingEventHandler(PrescriptionEdit_FormClosing);
             frmPrescriptionEdit.ShowDialog();
         }
@@ -103,8 +103,8 @@ namespace Ababu
             string mid = GrdPrescriptions.Rows[e.RowIndex].Cells[1].Value.ToString();
             int pid = (int)GrdPrescriptions.Rows[e.RowIndex].Cells[2].Value;
 
-
-            MessageBox.Show(created.ToString());
+            OpenPrescriptionEdit(created, mid, pid);
+            // MessageBox.Show(created.ToString());
             /*
             if (e.ColumnIndex == 6)
             {
