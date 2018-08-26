@@ -14,13 +14,13 @@ namespace Ababu
 {
     public partial class CtrlPrescription : UserControl
     {
-        public Pet P { get; set; }
+        public Pet oPet { get; set; }
         public Prescription Prescrizione { get; set; }
 
 
         public CtrlPrescription(Pet pet)
         {
-            P = pet;
+            oPet = pet;
             InitializeComponent();
         }
 
@@ -37,7 +37,7 @@ namespace Ababu
             CmbMedicines.DisplayMember = "value";
             CmbMedicines.SelectedValue = 0;
 
-            DataTable DtPrescriptions = Prescription.GetPrescriptionByPid(P.Pid);
+            DataTable DtPrescriptions = Prescription.GetPrescriptionByPid(oPet.Pid);
             DataColumn DcProblemEssential = DtPrescriptions.Columns.Add("in_evidenve_image", typeof(Image));
 
 
@@ -63,6 +63,9 @@ namespace Ababu
 
             // formmating the datagridview
             GrdPrescriptions.Columns["created"].DefaultCellStyle.Format = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
+            GrdPrescriptions.Columns["created"].DisplayIndex = 0;
+
+            GrdPrescriptions.Columns["prescription_id"].Visible = false;
             GrdPrescriptions.Columns["pid"].Visible = false;
             GrdPrescriptions.Columns["mid"].Visible = false;
             GrdPrescriptions.Columns["in_evidence"].Visible = false;
@@ -78,15 +81,17 @@ namespace Ababu
             {
                 if (CmbMedicines.SelectedItem != null && CmbMedicines.SelectedValue != null)
                 {
-                    OpenPrescriptionEdit(DateTime.Now, CmbMedicines.SelectedValue.ToString(), P.Pid);
+                    OpenPrescriptionEdit(CmbMedicines.SelectedValue.ToString(), oPet);
                 }
             }
         }
 
 
-        private void OpenPrescriptionEdit(DateTime created, string mid, int pid)
+        private void OpenPrescriptionEdit(string mid, Pet pet, int prescription_id = 0)
         {
-            FrmPrescriptionEdit frmPrescriptionEdit = new FrmPrescriptionEdit(created, mid, pid);
+            FrmPrescriptionEdit frmPrescriptionEdit = new FrmPrescriptionEdit(prescription_id);
+            frmPrescriptionEdit.oMedicine = new Medicine(mid);
+            frmPrescriptionEdit.oPet = pet;
             frmPrescriptionEdit.FormClosing += new FormClosingEventHandler(PrescriptionEdit_FormClosing);
             frmPrescriptionEdit.ShowDialog();
         }
@@ -99,11 +104,11 @@ namespace Ababu
 
         private void GrdPrescriptions_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DateTime created = (DateTime)GrdPrescriptions.Rows[e.RowIndex].Cells[0].Value;
+            // DateTime created = (DateTime)GrdPrescriptions.Rows[e.RowIndex].Cells[0].Value;
+            int prescription_id = (int)GrdPrescriptions.Rows[e.RowIndex].Cells[0].Value;
             string mid = GrdPrescriptions.Rows[e.RowIndex].Cells[1].Value.ToString();
-            int pid = (int)GrdPrescriptions.Rows[e.RowIndex].Cells[2].Value;
-
-            OpenPrescriptionEdit(created, mid, pid);
+            
+            OpenPrescriptionEdit(mid, oPet, prescription_id);
             // MessageBox.Show(created.ToString());
             /*
             if (e.ColumnIndex == 6)

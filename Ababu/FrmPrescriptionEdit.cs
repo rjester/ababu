@@ -13,17 +13,15 @@ namespace Ababu
 {
     public partial class FrmPrescriptionEdit : Form
     {
-        public Medicine M { get; set; }
-        public Pet P { get; set; }
+        public Medicine oMedicine { get; set; }
+        public Pet oPet { get; set; }
         public Prescription Prescript { get; set; }
 
         private bool IsModified = false;
 
-        public FrmPrescriptionEdit(DateTime created, string mid, int pid)
+        public FrmPrescriptionEdit(int prescription_id = 0)
         {
-            M = new Medicine(mid);
-            P = new Pet(pid);
-            Prescript = new Prescription(created, mid, pid);
+            Prescript = new Prescription(prescription_id);
             InitializeComponent();
         }
 
@@ -98,20 +96,20 @@ namespace Ababu
 
         private void FillForm()
         {
-            TxtMedicine.Text = M.Name;
+            TxtMedicine.Text = oMedicine.Name;
 
-            DtpCreated.Value = Prescript.Created;
+            DtpCreated.Value = Utility.IfNull(Prescript.Created, DateTime.Now);
             TxtQuantity.Text = Prescript.Quantity.ToString();
             TxtDosage.Text = Prescript.Dosage;
             ChkInEvidence.Checked = Prescript.InEvidence;
 
-            TxtMid.Text = M.Mid;
-            TxtMedicineName.Text = M.Name;
-            TxtMedicineCompany.Text = M.Company;
-            TxtMedicineDateOfIssue.Text = M.DateOfIssue.ToShortDateString();
-            TxtMedicineDateOfWithDrawal.Text = M.DateOfWithDrawal.ToString();
-            TxtMedicinePharmaceuticalForm.Text = M.PharmaceuticalForm;
-            TxtMedicineAdditionalForm.Text = M.AdditionalInfo;
+            TxtMid.Text = oMedicine.Mid;
+            TxtMedicineName.Text = oMedicine.Name;
+            TxtMedicineCompany.Text = oMedicine.Company;
+            TxtMedicineDateOfIssue.Text = oMedicine.DateOfIssue.ToShortDateString();
+            TxtMedicineDateOfWithDrawal.Text = oMedicine.DateOfWithDrawal.ToString();
+            TxtMedicinePharmaceuticalForm.Text = oMedicine.PharmaceuticalForm;
+            TxtMedicineAdditionalForm.Text = oMedicine.AdditionalInfo;
 
             // avoid to delete or print a recod that not exists
             if (Prescript.Exists() == false)
@@ -121,7 +119,7 @@ namespace Ababu
             }
 
             // check if Medicine is still available on the market to avoid modification
-            if (M.DateOfWithDrawal > DateTime.MinValue)
+            if (oMedicine.DateOfWithDrawal > DateTime.MinValue)
             {
                 LockForm();
             }
@@ -134,8 +132,8 @@ namespace Ababu
             if (IsValidForm())
             {
                 Prescript.Created = DtpCreated.Value;
-                Prescript.Mid = M.Mid;
-                Prescript.Pid = P.Pid;
+                Prescript.Mid = oMedicine.Mid;
+                Prescript.Pid = oPet.Pid;
                 Prescript.Quantity = Convert.ToInt32(TxtQuantity.Text);
                 Prescript.Dosage = TxtDosage.Text;
                 Prescript.InEvidence = ChkInEvidence.Checked;
