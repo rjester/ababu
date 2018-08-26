@@ -13,14 +13,17 @@ namespace Ababu
 {
     public partial class CtrlTherapy : UserControl
     {
-        public CtrlTherapy()
+        public Pet P { get; set; }
+
+        public CtrlTherapy(Pet pet)
         {
+            P = pet;
             InitializeComponent();
         }
 
         private void CtrlTherapy_Load(object sender, EventArgs e)
         {
-            CtrlPrescription ctrlPrescription = new CtrlPrescription(new Pet());
+            CtrlPrescription ctrlPrescription = new CtrlPrescription(P);
             ctrlPrescription.Dock = DockStyle.Fill;
             TpPrescriptions.Controls.Add(ctrlPrescription);
 

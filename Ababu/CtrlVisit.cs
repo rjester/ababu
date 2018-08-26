@@ -48,7 +48,7 @@ namespace Ababu
             TlpVisitBody.Controls.Add(ctrlDiary, 0, 1);
 
 
-            CtrlTherapy ctrlTherapy = new CtrlTherapy();
+            CtrlTherapy ctrlTherapy = new CtrlTherapy(P);
             ctrlTherapy.Dock = DockStyle.Fill;
             TlpVisitBody.Controls.Add(ctrlTherapy, 1, 0);
 

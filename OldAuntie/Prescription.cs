@@ -12,7 +12,7 @@ namespace OldAuntie
     {
         public string Mid { get; set; }
         public int Pid { get; set; }
-        public int Qty { get; set; }
+        public int Quantity { get; set; }
         public string Dosage { get; set; }
         public bool InEvidence { get; set; }
         public DateTime Created { get; set; }
@@ -36,7 +36,7 @@ namespace OldAuntie
             {
                 Mid = result["mid"].ToString();
                 Pid = (int)result["pid"];
-                Qty = (int)result["qty"];
+                Quantity = (int)result["quantity"];
                 Dosage = result["dosage"].ToString();
                 InEvidence = (bool)result["in_evidence"];
                 Created = (DateTime)result["created"];
@@ -66,7 +66,7 @@ namespace OldAuntie
             // int updated_id = 0;
 
             string query = "UPDATE prescriptions  SET " +
-                                    "qty=@qty, " +
+                                    "quantity=@quantity, " +
                                     "dosage=@dosage, " +
                                     "in_evidence=@in_evidence, " +
                                     "created=@created, " +
@@ -77,7 +77,7 @@ namespace OldAuntie
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@mid", Mid);
             Cmd.Parameters.AddWithValue("@pid", Pid);
-            Cmd.Parameters.AddWithValue("@qty", Qty);
+            Cmd.Parameters.AddWithValue("@quantity", Quantity);
             Cmd.Parameters.AddWithValue("@dosage", Dosage);
             Cmd.Parameters.AddWithValue("@in_evidence", InEvidence);
             Cmd.Parameters.AddWithValue("@created", Created);
@@ -98,13 +98,13 @@ namespace OldAuntie
         {
             int affetcedRows = 0;
 
-            string query = "INSERT into prescriptions (mid, pid, qty, dosage, in_evidence, created) " +
-                        "VALUES (@mid, @pid, @qty, @dosage, @in_evidence, @created)";
+            string query = "INSERT into prescriptions (mid, pid, quantity, dosage, in_evidence, created) " +
+                        "VALUES (@mid, @pid, @quantity, @dosage, @in_evidence, @created)";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@mid", Mid);
             Cmd.Parameters.AddWithValue("@pid", Pid);
-            Cmd.Parameters.AddWithValue("@qty", Qty);
+            Cmd.Parameters.AddWithValue("@quantity", Quantity);
             Cmd.Parameters.AddWithValue("@dosage", Dosage);
             Cmd.Parameters.AddWithValue("@in_evidence", InEvidence);
             Cmd.Parameters.AddWithValue("@created", DateTime.Now);
@@ -143,6 +143,18 @@ namespace OldAuntie
 
 
 
+        static public DataTable GetPrescriptionByPid(int pid)
+        {
+            string query = "SELECT a.created, a.mid, a.pid, b.name, b.date_of_issue, b.date_of_withdrawal, a.quantity, a.dosage, a.in_evidence " +
+                "FROM prescriptions a, medicines b " +
+                "WHERE a.mid = b.mid " +
+                "AND a.pid = " + pid + " " +
+                "ORDER BY a.created DESC";
+
+            DataTable result = Globals.DBCon.Execute(query);
+
+            return result;
+        }
 
 
     }

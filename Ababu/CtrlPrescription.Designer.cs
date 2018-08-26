@@ -79,6 +79,7 @@
             this.GrdPrescriptions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GrdPrescriptions.Size = new System.Drawing.Size(479, 277);
             this.GrdPrescriptions.TabIndex = 5;
+            this.GrdPrescriptions.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdPrescriptions_CellDoubleClick);
             // 
             // PanPrescription
             // 

@@ -111,19 +111,22 @@ namespace Ababu
         {
             if (IsValidForm())
             {
+                Prescript.Mid = M.Mid;
+                Prescript.Pid = P.Pid;
+                Prescript.Quantity = Convert.ToInt32(TxtQuantity.Text);
+                Prescript.Dosage = TxtDosage.Text;
+                Prescript.InEvidence = ChkInEvidence.Checked;
 
                 try
                 {
                     // save the problem
-                    /*
-                    int affected_id = Problema.Save();
-                    if (affected_id > 0)
+                    int affected_row = Prescript.Save();
+                    if (affected_row > 0)
                     {
                         UnlockForm();
                         this.Close();
                         this.Dispose();
                     }
-                    */
                 }
                 catch (Exception ex)
                 {
@@ -141,10 +144,10 @@ namespace Ababu
             
 
 
-            if (TxtQty.Text.Trim() == string.Empty)
+            if (TxtQuantity.Text.Trim() == string.Empty)
             {
                 result = result & false;
-                ErrPrescriptionEdit.SetError(TxtQty, "Quantity cannot be empty");
+                ErrPrescriptionEdit.SetError(TxtQuantity, "Quantity cannot be empty");
             }
 
 

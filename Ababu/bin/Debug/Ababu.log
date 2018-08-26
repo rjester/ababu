@@ -100,3 +100,104 @@
 26/08/2018 01:45:32 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 0 AND a.diagnosis_id = EU/2/10/118/007-008,018' at line 1
 26/08/2018 01:49:43 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 0 AND a.diagnosis_id = 00879/4011' at line 1
 26/08/2018 01:51:50 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 0 AND a.diagnosis_id = EU/2/10/118/009-010,019' at line 1
+26/08/2018 10:02:59 (error): Unable to connect to any of the specified MySQL hosts.
+26/08/2018 10:42:01 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 0 AND a.diagnosis_id = 00879/4011' at line 1
+26/08/2018 10:43:24 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 0 AND a.diagnosis_id = 32742/4005' at line 1
+26/08/2018 10:46:51 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 0 AND a.diagnosis_id = EU/2/10/118/013-014,021' at line 1
+26/08/2018 10:48:29 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 1 AND a.diagnosis_id = EU/2/11/137/010-012' at line 1
+26/08/2018 10:48:59 (error): Unknown column 'EU' in 'where clause'
+26/08/2018 11:11:37 (error): Unknown column 'a.quantity' in 'field list'
+26/08/2018 11:13:26 (error): Unknown column 'a.quantity' in 'field list'
+26/08/2018 11:14:13 (error): Unknown column 'a.quantity' in 'field list'
+26/08/2018 11:14:18 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'a.pid = 1 AND a.diagnosis_id = 00879/4011' at line 1
+26/08/2018 11:14:33 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Duplicate entry '00879/4011-1' for key 'PRIMARY'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 112
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 58
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 123
+26/08/2018 11:14:36 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Duplicate entry '00879/4011-1' for key 'PRIMARY'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 112
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 58
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 123
+26/08/2018 11:14:38 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Duplicate entry '00879/4011-1' for key 'PRIMARY'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 112
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 58
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 123
+26/08/2018 11:14:44 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Duplicate entry '00879/4011-1' for key 'PRIMARY'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 112
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 58
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 123
+26/08/2018 11:14:44 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Duplicate entry '00879/4011-1' for key 'PRIMARY'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 112
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 58
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 123
+26/08/2018 11:14:44 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Duplicate entry '00879/4011-1' for key 'PRIMARY'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 112
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 58
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 123
+26/08/2018 11:14:45 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Duplicate entry '00879/4011-1' for key 'PRIMARY'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 112
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 58
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 123
+26/08/2018 11:14:45 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Duplicate entry '00879/4011-1' for key 'PRIMARY'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 112
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 58
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 123
+26/08/2018 11:14:48 (error): Unknown column 'a.quantity' in 'field list'
+26/08/2018 11:15:54 (error): Unknown column 'a.quantity' in 'field list'
+26/08/2018 11:16:05 (error): Unknown column 'a.quantity' in 'field list'
