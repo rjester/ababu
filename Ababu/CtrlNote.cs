@@ -49,13 +49,17 @@ namespace Ababu
 
         private void TxtNote_Leave(object sender, EventArgs e)
         {
-            this.TxtNote.ReadOnly = true;
+            if(N.Nid > 0){
+                TxtNote.ReadOnly = true;
+                TxtNote.BackColor = Color.Cornsilk;
+            }
         }
 
 
         private void TxtNote_DoubleClick(object sender, EventArgs e)
         {
             this.TxtNote.ReadOnly = false;
+            TxtNote.BackColor = Color.White;
         }
 
 
@@ -66,12 +70,16 @@ namespace Ababu
                 DtpDate.Value = Utility.UnixTimeStampToDateTime(N.Created);
                 TxtNote.Text = N.NoteText;
                 BtnNoteDelete.Enabled = true;
+
+                TxtNote.BackColor = Color.Cornsilk;
+
             }
             else
             {
                 DtpDate.Value = Utility.UnixTimeStampToDateTime(Utility.Now());
                 TxtNote.ReadOnly = false;
             }
+
         }
 
         private void TxtNote_KeyDown(object sender, KeyEventArgs e)

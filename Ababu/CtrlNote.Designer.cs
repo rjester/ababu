@@ -38,7 +38,8 @@
             // 
             // TxtNote
             // 
-            this.TxtNote.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtNote.BackColor = System.Drawing.Color.White;
+            this.TxtNote.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtNote.Location = new System.Drawing.Point(96, 3);
             this.TxtNote.Multiline = true;
             this.TxtNote.Name = "TxtNote";
