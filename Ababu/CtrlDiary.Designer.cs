@@ -42,18 +42,19 @@
             this.TlpDiary.Location = new System.Drawing.Point(0, 0);
             this.TlpDiary.Name = "TlpDiary";
             this.TlpDiary.RowCount = 2;
-            this.TlpDiary.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.40996F));
-            this.TlpDiary.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.59004F));
+            this.TlpDiary.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
+            this.TlpDiary.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95.83334F));
             this.TlpDiary.Size = new System.Drawing.Size(503, 336);
             this.TlpDiary.TabIndex = 0;
             // 
             // FlowDiary
             // 
             this.FlowDiary.AutoScroll = true;
+            this.FlowDiary.BackColor = System.Drawing.SystemColors.Control;
             this.FlowDiary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FlowDiary.Location = new System.Drawing.Point(3, 48);
+            this.FlowDiary.Location = new System.Drawing.Point(3, 17);
             this.FlowDiary.Name = "FlowDiary";
-            this.FlowDiary.Size = new System.Drawing.Size(497, 285);
+            this.FlowDiary.Size = new System.Drawing.Size(497, 316);
             this.FlowDiary.TabIndex = 0;
             // 
             // CtrlDiary

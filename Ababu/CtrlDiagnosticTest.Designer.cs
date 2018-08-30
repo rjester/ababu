@@ -1,6 +1,6 @@
 ﻿namespace Ababu
 {
-    partial class CtrlExamination
+    partial class CtrlDiagnosticTest
     {
         /// <summary> 
         /// Variabile di progettazione necessaria.

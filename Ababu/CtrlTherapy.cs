@@ -23,9 +23,13 @@ namespace Ababu
 
         private void CtrlTherapy_Load(object sender, EventArgs e)
         {
+            /*
+            // @todo: delete me. if you want to use it create a TpPrescriptions tabPage
+            // and add to the TableControl
             CtrlPrescription ctrlPrescription = new CtrlPrescription(P);
             ctrlPrescription.Dock = DockStyle.Fill;
             TpPrescriptions.Controls.Add(ctrlPrescription);
+            */
 
             CtrlMaterial ctrlMaterial = new CtrlMaterial();
             ctrlMaterial.Dock = DockStyle.Fill;

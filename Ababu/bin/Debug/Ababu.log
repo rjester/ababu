@@ -319,3 +319,23 @@
    in OldAuntie.Prescription.Exists() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 195
    in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 102
    in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 128
+29/08/2018 18:06:34 (error): Unable to connect to any of the specified MySQL hosts.
+29/08/2018 18:06:36 (error): Connection must be valid and open.
+30/08/2018 20:19:55 (error): Connection must be valid and open.
+30/08/2018 20:19:56 (error): Connection must be valid and open.
+30/08/2018 20:19:56 (error): Connection must be valid and open.
+30/08/2018 20:20:06 (error): Connection must be valid and open.
+30/08/2018 20:20:06 (error): Connection must be valid and open.
+30/08/2018 20:20:06 (error): Connection must be valid and open.
+30/08/2018 21:11:57 (error): Connection must be valid and open.
+30/08/2018 21:11:57 (error): Connection must be valid and open.
+30/08/2018 21:11:57 (error): Connection must be valid and open.
+30/08/2018 21:15:44 (error): Connection must be valid and open.
+30/08/2018 21:15:44 (error): Connection must be valid and open.
+30/08/2018 21:15:44 (error): Connection must be valid and open.
+30/08/2018 21:16:19 (error): Connection must be valid and open.
+30/08/2018 21:16:20 (error): Connection must be valid and open.
+30/08/2018 21:16:20 (error): Connection must be valid and open.
+30/08/2018 21:18:30 (error): Connection must be valid and open.
+30/08/2018 21:18:30 (error): Connection must be valid and open.
+30/08/2018 21:18:30 (error): Connection must be valid and open.

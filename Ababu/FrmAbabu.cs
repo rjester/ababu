@@ -29,9 +29,6 @@ namespace Ababu
             Globals.DBCon.Password = Properties.Settings.Default.database_password;
             Globals.DBCon.Connect();
             */
-
-
-            
         }
 
 
@@ -42,15 +39,14 @@ namespace Ababu
             frmLogin.ShowDialog();
             this.WindowState = FormWindowState.Maximized;
 
-
             // @todo: delete me ... for debug purpose only
             TabPage TpVisit = new TabPage("Visits");
             CtrlVisit ctrlVisits = new CtrlVisit(new Pet(1));
             ctrlVisits.Dock = DockStyle.Fill;
             TpVisit.Controls.Add(ctrlVisits);
-
             TabAbabu.TabPages.Add(TpVisit);
             TabAbabu.SelectedTab = TpVisit;
+            // @todo: end delete me
         }
 
 

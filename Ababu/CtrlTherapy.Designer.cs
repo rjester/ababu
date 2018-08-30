@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.TabTherapy = new System.Windows.Forms.TabControl();
-            this.TpPrescriptions = new System.Windows.Forms.TabPage();
             this.TpProcedures = new System.Windows.Forms.TabPage();
             this.TpMaterials = new System.Windows.Forms.TabPage();
             this.TabTherapy.SuspendLayout();
@@ -37,7 +36,6 @@
             // 
             // TabTherapy
             // 
-            this.TabTherapy.Controls.Add(this.TpPrescriptions);
             this.TabTherapy.Controls.Add(this.TpProcedures);
             this.TabTherapy.Controls.Add(this.TpMaterials);
             this.TabTherapy.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -48,16 +46,6 @@
             this.TabTherapy.ShowToolTips = true;
             this.TabTherapy.Size = new System.Drawing.Size(483, 316);
             this.TabTherapy.TabIndex = 0;
-            // 
-            // TpPrescriptions
-            // 
-            this.TpPrescriptions.Location = new System.Drawing.Point(4, 22);
-            this.TpPrescriptions.Name = "TpPrescriptions";
-            this.TpPrescriptions.Padding = new System.Windows.Forms.Padding(3);
-            this.TpPrescriptions.Size = new System.Drawing.Size(475, 290);
-            this.TpPrescriptions.TabIndex = 0;
-            this.TpPrescriptions.Text = "Prescriptions";
-            this.TpPrescriptions.UseVisualStyleBackColor = true;
             // 
             // TpProcedures
             // 
@@ -94,7 +82,6 @@
         #endregion
 
         private System.Windows.Forms.TabControl TabTherapy;
-        private System.Windows.Forms.TabPage TpPrescriptions;
         private System.Windows.Forms.TabPage TpProcedures;
         private System.Windows.Forms.TabPage TpMaterials;
     }

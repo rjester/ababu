@@ -33,6 +33,7 @@
             this.PanProblem = new System.Windows.Forms.Panel();
             this.BtnProblemSelect = new System.Windows.Forms.Button();
             this.CmbProblem = new System.Windows.Forms.ComboBox();
+            this.LblProblem = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GrdProblems)).BeginInit();
             this.TlpProblems.SuspendLayout();
             this.PanProblem.SuspendLayout();
@@ -78,17 +79,18 @@
             // 
             // PanProblem
             // 
+            this.PanProblem.Controls.Add(this.LblProblem);
             this.PanProblem.Controls.Add(this.BtnProblemSelect);
             this.PanProblem.Controls.Add(this.CmbProblem);
             this.PanProblem.Location = new System.Drawing.Point(3, 3);
             this.PanProblem.Name = "PanProblem";
-            this.PanProblem.Size = new System.Drawing.Size(411, 33);
+            this.PanProblem.Size = new System.Drawing.Size(411, 39);
             this.PanProblem.TabIndex = 3;
             // 
             // BtnProblemSelect
             // 
             this.BtnProblemSelect.Image = global::Ababu.Properties.Resources.accept;
-            this.BtnProblemSelect.Location = new System.Drawing.Point(379, 2);
+            this.BtnProblemSelect.Location = new System.Drawing.Point(270, 14);
             this.BtnProblemSelect.Name = "BtnProblemSelect";
             this.BtnProblemSelect.Size = new System.Drawing.Size(25, 23);
             this.BtnProblemSelect.TabIndex = 6;
@@ -99,11 +101,20 @@
             this.CmbProblem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.CmbProblem.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CmbProblem.FormattingEnabled = true;
-            this.CmbProblem.Location = new System.Drawing.Point(3, 3);
+            this.CmbProblem.Location = new System.Drawing.Point(3, 15);
             this.CmbProblem.Name = "CmbProblem";
-            this.CmbProblem.Size = new System.Drawing.Size(370, 21);
+            this.CmbProblem.Size = new System.Drawing.Size(261, 21);
             this.CmbProblem.TabIndex = 5;
             this.CmbProblem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CmbProblem_KeyDown);
+            // 
+            // LblProblem
+            // 
+            this.LblProblem.AutoSize = true;
+            this.LblProblem.Location = new System.Drawing.Point(3, 1);
+            this.LblProblem.Name = "LblProblem";
+            this.LblProblem.Size = new System.Drawing.Size(45, 13);
+            this.LblProblem.TabIndex = 7;
+            this.LblProblem.Text = "Problem";
             // 
             // CtrlProblem
             // 
@@ -116,6 +127,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.GrdProblems)).EndInit();
             this.TlpProblems.ResumeLayout(false);
             this.PanProblem.ResumeLayout(false);
+            this.PanProblem.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -127,5 +139,6 @@
         private System.Windows.Forms.Panel PanProblem;
         private System.Windows.Forms.Button BtnProblemSelect;
         private System.Windows.Forms.ComboBox CmbProblem;
+        private System.Windows.Forms.Label LblProblem;
     }
 }

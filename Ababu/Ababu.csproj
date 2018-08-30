@@ -60,11 +60,11 @@
     <Compile Include="CtrlDiary.Designer.cs">
       <DependentUpon>CtrlDiary.cs</DependentUpon>
     </Compile>
-    <Compile Include="CtrlExamination.cs">
+    <Compile Include="CtrlDiagnosticTest.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CtrlExamination.Designer.cs">
-      <DependentUpon>CtrlExamination.cs</DependentUpon>
+    <Compile Include="CtrlDiagnosticTest.Designer.cs">
+      <DependentUpon>CtrlDiagnosticTest.cs</DependentUpon>
     </Compile>
     <Compile Include="CtrlMaterial.cs">
       <SubType>UserControl</SubType>
@@ -161,8 +161,8 @@
     <EmbeddedResource Include="CtrlDiary.resx">
       <DependentUpon>CtrlDiary.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CtrlExamination.resx">
-      <DependentUpon>CtrlExamination.cs</DependentUpon>
+    <EmbeddedResource Include="CtrlDiagnosticTest.resx">
+      <DependentUpon>CtrlDiagnosticTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlMaterial.resx">
       <DependentUpon>CtrlMaterial.cs</DependentUpon>

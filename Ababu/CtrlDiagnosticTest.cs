@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Ababu
 {
-    public partial class CtrlExamination : UserControl
+    public partial class CtrlDiagnosticTest : UserControl
     {
-        public CtrlExamination()
+        public CtrlDiagnosticTest()
         {
             InitializeComponent();
         }
