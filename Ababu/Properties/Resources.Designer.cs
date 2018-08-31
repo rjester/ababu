@@ -103,6 +103,16 @@ namespace Ababu.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap book_addresses {
+            get {
+                object obj = ResourceManager.GetObject("book_addresses", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap brick_edit {
             get {
                 object obj = ResourceManager.GetObject("brick_edit", resourceCulture);
@@ -216,6 +226,16 @@ namespace Ababu.Properties {
         internal static System.Drawing.Bitmap lightbulb_off {
             get {
                 object obj = ResourceManager.GetObject("lightbulb_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap link_break {
+            get {
+                object obj = ResourceManager.GetObject("link_break", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

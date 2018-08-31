@@ -31,9 +31,9 @@
             this.GrdProblems = new System.Windows.Forms.DataGridView();
             this.TlpProblems = new System.Windows.Forms.TableLayoutPanel();
             this.PanProblem = new System.Windows.Forms.Panel();
+            this.LblProblem = new System.Windows.Forms.Label();
             this.BtnProblemSelect = new System.Windows.Forms.Button();
             this.CmbProblem = new System.Windows.Forms.ComboBox();
-            this.LblProblem = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GrdProblems)).BeginInit();
             this.TlpProblems.SuspendLayout();
             this.PanProblem.SuspendLayout();
@@ -87,6 +87,15 @@
             this.PanProblem.Size = new System.Drawing.Size(411, 39);
             this.PanProblem.TabIndex = 3;
             // 
+            // LblProblem
+            // 
+            this.LblProblem.AutoSize = true;
+            this.LblProblem.Location = new System.Drawing.Point(3, 1);
+            this.LblProblem.Name = "LblProblem";
+            this.LblProblem.Size = new System.Drawing.Size(45, 13);
+            this.LblProblem.TabIndex = 7;
+            this.LblProblem.Text = "Problem";
+            // 
             // BtnProblemSelect
             // 
             this.BtnProblemSelect.Image = global::Ababu.Properties.Resources.accept;
@@ -106,15 +115,6 @@
             this.CmbProblem.Size = new System.Drawing.Size(261, 21);
             this.CmbProblem.TabIndex = 5;
             this.CmbProblem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CmbProblem_KeyDown);
-            // 
-            // LblProblem
-            // 
-            this.LblProblem.AutoSize = true;
-            this.LblProblem.Location = new System.Drawing.Point(3, 1);
-            this.LblProblem.Name = "LblProblem";
-            this.LblProblem.Size = new System.Drawing.Size(45, 13);
-            this.LblProblem.TabIndex = 7;
-            this.LblProblem.Text = "Problem";
             // 
             // CtrlProblem
             // 

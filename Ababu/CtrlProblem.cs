@@ -35,7 +35,19 @@ namespace Ababu
             CmbProblem.DisplayMember = "value";
             CmbProblem.SelectedValue = 0;
 
+            // get problems DataTable from database
             DataTable DtProblems = Problem.GetProblemsByPid(P.Pid);
+
+            // insert a new empty Row at 0 position for Problem indipendet prescription / Diary
+            DataRow DrProblemIndependent = DtProblems.NewRow();
+            DrProblemIndependent[0] = P.Pid;
+            DrProblemIndependent[1] = 0;
+            DrProblemIndependent[2] = 1;
+            DrProblemIndependent[3] = "Problem indipendet prescription / Diary";
+            DrProblemIndependent[4] = false;
+            DtProblems.Rows.InsertAt(DrProblemIndependent, 0);
+
+            // insert ima columns for status and essential
             DataColumn DcProblemStatusImage = DtProblems.Columns.Add("status_image", typeof(Image));
             DataColumn DcProblemEssential = DtProblems.Columns.Add("essential_image", typeof(Image));
             DcProblemStatusImage.SetOrdinal(0);
@@ -43,6 +55,7 @@ namespace Ababu
 
             for (int j = 0; j < DtProblems.Rows.Count; j++)
             {
+                int diagnosys_id = (int)DtProblems.Rows[j]["diagnosis_id"];
                 int status_id = (int)DtProblems.Rows[j]["status_id"];
                 bool essential = (bool)DtProblems.Rows[j]["essential"];
 
@@ -78,9 +91,18 @@ namespace Ababu
                 {
                     DtProblems.Rows[j]["essential_image"] = (Image)Properties.Resources.lightbulb_off;
                 }
+
+                // set problem indipendet prescription / Diary icons
+                if (diagnosys_id == 0)
+                {
+                    DtProblems.Rows[j]["status_image"] = (Image)Properties.Resources.link_break;
+                    DtProblems.Rows[j]["essential_image"] = (Image)Properties.Resources.book_addresses;
+                }
             }
+            
 
             GrdProblems.DataSource = DtProblems;
+            GrdProblems.Columns["diagnosis_id"].Visible = false;
             GrdProblems.Columns["pid"].Visible = false;
             GrdProblems.Columns["status_id"].Visible = false;
             GrdProblems.Columns["essential"].Visible = false;
@@ -110,14 +132,21 @@ namespace Ababu
         {
             int pid = (int)GrdProblems.Rows[e.RowIndex].Cells[1].Value;
             int diangosis_id = (int)GrdProblems.Rows[e.RowIndex].Cells[2].Value;
-            if (e.ColumnIndex == 6)
+
+            // don't consider a problem first row
+            if(diangosis_id > 0)
             {
-                MessageBox.Show("change evidence to ... " + pid.ToString());
+                // if click is on evidence column
+                if (e.ColumnIndex == 6)
+                {
+                    MessageBox.Show("change evidence to ... " + pid.ToString());
+                }
+                else
+                {
+                    OpenProblemEdit(diangosis_id, P.Pid);
+                }
             }
-            else
-            {
-                OpenProblemEdit(diangosis_id, P.Pid);
-            }
+
         }
 
         
