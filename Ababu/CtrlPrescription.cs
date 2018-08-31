@@ -14,13 +14,18 @@ namespace Ababu
 {
     public partial class CtrlPrescription : UserControl
     {
-        public Pet oPet { get; set; }
-        public Prescription Prescrizione { get; set; }
+        public Pet Pet { get; set; }
+        public Problem Problem { get; set; }
+        // public Prescription Prescrizion { get; set; }
 
 
         public CtrlPrescription(Pet pet)
         {
-            oPet = pet;
+            // set the pet to visit
+            Pet = pet;
+            // initialize an empty problem for the pet
+            Problem = new Problem(0, Pet.Pid);
+            // initialize the rest of the components
             InitializeComponent();
         }
 
@@ -29,23 +34,34 @@ namespace Ababu
             FillControl();
         }
 
+        
         public void FillControl()
         {
-            CmbMedicines.DataSource = Medicine.Search();
+            FillCombo();
+            FillGrid();
             
+        }
+
+
+        private void FillCombo()
+        {
+            CmbMedicines.DataSource = Medicine.Search();
             CmbMedicines.ValueMember = "mid";
             CmbMedicines.DisplayMember = "value";
             CmbMedicines.SelectedValue = 0;
+        }
 
-            DataTable DtPrescriptions = Prescription.GetPrescriptionByPid(oPet.Pid);
+
+        private void FillGrid()
+        {
+            DataTable DtPrescriptions = Prescription.GetPrescriptionByPid(Pet.Pid, Problem.DiagnosisId);
             DataColumn DcProblemEssential = DtPrescriptions.Columns.Add("in_evidenve_image", typeof(Image));
-
 
             for (int j = 0; j < DtPrescriptions.Rows.Count; j++)
             {
                 bool in_evidence = (bool)DtPrescriptions.Rows[j]["in_evidence"];
 
-                
+
                 // Set column for essential information
                 if (in_evidence == true)
                 {
@@ -56,7 +72,6 @@ namespace Ababu
                     DtPrescriptions.Rows[j]["in_evidenve_image"] = (Image)Properties.Resources.lightbulb_off;
                 }
             }
-
 
 
             GrdPrescriptions.DataSource = DtPrescriptions;
@@ -75,13 +90,14 @@ namespace Ababu
             GrdPrescriptions.Columns["name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
+
         private void CmbMedicines_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 if (CmbMedicines.SelectedItem != null && CmbMedicines.SelectedValue != null)
                 {
-                    OpenPrescriptionEdit(CmbMedicines.SelectedValue.ToString(), oPet);
+                    OpenPrescriptionEdit(CmbMedicines.SelectedValue.ToString(), Pet);
                 }
             }
         }
@@ -90,7 +106,8 @@ namespace Ababu
         private void OpenPrescriptionEdit(string mid, Pet pet, int prescription_id = 0)
         {
             FrmPrescriptionEdit frmPrescriptionEdit = new FrmPrescriptionEdit(prescription_id);
-            frmPrescriptionEdit.oMedicine = new Medicine(mid);
+            frmPrescriptionEdit.Medicine = new Medicine(mid);
+            frmPrescriptionEdit.Problem = Problem;
             frmPrescriptionEdit.oPet = pet;
             frmPrescriptionEdit.FormClosing += new FormClosingEventHandler(PrescriptionEdit_FormClosing);
             frmPrescriptionEdit.ShowDialog();
@@ -108,7 +125,7 @@ namespace Ababu
             int prescription_id = (int)GrdPrescriptions.Rows[e.RowIndex].Cells[0].Value;
             string mid = GrdPrescriptions.Rows[e.RowIndex].Cells[1].Value.ToString();
             
-            OpenPrescriptionEdit(mid, oPet, prescription_id);
+            OpenPrescriptionEdit(mid, Pet, prescription_id);
             // MessageBox.Show(created.ToString());
             /*
             if (e.ColumnIndex == 6)
@@ -120,6 +137,14 @@ namespace Ababu
                 OpenProblemEdit(diangosis_id, P.Pid);
             }
             */
+        }
+
+
+        public void OnProblemSelection(object sender, ProblemEventArgs e)
+        {
+            // handle the even getting the problem 
+            Problem = e.Problem;
+            FillGrid();
         }
     }
 }

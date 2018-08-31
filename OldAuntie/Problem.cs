@@ -34,6 +34,9 @@ namespace OldAuntie
 
         public Problem Load(int diagnosis_id, int pid)
         {
+            DiagnosisId = diagnosis_id;
+            Pid = pid;
+
             string query = "SELECT * FROM problems a, problem_status b " +
                     "WHERE a.status_id = b.status_id " +
                     "AND a.pid = " + pid.ToString() + " " +
@@ -42,8 +45,6 @@ namespace OldAuntie
 
             if (result != null && result.ItemArray.Count() > 0)
                 {
-                    DiagnosisId = (int)result["diagnosis_id"];
-                    Pid = (int)result["pid"];
                     DateFrom = (long)result["date_from"];
                     StatusId = (int)result["status_id"];
                     Essential = (bool)result["essential"];
@@ -222,6 +223,24 @@ namespace OldAuntie
                 disposed = true;
             }
         }
+
+    }
+
+
+
+    public class ProblemEventArgs : EventArgs
+    {
+        public ProblemEventArgs(Problem problem)
+        {
+            // this.DiagnosisId = diagnosis_id;
+            Problem = problem;
+        }
+
+        // public int DiagnosisId { get; private set; }
+        public Problem Problem{ get; private set; }
+
+
+
 
     }
 }

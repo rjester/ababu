@@ -169,7 +169,6 @@
             this.RadInEvidence.Name = "RadInEvidence";
             this.RadInEvidence.Size = new System.Drawing.Size(82, 17);
             this.RadInEvidence.TabIndex = 4;
-            this.RadInEvidence.TabStop = true;
             this.RadInEvidence.Tag = "3";
             this.RadInEvidence.Text = "In Evidence";
             this.RadInEvidence.UseVisualStyleBackColor = true;
@@ -192,7 +191,6 @@
             this.RadSuspect.Name = "RadSuspect";
             this.RadSuspect.Size = new System.Drawing.Size(64, 17);
             this.RadSuspect.TabIndex = 3;
-            this.RadSuspect.TabStop = true;
             this.RadSuspect.Tag = "-1";
             this.RadSuspect.Text = "Suspect";
             this.RadSuspect.UseVisualStyleBackColor = true;
@@ -215,7 +213,6 @@
             this.RadClosed.Name = "RadClosed";
             this.RadClosed.Size = new System.Drawing.Size(57, 17);
             this.RadClosed.TabIndex = 2;
-            this.RadClosed.TabStop = true;
             this.RadClosed.Tag = "0";
             this.RadClosed.Text = "Closed";
             this.RadClosed.UseVisualStyleBackColor = true;
@@ -234,6 +231,7 @@
             // RadActive
             // 
             this.RadActive.AutoSize = true;
+            this.RadActive.Checked = true;
             this.RadActive.Location = new System.Drawing.Point(44, 68);
             this.RadActive.Name = "RadActive";
             this.RadActive.Size = new System.Drawing.Size(118, 17);
@@ -261,7 +259,6 @@
             this.RadLongTermActive.Name = "RadLongTermActive";
             this.RadLongTermActive.Size = new System.Drawing.Size(109, 17);
             this.RadLongTermActive.TabIndex = 5;
-            this.RadLongTermActive.TabStop = true;
             this.RadLongTermActive.Tag = "2";
             this.RadLongTermActive.Text = "Long Term Active";
             this.RadLongTermActive.UseVisualStyleBackColor = true;

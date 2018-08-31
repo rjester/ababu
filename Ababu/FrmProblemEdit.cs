@@ -15,15 +15,13 @@ namespace Ababu
     {
         // In honor of hellenika
         public Problem Problema { get; set; }
-        public Pet P { get; set; }
+        public Pet Pet { get; set; }
 
         private bool IsModified = false;
 
-        public FrmProblemEdit(int diagnosis_id, int pid)
+        public FrmProblemEdit(Problem problem)
         {
-            Problema = new Problem(diagnosis_id, pid);
-            P = new Pet(pid);
-
+            Problema = problem;
             InitializeComponent();
         }
 
@@ -58,7 +56,6 @@ namespace Ababu
                 {
                     RadioButton radio = control as RadioButton;
 
-
                     if (radio.Tag.ToString() == Problema.StatusId.ToString())
                     {
                         radio.Checked = true;
@@ -67,19 +64,18 @@ namespace Ababu
             }
 
             // filling pet detail GroupBox
-            TxtPetName.Text = P.Name.ToString();
-            Species species = new Species((int)P.Tsn);
+            TxtPetName.Text = Pet.Name.ToString();
+            Species species = new Species((int)Pet.Tsn);
             TxtPetSpecie.Text = species.FamiliarName;
-            TxtDateOfBirth.Text = Utility.UnixTimeStampToDateTime(P.DateOfBirth).ToString();
-            TxtPetYears.Text = P.Years.ToString();
-            TxtPetMonths.Text = P.Months.ToString();
+            TxtDateOfBirth.Text = Utility.UnixTimeStampToDateTime(Pet.DateOfBirth).ToString();
+            TxtPetYears.Text = Pet.Years.ToString();
+            TxtPetMonths.Text = Pet.Months.ToString();
 
 
             if(Problema.Exists() == false)
             {
                 BtnProblemDelete.Enabled = false;
             }
-
         }
 
 
@@ -228,7 +224,7 @@ namespace Ababu
         private void DtpDateFrom_ValueChanged(object sender, EventArgs e)
         {
             // DateTime Now = Utility.UnixTimeStampToDateTime(Utility.Now());
-            DateTime DateOfBirth = Utility.UnixTimeStampToDateTime(P.DateOfBirth);
+            DateTime DateOfBirth = Utility.UnixTimeStampToDateTime(Pet.DateOfBirth);
 
             int AtAge = Convert.ToInt32(DtpDateFrom.Value.Year - DateOfBirth.Year);
 

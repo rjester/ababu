@@ -31,10 +31,12 @@
             this.TlpVisits = new System.Windows.Forms.TableLayoutPanel();
             this.TsVisits = new System.Windows.Forms.ToolStrip();
             this.TsbVisitAdd = new System.Windows.Forms.ToolStripButton();
+            this.TslPetName = new System.Windows.Forms.ToolStripLabel();
+            this.TstDiagnosisId = new System.Windows.Forms.ToolStripTextBox();
+            this.TslProblemDescription = new System.Windows.Forms.ToolStripLabel();
             this.TlpVisitBody = new System.Windows.Forms.TableLayoutPanel();
             this.TlpVisitBodyHead = new System.Windows.Forms.TableLayoutPanel();
             this.TlpVisitBodyBottom = new System.Windows.Forms.TableLayoutPanel();
-            this.TslPetName = new System.Windows.Forms.ToolStripLabel();
             this.TlpVisits.SuspendLayout();
             this.TsVisits.SuspendLayout();
             this.TlpVisitBody.SuspendLayout();
@@ -60,7 +62,9 @@
             // 
             this.TsVisits.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TsbVisitAdd,
-            this.TslPetName});
+            this.TslPetName,
+            this.TstDiagnosisId,
+            this.TslProblemDescription});
             this.TsVisits.Location = new System.Drawing.Point(0, 0);
             this.TsVisits.Name = "TsVisits";
             this.TsVisits.Size = new System.Drawing.Size(749, 25);
@@ -75,6 +79,26 @@
             this.TsbVisitAdd.Name = "TsbVisitAdd";
             this.TsbVisitAdd.Size = new System.Drawing.Size(23, 22);
             this.TsbVisitAdd.Text = "toolStripButton1";
+            // 
+            // TslPetName
+            // 
+            this.TslPetName.Name = "TslPetName";
+            this.TslPetName.Size = new System.Drawing.Size(70, 22);
+            this.TslPetName.Text = "TslPetName";
+            // 
+            // TstDiagnosisId
+            // 
+            this.TstDiagnosisId.Name = "TstDiagnosisId";
+            this.TstDiagnosisId.ReadOnly = true;
+            this.TstDiagnosisId.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.TstDiagnosisId.Size = new System.Drawing.Size(53, 25);
+            this.TstDiagnosisId.Text = "0";
+            // 
+            // TslProblemDescription
+            // 
+            this.TslProblemDescription.Name = "TslProblemDescription";
+            this.TslProblemDescription.Size = new System.Drawing.Size(119, 22);
+            this.TslProblemDescription.Text = "Problem indipendent";
             // 
             // TlpVisitBody
             // 
@@ -119,12 +143,6 @@
             this.TlpVisitBodyBottom.Size = new System.Drawing.Size(735, 196);
             this.TlpVisitBodyBottom.TabIndex = 1;
             // 
-            // TslPetName
-            // 
-            this.TslPetName.Name = "TslPetName";
-            this.TslPetName.Size = new System.Drawing.Size(70, 22);
-            this.TslPetName.Text = "TslPetName";
-            // 
             // CtrlVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,5 +169,7 @@
         private System.Windows.Forms.TableLayoutPanel TlpVisitBodyHead;
         private System.Windows.Forms.TableLayoutPanel TlpVisitBodyBottom;
         private System.Windows.Forms.ToolStripLabel TslPetName;
+        private System.Windows.Forms.ToolStripTextBox TstDiagnosisId;
+        private System.Windows.Forms.ToolStripLabel TslProblemDescription;
     }
 }

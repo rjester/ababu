@@ -13,15 +13,16 @@ namespace Ababu
 {
     public partial class FrmPrescriptionEdit : Form
     {
-        public Medicine oMedicine { get; set; }
         public Pet oPet { get; set; }
-        public Prescription Prescript { get; set; }
+        public Problem Problem { get; set; }
+        public Medicine Medicine { get; set; }
+        public Prescription Prescription { get; set; }
 
         private bool IsModified = false;
 
         public FrmPrescriptionEdit(int prescription_id = 0)
         {
-            Prescript = new Prescription(prescription_id);
+            Prescription = new Prescription(prescription_id);
             InitializeComponent();
         }
 
@@ -96,30 +97,30 @@ namespace Ababu
 
         private void FillForm()
         {
-            TxtMedicine.Text = oMedicine.Name;
+            TxtMedicine.Text = Medicine.Name;
 
-            DtpCreated.Value = Utility.IfNull(Prescript.Created, DateTime.Now);
-            TxtQuantity.Text = Prescript.Quantity.ToString();
-            TxtDosage.Text = Prescript.Dosage;
-            ChkInEvidence.Checked = Prescript.InEvidence;
+            DtpCreated.Value = Utility.IfNull(Prescription.Created, DateTime.Now);
+            TxtQuantity.Text = Prescription.Quantity.ToString();
+            TxtDosage.Text = Prescription.Dosage;
+            ChkInEvidence.Checked = Prescription.InEvidence;
 
-            TxtMid.Text = oMedicine.Mid;
-            TxtMedicineName.Text = oMedicine.Name;
-            TxtMedicineCompany.Text = oMedicine.Company;
-            TxtMedicineDateOfIssue.Text = oMedicine.DateOfIssue.ToShortDateString();
-            TxtMedicineDateOfWithDrawal.Text = oMedicine.DateOfWithDrawal.ToString();
-            TxtMedicinePharmaceuticalForm.Text = oMedicine.PharmaceuticalForm;
-            TxtMedicineAdditionalForm.Text = oMedicine.AdditionalInfo;
+            TxtMid.Text = Medicine.Mid;
+            TxtMedicineName.Text = Medicine.Name;
+            TxtMedicineCompany.Text = Medicine.Company;
+            TxtMedicineDateOfIssue.Text = Medicine.DateOfIssue.ToShortDateString();
+            TxtMedicineDateOfWithDrawal.Text = Medicine.DateOfWithDrawal.ToString();
+            TxtMedicinePharmaceuticalForm.Text = Medicine.PharmaceuticalForm;
+            TxtMedicineAdditionalForm.Text = Medicine.AdditionalInfo;
 
             // avoid to delete or print a recod that not exists
-            if (Prescript.Exists() == false)
+            if (Prescription.Exists() == false)
             {
                 BtnPrescriptionDelete.Enabled = false;
                 BtnPrescriptionPrint.Enabled = false;
             }
 
             // check if Medicine is still available on the market to avoid modification
-            if (oMedicine.DateOfWithDrawal > DateTime.MinValue)
+            if (Medicine.DateOfWithDrawal > DateTime.MinValue)
             {
                 LockForm();
             }
@@ -131,17 +132,18 @@ namespace Ababu
         {
             if (IsValidForm())
             {
-                Prescript.Created = DtpCreated.Value;
-                Prescript.Mid = oMedicine.Mid;
-                Prescript.Pid = oPet.Pid;
-                Prescript.Quantity = Convert.ToInt32(TxtQuantity.Text);
-                Prescript.Dosage = TxtDosage.Text;
-                Prescript.InEvidence = ChkInEvidence.Checked;
+                Prescription.Created = DtpCreated.Value;
+                Prescription.Mid = Medicine.Mid;
+                Prescription.Pid = oPet.Pid;
+                Prescription.Quantity = Convert.ToInt32(TxtQuantity.Text);
+                Prescription.Dosage = TxtDosage.Text;
+                Prescription.InEvidence = ChkInEvidence.Checked;
+                Prescription.DiagnosisId = Problem.DiagnosisId;
 
                 try
                 {
                     // save the problem
-                    int affected_row = Prescript.Save();
+                    int affected_row = Prescription.Save();
                     if (affected_row > 0)
                     {
                         IsModified = false;
@@ -214,7 +216,7 @@ namespace Ababu
             DialogResult result = MessageBox.Show("Do you want to delete selected prescription (operation cannot be undone) ?", "Warning", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                int affected_rows = Prescript.Delete();
+                int affected_rows = Prescription.Delete();
 
                 if (affected_rows > 0)
                 {

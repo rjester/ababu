@@ -52,5 +52,10 @@ namespace Ababu
                 FlowDiary.Controls.Add(ctrlNote);
             }
         }
+
+        // @todo: edit this
+        public void OnProblemSelection(object sender, ProblemEventArgs e)
+        {
+        }
     }
 }

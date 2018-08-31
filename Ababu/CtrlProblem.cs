@@ -13,34 +13,39 @@ namespace Ababu
 {
     public partial class CtrlProblem : UserControl
     {
-        public Pet P { get; set; }
+        public Pet Pet { get; set; }
         public Problem Problema { get; set; }
 
         public CtrlProblem(Pet pet)
         {
-            P = pet;
-
+            Pet = pet;
             InitializeComponent();
         }
 
         private void CtrlProblems_Load(object sender, EventArgs e)
         {
-            FillControl();
+            FillCombo();
+            FillGrid();
         }
+        
 
-        private void FillControl()
+        private void FillCombo()
         {
             CmbProblem.DataSource = OldAuntie.Venom.Search(Venom.DIAGNOSIS);
             CmbProblem.ValueMember = "id";
             CmbProblem.DisplayMember = "value";
             CmbProblem.SelectedValue = 0;
+        }
 
+
+        private void FillGrid()
+        {
             // get problems DataTable from database
-            DataTable DtProblems = Problem.GetProblemsByPid(P.Pid);
+            DataTable DtProblems = Problem.GetProblemsByPid(Pet.Pid);
 
             // insert a new empty Row at 0 position for Problem indipendet prescription / Diary
             DataRow DrProblemIndependent = DtProblems.NewRow();
-            DrProblemIndependent[0] = P.Pid;
+            DrProblemIndependent[0] = Pet.Pid;
             DrProblemIndependent[1] = 0;
             DrProblemIndependent[2] = 1;
             DrProblemIndependent[3] = "Problem indipendet prescription / Diary";
@@ -99,20 +104,19 @@ namespace Ababu
                     DtProblems.Rows[j]["essential_image"] = (Image)Properties.Resources.book_addresses;
                 }
             }
-            
+
 
             GrdProblems.DataSource = DtProblems;
-            GrdProblems.Columns["diagnosis_id"].Visible = false;
+            // GrdProblems.Columns["diagnosis_id"].Visible = false;
             GrdProblems.Columns["pid"].Visible = false;
             GrdProblems.Columns["status_id"].Visible = false;
             GrdProblems.Columns["essential"].Visible = false;
             GrdProblems.Columns["term_name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
-
         private void ProblemEdit_FormClosing(object sender, FormClosingEventArgs e)
         {
-            FillControl();
+            FillGrid();
         }
 
 
@@ -122,7 +126,7 @@ namespace Ababu
             {
                 if (CmbProblem.SelectedItem != null && CmbProblem.SelectedValue != null)
                 {
-                    OpenProblemEdit((int)CmbProblem.SelectedValue, P.Pid);
+                    OpenProblemEdit((int)CmbProblem.SelectedValue, Pet.Pid);
                 }
             }
         }
@@ -143,7 +147,7 @@ namespace Ababu
                 }
                 else
                 {
-                    OpenProblemEdit(diangosis_id, P.Pid);
+                    OpenProblemEdit(diangosis_id, Pet.Pid);
                 }
             }
 
@@ -152,13 +156,35 @@ namespace Ababu
         
         private void OpenProblemEdit(int diagnosis_id, int pid)
         {
-            FrmProblemEdit frmProblemEdit = new FrmProblemEdit(diagnosis_id, pid);
-
+            FrmProblemEdit frmProblemEdit = new FrmProblemEdit(new Problem(diagnosis_id, pid) );
+            frmProblemEdit.Pet = Pet;
+            /*
             frmProblemEdit.Problema.DiagnosisId = diagnosis_id;
             frmProblemEdit.Problema.Pid = pid;
-
+            */
             frmProblemEdit.FormClosing += new FormClosingEventHandler(ProblemEdit_FormClosing);
             frmProblemEdit.ShowDialog();
         }
+
+        
+
+        private void GrdProblems_SelectionChanged(object sender, EventArgs e)
+        {
+            if (GrdProblems.SelectedCells.Count > 0)
+            {
+                DataGridViewRow selectedRow = GrdProblems.SelectedRows[0];
+                int diagnostis_id = (int)selectedRow.Cells["diagnosis_id"].Value;
+                // bubble the event up to the parent
+                if (this.OnProblemSelection != null)
+                {
+                    // raise the event
+                    this.OnProblemSelection(this, new ProblemEventArgs(new Problem(diagnostis_id, Pet.Pid)));
+                }
+            }
+        }
+
+        // define an event to be raised on selection
+        public event EventHandler<ProblemEventArgs> OnProblemSelection;
+
     }
 }

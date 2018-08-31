@@ -13,8 +13,11 @@ namespace Ababu
 {
     public partial class CtrlVisit : UserControl
     {
-        public int Pid { get; set; }
+        
+        // @todo: delete me
+        // public int Pid { get; set; }
         public Pet P { get; set; }
+        public Problem Problem { get; set; }
 
 
 
@@ -24,6 +27,7 @@ namespace Ababu
         {
             InitializeComponent();
             P = pet;
+            Problem = new Problem(P.Pid, 0);
         }
 
         private void CtrlVisits_Load(object sender, EventArgs e)
@@ -36,9 +40,9 @@ namespace Ababu
         private void LoadVisitComponents()
         {
             // loading Problem section passing Pet to the user cotrol
-            CtrlProblem ctrlProblems = new CtrlProblem(P);
-            ctrlProblems.Dock = DockStyle.Fill;
-            TlpVisitBodyHead.Controls.Add(ctrlProblems, 0, 0);
+            CtrlProblem ctrlProblem = new CtrlProblem(P);
+            ctrlProblem.Dock = DockStyle.Fill;
+            TlpVisitBodyHead.Controls.Add(ctrlProblem, 0, 0);
 
             // loading Diary
             CtrlDiary ctrlDiary = new CtrlDiary(P);
@@ -66,6 +70,16 @@ namespace Ababu
             CtrlTherapy ctrlTherapy = new CtrlTherapy(P);
             ctrlTherapy.Dock = DockStyle.Fill;
             TlpVisitBodyBottom.Controls.Add(ctrlTherapy, 1, 0);
+
+            // subriscribe the event handlers
+            ctrlProblem.OnProblemSelection += CtrlProblem_OnProblemSelection;
+            ctrlProblem.OnProblemSelection += ctrlPrescription.OnProblemSelection;
+            ctrlProblem.OnProblemSelection += ctrlDiary.OnProblemSelection;
+        }
+
+        private void CtrlProblem_OnProblemSelection(object sender, ProblemEventArgs e)
+        {
+            this.TstDiagnosisId.Text = e.Problem.DiagnosisId.ToString();
         }
     }
 }

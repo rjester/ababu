@@ -16,15 +16,13 @@ namespace OldAuntie
         public int? Quantity { get; set; }
         public string Dosage { get; set; }
         public bool InEvidence { get; set; }
+        public int DiagnosisId { get; set; }
         public DateTime? Created { get; set; }
         public DateTime? Updated { get; set; }
 
         public Prescription(int prescription_id)
         {
-            if(prescription_id > 0)
-            {
-                Load(prescription_id);
-            }
+            Load(prescription_id);
         }
 
         
@@ -45,6 +43,7 @@ namespace OldAuntie
                     Quantity = (int)result["quantity"];
                     Dosage = result["dosage"].ToString();
                     InEvidence = (bool)result["in_evidence"];
+                    DiagnosisId = (int)result["diagnosis_id"];
                     Created = (DateTime)result["created"];
                     Updated = Utility.IfDBNull(result["updated"], null);
             }
@@ -157,13 +156,18 @@ namespace OldAuntie
 
 
 
-        static public DataTable GetPrescriptionByPid(int pid)
+        static public DataTable GetPrescriptionByPid(int pid, int diagnosis_id = 0)
         {
             string query = "SELECT a.prescription_id, a.mid, a.pid, b.name, b.date_of_issue, b.date_of_withdrawal, a.quantity, a.dosage, a.in_evidence, a.created " +
                 "FROM prescriptions a, medicines b " +
                 "WHERE a.mid = b.mid " +
-                "AND a.pid = " + pid + " " +
-                "ORDER BY a.in_evidence DESC, a.created DESC";
+                "AND a.pid = " + pid;
+
+            if(diagnosis_id > 0)
+            {
+                query += " AND diagnosis_id = " + diagnosis_id;
+            }
+            query += " ORDER BY a.in_evidence DESC, a.created DESC";
 
             DataTable result = Globals.DBCon.Execute(query);
 

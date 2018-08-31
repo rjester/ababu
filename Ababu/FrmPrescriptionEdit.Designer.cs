@@ -64,6 +64,7 @@
             this.BtnPrescriptionDelete = new System.Windows.Forms.Button();
             this.LblCreated = new System.Windows.Forms.Label();
             this.GrbPrescription = new System.Windows.Forms.GroupBox();
+            this.TxtDiagnosisId = new System.Windows.Forms.TextBox();
             this.StsPrescriptionEdit.SuspendLayout();
             this.GrbMedicineDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrPrescriptionEdit)).BeginInit();
@@ -77,14 +78,14 @@
             this.TxtMedicine.Location = new System.Drawing.Point(7, 33);
             this.TxtMedicine.Name = "TxtMedicine";
             this.TxtMedicine.ReadOnly = true;
-            this.TxtMedicine.Size = new System.Drawing.Size(418, 20);
+            this.TxtMedicine.Size = new System.Drawing.Size(421, 20);
             this.TxtMedicine.TabIndex = 62;
             // 
             // StsPrescriptionEdit
             // 
             this.StsPrescriptionEdit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StlRecordInfo});
-            this.StsPrescriptionEdit.Location = new System.Drawing.Point(0, 382);
+            this.StsPrescriptionEdit.Location = new System.Drawing.Point(0, 434);
             this.StsPrescriptionEdit.Name = "StsPrescriptionEdit";
             this.StsPrescriptionEdit.Size = new System.Drawing.Size(458, 22);
             this.StsPrescriptionEdit.TabIndex = 63;
@@ -166,7 +167,7 @@
             this.GrbMedicineDetail.Controls.Add(this.TxtMedicineName);
             this.GrbMedicineDetail.Controls.Add(this.LblMedicineDateOfIssue);
             this.GrbMedicineDetail.Controls.Add(this.LblMedicineName);
-            this.GrbMedicineDetail.Location = new System.Drawing.Point(12, 118);
+            this.GrbMedicineDetail.Location = new System.Drawing.Point(12, 171);
             this.GrbMedicineDetail.Name = "GrbMedicineDetail";
             this.GrbMedicineDetail.Size = new System.Drawing.Size(431, 214);
             this.GrbMedicineDetail.TabIndex = 70;
@@ -327,7 +328,7 @@
             // 
             this.BtnPrescriptionSave.Image = global::Ababu.Properties.Resources.accept;
             this.BtnPrescriptionSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPrescriptionSave.Location = new System.Drawing.Point(128, 352);
+            this.BtnPrescriptionSave.Location = new System.Drawing.Point(128, 405);
             this.BtnPrescriptionSave.Name = "BtnPrescriptionSave";
             this.BtnPrescriptionSave.Size = new System.Drawing.Size(75, 23);
             this.BtnPrescriptionSave.TabIndex = 57;
@@ -340,7 +341,7 @@
             // 
             this.BtnPrescriptionPrint.Image = global::Ababu.Properties.Resources.printer;
             this.BtnPrescriptionPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPrescriptionPrint.Location = new System.Drawing.Point(290, 352);
+            this.BtnPrescriptionPrint.Location = new System.Drawing.Point(290, 405);
             this.BtnPrescriptionPrint.Name = "BtnPrescriptionPrint";
             this.BtnPrescriptionPrint.Size = new System.Drawing.Size(75, 23);
             this.BtnPrescriptionPrint.TabIndex = 73;
@@ -374,7 +375,7 @@
             // 
             this.BtnPrescriptionDelete.Image = global::Ababu.Properties.Resources.delete;
             this.BtnPrescriptionDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPrescriptionDelete.Location = new System.Drawing.Point(209, 352);
+            this.BtnPrescriptionDelete.Location = new System.Drawing.Point(209, 405);
             this.BtnPrescriptionDelete.Name = "BtnPrescriptionDelete";
             this.BtnPrescriptionDelete.Size = new System.Drawing.Size(75, 23);
             this.BtnPrescriptionDelete.TabIndex = 58;
@@ -411,12 +412,20 @@
             this.GrbPrescription.TabStop = false;
             this.GrbPrescription.Text = "Prescription";
             // 
+            // TxtDiagnosisId
+            // 
+            this.TxtDiagnosisId.Location = new System.Drawing.Point(19, 129);
+            this.TxtDiagnosisId.Name = "TxtDiagnosisId";
+            this.TxtDiagnosisId.Size = new System.Drawing.Size(100, 20);
+            this.TxtDiagnosisId.TabIndex = 76;
+            // 
             // FrmPrescriptionEdit
             // 
             this.AcceptButton = this.BtnPrescriptionSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 404);
+            this.ClientSize = new System.Drawing.Size(458, 456);
+            this.Controls.Add(this.TxtDiagnosisId);
             this.Controls.Add(this.PicIsModified);
             this.Controls.Add(this.GrbPrescription);
             this.Controls.Add(this.BtnPrescriptionPrint);
@@ -479,5 +488,6 @@
         private System.Windows.Forms.Button BtnPrescriptionPrint;
         private System.Windows.Forms.Label LblCreated;
         private System.Windows.Forms.GroupBox GrbPrescription;
+        private System.Windows.Forms.TextBox TxtDiagnosisId;
     }
 }

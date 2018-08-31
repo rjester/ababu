@@ -108,7 +108,7 @@ namespace Ababu
             TabAbabu.TabPages.Add(TpPet);
             TabAbabu.SelectedTab = TpPet;
 
-            // subscribe the event. Tell me when it occurs
+            // subscribe the event. "Tell me when it occurs!"
             ctrlPets.OnPetSelectionToVisit += new EventHandler<PetEventArgs>(VisitPet);
         }
 

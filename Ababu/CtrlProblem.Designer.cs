@@ -61,6 +61,7 @@
             this.GrdProblems.Size = new System.Drawing.Size(411, 185);
             this.GrdProblems.TabIndex = 2;
             this.GrdProblems.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdProblems_CellDoubleClick);
+            this.GrdProblems.SelectionChanged += new System.EventHandler(this.GrdProblems_SelectionChanged);
             // 
             // TlpProblems
             // 
