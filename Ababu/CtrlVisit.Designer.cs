@@ -34,6 +34,7 @@
             this.TlpVisitBody = new System.Windows.Forms.TableLayoutPanel();
             this.TlpVisitBodyHead = new System.Windows.Forms.TableLayoutPanel();
             this.TlpVisitBodyBottom = new System.Windows.Forms.TableLayoutPanel();
+            this.TslPetName = new System.Windows.Forms.ToolStripLabel();
             this.TlpVisits.SuspendLayout();
             this.TsVisits.SuspendLayout();
             this.TlpVisitBody.SuspendLayout();
@@ -58,7 +59,8 @@
             // TsVisits
             // 
             this.TsVisits.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TsbVisitAdd});
+            this.TsbVisitAdd,
+            this.TslPetName});
             this.TsVisits.Location = new System.Drawing.Point(0, 0);
             this.TsVisits.Name = "TsVisits";
             this.TsVisits.Size = new System.Drawing.Size(749, 25);
@@ -117,6 +119,12 @@
             this.TlpVisitBodyBottom.Size = new System.Drawing.Size(735, 196);
             this.TlpVisitBodyBottom.TabIndex = 1;
             // 
+            // TslPetName
+            // 
+            this.TslPetName.Name = "TslPetName";
+            this.TslPetName.Size = new System.Drawing.Size(70, 22);
+            this.TslPetName.Text = "TslPetName";
+            // 
             // CtrlVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,5 +150,6 @@
         private System.Windows.Forms.TableLayoutPanel TlpVisitBody;
         private System.Windows.Forms.TableLayoutPanel TlpVisitBodyHead;
         private System.Windows.Forms.TableLayoutPanel TlpVisitBodyBottom;
+        private System.Windows.Forms.ToolStripLabel TslPetName;
     }
 }

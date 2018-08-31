@@ -21,8 +21,8 @@ namespace Ababu
         {
             InitializeComponent();
 
-            SearchOptionShowDeleted = TmiPetSearchShowDeleted.Checked;
-            SearchOptionShowOnlyUnderTheraphy = TmiPetSearchShowOnlyUnderTheraphy.Checked;
+            SearchOptionShowDeleted = TsmPetSearchShowDeleted.Checked;
+            SearchOptionShowOnlyUnderTheraphy = TsmPetSearchShowOnlyUnderTheraphy.Checked;
     }
 
         private void CtrlPets_Load(object sender, EventArgs e)
@@ -64,22 +64,22 @@ namespace Ababu
 
         private void GridPetResultReload()
         {
-            GrdPets.DataSource = Pet.Search(TsbPetSearch.Text, TmiPetSearchShowDeleted.Checked);
+            GrdPets.DataSource = Pet.Search(TstPetSearch.Text, TsmPetSearchShowDeleted.Checked);
         }
 
-        private void TmiPetSearchShowDeleted_Click(object sender, EventArgs e)
+        private void TsmPetSearchShowDeleted_Click(object sender, EventArgs e)
         {
-            TmiPetSearchShowDeleted.Checked = !TmiPetSearchShowDeleted.Checked;
+            TsmPetSearchShowDeleted.Checked = !TsmPetSearchShowDeleted.Checked;
             GridPetResultReload();
         }
 
-        private void TmiPetSearchShowOnlyUnderTheraphy_Click(object sender, EventArgs e)
+        private void TsmPetSearchShowOnlyUnderTheraphy_Click(object sender, EventArgs e)
         {
-            TmiPetSearchShowOnlyUnderTheraphy.Checked = !TmiPetSearchShowOnlyUnderTheraphy.Checked;
+            TsmPetSearchShowOnlyUnderTheraphy.Checked = !TsmPetSearchShowOnlyUnderTheraphy.Checked;
             GridPetResultReload();
         }
 
-        private void TspPetDelete_Click(object sender, EventArgs e)
+        private void TsbPetDelete_Click(object sender, EventArgs e)
         {
             if (GrdPets.SelectedCells.Count > 0)
             {

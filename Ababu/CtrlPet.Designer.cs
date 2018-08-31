@@ -32,13 +32,13 @@
             this.TlpPets = new System.Windows.Forms.TableLayoutPanel();
             this.TsPets = new System.Windows.Forms.ToolStrip();
             this.TsbPetAdd = new System.Windows.Forms.ToolStripButton();
-            this.TspPetDelete = new System.Windows.Forms.ToolStripButton();
+            this.TsbPetDelete = new System.Windows.Forms.ToolStripButton();
             this.TsbPetEdit = new System.Windows.Forms.ToolStripButton();
             this.TsbPetVisit = new System.Windows.Forms.ToolStripButton();
-            this.TsbPetSearch = new System.Windows.Forms.ToolStripTextBox();
-            this.TdbPetSearchOptions = new System.Windows.Forms.ToolStripDropDownButton();
-            this.TmiPetSearchShowDeleted = new System.Windows.Forms.ToolStripMenuItem();
-            this.TmiPetSearchShowOnlyUnderTheraphy = new System.Windows.Forms.ToolStripMenuItem();
+            this.TstPetSearch = new System.Windows.Forms.ToolStripTextBox();
+            this.TsmPetSearchOptions = new System.Windows.Forms.ToolStripDropDownButton();
+            this.TsmPetSearchShowDeleted = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmPetSearchShowOnlyUnderTheraphy = new System.Windows.Forms.ToolStripMenuItem();
             this.TsbPetRefreshList = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.GrdPets)).BeginInit();
             this.TlpPets.SuspendLayout();
@@ -88,11 +88,11 @@
             // 
             this.TsPets.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TsbPetAdd,
-            this.TspPetDelete,
+            this.TsbPetDelete,
             this.TsbPetEdit,
             this.TsbPetVisit,
-            this.TsbPetSearch,
-            this.TdbPetSearchOptions,
+            this.TstPetSearch,
+            this.TsmPetSearchOptions,
             this.TsbPetRefreshList});
             this.TsPets.Location = new System.Drawing.Point(0, 0);
             this.TsPets.Name = "TsPets";
@@ -110,15 +110,15 @@
             this.TsbPetAdd.Text = "Add a new pet";
             this.TsbPetAdd.Click += new System.EventHandler(this.TsbPetAdd_Click);
             // 
-            // TspPetDelete
+            // TsbPetDelete
             // 
-            this.TspPetDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TspPetDelete.Image = global::Ababu.Properties.Resources.delete;
-            this.TspPetDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TspPetDelete.Name = "TspPetDelete";
-            this.TspPetDelete.Size = new System.Drawing.Size(23, 22);
-            this.TspPetDelete.Text = "Delete selected pet";
-            this.TspPetDelete.Click += new System.EventHandler(this.TspPetDelete_Click);
+            this.TsbPetDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbPetDelete.Image = global::Ababu.Properties.Resources.delete;
+            this.TsbPetDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbPetDelete.Name = "TsbPetDelete";
+            this.TsbPetDelete.Size = new System.Drawing.Size(23, 22);
+            this.TsbPetDelete.Text = "Delete selected pet";
+            this.TsbPetDelete.Click += new System.EventHandler(this.TsbPetDelete_Click);
             // 
             // TsbPetEdit
             // 
@@ -140,44 +140,44 @@
             this.TsbPetVisit.Text = "Visit selected pet";
             this.TsbPetVisit.Click += new System.EventHandler(this.TsbPetVisit_Click);
             // 
-            // TsbPetSearch
+            // TstPetSearch
             // 
-            this.TsbPetSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.TsbPetSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.TsbPetSearch.AutoToolTip = true;
-            this.TsbPetSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.TsbPetSearch.Name = "TsbPetSearch";
-            this.TsbPetSearch.Size = new System.Drawing.Size(225, 25);
-            this.TsbPetSearch.ToolTipText = "Filter Pets by Name, Owner, Breed";
-            this.TsbPetSearch.TextChanged += new System.EventHandler(this.TsbPetSearch_TextChanged);
+            this.TstPetSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.TstPetSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.TstPetSearch.AutoToolTip = true;
+            this.TstPetSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.TstPetSearch.Name = "TstPetSearch";
+            this.TstPetSearch.Size = new System.Drawing.Size(225, 25);
+            this.TstPetSearch.ToolTipText = "Filter Pets by Name, Owner, Breed";
+            this.TstPetSearch.TextChanged += new System.EventHandler(this.TsbPetSearch_TextChanged);
             // 
-            // TdbPetSearchOptions
+            // TsmPetSearchOptions
             // 
-            this.TdbPetSearchOptions.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TdbPetSearchOptions.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TmiPetSearchShowDeleted,
-            this.TmiPetSearchShowOnlyUnderTheraphy});
-            this.TdbPetSearchOptions.Image = global::Ababu.Properties.Resources.cog;
-            this.TdbPetSearchOptions.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TdbPetSearchOptions.Name = "TdbPetSearchOptions";
-            this.TdbPetSearchOptions.Size = new System.Drawing.Size(29, 22);
-            this.TdbPetSearchOptions.Text = "Pet search options";
+            this.TsmPetSearchOptions.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsmPetSearchOptions.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmPetSearchShowDeleted,
+            this.TsmPetSearchShowOnlyUnderTheraphy});
+            this.TsmPetSearchOptions.Image = global::Ababu.Properties.Resources.cog;
+            this.TsmPetSearchOptions.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsmPetSearchOptions.Name = "TsmPetSearchOptions";
+            this.TsmPetSearchOptions.Size = new System.Drawing.Size(29, 22);
+            this.TsmPetSearchOptions.Text = "Pet search options";
             // 
-            // TmiPetSearchShowDeleted
+            // TsmPetSearchShowDeleted
             // 
-            this.TmiPetSearchShowDeleted.Checked = true;
-            this.TmiPetSearchShowDeleted.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.TmiPetSearchShowDeleted.Name = "TmiPetSearchShowDeleted";
-            this.TmiPetSearchShowDeleted.Size = new System.Drawing.Size(213, 22);
-            this.TmiPetSearchShowDeleted.Text = "Show deleted";
-            this.TmiPetSearchShowDeleted.Click += new System.EventHandler(this.TmiPetSearchShowDeleted_Click);
+            this.TsmPetSearchShowDeleted.Checked = true;
+            this.TsmPetSearchShowDeleted.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TsmPetSearchShowDeleted.Name = "TsmPetSearchShowDeleted";
+            this.TsmPetSearchShowDeleted.Size = new System.Drawing.Size(213, 22);
+            this.TsmPetSearchShowDeleted.Text = "Show deleted";
+            this.TsmPetSearchShowDeleted.Click += new System.EventHandler(this.TsmPetSearchShowDeleted_Click);
             // 
-            // TmiPetSearchShowOnlyUnderTheraphy
+            // TsmPetSearchShowOnlyUnderTheraphy
             // 
-            this.TmiPetSearchShowOnlyUnderTheraphy.Name = "TmiPetSearchShowOnlyUnderTheraphy";
-            this.TmiPetSearchShowOnlyUnderTheraphy.Size = new System.Drawing.Size(213, 22);
-            this.TmiPetSearchShowOnlyUnderTheraphy.Text = "Show only under theraphy";
-            this.TmiPetSearchShowOnlyUnderTheraphy.Click += new System.EventHandler(this.TmiPetSearchShowOnlyUnderTheraphy_Click);
+            this.TsmPetSearchShowOnlyUnderTheraphy.Name = "TsmPetSearchShowOnlyUnderTheraphy";
+            this.TsmPetSearchShowOnlyUnderTheraphy.Size = new System.Drawing.Size(213, 22);
+            this.TsmPetSearchShowOnlyUnderTheraphy.Text = "Show only under theraphy";
+            this.TsmPetSearchShowOnlyUnderTheraphy.Click += new System.EventHandler(this.TsmPetSearchShowOnlyUnderTheraphy_Click);
             // 
             // TsbPetRefreshList
             // 
@@ -189,12 +189,12 @@
             this.TsbPetRefreshList.Text = "Refresh";
             this.TsbPetRefreshList.Click += new System.EventHandler(this.TsbPetRefreshList_Click);
             // 
-            // CtrlPets
+            // CtrlPet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.TlpPets);
-            this.Name = "CtrlPets";
+            this.Name = "CtrlPet";
             this.Size = new System.Drawing.Size(805, 437);
             this.Load += new System.EventHandler(this.CtrlPets_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GrdPets)).EndInit();
@@ -213,12 +213,12 @@
         private System.Windows.Forms.ToolStrip TsPets;
         private System.Windows.Forms.ToolStripButton TsbPetAdd;
         private System.Windows.Forms.ToolStripButton TsbPetVisit;
-        private System.Windows.Forms.ToolStripButton TspPetDelete;
+        private System.Windows.Forms.ToolStripButton TsbPetDelete;
         private System.Windows.Forms.ToolStripButton TsbPetEdit;
-        private System.Windows.Forms.ToolStripTextBox TsbPetSearch;
-        private System.Windows.Forms.ToolStripDropDownButton TdbPetSearchOptions;
-        private System.Windows.Forms.ToolStripMenuItem TmiPetSearchShowDeleted;
-        private System.Windows.Forms.ToolStripMenuItem TmiPetSearchShowOnlyUnderTheraphy;
+        private System.Windows.Forms.ToolStripTextBox TstPetSearch;
+        private System.Windows.Forms.ToolStripDropDownButton TsmPetSearchOptions;
+        private System.Windows.Forms.ToolStripMenuItem TsmPetSearchShowDeleted;
+        private System.Windows.Forms.ToolStripMenuItem TsmPetSearchShowOnlyUnderTheraphy;
         private System.Windows.Forms.ToolStripButton TsbPetRefreshList;
     }
 }

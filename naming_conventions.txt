@@ -11,9 +11,10 @@ Tab TabControl
 Tp  TabControl->TabPage
 
 Ts  ToolStrip
-Tmi ToolStripMenuItem
-Tdb	ToolStripDropDownButton
 Tsb ToolStripButton
+Tsl	ToolStripLabel
+Tsm ToolStripMenuItem
+Tst	ToolStripText
 
 Tlp TableLayoutPanel
 Btn	Button

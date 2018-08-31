@@ -33,6 +33,8 @@ namespace OldAuntie
         public int Months { get; set; }
         public int Days { get; set; }
 
+        public Species Specie { get; set; }
+
         private bool disposed = false;
 
 
@@ -88,6 +90,9 @@ namespace OldAuntie
                     Years = DtDateMax.Year - DtDateOfBirth.Year;
                     Months = DtDateMax.Month - DtDateOfBirth.Month;
                     Days = DtDateMax.Day - DtDateOfBirth.Day;
+
+
+                    Specie = new Species(Tsn);
                 }
             }
 

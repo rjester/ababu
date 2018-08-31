@@ -20,18 +20,16 @@ namespace Ababu
 
 
 
-        public CtrlVisit(Pet pet = null)
+        public CtrlVisit(Pet pet)
         {
             InitializeComponent();
-
-            if(pet != null)
-            {
-                P = pet;
-            }
+            P = pet;
         }
 
         private void CtrlVisits_Load(object sender, EventArgs e)
         {
+            TslPetName.Text = P.Name + " (" + P.Specie.FamiliarName + ")";
+
             LoadVisitComponents();
         }
 
