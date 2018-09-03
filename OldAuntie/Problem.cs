@@ -230,14 +230,21 @@ namespace OldAuntie
 
     public class ProblemEventArgs : EventArgs
     {
-        public ProblemEventArgs(Problem problem)
+
+        // public int DiagnosisId { get; private set; }
+        public Problem Problem { get; private set; }
+        public static string Action { get; private set; }
+
+        public const string ACTION_SELECT = "SELECT";
+        public const string ACTION_DELETE = "DELETE";
+
+        public ProblemEventArgs(Problem problem, string action = ACTION_SELECT)
         {
             // this.DiagnosisId = diagnosis_id;
             Problem = problem;
+            Action = action;
         }
 
-        // public int DiagnosisId { get; private set; }
-        public Problem Problem{ get; private set; }
 
 
 

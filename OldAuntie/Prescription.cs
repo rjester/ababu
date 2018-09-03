@@ -11,12 +11,12 @@ namespace OldAuntie
     public class Prescription
     {
         public int PrescriptionId { get; set; }
+        public int DiagnosisId { get; set; }
         public string Mid { get; set; }
         public int Pid { get; set; }
         public int? Quantity { get; set; }
         public string Dosage { get; set; }
         public bool InEvidence { get; set; }
-        public int DiagnosisId { get; set; }
         public DateTime? Created { get; set; }
         public DateTime? Updated { get; set; }
 
@@ -38,12 +38,12 @@ namespace OldAuntie
             if (result != null && result.ItemArray.Count() > 0)
             {
                     PrescriptionId = prescription_id;
+                    DiagnosisId = (int)result["diagnosis_id"];
                     Mid = result["mid"].ToString();
                     Pid = (int)result["pid"];
                     Quantity = (int)result["quantity"];
                     Dosage = result["dosage"].ToString();
                     InEvidence = (bool)result["in_evidence"];
-                    DiagnosisId = (int)result["diagnosis_id"];
                     Created = (DateTime)result["created"];
                     Updated = Utility.IfDBNull(result["updated"], null);
             }
@@ -70,6 +70,7 @@ namespace OldAuntie
             int affetcedRows = 0;
 
             string query = "UPDATE prescriptions  SET " +
+                                    "diagnosis_id=@diagnosis_id, " +
                                     "mid=@mid, " +
                                     "pid=@pid, " +
                                     "quantity=@quantity, " +
@@ -82,6 +83,7 @@ namespace OldAuntie
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@prescription_id", PrescriptionId);
+            Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
             Cmd.Parameters.AddWithValue("@mid", Mid);
             Cmd.Parameters.AddWithValue("@pid", Pid);
             Cmd.Parameters.AddWithValue("@quantity", Quantity);
@@ -100,16 +102,17 @@ namespace OldAuntie
         {
             int affetcedRows = 0;
 
-            string query = "INSERT into prescriptions (mid, pid, quantity, dosage, in_evidence, created) " +
-                        "VALUES (@mid, @pid, @quantity, @dosage, @in_evidence, @created)";
+            string query = "INSERT into prescriptions (diagnois_id, mid, pid, quantity, dosage, in_evidence, created) " +
+                        "VALUES (@diagnosis_id, @mid, @pid, @quantity, @dosage, @in_evidence, @created)";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
-            Cmd.Parameters.AddWithValue("@created", DateTime.Now);
+            Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
             Cmd.Parameters.AddWithValue("@mid", Mid);
             Cmd.Parameters.AddWithValue("@pid", Pid);
             Cmd.Parameters.AddWithValue("@quantity", Quantity);
             Cmd.Parameters.AddWithValue("@dosage", Dosage);
             Cmd.Parameters.AddWithValue("@in_evidence", InEvidence);
+            Cmd.Parameters.AddWithValue("@created", DateTime.Now);
 
             affetcedRows = Cmd.ExecuteNonQuery();
 
@@ -174,6 +177,16 @@ namespace OldAuntie
             return result;
         }
 
+        static public int UnlinkPrescription(int diagnosis_id)
+        {
+            int affetcedRows = 0;
+            string query = "UPDATE prescriptions SET diagnosis_id = 0 WHERE diagnosis_id=@diagnosis_id";
+            MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@diagnosis_id", diagnosis_id);
+            affetcedRows = Cmd.ExecuteNonQuery();
+
+            return affetcedRows;
+        }
 
     }
 }

@@ -104,6 +104,13 @@ namespace Ababu
             TxtDosage.Text = Prescription.Dosage;
             ChkInEvidence.Checked = Prescription.InEvidence;
 
+            // fill the problem combo
+            // @todo: add an unlink option
+            CmbProblems.DataSource = Problem.GetProblemsByPid(oPet.Pid); ;
+            CmbProblems.ValueMember = "diagnosis_id";
+            CmbProblems.DisplayMember = "term_name";
+            CmbProblems.SelectedValue = Prescription.DiagnosisId;
+
             TxtMid.Text = Medicine.Mid;
             TxtMedicineName.Text = Medicine.Name;
             TxtMedicineCompany.Text = Medicine.Company;
@@ -223,6 +230,21 @@ namespace Ababu
                     this.Close();
                     this.Dispose();
                 }
+            }
+        }
+
+        private void ChkLockProblemCombo_CheckedChanged(object sender, EventArgs e)
+        {
+            // enable tha combo...
+            CmbProblems.Enabled = ChkLockProblemCombo.Checked;
+            // ...and change the button icon
+            if (ChkLockProblemCombo.Checked == true)
+            {
+                ChkLockProblemCombo.Image = Properties.Resources.lock_open;
+            }
+            else
+            {
+                ChkLockProblemCombo.Image = Properties.Resources.lock_closed;
             }
         }
     }

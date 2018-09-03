@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Data;
 using System.IO;
 using MySql;
@@ -228,6 +229,50 @@ namespace OldAuntie
             }
 
             return Execute(query); ;
+        }
+
+
+        
+        public DataTable EntityLoad(string entity, string[] fields = null, Hashtable where = null, string order_by_clause = "")
+        {
+
+            DataTable dtResults = new DataTable();
+            string field_list = "*";
+            string query = String.Empty;
+
+            if (fields != null && fields.Length > 0 && fields.GetType().IsArray)
+            {
+                field_list = String.Join(", ", fields);
+            }
+
+            query = "SELECT " + field_list.ToString() + " FROM " + entity + " WHERE 1=1";
+
+            if (where != null && where.GetType() == typeof(Hashtable) && where.Count > 0)
+            {
+                foreach (string key in where.Keys)
+                {
+                    if (where[key].GetType() == typeof(Int32))
+                    {
+                        query += " AND " + key + "=" + where[key];
+                    }
+                    else
+                    {
+                        query += " AND LOWER(" + key + ")=LOWER('" + where[key] + "')";
+                    }
+                }
+            }
+
+
+            if (order_by_clause != "")
+            {
+                query += " ORDER BY " + order_by_clause;
+            }
+            
+            // execute the query
+            Connect();
+            dtResults = Execute(query, BaseDati.RETURN_DATATABLE);
+
+            return dtResults;
         }
 
 
