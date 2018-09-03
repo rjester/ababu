@@ -59,20 +59,19 @@
             this.DtpCreated = new System.Windows.Forms.DateTimePicker();
             this.LblCreated = new System.Windows.Forms.Label();
             this.GrbPrescription = new System.Windows.Forms.GroupBox();
-            this.TxtDiagnosisId = new System.Windows.Forms.TextBox();
+            this.PicInEvidence = new System.Windows.Forms.PictureBox();
             this.CmbProblems = new System.Windows.Forms.ComboBox();
             this.BtnPrescriptionSave = new System.Windows.Forms.Button();
             this.ChkLockProblemCombo = new System.Windows.Forms.CheckBox();
             this.PicIsModified = new System.Windows.Forms.PictureBox();
-            this.PicInEvidence = new System.Windows.Forms.PictureBox();
             this.BtnPrescriptionPrint = new System.Windows.Forms.Button();
             this.BtnPrescriptionDelete = new System.Windows.Forms.Button();
             this.StsPrescriptionEdit.SuspendLayout();
             this.GrbMedicineDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrPrescriptionEdit)).BeginInit();
             this.GrbPrescription.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicInEvidence)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).BeginInit();
             this.SuspendLayout();
             // 
             // TxtMedicine
@@ -337,7 +336,9 @@
             // 
             // GrbPrescription
             // 
+            this.GrbPrescription.Controls.Add(this.ChkLockProblemCombo);
             this.GrbPrescription.Controls.Add(this.TxtDosage);
+            this.GrbPrescription.Controls.Add(this.CmbProblems);
             this.GrbPrescription.Controls.Add(this.LblCreated);
             this.GrbPrescription.Controls.Add(this.TxtQuantity);
             this.GrbPrescription.Controls.Add(this.ChkInEvidence);
@@ -349,26 +350,30 @@
             this.GrbPrescription.Controls.Add(this.TxtMedicine);
             this.GrbPrescription.Location = new System.Drawing.Point(12, 12);
             this.GrbPrescription.Name = "GrbPrescription";
-            this.GrbPrescription.Size = new System.Drawing.Size(434, 100);
+            this.GrbPrescription.Size = new System.Drawing.Size(434, 139);
             this.GrbPrescription.TabIndex = 75;
             this.GrbPrescription.TabStop = false;
             this.GrbPrescription.Text = "Prescription";
             // 
-            // TxtDiagnosisId
+            // PicInEvidence
             // 
-            this.TxtDiagnosisId.Location = new System.Drawing.Point(19, 129);
-            this.TxtDiagnosisId.Name = "TxtDiagnosisId";
-            this.TxtDiagnosisId.Size = new System.Drawing.Size(100, 20);
-            this.TxtDiagnosisId.TabIndex = 76;
+            this.PicInEvidence.ErrorImage = null;
+            this.PicInEvidence.Image = global::Ababu.Properties.Resources.tick;
+            this.PicInEvidence.InitialImage = null;
+            this.PicInEvidence.Location = new System.Drawing.Point(412, 75);
+            this.PicInEvidence.Name = "PicInEvidence";
+            this.PicInEvidence.Size = new System.Drawing.Size(17, 18);
+            this.PicInEvidence.TabIndex = 56;
+            this.PicInEvidence.TabStop = false;
             // 
             // CmbProblems
             // 
             this.CmbProblems.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbProblems.Enabled = false;
             this.CmbProblems.FormattingEnabled = true;
-            this.CmbProblems.Location = new System.Drawing.Point(125, 129);
+            this.CmbProblems.Location = new System.Drawing.Point(6, 108);
             this.CmbProblems.Name = "CmbProblems";
-            this.CmbProblems.Size = new System.Drawing.Size(274, 21);
+            this.CmbProblems.Size = new System.Drawing.Size(380, 21);
             this.CmbProblems.TabIndex = 77;
             // 
             // BtnPrescriptionSave
@@ -389,7 +394,7 @@
             this.ChkLockProblemCombo.Appearance = System.Windows.Forms.Appearance.Button;
             this.ChkLockProblemCombo.AutoSize = true;
             this.ChkLockProblemCombo.Image = global::Ababu.Properties.Resources.lock_closed;
-            this.ChkLockProblemCombo.Location = new System.Drawing.Point(404, 129);
+            this.ChkLockProblemCombo.Location = new System.Drawing.Point(392, 107);
             this.ChkLockProblemCombo.Name = "ChkLockProblemCombo";
             this.ChkLockProblemCombo.Size = new System.Drawing.Size(22, 22);
             this.ChkLockProblemCombo.TabIndex = 78;
@@ -406,17 +411,6 @@
             this.PicIsModified.Size = new System.Drawing.Size(17, 18);
             this.PicIsModified.TabIndex = 71;
             this.PicIsModified.TabStop = false;
-            // 
-            // PicInEvidence
-            // 
-            this.PicInEvidence.ErrorImage = null;
-            this.PicInEvidence.Image = global::Ababu.Properties.Resources.tick;
-            this.PicInEvidence.InitialImage = null;
-            this.PicInEvidence.Location = new System.Drawing.Point(412, 75);
-            this.PicInEvidence.Name = "PicInEvidence";
-            this.PicInEvidence.Size = new System.Drawing.Size(17, 18);
-            this.PicInEvidence.TabIndex = 56;
-            this.PicInEvidence.TabStop = false;
             // 
             // BtnPrescriptionPrint
             // 
@@ -449,9 +443,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(458, 456);
-            this.Controls.Add(this.ChkLockProblemCombo);
-            this.Controls.Add(this.CmbProblems);
-            this.Controls.Add(this.TxtDiagnosisId);
             this.Controls.Add(this.PicIsModified);
             this.Controls.Add(this.GrbPrescription);
             this.Controls.Add(this.BtnPrescriptionPrint);
@@ -471,8 +462,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ErrPrescriptionEdit)).EndInit();
             this.GrbPrescription.ResumeLayout(false);
             this.GrbPrescription.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicInEvidence)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -514,7 +505,6 @@
         private System.Windows.Forms.Button BtnPrescriptionPrint;
         private System.Windows.Forms.Label LblCreated;
         private System.Windows.Forms.GroupBox GrbPrescription;
-        private System.Windows.Forms.TextBox TxtDiagnosisId;
         private System.Windows.Forms.ComboBox CmbProblems;
         private System.Windows.Forms.CheckBox ChkLockProblemCombo;
     }

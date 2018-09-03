@@ -120,7 +120,7 @@ namespace Ababu
             CmbProblems.DataSource = DtProblems;
             CmbProblems.ValueMember = "diagnosis_id";
             CmbProblems.DisplayMember = "term_name";
-            CmbProblems.SelectedValue = Prescription.DiagnosisId;
+            CmbProblems.SelectedValue = Problem.DiagnosisId;
 
             TxtMid.Text = Medicine.Mid;
             TxtMedicineName.Text = Medicine.Name;

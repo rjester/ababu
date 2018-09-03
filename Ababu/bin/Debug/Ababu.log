@@ -1,1 +1,111 @@
 ﻿03/09/2018 09:12:56 (error): Unable to connect to any of the specified MySQL hosts.
+04/09/2018 01:14:12 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
+04/09/2018 01:14:15 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
+04/09/2018 01:15:13 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
+04/09/2018 01:15:14 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
+04/09/2018 01:15:15 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
+04/09/2018 01:15:15 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
+04/09/2018 01:15:15 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
+04/09/2018 01:15:16 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
+04/09/2018 01:15:16 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
+04/09/2018 01:15:20 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
+   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
+   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164

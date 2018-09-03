@@ -102,7 +102,7 @@ namespace OldAuntie
         {
             int affetcedRows = 0;
 
-            string query = "INSERT into prescriptions (diagnois_id, mid, pid, quantity, dosage, in_evidence, created) " +
+            string query = "INSERT into prescriptions (diagnosis_id, mid, pid, quantity, dosage, in_evidence, created) " +
                         "VALUES (@diagnosis_id, @mid, @pid, @quantity, @dosage, @in_evidence, @created)";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
