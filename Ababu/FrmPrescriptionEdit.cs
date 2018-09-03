@@ -105,8 +105,19 @@ namespace Ababu
             ChkInEvidence.Checked = Prescription.InEvidence;
 
             // fill the problem combo
-            // @todo: add an unlink option
-            CmbProblems.DataSource = Problem.GetProblemsByPid(oPet.Pid); ;
+            // get the problem for a selected pet / patient
+            DataTable DtProblems = Problem.GetProblemsByPid(oPet.Pid);
+            // insert a new empty Row at 0 position for Problem indipendet prescription / Diary
+            DataRow DrProblemIndependent = DtProblems.NewRow();
+            DrProblemIndependent[0] = oPet.Pid;
+            DrProblemIndependent[1] = 0;
+            DrProblemIndependent[2] = 1;
+            DrProblemIndependent[3] = "Problem indipendet prescription / Diary";
+            DrProblemIndependent[4] = false;
+            DtProblems.Rows.InsertAt(DrProblemIndependent, 0);
+
+            // fill the combo
+            CmbProblems.DataSource = DtProblems;
             CmbProblems.ValueMember = "diagnosis_id";
             CmbProblems.DisplayMember = "term_name";
             CmbProblems.SelectedValue = Prescription.DiagnosisId;
@@ -145,7 +156,7 @@ namespace Ababu
                 Prescription.Quantity = Convert.ToInt32(TxtQuantity.Text);
                 Prescription.Dosage = TxtDosage.Text;
                 Prescription.InEvidence = ChkInEvidence.Checked;
-                Prescription.DiagnosisId = Problem.DiagnosisId;
+                Prescription.DiagnosisId = Convert.ToInt32(CmbProblems.SelectedValue);
 
                 try
                 {

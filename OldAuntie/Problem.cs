@@ -151,7 +151,6 @@ namespace OldAuntie
         }
 
 
-
         public bool Exists()
         {
             string query = "SELECT pid FROM problems " +
@@ -244,10 +243,5 @@ namespace OldAuntie
             Problem = problem;
             Action = action;
         }
-
-
-
-
-
     }
 }
