@@ -97,18 +97,15 @@ namespace Ababu
             {
                 if (CmbMedicines.SelectedItem != null && CmbMedicines.SelectedValue != null)
                 {
-                    OpenPrescriptionEdit(CmbMedicines.SelectedValue.ToString(), Pet);
+                    OpenPrescriptionEdit(CmbMedicines.SelectedValue.ToString());
                 }
             }
         }
 
 
-        private void OpenPrescriptionEdit(string mid, Pet pet, int prescription_id = 0)
+        private void OpenPrescriptionEdit(string mid, int prescription_id = 0)
         {
-            FrmPrescriptionEdit frmPrescriptionEdit = new FrmPrescriptionEdit(prescription_id);
-            frmPrescriptionEdit.Medicine = new Medicine(mid);
-            frmPrescriptionEdit.Problem = Problem;
-            frmPrescriptionEdit.oPet = pet;
+            FrmPrescriptionEdit frmPrescriptionEdit = new FrmPrescriptionEdit(Pet, new Medicine(mid), new Prescription(prescription_id), Problem);
             frmPrescriptionEdit.FormClosing += new FormClosingEventHandler(PrescriptionEdit_FormClosing);
             frmPrescriptionEdit.ShowDialog();
         }
@@ -125,7 +122,7 @@ namespace Ababu
             int prescription_id = (int)GrdPrescriptions.Rows[e.RowIndex].Cells[0].Value;
             string mid = GrdPrescriptions.Rows[e.RowIndex].Cells[1].Value.ToString();
             
-            OpenPrescriptionEdit(mid, Pet, prescription_id);
+            OpenPrescriptionEdit(mid, prescription_id);
             // MessageBox.Show(created.ToString());
             /*
             if (e.ColumnIndex == 6)

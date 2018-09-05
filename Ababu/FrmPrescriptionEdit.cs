@@ -13,16 +13,19 @@ namespace Ababu
 {
     public partial class FrmPrescriptionEdit : Form
     {
-        public Pet oPet { get; set; }
+        public Pet Pet { get; set; }
         public Problem Problem { get; set; }
         public Medicine Medicine { get; set; }
         public Prescription Prescription { get; set; }
 
         private bool IsModified = false;
 
-        public FrmPrescriptionEdit(int prescription_id = 0)
+        public FrmPrescriptionEdit(Pet pet, Medicine medicine, Prescription prescription = null, Problem problem = null)
         {
-            Prescription = new Prescription(prescription_id);
+            Prescription = prescription;
+            Problem = problem;
+            Medicine = medicine;
+            Pet = pet;
             InitializeComponent();
         }
 
@@ -106,10 +109,10 @@ namespace Ababu
 
             // fill the problem combo
             // get the problem for a selected pet / patient
-            DataTable DtProblems = Problem.GetProblemsByPid(oPet.Pid);
+            DataTable DtProblems = Problem.GetProblemsByPid(Pet.Pid);
             // insert a new empty Row at 0 position for Problem indipendet prescription / Diary
             DataRow DrProblemIndependent = DtProblems.NewRow();
-            DrProblemIndependent[0] = oPet.Pid;
+            DrProblemIndependent[0] = Pet.Pid;
             DrProblemIndependent[1] = 0;
             DrProblemIndependent[2] = 1;
             DrProblemIndependent[3] = "Problem indipendet prescription / Diary";
@@ -152,7 +155,7 @@ namespace Ababu
             {
                 Prescription.Created = DtpCreated.Value;
                 Prescription.Mid = Medicine.Mid;
-                Prescription.Pid = oPet.Pid;
+                Prescription.Pid = Pet.Pid;
                 Prescription.Quantity = Convert.ToInt32(TxtQuantity.Text);
                 Prescription.Dosage = TxtDosage.Text;
                 Prescription.InEvidence = ChkInEvidence.Checked;
