@@ -8,44 +8,46 @@ using System.Threading.Tasks;
 
 namespace OldAuntie
 {
-    public class Prescription
+    public class Examination
     {
-        public int PrescriptionId { get; set; }
+        public int ExaminationId { get; set; }
         public int DiagnosisId { get; set; }
-        public string Mid { get; set; }
+        public int DiagnosticTestId { get; set; }
         public int Pid { get; set; }
-        public int? Quantity { get; set; }
-        public string Dosage { get; set; }
+        public string Result { get; set; }
+        public string MedicalReport { get; set; }
+        public bool IsNormal { get; set; }
         public bool InEvidence { get; set; }
         public DateTime? Created { get; set; }
         public DateTime? Updated { get; set; }
 
-        public Prescription(int prescription_id)
+
+        public Examination(int examination_id)
         {
-            Load(prescription_id);
+            Load(examination_id);
         }
 
-        
-        public Prescription Load(int prescription_id)
+
+        public Examination Load(int examination_id)
         {
-            string query = "SELECT * FROM prescriptions a, medicines b " +
-                    "WHERE a.mid = b.mid " +
-                    "AND a.prescription_id = " + prescription_id;
+            string query = "SELECT * FROM examinations a " +
+                    "WHERE a.examination_id = " + examination_id;
 
 
             DataRow result = Globals.DBCon.SelectOneRow(query);
 
             if (result != null && result.ItemArray.Count() > 0)
             {
-                    PrescriptionId = prescription_id;
-                    DiagnosisId = (int)result["diagnosis_id"];
-                    Mid = result["mid"].ToString();
-                    Pid = (int)result["pid"];
-                    Quantity = (int)result["quantity"];
-                    Dosage = result["dosage"].ToString();
-                    InEvidence = (bool)result["in_evidence"];
-                    Created = (DateTime)result["created"];
-                    Updated = Utility.IfDBNull(result["updated"], null);
+                ExaminationId = examination_id;
+                DiagnosisId = (int)result["diagnosis_id"];
+                DiagnosticTestId = (int)result["diagnostic_test_id"];
+                Pid = (int)result["pid"];
+                Result = result["result"].ToString();
+                MedicalReport = result["medical_report"].ToString();
+                IsNormal = (bool)result["is_normal"];
+                InEvidence = (bool)result["in_evidence"];
+                Created = (DateTime)result["created"];
+                Updated = Utility.IfDBNull(result["updated"], null);
             }
 
             return this;
@@ -69,25 +71,25 @@ namespace OldAuntie
         {
             int affetcedRows = 0;
 
-            string query = "UPDATE prescriptions  SET " +
+            string query = "UPDATE examinations  SET " +
                                     "diagnosis_id=@diagnosis_id, " +
-                                    "mid=@mid, " +
                                     "pid=@pid, " +
-                                    "quantity=@quantity, " +
-                                    "dosage=@dosage, " +
+                                    "result=@result, " +
+                                    "medical_report=@mediacal_report, " +
+                                    "is_normal=@is_normal, " +
                                     "in_evidence=@in_evidence, " +
                                     "created=@created, " +
                                     "updated=@updated " +
-                                "WHERE prescription_id=@prescription_id";
+                                "WHERE examination_id=@examination_id";
 
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
-            Cmd.Parameters.AddWithValue("@prescription_id", PrescriptionId);
+            Cmd.Parameters.AddWithValue("@examination_id", DiagnosticTestId);
             Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
-            Cmd.Parameters.AddWithValue("@mid", Mid);
             Cmd.Parameters.AddWithValue("@pid", Pid);
-            Cmd.Parameters.AddWithValue("@quantity", Quantity);
-            Cmd.Parameters.AddWithValue("@dosage", Dosage);
+            Cmd.Parameters.AddWithValue("@result", Result);
+            Cmd.Parameters.AddWithValue("@medical_report", MedicalReport);
+            Cmd.Parameters.AddWithValue("@is_normal", IsNormal);
             Cmd.Parameters.AddWithValue("@in_evidence", InEvidence);
             Cmd.Parameters.AddWithValue("@created", Created);
             Cmd.Parameters.AddWithValue("@updated", DateTime.Now);
@@ -102,15 +104,16 @@ namespace OldAuntie
         {
             int affetcedRows = 0;
 
-            string query = "INSERT into prescriptions (diagnosis_id, mid, pid, quantity, dosage, in_evidence, created) " +
-                        "VALUES (@diagnosis_id, @mid, @pid, @quantity, @dosage, @in_evidence, @created)";
+            string query = "INSERT into examinations (diagnosis_id, diagnostic_test_id, pid, result, medical_report, is_normal, in_evidence, created) " +
+                        "VALUES (@diagnosis_id, @diagnostic_test_id, @pid, @result, @medical_report, @is_normal, @in_evidence, @created)";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
-            Cmd.Parameters.AddWithValue("@mid", Mid);
+            Cmd.Parameters.AddWithValue("@diagnostic_test_id", DiagnosticTestId);
             Cmd.Parameters.AddWithValue("@pid", Pid);
-            Cmd.Parameters.AddWithValue("@quantity", Quantity);
-            Cmd.Parameters.AddWithValue("@dosage", Dosage);
+            Cmd.Parameters.AddWithValue("@result", Result);
+            Cmd.Parameters.AddWithValue("@medical_report", MedicalReport);
+            Cmd.Parameters.AddWithValue("@is_normal", IsNormal);
             Cmd.Parameters.AddWithValue("@in_evidence", InEvidence);
             Cmd.Parameters.AddWithValue("@created", DateTime.Now);
 
@@ -123,11 +126,11 @@ namespace OldAuntie
         public int Delete()
         {
             int affetcedRows = 0;
-            string query = "DELETE FROM prescriptions WHERE prescription_id=@prescription_id";
+            string query = "DELETE FROM examinations WHERE examination_id=@examination_id";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
-            Cmd.Parameters.AddWithValue("@prescription_id", PrescriptionId);
-            
+            Cmd.Parameters.AddWithValue("@examination_id", ExaminationId);
+
             affetcedRows = Cmd.ExecuteNonQuery();
 
             return affetcedRows;
@@ -138,14 +141,14 @@ namespace OldAuntie
         {
             bool result = true;
 
-            string query = "SELECT count(*) FROM prescriptions " +
+            string query = "SELECT count(*) FROM examinations " +
                     "WHERE created = @created " +
                     "AND pid = @pid " +
-                    "AND mid = @mid";
+                    "AND diagnostic_test_id = @diagnostic_test_id";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@created", Created);
-            Cmd.Parameters.AddWithValue("@mid", Mid);
+            Cmd.Parameters.AddWithValue("@diagnostic_test_id", DiagnosticTestId);
             Cmd.Parameters.AddWithValue("@pid", Pid);
 
             object r = Cmd.ExecuteScalar();
@@ -159,14 +162,14 @@ namespace OldAuntie
 
 
 
-        static public DataTable GetPrescriptionsByPid(int pid, int diagnosis_id = 0)
+        static public DataTable GetExaminationsByPid(int pid, int diagnosis_id = 0)
         {
-            string query = "SELECT a.prescription_id, a.mid, a.pid, b.name, b.date_of_issue, b.date_of_withdrawal, a.quantity, a.dosage, a.in_evidence, a.created " +
-                "FROM prescriptions a, medicines b " +
-                "WHERE a.mid = b.mid " +
+            string query = "SELECT a.examination_id, a.diagnosis_id, a.diagnostic_test_id, a.result, a.is_normal, a.in_evidence, a.created, b.term_name " +
+                "FROM examinations a, venom_codes b " +
+                "WHERE a.diagnostic_test_id = b.id " +
                 "AND a.pid = " + pid;
 
-            if(diagnosis_id > 0)
+            if (diagnosis_id > 0)
             {
                 query += " AND a.diagnosis_id = " + diagnosis_id;
             }
@@ -177,16 +180,19 @@ namespace OldAuntie
             return result;
         }
 
+
+
         static public int UnlinkPrescription(int diagnosis_id)
         {
             int affetcedRows = 0;
-            string query = "UPDATE prescriptions SET diagnosis_id = 0 WHERE diagnosis_id=@diagnosis_id";
+            string query = "UPDATE examinations SET diagnosis_id = 0 WHERE diagnosis_id=@diagnosis_id";
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@diagnosis_id", diagnosis_id);
             affetcedRows = Cmd.ExecuteNonQuery();
 
             return affetcedRows;
         }
+
 
     }
 }

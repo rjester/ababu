@@ -162,30 +162,6 @@ namespace OldAuntie
             return result;
         }
 
-        
-
-
-        // @todo: @delete
-        /*
-        static public DataTable Search(string what = "", bool IncludeDeleted = false)
-        {
-            string query = "SELECT a.pid as pid, a.name, b.familiar_name as species, a.microchip, a.description, a.color, a.deleted " +
-                "FROM pets a, species b " +
-                "WHERE a.tsn = b.tsn " +
-                "AND (LOWER(a.name) LIKE '%" + what.ToLower() + "%' OR LOWER(b.familiar_name) LIKE '%" + what.ToLower() + "%' OR LOWER(microchip) LIKE '%" + what.ToLower() + "%' OR LOWER(description) LIKE '%" + what + "%' OR LOWER(color) LIKE '%" + what.ToLower() + "%') ";
-
-            if (IncludeDeleted == false)
-            {
-                query += "AND a.deleted IS NULL ";
-            }
-
-            query += "ORDER BY a.pid DESC";
-
-            DataTable result = Globals.DBCon.Execute(query);
-            return result;
-        }
-        */
- 
  
         static public DataTable GetProblemsByPid(int pid)
         {

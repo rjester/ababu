@@ -1,6 +1,6 @@
 ﻿namespace Ababu
 {
-    partial class CtrlDiagnosticTest
+    partial class CtrlExamination
     {
         /// <summary> 
         /// Variabile di progettazione necessaria.
@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.TlpDiagnosticTest = new System.Windows.Forms.TableLayoutPanel();
-            this.GrdDiagnosticTests = new System.Windows.Forms.DataGridView();
+            this.GrdExaminations = new System.Windows.Forms.DataGridView();
             this.PanDiagnosticTest = new System.Windows.Forms.Panel();
             this.LblDiagnosticTest = new System.Windows.Forms.Label();
             this.BtnDiagnosticTestSelect = new System.Windows.Forms.Button();
             this.CmbDiagnosticTest = new System.Windows.Forms.ComboBox();
             this.TlpDiagnosticTest.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GrdDiagnosticTests)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GrdExaminations)).BeginInit();
             this.PanDiagnosticTest.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +43,7 @@
             // 
             this.TlpDiagnosticTest.ColumnCount = 1;
             this.TlpDiagnosticTest.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TlpDiagnosticTest.Controls.Add(this.GrdDiagnosticTests, 0, 1);
+            this.TlpDiagnosticTest.Controls.Add(this.GrdExaminations, 0, 1);
             this.TlpDiagnosticTest.Controls.Add(this.PanDiagnosticTest, 0, 0);
             this.TlpDiagnosticTest.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TlpDiagnosticTest.Location = new System.Drawing.Point(0, 0);
@@ -54,27 +54,27 @@
             this.TlpDiagnosticTest.Size = new System.Drawing.Size(509, 315);
             this.TlpDiagnosticTest.TabIndex = 1;
             // 
-            // GrdDiagnosticTests
+            // GrdExaminations
             // 
-            this.GrdDiagnosticTests.AllowUserToAddRows = false;
-            this.GrdDiagnosticTests.AllowUserToDeleteRows = false;
-            this.GrdDiagnosticTests.AllowUserToResizeColumns = false;
-            this.GrdDiagnosticTests.AllowUserToResizeRows = false;
-            this.GrdDiagnosticTests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
-            this.GrdDiagnosticTests.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.GrdDiagnosticTests.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.GrdDiagnosticTests.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.GrdDiagnosticTests.ColumnHeadersVisible = false;
-            this.GrdDiagnosticTests.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GrdDiagnosticTests.Location = new System.Drawing.Point(3, 48);
-            this.GrdDiagnosticTests.Name = "GrdDiagnosticTests";
-            this.GrdDiagnosticTests.ReadOnly = true;
-            this.GrdDiagnosticTests.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.GrdDiagnosticTests.RowHeadersVisible = false;
-            this.GrdDiagnosticTests.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.GrdDiagnosticTests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GrdDiagnosticTests.Size = new System.Drawing.Size(503, 264);
-            this.GrdDiagnosticTests.TabIndex = 5;
+            this.GrdExaminations.AllowUserToAddRows = false;
+            this.GrdExaminations.AllowUserToDeleteRows = false;
+            this.GrdExaminations.AllowUserToResizeColumns = false;
+            this.GrdExaminations.AllowUserToResizeRows = false;
+            this.GrdExaminations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
+            this.GrdExaminations.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.GrdExaminations.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GrdExaminations.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.GrdExaminations.ColumnHeadersVisible = false;
+            this.GrdExaminations.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GrdExaminations.Location = new System.Drawing.Point(3, 48);
+            this.GrdExaminations.Name = "GrdExaminations";
+            this.GrdExaminations.ReadOnly = true;
+            this.GrdExaminations.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.GrdExaminations.RowHeadersVisible = false;
+            this.GrdExaminations.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.GrdExaminations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GrdExaminations.Size = new System.Drawing.Size(503, 264);
+            this.GrdExaminations.TabIndex = 5;
             // 
             // PanDiagnosticTest
             // 
@@ -115,16 +115,16 @@
             this.CmbDiagnosticTest.Size = new System.Drawing.Size(275, 21);
             this.CmbDiagnosticTest.TabIndex = 5;
             // 
-            // CtrlDiagnosticTest
+            // CtrlExamination
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.TlpDiagnosticTest);
-            this.Name = "CtrlDiagnosticTest";
+            this.Name = "CtrlExamination";
             this.Size = new System.Drawing.Size(509, 315);
-            this.Load += new System.EventHandler(this.CtrlDiagnosticTest_Load);
+            this.Load += new System.EventHandler(this.CtrlExamination_Load);
             this.TlpDiagnosticTest.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GrdDiagnosticTests)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GrdExaminations)).EndInit();
             this.PanDiagnosticTest.ResumeLayout(false);
             this.PanDiagnosticTest.PerformLayout();
             this.ResumeLayout(false);
@@ -134,7 +134,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel TlpDiagnosticTest;
-        private System.Windows.Forms.DataGridView GrdDiagnosticTests;
+        private System.Windows.Forms.DataGridView GrdExaminations;
         private System.Windows.Forms.Panel PanDiagnosticTest;
         private System.Windows.Forms.Label LblDiagnosticTest;
         private System.Windows.Forms.Button BtnDiagnosticTestSelect;

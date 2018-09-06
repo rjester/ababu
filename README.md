@@ -1,28 +1,22 @@
 # README #
 
-Ababu is a free veterinary software (open source) born both as a standalone software and a network application.
-So it can run on a single computer, in a local network (e.g. a veterinary clinic) or on a cloud computing (over the internet)
-Initially written in PHP+MySQL and freely downloadable from www.oldauntie.org, Ababu is a C# project that aims to be a multi-platform (Windows, Mac, Linux, any tablet or mobile), free, multi-lingual application to help veterinaries from all over the world in the cure of any kind of animal or pet using .NET (C#) framework to make it portable.
+Ababu is an open source (free) problem oriented veterinary practice management software.
+It can run on a single computer, in a local network (e.g. a veterinary clinic) or on a cloud computing (over the internet)
+Ababu aims to be a multi-platform (Windows, Mac, Linux, any tablet or mobile), free, multi-lingual application to help veterinaries from all over the world in the cure of any kind of animal.
+Ababu is a free to download / install / redistribute software.
+You can get the source from here (Github) or download the Installation program (binaries) from www.oldauntie.org (coming soon).
+It's written in .NET (C#).
 
 ### What is this repository for? ###
 
-* Quick summary
+* Here (Github) you can find the application source code. Setup program (binaries) will be available soon on the official project's website.
+If you want to help or partecipate to this project, please consider to contact us.
+We need developers, translators, designers for the application interfaces and layouts, webmasters and SEOs, clinical advisors, testers, and "wind talkers".
+
+Thanks a lot for visiting this page and supporting us even just by talking about this project and spread the word.
+Keep coding and metal on! :)
+
 * Version 0.2
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
 
 ### Who do I talk to? ###
 

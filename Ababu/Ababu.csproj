@@ -60,11 +60,11 @@
     <Compile Include="CtrlDiary.Designer.cs">
       <DependentUpon>CtrlDiary.cs</DependentUpon>
     </Compile>
-    <Compile Include="CtrlDiagnosticTest.cs">
+    <Compile Include="CtrlExamination.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CtrlDiagnosticTest.Designer.cs">
-      <DependentUpon>CtrlDiagnosticTest.cs</DependentUpon>
+    <Compile Include="CtrlExamination.Designer.cs">
+      <DependentUpon>CtrlExamination.cs</DependentUpon>
     </Compile>
     <Compile Include="CtrlMaterial.cs">
       <SubType>UserControl</SubType>
@@ -120,6 +120,12 @@
     <Compile Include="FrmDatabaseConnection.Designer.cs">
       <DependentUpon>FrmDatabaseConnection.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDiagnosticTestEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDiagnosticTestEdit.Designer.cs">
+      <DependentUpon>FrmDiagnosticTestEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,8 +167,8 @@
     <EmbeddedResource Include="CtrlDiary.resx">
       <DependentUpon>CtrlDiary.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CtrlDiagnosticTest.resx">
-      <DependentUpon>CtrlDiagnosticTest.cs</DependentUpon>
+    <EmbeddedResource Include="CtrlExamination.resx">
+      <DependentUpon>CtrlExamination.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlMaterial.resx">
       <DependentUpon>CtrlMaterial.cs</DependentUpon>
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDatabaseConnection.resx">
       <DependentUpon>FrmDatabaseConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDiagnosticTestEdit.resx">
+      <DependentUpon>FrmDiagnosticTestEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -340,6 +349,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\lock_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bullet_black.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets')" />

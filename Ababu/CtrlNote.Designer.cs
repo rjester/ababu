@@ -44,7 +44,7 @@
             this.TxtNote.Multiline = true;
             this.TxtNote.Name = "TxtNote";
             this.TxtNote.ReadOnly = true;
-            this.TxtNote.Size = new System.Drawing.Size(340, 20);
+            this.TxtNote.Size = new System.Drawing.Size(468, 20);
             this.TxtNote.TabIndex = 1;
             this.TxtNote.TextChanged += new System.EventHandler(this.TxtNote_TextChanged);
             this.TxtNote.DoubleClick += new System.EventHandler(this.TxtNote_DoubleClick);
@@ -69,7 +69,7 @@
             // 
             this.BtnNoteDelete.Enabled = false;
             this.BtnNoteDelete.Image = global::Ababu.Properties.Resources.delete;
-            this.BtnNoteDelete.Location = new System.Drawing.Point(442, 5);
+            this.BtnNoteDelete.Location = new System.Drawing.Point(570, 5);
             this.BtnNoteDelete.Name = "BtnNoteDelete";
             this.BtnNoteDelete.Size = new System.Drawing.Size(16, 16);
             this.BtnNoteDelete.TabIndex = 5;
@@ -84,7 +84,7 @@
             this.Controls.Add(this.DtpDate);
             this.Controls.Add(this.TxtNote);
             this.Name = "CtrlNote";
-            this.Size = new System.Drawing.Size(462, 26);
+            this.Size = new System.Drawing.Size(589, 26);
             this.Load += new System.EventHandler(this.CtrlNote_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ErrNoteEdit)).EndInit();
             this.ResumeLayout(false);

@@ -111,8 +111,8 @@
             this.TlpVisitBody.Location = new System.Drawing.Point(3, 30);
             this.TlpVisitBody.Name = "TlpVisitBody";
             this.TlpVisitBody.RowCount = 2;
-            this.TlpVisitBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55F));
-            this.TlpVisitBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.TlpVisitBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.66667F));
+            this.TlpVisitBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.33333F));
             this.TlpVisitBody.Size = new System.Drawing.Size(743, 451);
             this.TlpVisitBody.TabIndex = 1;
             // 
@@ -127,7 +127,7 @@
             this.TlpVisitBodyHead.Name = "TlpVisitBodyHead";
             this.TlpVisitBodyHead.RowCount = 1;
             this.TlpVisitBodyHead.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TlpVisitBodyHead.Size = new System.Drawing.Size(735, 240);
+            this.TlpVisitBodyHead.Size = new System.Drawing.Size(735, 203);
             this.TlpVisitBodyHead.TabIndex = 0;
             // 
             // TlpVisitBodyBottom
@@ -136,11 +136,11 @@
             this.TlpVisitBodyBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TlpVisitBodyBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TlpVisitBodyBottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TlpVisitBodyBottom.Location = new System.Drawing.Point(4, 251);
+            this.TlpVisitBodyBottom.Location = new System.Drawing.Point(4, 214);
             this.TlpVisitBodyBottom.Name = "TlpVisitBodyBottom";
             this.TlpVisitBodyBottom.RowCount = 1;
             this.TlpVisitBodyBottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TlpVisitBodyBottom.Size = new System.Drawing.Size(735, 196);
+            this.TlpVisitBodyBottom.Size = new System.Drawing.Size(735, 233);
             this.TlpVisitBodyBottom.TabIndex = 1;
             // 
             // CtrlVisit

@@ -44,27 +44,20 @@ namespace Ababu
             ctrlProblem.Dock = DockStyle.Fill;
             TlpVisitBodyHead.Controls.Add(ctrlProblem, 0, 0);
 
-            // loading Diary
-            CtrlDiary ctrlDiary = new CtrlDiary(P);
-            ctrlDiary.Dock = DockStyle.Top;
-            // TlpVisitBody.Controls.Add(ctrlDiary, 0, 1);
-            TlpVisitBodyHead.Controls.Add(ctrlDiary, 2, 0);
-
-            /*
-            CtrlTherapy ctrlTherapy = new CtrlTherapy(P);
-            ctrlTherapy.Dock = DockStyle.Fill;
-            TlpVisitBodyHead.Controls.Add(ctrlTherapy, 1, 0);
-            */
-
             CtrlPrescription ctrlPrescription = new CtrlPrescription(P);
             ctrlPrescription.Dock = DockStyle.Fill;
             TlpVisitBodyHead.Controls.Add(ctrlPrescription, 1, 0);
 
 
-            CtrlDiagnosticTest ctrlExamination = new CtrlDiagnosticTest();
+            CtrlExamination ctrlExamination = new CtrlExamination(P);
             ctrlExamination.Dock = DockStyle.Fill;
-            // TlpVisitBody.Controls.Add(ctrlExamination, 1, 1);
-            TlpVisitBodyBottom.Controls.Add(ctrlExamination, 0, 0);
+            TlpVisitBodyHead.Controls.Add(ctrlExamination, 2, 0);
+
+            // loading Diary
+            CtrlDiary ctrlDiary = new CtrlDiary(P);
+            ctrlDiary.Dock = DockStyle.Top;
+            // TlpVisitBody.Controls.Add(ctrlDiary, 0, 1);
+            TlpVisitBodyBottom.Controls.Add(ctrlDiary, 0, 0);
 
 
             CtrlTherapy ctrlTherapy = new CtrlTherapy(P);
