@@ -31,6 +31,7 @@
             this.TabTherapy = new System.Windows.Forms.TabControl();
             this.TpProcedures = new System.Windows.Forms.TabPage();
             this.TpMaterials = new System.Windows.Forms.TabPage();
+            this.TpCertificates = new System.Windows.Forms.TabPage();
             this.TabTherapy.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,6 +39,7 @@
             // 
             this.TabTherapy.Controls.Add(this.TpProcedures);
             this.TabTherapy.Controls.Add(this.TpMaterials);
+            this.TabTherapy.Controls.Add(this.TpCertificates);
             this.TabTherapy.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabTherapy.HotTrack = true;
             this.TabTherapy.Location = new System.Drawing.Point(0, 0);
@@ -66,6 +68,15 @@
             this.TpMaterials.Text = "Materials";
             this.TpMaterials.UseVisualStyleBackColor = true;
             // 
+            // TpCertificates
+            // 
+            this.TpCertificates.Location = new System.Drawing.Point(4, 22);
+            this.TpCertificates.Name = "TpCertificates";
+            this.TpCertificates.Size = new System.Drawing.Size(475, 290);
+            this.TpCertificates.TabIndex = 3;
+            this.TpCertificates.Text = "Certificates";
+            this.TpCertificates.UseVisualStyleBackColor = true;
+            // 
             // CtrlTherapy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -84,5 +95,6 @@
         private System.Windows.Forms.TabControl TabTherapy;
         private System.Windows.Forms.TabPage TpProcedures;
         private System.Windows.Forms.TabPage TpMaterials;
+        private System.Windows.Forms.TabPage TpCertificates;
     }
 }

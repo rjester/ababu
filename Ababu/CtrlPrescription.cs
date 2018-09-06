@@ -39,7 +39,6 @@ namespace Ababu
         {
             FillCombo();
             FillGrid();
-            
         }
 
 
@@ -116,6 +115,7 @@ namespace Ababu
             FillControl();
         }
 
+
         private void GrdPrescriptions_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // DateTime created = (DateTime)GrdPrescriptions.Rows[e.RowIndex].Cells[0].Value;
@@ -123,7 +123,6 @@ namespace Ababu
             string mid = GrdPrescriptions.Rows[e.RowIndex].Cells[1].Value.ToString();
             
             OpenPrescriptionEdit(mid, prescription_id);
-            // MessageBox.Show(created.ToString());
             /*
             if (e.ColumnIndex == 6)
             {

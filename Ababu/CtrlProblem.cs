@@ -31,7 +31,7 @@ namespace Ababu
 
         private void FillCombo()
         {
-            CmbProblem.DataSource = OldAuntie.Venom.Search(Venom.DIAGNOSIS);
+            CmbProblem.DataSource = Venom.Search(Venom.DIAGNOSIS);
             CmbProblem.ValueMember = "id";
             CmbProblem.DisplayMember = "value";
             CmbProblem.SelectedValue = 0;

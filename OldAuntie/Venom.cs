@@ -12,6 +12,7 @@ namespace OldAuntie
 
         public const string REASON_FOR_VISIT = "Reason for visit";
         public const string DIAGNOSIS = "Diagnosis";
+        public const string DIAGNOSTIC_TEST = "Diagnostic test";
 
 
         public int Id { get; set; }
