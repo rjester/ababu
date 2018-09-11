@@ -20,6 +20,8 @@ namespace OldAuntie
         public const Int32 RETURN_READER = 0;
         public const Int32 RETURN_DATATABLE = 1;
 
+        public const string DATETIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
         private MySqlConnection connection = null;
         private MySqlCommand command = null;
 

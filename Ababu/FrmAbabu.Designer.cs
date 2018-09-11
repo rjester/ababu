@@ -106,7 +106,7 @@
             // TsbTags
             // 
             this.TsbTags.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TsbTags.Image = global::Ababu.Properties.Resources.tag;
+            this.TsbTags.Image = global::Ababu.Properties.Resources.tag_blue;
             this.TsbTags.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsbTags.Name = "TsbTags";
             this.TsbTags.Size = new System.Drawing.Size(23, 22);

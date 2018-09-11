@@ -114,6 +114,7 @@
             this.CmbDiagnosticTest.Name = "CmbDiagnosticTest";
             this.CmbDiagnosticTest.Size = new System.Drawing.Size(275, 21);
             this.CmbDiagnosticTest.TabIndex = 5;
+            this.CmbDiagnosticTest.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CmbDiagnosticTest_KeyDown);
             // 
             // CtrlExamination
             // 

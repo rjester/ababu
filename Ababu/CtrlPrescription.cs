@@ -64,11 +64,11 @@ namespace Ababu
                 // Set column for essential information
                 if (in_evidence == true)
                 {
-                    DtPrescriptions.Rows[j]["in_evidenve_image"] = (Image)Properties.Resources.tick;
+                    DtPrescriptions.Rows[j]["in_evidenve_image"] = (Image)Properties.Resources.bullet_star;
                 }
                 else
                 {
-                    DtPrescriptions.Rows[j]["in_evidenve_image"] = (Image)Properties.Resources.lightbulb_off;
+                    DtPrescriptions.Rows[j]["in_evidenve_image"] = (Image)Properties.Resources.bullet_white;
                 }
             }
 

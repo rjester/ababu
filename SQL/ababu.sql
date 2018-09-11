@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Set 06, 2018 alle 16:01
+-- Creato il: Set 11, 2018 alle 18:01
 -- Versione del server: 10.1.34-MariaDB
 -- Versione PHP: 7.2.8
 
@@ -3034,16 +3034,7 @@ CREATE TABLE `prescriptions` (
 --
 
 INSERT INTO `prescriptions` (`prescription_id`, `diagnosis_id`, `mid`, `pid`, `quantity`, `dosage`, `in_evidence`, `created`, `updated`) VALUES
-(1, 333, '25296/4005', 1, 1, 'una al di\'', 0, '2018-08-26 22:47:35', '2018-09-04 01:04:58'),
-(3, 0, '03940/4098', 1, 3, 'two a day', 0, '2018-08-26 22:54:01', '2018-09-06 15:20:00'),
-(4, 326, '00879/4012', 1, 1, 'al bisogno', 0, '2018-08-29 13:06:49', NULL),
-(5, 0, '32742/4007', 1, 3, '1', 0, '2018-08-31 18:52:18', NULL),
-(6, 0, '41821/4015', 1, 2, 'una al gg', 0, '2018-08-31 18:56:24', NULL),
-(7, 0, '17902/4059', 1, 3, 'when needed', 0, '2018-09-04 01:18:16', '2018-09-06 15:20:08'),
-(8, 333, '15985/4022', 1, 3, 'one a day', 0, '2018-09-05 13:32:57', NULL),
-(10, 0, '41821/4015', 1, 1, '1', 1, '2018-09-06 15:19:26', '2018-09-06 15:47:11'),
-(11, 0, '15052/4141', 1, 1, '1', 0, '2018-09-06 15:19:43', NULL),
-(12, 0, '15052/4141', 1, 2, '2', 0, '2018-09-06 15:20:35', NULL);
+(15, 336, '10347/4037', 1, 1, 'one per day', 1, '2018-09-11 17:57:22', '2018-09-11 17:57:35');
 
 -- --------------------------------------------------------
 
@@ -7429,7 +7420,7 @@ ALTER TABLE `pets`
 -- AUTO_INCREMENT per la tabella `prescriptions`
 --
 ALTER TABLE `prescriptions`
-  MODIFY `prescription_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `prescription_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT per la tabella `users`

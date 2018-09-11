@@ -4,6 +4,8 @@ Flow FlowLayoutPanel
 
 Grb	GroupBox
 
+Num NumericUpDown
+
 Sts StatusBar
 Stl	StatusBarLabel
 

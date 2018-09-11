@@ -14,10 +14,10 @@ namespace OldAuntie
         public int DiagnosisId { get; set; }
         public string Mid { get; set; }
         public int Pid { get; set; }
-        public int? Quantity { get; set; }
+        public int Quantity { get; set; }
         public string Dosage { get; set; }
         public bool InEvidence { get; set; }
-        public DateTime? Created { get; set; }
+        public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
 
         public Prescription(int prescription_id)
@@ -134,7 +134,9 @@ namespace OldAuntie
         }
 
 
-        public bool Exists()
+        // @todo: delete me
+        /*
+        public bool Exists_OLD()
         {
             bool result = true;
 
@@ -156,6 +158,20 @@ namespace OldAuntie
 
             return result;
         }
+        */
+
+
+        public bool Exists()
+        {
+            string query = "SELECT prescription_id FROM prescriptions " +
+                    "WHERE created = '" + Created.ToString(BaseDati.DATETIME_FORMAT) + "' " +
+                    "AND pid = " + Pid + " " +
+                    "AND mid = '" + Mid + "'";
+
+            return Globals.DBCon.Exists(query);
+        }
+
+
 
 
 

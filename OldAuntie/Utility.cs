@@ -9,7 +9,9 @@ namespace OldAuntie
 {
     public class Utility
     {
-        public const string DATETIME_DEFAULT_FORMAT = "yyyyMMddHHmmss";
+        // @todo: delete both ?
+        // public const string DATETIME_DEFAULT_FORMAT = "yyyyMMddHHmmss";
+        // public const string DATETIME_DEFAULT_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
         public static string MD5(string input)
         {
@@ -56,6 +58,18 @@ namespace OldAuntie
         }
 
 
+        // @todo: delete me ?
+        /*
+        public static string DateTimeToString(DateTime? Date, String Format = DATETIME_DEFAULT_FORMAT)
+        {
+            return Date.ToString(Format);
+        }
+        */
+
+
+
+
+
 
         // DATA CONVERSION
         public static dynamic IfNullOrEmpty(dynamic what, dynamic return_value = null)
@@ -80,8 +94,23 @@ namespace OldAuntie
             {
                 return what;
             }
-
         }
+
+
+        public static dynamic IfMinValue(DateTime date_time, dynamic return_value = null)
+        {
+            if (date_time == DateTime.MinValue)
+            {
+                return return_value;
+            }
+            else
+            {
+                return date_time;
+            }
+        }
+
+
+
 
         public static dynamic IfDBNull(dynamic what, dynamic return_value = null)
         {

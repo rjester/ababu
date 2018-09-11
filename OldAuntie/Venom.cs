@@ -16,14 +16,38 @@ namespace OldAuntie
 
 
         public int Id { get; set; }
+        public string Status { get; set; }
+        public string PreviousStatus { get; set; }
+        public string Created { get; set; }
+        public string DDID { get; set; }
         public string Label { get; set; }
         public string TermName { get; set; }
+        public string TopLevelModeling { get; set; }
+
+        public Venom(int id)
+        {
+            Load(id);
+        }
 
 
-        public Venom(long id)
+        public Venom Load(int id)
         {
             string query = "SELECT * FROM venom_codes WHERE id = " + id.ToString();
-            DataRow DrResult = Globals.DBCon.SelectOneRow(query);
+            DataRow result = Globals.DBCon.SelectOneRow(query);
+            if (result != null && result.ItemArray.Count() > 0)
+            {
+                Id = id;
+                Status = result["status"].ToString();
+                PreviousStatus = result["previous_status"].ToString();
+                Created = result["created"].ToString();
+                DDID = result["DDID"].ToString();
+                Label = result["label"].ToString();
+                TermName = result["term_name"].ToString();
+                TopLevelModeling = result["top_level_modeling"].ToString();
+            }
+
+            return this;
+
         }
 
 
@@ -58,10 +82,5 @@ namespace OldAuntie
 
             return Globals.DBCon.SelectOneValue(query);
         }
-
-
-
-
-
     }
 }

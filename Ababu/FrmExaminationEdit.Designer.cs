@@ -1,6 +1,6 @@
 ﻿namespace Ababu
 {
-    partial class FrmDiagnosticTestEdit
+    partial class FrmExaminationEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDiagnosticTestEdit));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmExaminationEdit));
             this.SuspendLayout();
             // 
-            // FrmDiagnosticTestEdit
+            // FrmExaminationEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmDiagnosticTestEdit";
+            this.Name = "FrmExaminationEdit";
             this.Text = "FrmDiagnosticTestEdit";
+            this.Load += new System.EventHandler(this.FrmExaminationEdit_Load);
             this.ResumeLayout(false);
 
         }

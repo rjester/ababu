@@ -62,7 +62,7 @@ namespace Ababu
                 // Set column image for essential information
                 if (in_evidence == true)
                 {
-                    DtExaminations.Rows[j]["in_evidenve_image"] = (Image)Properties.Resources.tick;
+                    DtExaminations.Rows[j]["in_evidenve_image"] = (Image)Properties.Resources.bullet_star;
                 }
                 else
                 {
@@ -104,6 +104,28 @@ namespace Ababu
             GrdExaminations.Columns["is_normal"].Visible = false;
 
             GrdExaminations.Columns["term_name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void CmbDiagnosticTest_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (CmbDiagnosticTest.SelectedItem != null && CmbDiagnosticTest.SelectedValue != null)
+                {
+                    OpenExaminationEdit(CmbDiagnosticTest.SelectedValue.ToString());
+                }
+            }
+        }
+
+        
+
+        private void OpenExaminationEdit(string diagnostic_test_id, int examination_id = 0)
+        {
+            /*
+            FrmExaminationEdit frmExaminationEdit = new FrmExaminationEdit(Pet, new Medicine(mid), new Prescription(prescription_id), Problem);
+            frmPrescriptionEdit.FormClosing += new FormClosingEventHandler(PrescriptionEdit_FormClosing);
+            frmPrescriptionEdit.ShowDialog();
+            */
         }
     }
 }

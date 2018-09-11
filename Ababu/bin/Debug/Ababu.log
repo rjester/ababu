@@ -109,3 +109,7 @@
    in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
    in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
    in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
+11/09/2018 17:30:28 (error): Connection must be valid and open.
+11/09/2018 17:30:28 (error): Connection must be valid and open.
+11/09/2018 17:47:35 (error): Connection must be valid and open.
+11/09/2018 17:47:36 (error): Connection must be valid and open.

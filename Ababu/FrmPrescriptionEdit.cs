@@ -91,7 +91,7 @@ namespace Ababu
             BtnPrescriptionPrint.Enabled = false;
             /*
             BtnPrescriptionSave.Enabled = false;
-            TxtQuantity.Enabled = false;
+            NumQuantity.Enabled = false;
             TxtDosage.Enabled = false;
             ChkInEvidence.Enabled = false;
             */
@@ -102,8 +102,8 @@ namespace Ababu
         {
             TxtMedicine.Text = Medicine.Name;
 
-            DtpCreated.Value = Utility.IfNull(Prescription.Created, DateTime.Now);
-            TxtQuantity.Text = Prescription.Quantity.ToString();
+            DtpCreated.Value = Utility.IfMinValue(Prescription.Created, DateTime.Now);
+            NumQuantity.Value = Prescription.Quantity;
             TxtDosage.Text = Prescription.Dosage;
             ChkInEvidence.Checked = Prescription.InEvidence;
 
@@ -156,7 +156,7 @@ namespace Ababu
                 Prescription.Created = DtpCreated.Value;
                 Prescription.Mid = Medicine.Mid;
                 Prescription.Pid = Pet.Pid;
-                Prescription.Quantity = Convert.ToInt32(TxtQuantity.Text);
+                Prescription.Quantity = Convert.ToInt32(NumQuantity.Value);
                 Prescription.Dosage = TxtDosage.Text;
                 Prescription.InEvidence = ChkInEvidence.Checked;
                 Prescription.DiagnosisId = Convert.ToInt32(CmbProblems.SelectedValue);
@@ -187,10 +187,10 @@ namespace Ababu
             bool result = true;
             ErrPrescriptionEdit.Clear();
 
-            if (TxtQuantity.Text.Trim() == string.Empty)
+            if (NumQuantity.Value == 0)
             {
                 result = result & false;
-                ErrPrescriptionEdit.SetError(TxtQuantity, "Quantity cannot be empty");
+                ErrPrescriptionEdit.SetError(NumQuantity, "Quantity cannot be empty");
             }
 
             if (TxtDosage.Text.Trim() == string.Empty)
@@ -202,7 +202,7 @@ namespace Ababu
             return result;
         }
 
-
+        // @todo: change with stepper and int value only text box
         private void TxtMedicineQuantity_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
