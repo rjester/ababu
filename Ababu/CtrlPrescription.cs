@@ -104,7 +104,7 @@ namespace Ababu
 
         private void OpenPrescriptionEdit(string mid, int prescription_id = 0)
         {
-            FrmPrescriptionEdit frmPrescriptionEdit = new FrmPrescriptionEdit(Pet, new Medicine(mid), new Prescription(prescription_id), Problem);
+            FrmPrescriptionEdit frmPrescriptionEdit = new FrmPrescriptionEdit(new Prescription(prescription_id), Pet, new Medicine(mid), Problem);
             frmPrescriptionEdit.FormClosing += new FormClosingEventHandler(PrescriptionEdit_FormClosing);
             frmPrescriptionEdit.ShowDialog();
         }
@@ -136,9 +136,9 @@ namespace Ababu
         }
 
 
+        // handle the event raised when created this object in Visit and get the problem object 
         public void OnProblemSelection(object sender, ProblemEventArgs e)
         {
-            // handle the even getting the problem 
             Problem = e.Problem;
             FillGrid();
         }

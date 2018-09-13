@@ -20,7 +20,7 @@ namespace Ababu
 
         private bool IsModified = false;
 
-        public FrmPrescriptionEdit(Pet pet, Medicine medicine, Prescription prescription = null, Problem problem = null)
+        public FrmPrescriptionEdit(Prescription prescription, Pet pet, Medicine medicine, Problem problem = null)
         {
             Prescription = prescription;
             Problem = problem;

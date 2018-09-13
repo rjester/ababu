@@ -16,7 +16,7 @@ namespace OldAuntie
         public int Pid { get; set; }
         public string Result { get; set; }
         public string MedicalReport { get; set; }
-        public bool IsNormal { get; set; }
+        public bool IsPathologic { get; set; }
         public bool InEvidence { get; set; }
         public DateTime? Created { get; set; }
         public DateTime? Updated { get; set; }
@@ -44,7 +44,7 @@ namespace OldAuntie
                 Pid = (int)result["pid"];
                 Result = result["result"].ToString();
                 MedicalReport = result["medical_report"].ToString();
-                IsNormal = (bool)result["is_normal"];
+                IsPathologic = (bool)result["is_pathologic"];
                 InEvidence = (bool)result["in_evidence"];
                 Created = (DateTime)result["created"];
                 Updated = Utility.IfDBNull(result["updated"], null);
@@ -76,7 +76,7 @@ namespace OldAuntie
                                     "pid=@pid, " +
                                     "result=@result, " +
                                     "medical_report=@mediacal_report, " +
-                                    "is_normal=@is_normal, " +
+                                    "is_pathologic=@is_pathologic, " +
                                     "in_evidence=@in_evidence, " +
                                     "created=@created, " +
                                     "updated=@updated " +
@@ -89,7 +89,7 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@pid", Pid);
             Cmd.Parameters.AddWithValue("@result", Result);
             Cmd.Parameters.AddWithValue("@medical_report", MedicalReport);
-            Cmd.Parameters.AddWithValue("@is_normal", IsNormal);
+            Cmd.Parameters.AddWithValue("@is_pathologic", IsPathologic);
             Cmd.Parameters.AddWithValue("@in_evidence", InEvidence);
             Cmd.Parameters.AddWithValue("@created", Created);
             Cmd.Parameters.AddWithValue("@updated", DateTime.Now);
@@ -104,8 +104,8 @@ namespace OldAuntie
         {
             int affetcedRows = 0;
 
-            string query = "INSERT into examinations (diagnosis_id, diagnostic_test_id, pid, result, medical_report, is_normal, in_evidence, created) " +
-                        "VALUES (@diagnosis_id, @diagnostic_test_id, @pid, @result, @medical_report, @is_normal, @in_evidence, @created)";
+            string query = "INSERT into examinations (diagnosis_id, diagnostic_test_id, pid, result, medical_report, is_pathologic, in_evidence, created) " +
+                        "VALUES (@diagnosis_id, @diagnostic_test_id, @pid, @result, @medical_report, @is_pathologic, @in_evidence, @created)";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
@@ -113,7 +113,7 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@pid", Pid);
             Cmd.Parameters.AddWithValue("@result", Result);
             Cmd.Parameters.AddWithValue("@medical_report", MedicalReport);
-            Cmd.Parameters.AddWithValue("@is_normal", IsNormal);
+            Cmd.Parameters.AddWithValue("@is_pathologic", IsPathologic);
             Cmd.Parameters.AddWithValue("@in_evidence", InEvidence);
             Cmd.Parameters.AddWithValue("@created", DateTime.Now);
 
@@ -164,7 +164,7 @@ namespace OldAuntie
 
         static public DataTable GetExaminationsByPid(int pid, int diagnosis_id = 0)
         {
-            string query = "SELECT a.examination_id, a.diagnosis_id, a.diagnostic_test_id, a.result, a.is_normal, a.in_evidence, a.created, b.term_name " +
+            string query = "SELECT a.examination_id, a.diagnosis_id, a.diagnostic_test_id, a.result, a.is_pathologic, a.in_evidence, a.created, b.term_name " +
                 "FROM examinations a, venom_codes b " +
                 "WHERE a.diagnostic_test_id = b.id " +
                 "AND a.pid = " + pid;

@@ -33,7 +33,7 @@
             this.PanDiagnosticTest = new System.Windows.Forms.Panel();
             this.LblDiagnosticTest = new System.Windows.Forms.Label();
             this.BtnDiagnosticTestSelect = new System.Windows.Forms.Button();
-            this.CmbDiagnosticTest = new System.Windows.Forms.ComboBox();
+            this.CmbDiagnosticTests = new System.Windows.Forms.ComboBox();
             this.TlpDiagnosticTest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrdExaminations)).BeginInit();
             this.PanDiagnosticTest.SuspendLayout();
@@ -80,7 +80,7 @@
             // 
             this.PanDiagnosticTest.Controls.Add(this.LblDiagnosticTest);
             this.PanDiagnosticTest.Controls.Add(this.BtnDiagnosticTestSelect);
-            this.PanDiagnosticTest.Controls.Add(this.CmbDiagnosticTest);
+            this.PanDiagnosticTest.Controls.Add(this.CmbDiagnosticTests);
             this.PanDiagnosticTest.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanDiagnosticTest.Location = new System.Drawing.Point(3, 3);
             this.PanDiagnosticTest.Name = "PanDiagnosticTest";
@@ -105,16 +105,16 @@
             this.BtnDiagnosticTestSelect.TabIndex = 6;
             this.BtnDiagnosticTestSelect.UseVisualStyleBackColor = true;
             // 
-            // CmbDiagnosticTest
+            // CmbDiagnosticTests
             // 
-            this.CmbDiagnosticTest.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.CmbDiagnosticTest.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CmbDiagnosticTest.FormattingEnabled = true;
-            this.CmbDiagnosticTest.Location = new System.Drawing.Point(3, 15);
-            this.CmbDiagnosticTest.Name = "CmbDiagnosticTest";
-            this.CmbDiagnosticTest.Size = new System.Drawing.Size(275, 21);
-            this.CmbDiagnosticTest.TabIndex = 5;
-            this.CmbDiagnosticTest.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CmbDiagnosticTest_KeyDown);
+            this.CmbDiagnosticTests.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CmbDiagnosticTests.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CmbDiagnosticTests.FormattingEnabled = true;
+            this.CmbDiagnosticTests.Location = new System.Drawing.Point(3, 15);
+            this.CmbDiagnosticTests.Name = "CmbDiagnosticTests";
+            this.CmbDiagnosticTests.Size = new System.Drawing.Size(275, 21);
+            this.CmbDiagnosticTests.TabIndex = 5;
+            this.CmbDiagnosticTests.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CmbDiagnosticTests_KeyDown);
             // 
             // CtrlExamination
             // 
@@ -139,6 +139,6 @@
         private System.Windows.Forms.Panel PanDiagnosticTest;
         private System.Windows.Forms.Label LblDiagnosticTest;
         private System.Windows.Forms.Button BtnDiagnosticTestSelect;
-        private System.Windows.Forms.ComboBox CmbDiagnosticTest;
+        private System.Windows.Forms.ComboBox CmbDiagnosticTests;
     }
 }

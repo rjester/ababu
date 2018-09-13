@@ -113,3 +113,5 @@
 11/09/2018 17:30:28 (error): Connection must be valid and open.
 11/09/2018 17:47:35 (error): Connection must be valid and open.
 11/09/2018 17:47:36 (error): Connection must be valid and open.
+13/09/2018 08:35:18 (error): Unable to connect to any of the specified MySQL hosts.
+13/09/2018 19:58:12 (error): Unknown column 'a.is_normal' in 'field list'

@@ -38,12 +38,13 @@ namespace Ababu
             FillGrid();
         }
 
+
         private void FillCombo()
         {
-            CmbDiagnosticTest.DataSource = Venom.Search(Venom.DIAGNOSTIC_TEST);
-            CmbDiagnosticTest.ValueMember = "id";
-            CmbDiagnosticTest.DisplayMember = "value";
-            CmbDiagnosticTest.SelectedValue = 0;
+            CmbDiagnosticTests.DataSource = Venom.Search(Venom.DIAGNOSTIC_TEST);
+            CmbDiagnosticTests.ValueMember = "id";
+            CmbDiagnosticTests.DisplayMember = "value";
+            CmbDiagnosticTests.SelectedValue = 0;
         }
 
 
@@ -51,12 +52,12 @@ namespace Ababu
         {
             DataTable DtExaminations = Examination.GetExaminationsByPid(Pet.Pid, Problem.DiagnosisId);
             DtExaminations.Columns.Add("in_evidenve_image", typeof(Image));
-            DtExaminations.Columns.Add("is_normal_image", typeof(Image));
+            DtExaminations.Columns.Add("is_pathologic_image", typeof(Image));
 
             for (int j = 0; j < DtExaminations.Rows.Count; j++)
             {
                 bool in_evidence = (bool)DtExaminations.Rows[j]["in_evidence"];
-                bool? is_normal = Utility.IfDBNull(DtExaminations.Rows[j]["is_normal"], null);
+                bool? is_pathologic = Utility.IfDBNull(DtExaminations.Rows[j]["is_pathologic"], null);
 
 
                 // Set column image for essential information
@@ -70,20 +71,20 @@ namespace Ababu
                 }
 
 
-                // Set column image for is_normal information (black = not evaluated, green = normal, red = patologic / not normal
-                if (is_normal == null)
+                // Set column image for is_pathologic information (black = not evaluated, green = normal, red = patologic / not normal
+                if (is_pathologic == null)
                 {
-                    DtExaminations.Rows[j]["is_normal_image"] = (Image)Properties.Resources.bullet_black;
+                    DtExaminations.Rows[j]["is_pathologic_image"] = (Image)Properties.Resources.bullet_black;
                 }
                 else
                 {
-                    if (is_normal == true)
+                    if (is_pathologic == true)
                     {
-                        DtExaminations.Rows[j]["is_normal_image"] = (Image)Properties.Resources.bullet_green;
+                        DtExaminations.Rows[j]["is_pathologic_image"] = (Image)Properties.Resources.bullet_green;
                     }
                     else
                     {
-                        DtExaminations.Rows[j]["is_normal_image"] = (Image)Properties.Resources.bullet_red;
+                        DtExaminations.Rows[j]["is_pathologic_image"] = (Image)Properties.Resources.bullet_red;
                     }
                 }
             }
@@ -101,31 +102,41 @@ namespace Ababu
             GrdExaminations.Columns["diagnostic_test_id"].Visible = false;
             GrdExaminations.Columns["result"].Visible = false;
             GrdExaminations.Columns["in_evidence"].Visible = false;
-            GrdExaminations.Columns["is_normal"].Visible = false;
+            GrdExaminations.Columns["is_pathologic"].Visible = false;
 
             GrdExaminations.Columns["term_name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
+        
 
-        private void CmbDiagnosticTest_KeyDown(object sender, KeyEventArgs e)
+        private void OpenExaminationEdit(int diagnostic_test_id, int examination_id = 0)
+        {
+            FrmExaminationEdit frmExaminationEdit = new FrmExaminationEdit(new Examination(examination_id), Pet, new Venom(diagnostic_test_id), Problem);
+            frmExaminationEdit.FormClosing += FrmExaminationEdit_FormClosing;
+            frmExaminationEdit.ShowDialog();
+        }
+
+        private void FrmExaminationEdit_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FillControl();
+        }
+
+        private void CmbDiagnosticTests_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (CmbDiagnosticTest.SelectedItem != null && CmbDiagnosticTest.SelectedValue != null)
+                if (CmbDiagnosticTests.SelectedItem != null && CmbDiagnosticTests.SelectedValue != null)
                 {
-                    OpenExaminationEdit(CmbDiagnosticTest.SelectedValue.ToString());
+                    OpenExaminationEdit((int)CmbDiagnosticTests.SelectedValue);
                 }
             }
         }
 
-        
 
-        private void OpenExaminationEdit(string diagnostic_test_id, int examination_id = 0)
+        // handle the event raised when created this object in Visit and get the problem object 
+        public void OnProblemSelection(object sender, ProblemEventArgs e)
         {
-            /*
-            FrmExaminationEdit frmExaminationEdit = new FrmExaminationEdit(Pet, new Medicine(mid), new Prescription(prescription_id), Problem);
-            frmPrescriptionEdit.FormClosing += new FormClosingEventHandler(PrescriptionEdit_FormClosing);
-            frmPrescriptionEdit.ShowDialog();
-            */
+            Problem = e.Problem;
+            FillGrid();
         }
     }
 }

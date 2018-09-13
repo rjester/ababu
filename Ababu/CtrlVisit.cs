@@ -64,9 +64,12 @@ namespace Ababu
             ctrlTherapy.Dock = DockStyle.Fill;
             TlpVisitBodyBottom.Controls.Add(ctrlTherapy, 1, 0);
 
-            // subriscribe the event handlers
+            // subriscribe the event handlers for problem selection
             ctrlProblem.OnProblemSelection += CtrlProblem_OnProblemSelection;
             ctrlProblem.OnProblemSelection += ctrlPrescription.OnProblemSelection;
+            ctrlProblem.OnProblemSelection += ctrlExamination.OnProblemSelection;
+            
+            // @todo: use a problem related diary ?
             ctrlProblem.OnProblemSelection += ctrlDiary.OnProblemSelection;
         }
 
