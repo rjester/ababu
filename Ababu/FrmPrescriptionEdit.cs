@@ -203,6 +203,7 @@ namespace Ababu
         }
 
         // @todo: change with stepper and int value only text box
+        /*
         private void TxtMedicineQuantity_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -216,8 +217,9 @@ namespace Ababu
                 e.Handled = true;
             }
         }
+        */
 
-
+        
         private void FrmPrescriptionEdit_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (IsModified == true)

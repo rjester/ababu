@@ -19,6 +19,8 @@ namespace Ababu
         public Problem Problem { get; set; }
 
 
+        private bool IsModified { get; set; }
+
         public FrmExaminationEdit(Examination examination, Pet pet, Venom venom, Problem problem = null)
         {
             Pet = pet;
@@ -33,6 +35,52 @@ namespace Ababu
         {
             FillForm();
         }
+
+
+
+        void AddOnChangeHandlerToInputControls(Control ctrl)
+        {
+            foreach (Control subctrl in ctrl.Controls)
+            {
+                if (subctrl is TextBox)
+                {
+                    ((TextBox)subctrl).TextChanged += new EventHandler(InputControls_OnChange);
+                }
+                else if (subctrl is CheckBox)
+                {
+                    ((CheckBox)subctrl).CheckedChanged += new EventHandler(InputControls_OnChange);
+                }
+                else if (subctrl is RadioButton)
+                {
+                    ((RadioButton)subctrl).CheckedChanged += new EventHandler(InputControls_OnChange);
+                }
+                else if (subctrl is ListBox)
+                {
+                    ((ListBox)subctrl).SelectedIndexChanged += new EventHandler(InputControls_OnChange);
+                }
+                else if (subctrl is ComboBox)
+                {
+                    ((ComboBox)subctrl).SelectedIndexChanged += new EventHandler(InputControls_OnChange);
+
+                }
+                else
+                {
+                    if (subctrl.Controls.Count > 0)
+                    {
+                        this.AddOnChangeHandlerToInputControls(subctrl);
+                    }
+
+                }
+            }
+        }
+
+
+        void InputControls_OnChange(object sender, EventArgs e)
+        {
+            IsModified = true;
+            PicIsModified.Image = Properties.Resources.bullet_red;
+        }
+
 
 
         private void FillForm()
@@ -71,6 +119,68 @@ namespace Ababu
             {
                 ChkLockProblemCombo.Image = Properties.Resources.lock_closed;
             }
+        }
+
+        private void ChkIsPathologic_CheckedChanged(object sender, EventArgs e)
+        {
+            if(ChkIsPathologic.Checked == true)
+            {
+                PicIsPathologic.Image = Properties.Resources.flag_red;
+            }
+            else
+            {
+                PicIsPathologic.Image = Properties.Resources.flag_green;
+            }
+        }
+
+        private void BtnPrescriptionSave_Click(object sender, EventArgs e)
+        {
+            if (IsValidForm())
+            {
+                Examination.Created = DtpCreated.Value;
+                /*
+                Prescription.Mid = Medicine.Mid;
+                Prescription.Pid = Pet.Pid;
+                Prescription.Quantity = Convert.ToInt32(NumQuantity.Value);
+                Prescription.Dosage = TxtDosage.Text;
+                Prescription.InEvidence = ChkInEvidence.Checked;
+                Prescription.DiagnosisId = Convert.ToInt32(CmbProblems.SelectedValue);
+                */
+                try
+                {
+                    // save the problem
+                    int affected_row = Examination.Save();
+                    if (affected_row > 0)
+                    {
+                        IsModified = false;
+                        PicIsModified.Image = Properties.Resources.bullet_green;
+                        this.Close();
+                        this.Dispose();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Globals.log.Write(ex.ToString());
+                }
+            }
+        }
+
+
+        private bool IsValidForm()
+        {
+            bool result = true;
+            ErrExaminationEdit.Clear();
+
+            /*
+            if (NumQuantity.Value == 0)
+            {
+                result = result & false;
+                ErrPrescriptionEdit.SetError(NumQuantity, "Quantity cannot be empty");
+            }
+            */
+
+
+            return result;
         }
     }
 }
