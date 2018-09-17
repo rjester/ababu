@@ -117,3 +117,14 @@
 13/09/2018 19:58:12 (error): Unknown column 'a.is_normal' in 'field list'
 15/09/2018 15:34:34 (error): Connection must be valid and open.
 15/09/2018 15:34:34 (error): Connection must be valid and open.
+17/09/2018 11:52:49 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@mediacal_report' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Examination.Update() in C:\dev\Ababu\OldAuntie\Examination.cs:riga 97
+   in OldAuntie.Examination.Save() in C:\dev\Ababu\OldAuntie\Examination.cs:riga 61
+   in Ababu.FrmExaminationEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmExaminationEdit.cs:riga 152

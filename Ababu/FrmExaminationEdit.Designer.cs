@@ -40,7 +40,9 @@
             this.DtpCreated = new System.Windows.Forms.DateTimePicker();
             this.TxtDiagnosticTest = new System.Windows.Forms.TextBox();
             this.GrbResults = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.LblMediacalReport = new System.Windows.Forms.Label();
+            this.LblResult = new System.Windows.Forms.Label();
+            this.TxtMedicalReport = new System.Windows.Forms.TextBox();
             this.ChkIsPathologic = new System.Windows.Forms.CheckBox();
             this.PicIsPathologic = new System.Windows.Forms.PictureBox();
             this.TxtResult = new System.Windows.Forms.TextBox();
@@ -49,10 +51,9 @@
             this.BtnPrescriptionPrint = new System.Windows.Forms.Button();
             this.BtnPrescriptionDelete = new System.Windows.Forms.Button();
             this.BtnPrescriptionSave = new System.Windows.Forms.Button();
-            this.LblResult = new System.Windows.Forms.Label();
-            this.LblMediacalReport = new System.Windows.Forms.Label();
             this.PicIsModified = new System.Windows.Forms.PictureBox();
             this.ErrExaminationEdit = new System.Windows.Forms.ErrorProvider(this.components);
+            this.TxtDiagnosticTestId = new System.Windows.Forms.TextBox();
             this.GrbExamination.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicInEvidence)).BeginInit();
             this.GrbResults.SuspendLayout();
@@ -64,6 +65,7 @@
             // 
             // GrbExamination
             // 
+            this.GrbExamination.Controls.Add(this.TxtDiagnosticTestId);
             this.GrbExamination.Controls.Add(this.ChkInEvidence);
             this.GrbExamination.Controls.Add(this.PicInEvidence);
             this.GrbExamination.Controls.Add(this.ChkLockProblemCombo);
@@ -152,16 +154,16 @@
             // TxtDiagnosticTest
             // 
             this.TxtDiagnosticTest.Enabled = false;
-            this.TxtDiagnosticTest.Location = new System.Drawing.Point(9, 37);
+            this.TxtDiagnosticTest.Location = new System.Drawing.Point(98, 37);
             this.TxtDiagnosticTest.Name = "TxtDiagnosticTest";
-            this.TxtDiagnosticTest.Size = new System.Drawing.Size(414, 20);
+            this.TxtDiagnosticTest.Size = new System.Drawing.Size(325, 20);
             this.TxtDiagnosticTest.TabIndex = 0;
             // 
             // GrbResults
             // 
             this.GrbResults.Controls.Add(this.LblMediacalReport);
             this.GrbResults.Controls.Add(this.LblResult);
-            this.GrbResults.Controls.Add(this.textBox1);
+            this.GrbResults.Controls.Add(this.TxtMedicalReport);
             this.GrbResults.Controls.Add(this.ChkIsPathologic);
             this.GrbResults.Controls.Add(this.PicIsPathologic);
             this.GrbResults.Controls.Add(this.TxtResult);
@@ -172,13 +174,31 @@
             this.GrbResults.TabStop = false;
             this.GrbResults.Text = "Result";
             // 
-            // textBox1
+            // LblMediacalReport
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 97);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(414, 138);
-            this.textBox1.TabIndex = 85;
+            this.LblMediacalReport.AutoSize = true;
+            this.LblMediacalReport.Location = new System.Drawing.Point(9, 78);
+            this.LblMediacalReport.Name = "LblMediacalReport";
+            this.LblMediacalReport.Size = new System.Drawing.Size(79, 13);
+            this.LblMediacalReport.TabIndex = 87;
+            this.LblMediacalReport.Text = "Medical Report";
+            // 
+            // LblResult
+            // 
+            this.LblResult.AutoSize = true;
+            this.LblResult.Location = new System.Drawing.Point(9, 29);
+            this.LblResult.Name = "LblResult";
+            this.LblResult.Size = new System.Drawing.Size(37, 13);
+            this.LblResult.TabIndex = 86;
+            this.LblResult.Text = "Result";
+            // 
+            // TxtMedicalReport
+            // 
+            this.TxtMedicalReport.Location = new System.Drawing.Point(9, 97);
+            this.TxtMedicalReport.Multiline = true;
+            this.TxtMedicalReport.Name = "TxtMedicalReport";
+            this.TxtMedicalReport.Size = new System.Drawing.Size(414, 138);
+            this.TxtMedicalReport.TabIndex = 85;
             // 
             // ChkIsPathologic
             // 
@@ -205,7 +225,7 @@
             // 
             // TxtResult
             // 
-            this.TxtResult.Location = new System.Drawing.Point(6, 48);
+            this.TxtResult.Location = new System.Drawing.Point(9, 48);
             this.TxtResult.Name = "TxtResult";
             this.TxtResult.Size = new System.Drawing.Size(414, 20);
             this.TxtResult.TabIndex = 0;
@@ -263,24 +283,6 @@
             this.BtnPrescriptionSave.UseVisualStyleBackColor = true;
             this.BtnPrescriptionSave.Click += new System.EventHandler(this.BtnPrescriptionSave_Click);
             // 
-            // LblResult
-            // 
-            this.LblResult.AutoSize = true;
-            this.LblResult.Location = new System.Drawing.Point(6, 29);
-            this.LblResult.Name = "LblResult";
-            this.LblResult.Size = new System.Drawing.Size(37, 13);
-            this.LblResult.TabIndex = 86;
-            this.LblResult.Text = "Result";
-            // 
-            // LblMediacalReport
-            // 
-            this.LblMediacalReport.AutoSize = true;
-            this.LblMediacalReport.Location = new System.Drawing.Point(6, 78);
-            this.LblMediacalReport.Name = "LblMediacalReport";
-            this.LblMediacalReport.Size = new System.Drawing.Size(79, 13);
-            this.LblMediacalReport.TabIndex = 87;
-            this.LblMediacalReport.Text = "Medical Report";
-            // 
             // PicIsModified
             // 
             this.PicIsModified.ErrorImage = null;
@@ -296,8 +298,17 @@
             // 
             this.ErrExaminationEdit.ContainerControl = this;
             // 
+            // TxtDiagnosticTestId
+            // 
+            this.TxtDiagnosticTestId.Enabled = false;
+            this.TxtDiagnosticTestId.Location = new System.Drawing.Point(9, 37);
+            this.TxtDiagnosticTestId.Name = "TxtDiagnosticTestId";
+            this.TxtDiagnosticTestId.Size = new System.Drawing.Size(83, 20);
+            this.TxtDiagnosticTestId.TabIndex = 83;
+            // 
             // FrmExaminationEdit
             // 
+            this.AcceptButton = this.BtnPrescriptionSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 458);
@@ -347,10 +358,11 @@
         private System.Windows.Forms.CheckBox ChkIsPathologic;
         private System.Windows.Forms.PictureBox PicIsPathologic;
         private System.Windows.Forms.TextBox TxtResult;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtMedicalReport;
         private System.Windows.Forms.Label LblMediacalReport;
         private System.Windows.Forms.Label LblResult;
         private System.Windows.Forms.PictureBox PicIsModified;
         private System.Windows.Forms.ErrorProvider ErrExaminationEdit;
+        private System.Windows.Forms.TextBox TxtDiagnosticTestId;
     }
 }

@@ -67,25 +67,17 @@ namespace Ababu
                 }
                 else
                 {
-                    DtExaminations.Rows[j]["in_evidenve_image"] = (Image)Properties.Resources.lightbulb_off;
+                    DtExaminations.Rows[j]["in_evidenve_image"] = (Image)Properties.Resources.bullet_white;
                 }
 
-
                 // Set column image for is_pathologic information (black = not evaluated, green = normal, red = patologic / not normal
-                if (is_pathologic == null)
+                if (is_pathologic == true)
                 {
-                    DtExaminations.Rows[j]["is_pathologic_image"] = (Image)Properties.Resources.bullet_black;
+                    DtExaminations.Rows[j]["is_pathologic_image"] = (Image)Properties.Resources.bullet_red;
                 }
                 else
                 {
-                    if (is_pathologic == true)
-                    {
-                        DtExaminations.Rows[j]["is_pathologic_image"] = (Image)Properties.Resources.bullet_green;
-                    }
-                    else
-                    {
-                        DtExaminations.Rows[j]["is_pathologic_image"] = (Image)Properties.Resources.bullet_red;
-                    }
+                    DtExaminations.Rows[j]["is_pathologic_image"] = (Image)Properties.Resources.bullet_green;
                 }
             }
 
@@ -96,14 +88,14 @@ namespace Ababu
             // formmating the datagridview
             GrdExaminations.Columns["created"].DefaultCellStyle.Format = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
             GrdExaminations.Columns["created"].DisplayIndex = 0;
-
+            
             GrdExaminations.Columns["examination_id"].Visible = false;
             GrdExaminations.Columns["diagnosis_id"].Visible = false;
             GrdExaminations.Columns["diagnostic_test_id"].Visible = false;
             GrdExaminations.Columns["result"].Visible = false;
             GrdExaminations.Columns["in_evidence"].Visible = false;
             GrdExaminations.Columns["is_pathologic"].Visible = false;
-
+            
             GrdExaminations.Columns["term_name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         
@@ -137,6 +129,14 @@ namespace Ababu
         {
             Problem = e.Problem;
             FillGrid();
+        }
+
+        private void GrdExaminations_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int examination_id = (int)GrdExaminations.Rows[e.RowIndex].Cells[0].Value;
+            int diagnostic_test_id = (int)GrdExaminations.Rows[e.RowIndex].Cells[2].Value;
+
+            OpenExaminationEdit(diagnostic_test_id, examination_id);
         }
     }
 }

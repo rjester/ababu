@@ -56,7 +56,7 @@ namespace OldAuntie
 
         public int Save()
         {
-            if (Exists())
+            if (ExaminationId > 0)
             {
                 return Update();
             }
@@ -73,9 +73,10 @@ namespace OldAuntie
 
             string query = "UPDATE examinations  SET " +
                                     "diagnosis_id=@diagnosis_id, " +
+                                    "diagnostic_test_id=@diagnostic_test_id, " +
                                     "pid=@pid, " +
                                     "result=@result, " +
-                                    "medical_report=@mediacal_report, " +
+                                    "medical_report=@medical_report, " +
                                     "is_pathologic=@is_pathologic, " +
                                     "in_evidence=@in_evidence, " +
                                     "created=@created, " +
@@ -84,8 +85,9 @@ namespace OldAuntie
 
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
-            Cmd.Parameters.AddWithValue("@examination_id", DiagnosticTestId);
+            Cmd.Parameters.AddWithValue("@examination_id", ExaminationId);
             Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
+            Cmd.Parameters.AddWithValue("@diagnostic_test_id", DiagnosticTestId);
             Cmd.Parameters.AddWithValue("@pid", Pid);
             Cmd.Parameters.AddWithValue("@result", Result);
             Cmd.Parameters.AddWithValue("@medical_report", MedicalReport);

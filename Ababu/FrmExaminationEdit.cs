@@ -31,11 +31,11 @@ namespace Ababu
             InitializeComponent();
         }
 
+
         private void FrmExaminationEdit_Load(object sender, EventArgs e)
         {
             FillForm();
         }
-
 
 
         void AddOnChangeHandlerToInputControls(Control ctrl)
@@ -85,6 +85,7 @@ namespace Ababu
 
         private void FillForm()
         {
+            TxtDiagnosticTestId.Text = Venom.Id.ToString();
             TxtDiagnosticTest.Text = Venom.TermName;
 
             // fill the problem combo
@@ -104,6 +105,12 @@ namespace Ababu
             CmbProblems.ValueMember = "diagnosis_id";
             CmbProblems.DisplayMember = "term_name";
             CmbProblems.SelectedValue = Problem.DiagnosisId;
+
+            ChkInEvidence.Checked = Examination.InEvidence;
+            ChkIsPathologic.Checked = Examination.IsPathologic;
+
+            TxtResult.Text = Examination.Result;
+            TxtMedicalReport.Text = Examination.MedicalReport;
         }
 
         private void ChkLockProblemCombo_CheckedChanged(object sender, EventArgs e)
@@ -138,14 +145,14 @@ namespace Ababu
             if (IsValidForm())
             {
                 Examination.Created = DtpCreated.Value;
-                /*
-                Prescription.Mid = Medicine.Mid;
-                Prescription.Pid = Pet.Pid;
-                Prescription.Quantity = Convert.ToInt32(NumQuantity.Value);
-                Prescription.Dosage = TxtDosage.Text;
-                Prescription.InEvidence = ChkInEvidence.Checked;
-                Prescription.DiagnosisId = Convert.ToInt32(CmbProblems.SelectedValue);
-                */
+                Examination.DiagnosisId = Convert.ToInt32(CmbProblems.SelectedValue);
+                Examination.DiagnosticTestId = Venom.Id;
+                Examination.Pid = Pet.Pid;
+                Examination.Result = TxtResult.Text;
+                Examination.MedicalReport = TxtMedicalReport.Text;
+                Examination.IsPathologic = ChkIsPathologic.Checked;
+                Examination.InEvidence = ChkInEvidence.Checked;
+                
                 try
                 {
                     // save the problem

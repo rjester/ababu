@@ -75,6 +75,7 @@
             this.GrdExaminations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GrdExaminations.Size = new System.Drawing.Size(503, 264);
             this.GrdExaminations.TabIndex = 5;
+            this.GrdExaminations.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdExaminations_CellDoubleClick);
             // 
             // PanDiagnosticTest
             // 
