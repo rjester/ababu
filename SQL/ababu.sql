@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Set 11, 2018 alle 18:01
+-- Creato il: Set 19, 2018 alle 08:22
 -- Versione del server: 10.1.34-MariaDB
 -- Versione PHP: 7.2.8
 
@@ -35,7 +35,7 @@ CREATE TABLE `examinations` (
   `pid` int(11) NOT NULL,
   `result` varchar(255) DEFAULT NULL,
   `medical_report` text,
-  `is_normal` tinyint(1) DEFAULT NULL,
+  `is_pathologic` tinyint(1) NOT NULL,
   `in_evidence` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
   `updated` datetime DEFAULT NULL
@@ -45,8 +45,9 @@ CREATE TABLE `examinations` (
 -- Dump dei dati per la tabella `examinations`
 --
 
-INSERT INTO `examinations` (`examination_id`, `diagnosis_id`, `diagnostic_test_id`, `pid`, `result`, `medical_report`, `is_normal`, `in_evidence`, `created`, `updated`) VALUES
-(1, 326, 13383, 1, NULL, NULL, NULL, 1, '2018-09-06 00:00:00', NULL);
+INSERT INTO `examinations` (`examination_id`, `diagnosis_id`, `diagnostic_test_id`, `pid`, `result`, `medical_report`, `is_pathologic`, `in_evidence`, `created`, `updated`) VALUES
+(1, 0, 13384, 1, '48/850°', '', 0, 1, '2018-09-18 15:40:49', '2018-09-18 15:40:54'),
+(2, 0, 18142, 1, '', 'djsflkdshjfds', 1, 1, '2018-09-18 15:39:31', '2018-09-18 15:39:34');
 
 -- --------------------------------------------------------
 
@@ -2936,8 +2937,7 @@ INSERT INTO `notes` (`nid`, `pid`, `uid`, `note_text`, `created`, `updated`) VAL
 (1, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis', 0, NULL),
 (2, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 0, NULL),
 (3, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis', 0, NULL),
-(4, 1, 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ...una modicica', 0, 1536180058),
-(6, 1, 2, 'nuova nota da scrivere ... ', 1535741792, 1536023143);
+(4, 1, 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ...una modicica', 0, 1536180058);
 
 -- --------------------------------------------------------
 
@@ -3034,7 +3034,9 @@ CREATE TABLE `prescriptions` (
 --
 
 INSERT INTO `prescriptions` (`prescription_id`, `diagnosis_id`, `mid`, `pid`, `quantity`, `dosage`, `in_evidence`, `created`, `updated`) VALUES
-(15, 336, '10347/4037', 1, 1, 'one per day', 1, '2018-09-11 17:57:22', '2018-09-11 17:57:35');
+(15, 0, '10347/4037', 1, 1, 'one per day', 1, '2018-09-11 17:57:22', '2018-09-18 08:38:57'),
+(16, 333, '10347/4037', 1, 1, 'one a day', 1, '2018-09-13 08:46:00', '2018-09-18 13:24:24'),
+(17, 0, '32742/4005', 1, 1, '1', 0, '2018-09-18 14:43:23', '2018-09-18 14:43:31');
 
 -- --------------------------------------------------------
 
@@ -3048,7 +3050,7 @@ CREATE TABLE `problems` (
   `uid` int(11) NOT NULL,
   `date_from` bigint(20) NOT NULL,
   `status_id` int(11) NOT NULL,
-  `essential` tinyint(1) NOT NULL,
+  `key_problem` tinyint(1) NOT NULL,
   `subjective_analysis` text,
   `objective_analysis` text,
   `notes` text,
@@ -3060,13 +3062,13 @@ CREATE TABLE `problems` (
 -- Dump dei dati per la tabella `problems`
 --
 
-INSERT INTO `problems` (`diagnosis_id`, `pid`, `uid`, `date_from`, `status_id`, `essential`, `subjective_analysis`, `objective_analysis`, `notes`, `created`, `updated`) VALUES
-(326, 1, 2, 1535755485, 1, 1, '', '', '', 1535741091, 1535741739),
-(333, 1, 2, 1535748306, 0, 0, '', '', '', 1535741111, NULL),
-(336, 1, 2, 1535755522, 1, 1, '', '', '', 1535741129, 1535741744),
+INSERT INTO `problems` (`diagnosis_id`, `pid`, `uid`, `date_from`, `status_id`, `key_problem`, `subjective_analysis`, `objective_analysis`, `notes`, `created`, `updated`) VALUES
+(326, 1, 2, 1535784285, 2, 0, '', '', '', 1535741091, 1537277042),
+(333, 1, 2, 1535755506, 3, 0, '', '', '', 1535741111, 1537277049),
+(336, 1, 2, 1535762722, 0, 1, '', '', '', 1535741129, 1537277035),
 (423, 1, 2, 1535769805, -1, 1, '', '', '', 1535741011, 1535741074),
 (11725, 1, 2, 1535763279, 1, 1, 'Presenta esco', '', '', 1535741711, 1536023190),
-(15209, 1, 2, 1536187107, 0, 0, 'io', '', '', 1536179949, NULL);
+(15209, 1, 2, 1536194307, 0, 1, 'io', '', '', 1536179949, 1537260465);
 
 -- --------------------------------------------------------
 
@@ -7396,13 +7398,13 @@ ALTER TABLE `visit`
 -- AUTO_INCREMENT per la tabella `examinations`
 --
 ALTER TABLE `examinations`
-  MODIFY `examination_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `examination_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT per la tabella `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `nid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `nid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `owners`
@@ -7420,7 +7422,7 @@ ALTER TABLE `pets`
 -- AUTO_INCREMENT per la tabella `prescriptions`
 --
 ALTER TABLE `prescriptions`
-  MODIFY `prescription_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `prescription_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT per la tabella `users`

@@ -61,7 +61,7 @@ namespace Ababu
                 bool in_evidence = (bool)DtPrescriptions.Rows[j]["in_evidence"];
 
 
-                // Set column for essential information
+                // Set column image for "in evidence" field
                 if (in_evidence == true)
                 {
                     DtPrescriptions.Rows[j]["in_evidenve_image"] = (Image)Properties.Resources.bullet_star;

@@ -53,14 +53,19 @@ namespace Ababu
             DataTable DtExaminations = Examination.GetExaminationsByPid(Pet.Pid, Problem.DiagnosisId);
             DtExaminations.Columns.Add("in_evidenve_image", typeof(Image));
             DtExaminations.Columns.Add("is_pathologic_image", typeof(Image));
+            DtExaminations.Columns.Add("medical_report_image", typeof(Image));
 
             for (int j = 0; j < DtExaminations.Rows.Count; j++)
             {
                 bool in_evidence = (bool)DtExaminations.Rows[j]["in_evidence"];
                 bool? is_pathologic = Utility.IfDBNull(DtExaminations.Rows[j]["is_pathologic"], null);
+                bool has_medical_report = false;
+                if(DtExaminations.Rows[j]["medical_report"].ToString() != "")
+                {
+                    has_medical_report = true;
+                }
 
-
-                // Set column image for essential information
+                // Set column image for "in evidence" information
                 if (in_evidence == true)
                 {
                     DtExaminations.Rows[j]["in_evidenve_image"] = (Image)Properties.Resources.bullet_star;
@@ -79,6 +84,16 @@ namespace Ababu
                 {
                     DtExaminations.Rows[j]["is_pathologic_image"] = (Image)Properties.Resources.bullet_green;
                 }
+
+                // Set a column image to be shown when a prescription ha a medical report
+                if(has_medical_report == true)
+                {
+                    DtExaminations.Rows[j]["medical_report_image"] = (Image)Properties.Resources.bullet_black;
+                }
+                else
+                {
+                    DtExaminations.Rows[j]["medical_report_image"] = (Image)Properties.Resources.bullet_white;
+                }
             }
 
 
@@ -92,7 +107,8 @@ namespace Ababu
             GrdExaminations.Columns["examination_id"].Visible = false;
             GrdExaminations.Columns["diagnosis_id"].Visible = false;
             GrdExaminations.Columns["diagnostic_test_id"].Visible = false;
-            GrdExaminations.Columns["result"].Visible = false;
+            // GrdExaminations.Columns["result"].Visible = false;
+            GrdExaminations.Columns["medical_report"].Visible = false;
             GrdExaminations.Columns["in_evidence"].Visible = false;
             GrdExaminations.Columns["is_pathologic"].Visible = false;
             

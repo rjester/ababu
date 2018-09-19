@@ -52,9 +52,9 @@ namespace Ababu
             DrProblemIndependent[4] = false;
             DtProblems.Rows.InsertAt(DrProblemIndependent, 0);
 
-            // insert ima columns for status and essential
+            // insert ima columns for status and key problem
             DataColumn DcProblemStatusImage = DtProblems.Columns.Add("status_image", typeof(Image));
-            DataColumn DcProblemEssential = DtProblems.Columns.Add("essential_image", typeof(Image));
+            DataColumn DcKeyProblem = DtProblems.Columns.Add("key_problem_image", typeof(Image));
             DcProblemStatusImage.SetOrdinal(0);
 
 
@@ -62,7 +62,7 @@ namespace Ababu
             {
                 int diagnosys_id = (int)DtProblems.Rows[j]["diagnosis_id"];
                 int status_id = (int)DtProblems.Rows[j]["status_id"];
-                bool essential = (bool)DtProblems.Rows[j]["essential"];
+                bool key_problem = (bool)DtProblems.Rows[j]["key_problem"];
 
                 switch (status_id)
                 {
@@ -87,21 +87,21 @@ namespace Ababu
                         break;
                 }
 
-                // Set column for essential information
-                if (essential == true)
+                // Set column for key prpblem information
+                if (key_problem == true)
                 {
-                    DtProblems.Rows[j]["essential_image"] = (Image)Properties.Resources.lightbulb;
+                    DtProblems.Rows[j]["key_problem_image"] = (Image)Properties.Resources.bullet_key;
                 }
                 else
                 {
-                    DtProblems.Rows[j]["essential_image"] = (Image)Properties.Resources.lightbulb_off;
+                    DtProblems.Rows[j]["key_problem_image"] = (Image)Properties.Resources.bullet_white;
                 }
 
                 // set problem indipendet prescription / Diary icons
                 if (diagnosys_id == 0)
                 {
                     DtProblems.Rows[j]["status_image"] = (Image)Properties.Resources.link_break;
-                    DtProblems.Rows[j]["essential_image"] = (Image)Properties.Resources.book_addresses;
+                    DtProblems.Rows[j]["key_problem_image"] = (Image)Properties.Resources.book_addresses;
                 }
             }
 
@@ -110,7 +110,7 @@ namespace Ababu
             // GrdProblems.Columns["diagnosis_id"].Visible = false;
             GrdProblems.Columns["pid"].Visible = false;
             GrdProblems.Columns["status_id"].Visible = false;
-            GrdProblems.Columns["essential"].Visible = false;
+            GrdProblems.Columns["key_problem"].Visible = false;
             GrdProblems.Columns["term_name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 

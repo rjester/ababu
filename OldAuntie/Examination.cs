@@ -166,7 +166,7 @@ namespace OldAuntie
 
         static public DataTable GetExaminationsByPid(int pid, int diagnosis_id = 0)
         {
-            string query = "SELECT a.examination_id, a.diagnosis_id, a.diagnostic_test_id, a.result, a.is_pathologic, a.in_evidence, a.created, b.term_name " +
+            string query = "SELECT a.examination_id, a.diagnosis_id, a.diagnostic_test_id, b.term_name, a.result, a.medical_report, a.is_pathologic, a.in_evidence, a.created " +
                 "FROM examinations a, venom_codes b " +
                 "WHERE a.diagnostic_test_id = b.id " +
                 "AND a.pid = " + pid;
@@ -184,7 +184,7 @@ namespace OldAuntie
 
 
 
-        static public int UnlinkPrescription(int diagnosis_id)
+        static public int UnlinkExaminations(int diagnosis_id)
         {
             int affetcedRows = 0;
             string query = "UPDATE examinations SET diagnosis_id = 0 WHERE diagnosis_id=@diagnosis_id";

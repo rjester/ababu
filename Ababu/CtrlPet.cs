@@ -65,6 +65,8 @@ namespace Ababu
         private void GridPetResultReload()
         {
             GrdPets.DataSource = Pet.Search(TstPetSearch.Text, TsmPetSearchShowDeleted.Checked);
+            GrdPets.Columns["description"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
         }
 
         private void TsmPetSearchShowDeleted_Click(object sender, EventArgs e)

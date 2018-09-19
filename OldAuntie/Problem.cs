@@ -15,7 +15,7 @@ namespace OldAuntie
         public int Uid { get; set; }
         public long? DateFrom { get; set; }
         public int StatusId { get; set; }
-        public bool Essential { get; set; }
+        public bool KeyProblem { get; set; }
         public string SubjectiveAnalysis { get; set; }
         public string ObjectiveAnalysis { get; set; }
         public string Notes { get; set; }
@@ -47,7 +47,7 @@ namespace OldAuntie
                 {
                     DateFrom = (long)result["date_from"];
                     StatusId = (int)result["status_id"];
-                    Essential = (bool)result["essential"];
+                    KeyProblem = (bool)result["key_problem"];
                     SubjectiveAnalysis = result["subjective_analysis"].ToString();
                     ObjectiveAnalysis = result["objective_analysis"].ToString();
                     Notes = result["notes"].ToString();
@@ -82,7 +82,7 @@ namespace OldAuntie
                                     "uid=@uid, " +
                                     "date_from=@date_from, " +
                                     "status_id=@status_id, " +
-                                    "essential=@essential, " +
+                                    "key_problem=@key_problem, " +
                                     "subjective_analysis=@subjective_analysis, " +
                                     "objective_analysis=@objective_analysis, " +
                                     "notes=@notes, " +
@@ -97,7 +97,7 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@uid", Uid);
             Cmd.Parameters.AddWithValue("@date_from", DateFrom);
             Cmd.Parameters.AddWithValue("@status_id", StatusId);
-            Cmd.Parameters.AddWithValue("@essential", Essential);
+            Cmd.Parameters.AddWithValue("@key_problem", KeyProblem);
             Cmd.Parameters.AddWithValue("@subjective_analysis", SubjectiveAnalysis);
             Cmd.Parameters.AddWithValue("@objective_analysis", ObjectiveAnalysis);
             Cmd.Parameters.AddWithValue("@notes", Notes);
@@ -115,8 +115,8 @@ namespace OldAuntie
         {
             int affetcedRows = 0;
             
-            string query = "INSERT into problems (diagnosis_id, pid, uid, date_from, status_id, essential, subjective_analysis, objective_analysis, notes, created) " +
-                        "VALUES (@diagnosis_id, @pid, @uid, @date_from, @status_id, @essential, @subjective_analysis, @objective_analysis, @notes, @created)";
+            string query = "INSERT into problems (diagnosis_id, pid, uid, date_from, status_id, key_problem, subjective_analysis, objective_analysis, notes, created) " +
+                        "VALUES (@diagnosis_id, @pid, @uid, @date_from, @status_id, @key_problem, @subjective_analysis, @objective_analysis, @notes, @created)";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
@@ -124,7 +124,7 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@uid", Uid);
             Cmd.Parameters.AddWithValue("@date_from", DateFrom);
             Cmd.Parameters.AddWithValue("@status_id", StatusId);
-            Cmd.Parameters.AddWithValue("@essential", Essential);
+            Cmd.Parameters.AddWithValue("@key_problem", KeyProblem);
             Cmd.Parameters.AddWithValue("@subjective_analysis", SubjectiveAnalysis);
             Cmd.Parameters.AddWithValue("@objective_analysis", ObjectiveAnalysis);
             Cmd.Parameters.AddWithValue("@notes", Notes);
@@ -165,7 +165,7 @@ namespace OldAuntie
  
         static public DataTable GetProblemsByPid(int pid)
         {
-            string query = "SELECT a.pid, a.diagnosis_id, a.status_id, b.term_name, a.essential " +
+            string query = "SELECT a.pid, a.diagnosis_id, a.status_id, b.term_name, a.key_problem " +
                 "FROM problems a, venom_codes b, problem_status c " +
                 "WHERE a.diagnosis_id = b.id " +
                 "AND a.status_id = c.status_id " +

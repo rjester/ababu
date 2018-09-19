@@ -43,7 +43,7 @@ namespace Ababu
             // setting date from 
             DtpDateFrom.Value = Utility.UnixTimeStampToDateTime(Utility.IfNull(Problema.DateFrom, Utility.Now()));
 
-            ChkEssential.Checked = (bool)Problema.Essential;
+            ChkKeyProblem.Checked = (bool)Problema.KeyProblem;
 
             TxtSubjectiveAnalysis.Text = Problema.SubjectiveAnalysis;
             TxtObjectiveAnalysis.Text = Problema.ObjectiveAnalysis;
@@ -150,7 +150,7 @@ namespace Ababu
                         }
                     }
                 }
-                Problema.Essential = ChkEssential.Checked;
+                Problema.KeyProblem = ChkKeyProblem.Checked;
                 Problema.SubjectiveAnalysis = TxtSubjectiveAnalysis.Text;
                 Problema.ObjectiveAnalysis = TxtObjectiveAnalysis.Text;
                 Problema.Notes = TxtNotes.Text;

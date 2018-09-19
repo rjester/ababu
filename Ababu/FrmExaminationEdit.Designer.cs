@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmExaminationEdit));
             this.GrbExamination = new System.Windows.Forms.GroupBox();
+            this.TxtDiagnosticTestId = new System.Windows.Forms.TextBox();
             this.ChkInEvidence = new System.Windows.Forms.CheckBox();
             this.PicInEvidence = new System.Windows.Forms.PictureBox();
             this.ChkLockProblemCombo = new System.Windows.Forms.CheckBox();
@@ -53,7 +54,6 @@
             this.BtnPrescriptionSave = new System.Windows.Forms.Button();
             this.PicIsModified = new System.Windows.Forms.PictureBox();
             this.ErrExaminationEdit = new System.Windows.Forms.ErrorProvider(this.components);
-            this.TxtDiagnosticTestId = new System.Windows.Forms.TextBox();
             this.GrbExamination.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicInEvidence)).BeginInit();
             this.GrbResults.SuspendLayout();
@@ -80,6 +80,14 @@
             this.GrbExamination.TabIndex = 0;
             this.GrbExamination.TabStop = false;
             this.GrbExamination.Text = "Examination";
+            // 
+            // TxtDiagnosticTestId
+            // 
+            this.TxtDiagnosticTestId.Enabled = false;
+            this.TxtDiagnosticTestId.Location = new System.Drawing.Point(9, 37);
+            this.TxtDiagnosticTestId.Name = "TxtDiagnosticTestId";
+            this.TxtDiagnosticTestId.Size = new System.Drawing.Size(83, 20);
+            this.TxtDiagnosticTestId.TabIndex = 83;
             // 
             // ChkInEvidence
             // 
@@ -145,6 +153,7 @@
             // 
             // DtpCreated
             // 
+            this.DtpCreated.Enabled = false;
             this.DtpCreated.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DtpCreated.Location = new System.Drawing.Point(9, 80);
             this.DtpCreated.Name = "DtpCreated";
@@ -297,14 +306,6 @@
             // ErrExaminationEdit
             // 
             this.ErrExaminationEdit.ContainerControl = this;
-            // 
-            // TxtDiagnosticTestId
-            // 
-            this.TxtDiagnosticTestId.Enabled = false;
-            this.TxtDiagnosticTestId.Location = new System.Drawing.Point(9, 37);
-            this.TxtDiagnosticTestId.Name = "TxtDiagnosticTestId";
-            this.TxtDiagnosticTestId.Size = new System.Drawing.Size(83, 20);
-            this.TxtDiagnosticTestId.TabIndex = 83;
             // 
             // FrmExaminationEdit
             // 

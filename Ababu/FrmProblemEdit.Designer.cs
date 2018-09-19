@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProblemEdit));
-            this.PicIsModified = new System.Windows.Forms.PictureBox();
-            this.BtnProblemDelete = new System.Windows.Forms.Button();
-            this.BtnProblemSave = new System.Windows.Forms.Button();
             this.StsProblemEdit = new System.Windows.Forms.StatusStrip();
             this.StlRecordInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.GrbProblemStatus = new System.Windows.Forms.GroupBox();
@@ -52,9 +49,9 @@
             this.LblObjectiveAnalysis = new System.Windows.Forms.Label();
             this.TxtNotes = new System.Windows.Forms.TextBox();
             this.LblNotes = new System.Windows.Forms.Label();
-            this.GrbEssential = new System.Windows.Forms.GroupBox();
-            this.ChkEssential = new System.Windows.Forms.CheckBox();
-            this.PicEssential = new System.Windows.Forms.PictureBox();
+            this.GrbKeyProblem = new System.Windows.Forms.GroupBox();
+            this.ChkKeyProblem = new System.Windows.Forms.CheckBox();
+            this.PicKeyProblem = new System.Windows.Forms.PictureBox();
             this.DtpDateFrom = new System.Windows.Forms.DateTimePicker();
             this.LblActiveFrom = new System.Windows.Forms.Label();
             this.LblAge = new System.Windows.Forms.Label();
@@ -76,7 +73,9 @@
             this.LblPetName = new System.Windows.Forms.Label();
             this.TxtDiagnosis = new System.Windows.Forms.TextBox();
             this.LblDiagnosis = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).BeginInit();
+            this.BtnProblemSave = new System.Windows.Forms.Button();
+            this.BtnProblemDelete = new System.Windows.Forms.Button();
+            this.PicIsModified = new System.Windows.Forms.PictureBox();
             this.StsProblemEdit.SuspendLayout();
             this.GrbProblemStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicInEvidence)).BeginInit();
@@ -84,48 +83,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.PicClosed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicActive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicLongTermActive)).BeginInit();
-            this.GrbEssential.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicEssential)).BeginInit();
+            this.GrbKeyProblem.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicKeyProblem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrProblemEdit)).BeginInit();
             this.GrbPetDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).BeginInit();
             this.SuspendLayout();
-            // 
-            // PicIsModified
-            // 
-            this.PicIsModified.ErrorImage = null;
-            this.PicIsModified.Image = global::Ababu.Properties.Resources.bullet_green;
-            this.PicIsModified.InitialImage = null;
-            this.PicIsModified.Location = new System.Drawing.Point(741, 12);
-            this.PicIsModified.Name = "PicIsModified";
-            this.PicIsModified.Size = new System.Drawing.Size(17, 18);
-            this.PicIsModified.TabIndex = 2;
-            this.PicIsModified.TabStop = false;
-            // 
-            // BtnProblemDelete
-            // 
-            this.BtnProblemDelete.Image = global::Ababu.Properties.Resources.delete;
-            this.BtnProblemDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnProblemDelete.Location = new System.Drawing.Point(432, 402);
-            this.BtnProblemDelete.Name = "BtnProblemDelete";
-            this.BtnProblemDelete.Size = new System.Drawing.Size(75, 23);
-            this.BtnProblemDelete.TabIndex = 12;
-            this.BtnProblemDelete.Text = "Delete";
-            this.BtnProblemDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnProblemDelete.UseVisualStyleBackColor = true;
-            this.BtnProblemDelete.Click += new System.EventHandler(this.BtnProblemDelete_Click);
-            // 
-            // BtnProblemSave
-            // 
-            this.BtnProblemSave.Image = global::Ababu.Properties.Resources.accept;
-            this.BtnProblemSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnProblemSave.Location = new System.Drawing.Point(351, 402);
-            this.BtnProblemSave.Name = "BtnProblemSave";
-            this.BtnProblemSave.Size = new System.Drawing.Size(75, 23);
-            this.BtnProblemSave.TabIndex = 11;
-            this.BtnProblemSave.Text = "Save";
-            this.BtnProblemSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnProblemSave.UseVisualStyleBackColor = true;
-            this.BtnProblemSave.Click += new System.EventHandler(this.BtnProblemSave_Click);
             // 
             // StsProblemEdit
             // 
@@ -325,37 +288,37 @@
             this.LblNotes.TabIndex = 53;
             this.LblNotes.Text = "Notes";
             // 
-            // GrbEssential
+            // GrbKeyProblem
             // 
-            this.GrbEssential.Controls.Add(this.ChkEssential);
-            this.GrbEssential.Controls.Add(this.PicEssential);
-            this.GrbEssential.Location = new System.Drawing.Point(12, 176);
-            this.GrbEssential.Name = "GrbEssential";
-            this.GrbEssential.Size = new System.Drawing.Size(188, 52);
-            this.GrbEssential.TabIndex = 2;
-            this.GrbEssential.TabStop = false;
-            this.GrbEssential.Text = "Essential";
+            this.GrbKeyProblem.Controls.Add(this.ChkKeyProblem);
+            this.GrbKeyProblem.Controls.Add(this.PicKeyProblem);
+            this.GrbKeyProblem.Location = new System.Drawing.Point(12, 176);
+            this.GrbKeyProblem.Name = "GrbKeyProblem";
+            this.GrbKeyProblem.Size = new System.Drawing.Size(188, 52);
+            this.GrbKeyProblem.TabIndex = 2;
+            this.GrbKeyProblem.TabStop = false;
+            this.GrbKeyProblem.Text = "Key Problem";
             // 
-            // ChkEssential
+            // ChkKeyProblem
             // 
-            this.ChkEssential.AutoSize = true;
-            this.ChkEssential.Location = new System.Drawing.Point(44, 20);
-            this.ChkEssential.Name = "ChkEssential";
-            this.ChkEssential.Size = new System.Drawing.Size(78, 17);
-            this.ChkEssential.TabIndex = 1;
-            this.ChkEssential.Text = "Is essential";
-            this.ChkEssential.UseVisualStyleBackColor = true;
+            this.ChkKeyProblem.AutoSize = true;
+            this.ChkKeyProblem.Location = new System.Drawing.Point(44, 20);
+            this.ChkKeyProblem.Name = "ChkKeyProblem";
+            this.ChkKeyProblem.Size = new System.Drawing.Size(85, 17);
+            this.ChkKeyProblem.TabIndex = 1;
+            this.ChkKeyProblem.Text = "Key Problem";
+            this.ChkKeyProblem.UseVisualStyleBackColor = true;
             // 
-            // PicEssential
+            // PicKeyProblem
             // 
-            this.PicEssential.ErrorImage = null;
-            this.PicEssential.Image = global::Ababu.Properties.Resources.lightbulb;
-            this.PicEssential.InitialImage = null;
-            this.PicEssential.Location = new System.Drawing.Point(21, 19);
-            this.PicEssential.Name = "PicEssential";
-            this.PicEssential.Size = new System.Drawing.Size(17, 18);
-            this.PicEssential.TabIndex = 56;
-            this.PicEssential.TabStop = false;
+            this.PicKeyProblem.ErrorImage = null;
+            this.PicKeyProblem.Image = global::Ababu.Properties.Resources.key;
+            this.PicKeyProblem.InitialImage = null;
+            this.PicKeyProblem.Location = new System.Drawing.Point(21, 19);
+            this.PicKeyProblem.Name = "PicKeyProblem";
+            this.PicKeyProblem.Size = new System.Drawing.Size(17, 18);
+            this.PicKeyProblem.TabIndex = 56;
+            this.PicKeyProblem.TabStop = false;
             // 
             // DtpDateFrom
             // 
@@ -559,6 +522,43 @@
             this.LblDiagnosis.TabIndex = 61;
             this.LblDiagnosis.Text = "Problem";
             // 
+            // BtnProblemSave
+            // 
+            this.BtnProblemSave.Image = global::Ababu.Properties.Resources.accept;
+            this.BtnProblemSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnProblemSave.Location = new System.Drawing.Point(351, 402);
+            this.BtnProblemSave.Name = "BtnProblemSave";
+            this.BtnProblemSave.Size = new System.Drawing.Size(75, 23);
+            this.BtnProblemSave.TabIndex = 11;
+            this.BtnProblemSave.Text = "Save";
+            this.BtnProblemSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnProblemSave.UseVisualStyleBackColor = true;
+            this.BtnProblemSave.Click += new System.EventHandler(this.BtnProblemSave_Click);
+            // 
+            // BtnProblemDelete
+            // 
+            this.BtnProblemDelete.Image = global::Ababu.Properties.Resources.delete;
+            this.BtnProblemDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnProblemDelete.Location = new System.Drawing.Point(432, 402);
+            this.BtnProblemDelete.Name = "BtnProblemDelete";
+            this.BtnProblemDelete.Size = new System.Drawing.Size(75, 23);
+            this.BtnProblemDelete.TabIndex = 12;
+            this.BtnProblemDelete.Text = "Delete";
+            this.BtnProblemDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnProblemDelete.UseVisualStyleBackColor = true;
+            this.BtnProblemDelete.Click += new System.EventHandler(this.BtnProblemDelete_Click);
+            // 
+            // PicIsModified
+            // 
+            this.PicIsModified.ErrorImage = null;
+            this.PicIsModified.Image = global::Ababu.Properties.Resources.bullet_green;
+            this.PicIsModified.InitialImage = null;
+            this.PicIsModified.Location = new System.Drawing.Point(741, 12);
+            this.PicIsModified.Name = "PicIsModified";
+            this.PicIsModified.Size = new System.Drawing.Size(17, 18);
+            this.PicIsModified.TabIndex = 2;
+            this.PicIsModified.TabStop = false;
+            // 
             // FrmProblemEdit
             // 
             this.AcceptButton = this.BtnProblemSave;
@@ -573,7 +573,7 @@
             this.Controls.Add(this.LblAge);
             this.Controls.Add(this.DtpDateFrom);
             this.Controls.Add(this.LblActiveFrom);
-            this.Controls.Add(this.GrbEssential);
+            this.Controls.Add(this.GrbKeyProblem);
             this.Controls.Add(this.LblNotes);
             this.Controls.Add(this.LblObjectiveAnalysis);
             this.Controls.Add(this.LblSubjectiveAnalysis);
@@ -590,7 +590,6 @@
             this.Text = "Problem Edit";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmProblemEdit_FormClosing);
             this.Load += new System.EventHandler(this.FrmProblemEdit_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).EndInit();
             this.StsProblemEdit.ResumeLayout(false);
             this.StsProblemEdit.PerformLayout();
             this.GrbProblemStatus.ResumeLayout(false);
@@ -600,12 +599,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.PicClosed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicActive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicLongTermActive)).EndInit();
-            this.GrbEssential.ResumeLayout(false);
-            this.GrbEssential.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicEssential)).EndInit();
+            this.GrbKeyProblem.ResumeLayout(false);
+            this.GrbKeyProblem.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicKeyProblem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrProblemEdit)).EndInit();
             this.GrbPetDetail.ResumeLayout(false);
             this.GrbPetDetail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -635,9 +635,9 @@
         private System.Windows.Forms.Label LblObjectiveAnalysis;
         private System.Windows.Forms.TextBox TxtNotes;
         private System.Windows.Forms.Label LblNotes;
-        private System.Windows.Forms.GroupBox GrbEssential;
-        private System.Windows.Forms.CheckBox ChkEssential;
-        private System.Windows.Forms.PictureBox PicEssential;
+        private System.Windows.Forms.GroupBox GrbKeyProblem;
+        private System.Windows.Forms.CheckBox ChkKeyProblem;
+        private System.Windows.Forms.PictureBox PicKeyProblem;
         private System.Windows.Forms.DateTimePicker DtpDateFrom;
         private System.Windows.Forms.Label LblActiveFrom;
         private System.Windows.Forms.Label LblAge;

@@ -163,12 +163,24 @@ namespace OldAuntie
 
         public bool Exists()
         {
+            if(PrescriptionId > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+            // @todo: delete me when you think this not useful anymore
+            /*
             string query = "SELECT prescription_id FROM prescriptions " +
                     "WHERE created = '" + Created.ToString(BaseDati.DATETIME_FORMAT) + "' " +
                     "AND pid = " + Pid + " " +
                     "AND mid = '" + Mid + "'";
 
             return Globals.DBCon.Exists(query);
+            */
         }
 
 
