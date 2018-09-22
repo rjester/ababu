@@ -31,10 +31,10 @@ namespace Ababu
 
         private void FillCombo()
         {
-            CmbProblem.DataSource = Venom.Search(Venom.DIAGNOSIS);
-            CmbProblem.ValueMember = "id";
-            CmbProblem.DisplayMember = "value";
-            CmbProblem.SelectedValue = 0;
+            CmbProblems.DataSource = Venom.Search(Venom.DIAGNOSIS);
+            CmbProblems.ValueMember = "id";
+            CmbProblems.DisplayMember = "value";
+            CmbProblems.SelectedValue = 0;
         }
 
 
@@ -120,13 +120,13 @@ namespace Ababu
         }
 
 
-        private void CmbProblem_KeyDown(object sender, KeyEventArgs e)
+        private void CmbProblems_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (CmbProblem.SelectedItem != null && CmbProblem.SelectedValue != null)
+                if (CmbProblems.SelectedItem != null && CmbProblems.SelectedValue != null)
                 {
-                    OpenProblemEdit((int)CmbProblem.SelectedValue, Pet.Pid);
+                    OpenProblemEdit((int)CmbProblems.SelectedValue, Pet.Pid);
                 }
             }
         }

@@ -63,7 +63,7 @@ namespace OldAuntie
 
         public int Update()
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
             int updated_id = 0;
 
             string query = "UPDATE notes SET " +
@@ -83,8 +83,8 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@created", Created);
             Cmd.Parameters.AddWithValue("@updated", Utility.Now());
 
-            affetcedRows = Cmd.ExecuteNonQuery();
-            if (affetcedRows > 0)
+            affected_rows = Cmd.ExecuteNonQuery();
+            if (affected_rows > 0)
             {
                 updated_id = Nid;
             }
@@ -95,7 +95,7 @@ namespace OldAuntie
 
         public int Insert()
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
             int insert_id = 0;
 
             string query = "INSERT into notes (pid, uid, note_text, created) " +
@@ -107,9 +107,9 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@note_text", NoteText);
             Cmd.Parameters.AddWithValue("@created", Utility.Now());
 
-            affetcedRows = Cmd.ExecuteNonQuery();
+            affected_rows = Cmd.ExecuteNonQuery();
 
-            if (affetcedRows > 0)
+            if (affected_rows > 0)
             {
                 insert_id = Convert.ToInt32(Globals.DBCon.InsertID());
             }
@@ -120,16 +120,16 @@ namespace OldAuntie
 
         public int Delete()
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
 
             string query = "DELETE FROM notes WHERE nid=@nid";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@nid", Nid);
 
-            affetcedRows = Cmd.ExecuteNonQuery();
+            affected_rows = Cmd.ExecuteNonQuery();
 
-            return affetcedRows;
+            return affected_rows;
         }
 
 

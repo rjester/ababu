@@ -69,7 +69,7 @@ namespace OldAuntie
 
         public int Update()
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
 
             string query = "UPDATE examinations  SET " +
                                     "diagnosis_id=@diagnosis_id, " +
@@ -96,15 +96,15 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@created", Created);
             Cmd.Parameters.AddWithValue("@updated", DateTime.Now);
 
-            affetcedRows = Cmd.ExecuteNonQuery();
+            affected_rows = Cmd.ExecuteNonQuery();
 
-            return affetcedRows;
+            return affected_rows;
         }
 
 
         public int Insert()
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
 
             string query = "INSERT into examinations (diagnosis_id, diagnostic_test_id, pid, result, medical_report, is_pathologic, in_evidence, created) " +
                         "VALUES (@diagnosis_id, @diagnostic_test_id, @pid, @result, @medical_report, @is_pathologic, @in_evidence, @created)";
@@ -119,26 +119,26 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@in_evidence", InEvidence);
             Cmd.Parameters.AddWithValue("@created", DateTime.Now);
 
-            affetcedRows = Cmd.ExecuteNonQuery();
+            affected_rows = Cmd.ExecuteNonQuery();
 
-            return affetcedRows;
+            return affected_rows;
         }
 
 
         public int Delete()
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
             string query = "DELETE FROM examinations WHERE examination_id=@examination_id";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@examination_id", ExaminationId);
 
-            affetcedRows = Cmd.ExecuteNonQuery();
+            affected_rows = Cmd.ExecuteNonQuery();
 
-            return affetcedRows;
+            return affected_rows;
         }
 
-
+        // @todo: to be deleted
         public bool Exists()
         {
             bool result = true;
@@ -186,13 +186,13 @@ namespace OldAuntie
 
         static public int UnlinkExaminations(int diagnosis_id)
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
             string query = "UPDATE examinations SET diagnosis_id = 0 WHERE diagnosis_id=@diagnosis_id";
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@diagnosis_id", diagnosis_id);
-            affetcedRows = Cmd.ExecuteNonQuery();
+            affected_rows = Cmd.ExecuteNonQuery();
 
-            return affetcedRows;
+            return affected_rows;
         }
 
 

@@ -128,3 +128,6 @@
    in OldAuntie.Examination.Update() in C:\dev\Ababu\OldAuntie\Examination.cs:riga 97
    in OldAuntie.Examination.Save() in C:\dev\Ababu\OldAuntie\Examination.cs:riga 61
    in Ababu.FrmExaminationEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmExaminationEdit.cs:riga 152
+21/09/2018 08:42:57 (error): Unable to connect to any of the specified MySQL hosts.
+21/09/2018 08:43:01 (error): Connection must be valid and open.
+21/09/2018 08:43:01 (error): Connection must be valid and open.

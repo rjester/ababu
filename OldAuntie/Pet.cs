@@ -115,7 +115,7 @@ namespace OldAuntie
 
         public int Update()
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
             int updated_id = 0;
 
             string query = "UPDATE pets SET " +
@@ -155,8 +155,8 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@updated", Utility.Now());
             Cmd.Parameters.AddWithValue("@deleted", Deleted);
 
-            affetcedRows = Cmd.ExecuteNonQuery();
-            if(affetcedRows > 0)
+            affected_rows = Cmd.ExecuteNonQuery();
+            if(affected_rows > 0)
             {
                 updated_id = Pid;
             }
@@ -167,7 +167,7 @@ namespace OldAuntie
         
         public int Insert()
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
             int insert_id = 0;
 
             string query = "INSERT into pets (tsn, oid, name, gender, date_of_birth, date_of_death, description, color, microchip, microchip_location, tatuatge, tatuatge_location, created) " +
@@ -188,9 +188,9 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@tatuatge_location", TatuatgeLocation);
             Cmd.Parameters.AddWithValue("@created", Utility.Now());
 
-            affetcedRows = Cmd.ExecuteNonQuery();
+            affected_rows = Cmd.ExecuteNonQuery();
 
-            if(affetcedRows > 0)
+            if(affected_rows > 0)
             {
                 insert_id = Convert.ToInt32(Globals.DBCon.InsertID());
             }

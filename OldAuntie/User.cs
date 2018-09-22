@@ -74,7 +74,7 @@ namespace OldAuntie
 
         public int Update()
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
             string query = "UPDATE users SET " +
                                     "username=@username, " +
                                     "fullname=@fullname, " +
@@ -100,14 +100,14 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@updated", Utility.Now());
             Cmd.Parameters.AddWithValue("@deleted", Deleted);
 
-            affetcedRows = Cmd.ExecuteNonQuery();
+            affected_rows = Cmd.ExecuteNonQuery();
 
-            return affetcedRows;
+            return affected_rows;
         }
 
         public int UpdatePassword()
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
             string query = "UPDATE users SET " +
                                     "password=@password " +
                                 "WHERE uid=@uid";
@@ -117,15 +117,15 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@uid", Uid);
             Cmd.Parameters.AddWithValue("@password", Utility.MD5(Password));
 
-            affetcedRows = Cmd.ExecuteNonQuery();
+            affected_rows = Cmd.ExecuteNonQuery();
 
-            return affetcedRows;
+            return affected_rows;
         }
 
 
         public int Insert()
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
 
             string query = "INSERT INTO users (username, password, fullname, rid, lid, phone, created) " +
                         "VALUES (@username, @password, @fullname, @rid, @lid, @phone, @created)";
@@ -139,9 +139,9 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@phone", Phone);
             Cmd.Parameters.AddWithValue("@created", Utility.Now());
 
-            affetcedRows = Cmd.ExecuteNonQuery();
+            affected_rows = Cmd.ExecuteNonQuery();
 
-            return affetcedRows;
+            return affected_rows;
         }
 
         public int Delete()

@@ -11,17 +11,17 @@ using OldAuntie;
 
 namespace Ababu
 {
-    public partial class CtrlTherapy : UserControl
+    public partial class CtrlDeepSpace : UserControl
     {
         public Pet P { get; set; }
 
-        public CtrlTherapy(Pet pet)
+        public CtrlDeepSpace(Pet pet)
         {
             P = pet;
             InitializeComponent();
         }
 
-        private void CtrlTherapy_Load(object sender, EventArgs e)
+        private void CtrlDeepSpace_Load(object sender, EventArgs e)
         {
             /*
             // @todo: delete me. if you want to use it create a TpPrescriptions tabPage
@@ -30,6 +30,10 @@ namespace Ababu
             ctrlPrescription.Dock = DockStyle.Fill;
             TpPrescriptions.Controls.Add(ctrlPrescription);
             */
+            CtrlTreatment ctrlTreatment = new CtrlTreatment();
+            ctrlTreatment.Dock = DockStyle.Fill;
+            TpTreatments.Controls.Add(ctrlTreatment);
+
 
             CtrlMaterial ctrlMaterial = new CtrlMaterial();
             ctrlMaterial.Dock = DockStyle.Fill;

@@ -76,7 +76,7 @@ namespace OldAuntie
 
         public int Update()
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
 
             string query = "UPDATE problems SET " +
                                     "uid=@uid, " +
@@ -104,16 +104,16 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@created", Created);
             Cmd.Parameters.AddWithValue("@updated", Utility.Now());
 
-            affetcedRows = Cmd.ExecuteNonQuery();
+            affected_rows = Cmd.ExecuteNonQuery();
 
 
-            return affetcedRows;
+            return affected_rows;
         }
 
 
         public int Insert()
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
             
             string query = "INSERT into problems (diagnosis_id, pid, uid, date_from, status_id, key_problem, subjective_analysis, objective_analysis, notes, created) " +
                         "VALUES (@diagnosis_id, @pid, @uid, @date_from, @status_id, @key_problem, @subjective_analysis, @objective_analysis, @notes, @created)";
@@ -130,24 +130,24 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@notes", Notes);
             Cmd.Parameters.AddWithValue("@created", Utility.Now());
 
-            affetcedRows = Cmd.ExecuteNonQuery();
+            affected_rows = Cmd.ExecuteNonQuery();
 
-            return affetcedRows;
+            return affected_rows;
         }
 
 
         public int Delete()
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
             string query = "DELETE FROM problems WHERE diagnosis_id=@diagnosis_id AND pid=@pid";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
             Cmd.Parameters.AddWithValue("@pid", Pid);
 
-            affetcedRows = Cmd.ExecuteNonQuery();
+            affected_rows = Cmd.ExecuteNonQuery();
 
-            return affetcedRows;
+            return affected_rows;
         }
 
 

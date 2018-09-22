@@ -61,6 +61,7 @@
     <Compile Include="Role.cs" />
     <Compile Include="Security.cs" />
     <Compile Include="Species.cs" />
+    <Compile Include="Treatment.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="Venom.cs" />

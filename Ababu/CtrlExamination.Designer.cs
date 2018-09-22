@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TlpDiagnosticTest = new System.Windows.Forms.TableLayoutPanel();
+            this.TlpExamination = new System.Windows.Forms.TableLayoutPanel();
             this.GrdExaminations = new System.Windows.Forms.DataGridView();
             this.PanDiagnosticTest = new System.Windows.Forms.Panel();
             this.LblDiagnosticTest = new System.Windows.Forms.Label();
             this.BtnDiagnosticTestSelect = new System.Windows.Forms.Button();
             this.CmbDiagnosticTests = new System.Windows.Forms.ComboBox();
-            this.TlpDiagnosticTest.SuspendLayout();
+            this.TlpExamination.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrdExaminations)).BeginInit();
             this.PanDiagnosticTest.SuspendLayout();
             this.SuspendLayout();
             // 
-            // TlpDiagnosticTest
+            // TlpExamination
             // 
-            this.TlpDiagnosticTest.ColumnCount = 1;
-            this.TlpDiagnosticTest.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TlpDiagnosticTest.Controls.Add(this.GrdExaminations, 0, 1);
-            this.TlpDiagnosticTest.Controls.Add(this.PanDiagnosticTest, 0, 0);
-            this.TlpDiagnosticTest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TlpDiagnosticTest.Location = new System.Drawing.Point(0, 0);
-            this.TlpDiagnosticTest.Name = "TlpDiagnosticTest";
-            this.TlpDiagnosticTest.RowCount = 2;
-            this.TlpDiagnosticTest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.TlpDiagnosticTest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TlpDiagnosticTest.Size = new System.Drawing.Size(509, 315);
-            this.TlpDiagnosticTest.TabIndex = 1;
+            this.TlpExamination.ColumnCount = 1;
+            this.TlpExamination.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TlpExamination.Controls.Add(this.GrdExaminations, 0, 1);
+            this.TlpExamination.Controls.Add(this.PanDiagnosticTest, 0, 0);
+            this.TlpExamination.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TlpExamination.Location = new System.Drawing.Point(0, 0);
+            this.TlpExamination.Name = "TlpExamination";
+            this.TlpExamination.RowCount = 2;
+            this.TlpExamination.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.TlpExamination.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TlpExamination.Size = new System.Drawing.Size(509, 315);
+            this.TlpExamination.TabIndex = 1;
             // 
             // GrdExaminations
             // 
@@ -121,11 +121,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.TlpDiagnosticTest);
+            this.Controls.Add(this.TlpExamination);
             this.Name = "CtrlExamination";
             this.Size = new System.Drawing.Size(509, 315);
             this.Load += new System.EventHandler(this.CtrlExamination_Load);
-            this.TlpDiagnosticTest.ResumeLayout(false);
+            this.TlpExamination.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GrdExaminations)).EndInit();
             this.PanDiagnosticTest.ResumeLayout(false);
             this.PanDiagnosticTest.PerformLayout();
@@ -135,7 +135,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel TlpDiagnosticTest;
+        private System.Windows.Forms.TableLayoutPanel TlpExamination;
         private System.Windows.Forms.DataGridView GrdExaminations;
         private System.Windows.Forms.Panel PanDiagnosticTest;
         private System.Windows.Forms.Label LblDiagnosticTest;

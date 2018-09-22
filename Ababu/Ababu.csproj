@@ -96,11 +96,17 @@
     <Compile Include="CtrlProblem.Designer.cs">
       <DependentUpon>CtrlProblem.cs</DependentUpon>
     </Compile>
-    <Compile Include="CtrlTherapy.cs">
+    <Compile Include="CtrlTreatment.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CtrlTherapy.Designer.cs">
-      <DependentUpon>CtrlTherapy.cs</DependentUpon>
+    <Compile Include="CtrlTreatment.Designer.cs">
+      <DependentUpon>CtrlTreatment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDeepSpace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDeepSpace.Designer.cs">
+      <DependentUpon>CtrlDeepSpace.cs</DependentUpon>
     </Compile>
     <Compile Include="CtrlVisit.cs">
       <SubType>UserControl</SubType>
@@ -185,8 +191,11 @@
     <EmbeddedResource Include="CtrlProblem.resx">
       <DependentUpon>CtrlProblem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CtrlTherapy.resx">
-      <DependentUpon>CtrlTherapy.cs</DependentUpon>
+    <EmbeddedResource Include="CtrlTreatment.resx">
+      <DependentUpon>CtrlTreatment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDeepSpace.resx">
+      <DependentUpon>CtrlDeepSpace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlVisit.resx">
       <DependentUpon>CtrlVisit.cs</DependentUpon>

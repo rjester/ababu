@@ -67,7 +67,7 @@ namespace OldAuntie
 
         public int Update()
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
 
             string query = "UPDATE prescriptions  SET " +
                                     "diagnosis_id=@diagnosis_id, " +
@@ -92,15 +92,15 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@created", Created);
             Cmd.Parameters.AddWithValue("@updated", DateTime.Now);
 
-            affetcedRows = Cmd.ExecuteNonQuery();
+            affected_rows = Cmd.ExecuteNonQuery();
 
-            return affetcedRows;
+            return affected_rows;
         }
 
 
         public int Insert()
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
 
             string query = "INSERT into prescriptions (diagnosis_id, mid, pid, quantity, dosage, in_evidence, created) " +
                         "VALUES (@diagnosis_id, @mid, @pid, @quantity, @dosage, @in_evidence, @created)";
@@ -114,23 +114,23 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@in_evidence", InEvidence);
             Cmd.Parameters.AddWithValue("@created", DateTime.Now);
 
-            affetcedRows = Cmd.ExecuteNonQuery();
+            affected_rows = Cmd.ExecuteNonQuery();
 
-            return affetcedRows;
+            return affected_rows;
         }
 
 
         public int Delete()
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
             string query = "DELETE FROM prescriptions WHERE prescription_id=@prescription_id";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@prescription_id", PrescriptionId);
-            
-            affetcedRows = Cmd.ExecuteNonQuery();
 
-            return affetcedRows;
+            affected_rows = Cmd.ExecuteNonQuery();
+
+            return affected_rows;
         }
 
 
@@ -207,13 +207,13 @@ namespace OldAuntie
 
         static public int UnlinkPrescription(int diagnosis_id)
         {
-            int affetcedRows = 0;
+            int affected_rows = 0;
             string query = "UPDATE prescriptions SET diagnosis_id = 0 WHERE diagnosis_id=@diagnosis_id";
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@diagnosis_id", diagnosis_id);
-            affetcedRows = Cmd.ExecuteNonQuery();
+            affected_rows = Cmd.ExecuteNonQuery();
 
-            return affetcedRows;
+            return affected_rows;
         }
 
     }

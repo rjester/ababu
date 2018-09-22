@@ -1,6 +1,6 @@
 ﻿namespace Ababu
 {
-    partial class CtrlTherapy
+    partial class CtrlDeepSpace
     {
         /// <summary> 
         /// Variabile di progettazione necessaria.
@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TabTherapy = new System.Windows.Forms.TabControl();
-            this.TpProcedures = new System.Windows.Forms.TabPage();
+            this.TabDeepSpace = new System.Windows.Forms.TabControl();
+            this.TpTreatments = new System.Windows.Forms.TabPage();
             this.TpMaterials = new System.Windows.Forms.TabPage();
             this.TpCertificates = new System.Windows.Forms.TabPage();
-            this.TabTherapy.SuspendLayout();
+            this.TabDeepSpace.SuspendLayout();
             this.SuspendLayout();
             // 
-            // TabTherapy
+            // TabDeepSpace
             // 
-            this.TabTherapy.Controls.Add(this.TpProcedures);
-            this.TabTherapy.Controls.Add(this.TpMaterials);
-            this.TabTherapy.Controls.Add(this.TpCertificates);
-            this.TabTherapy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabTherapy.HotTrack = true;
-            this.TabTherapy.Location = new System.Drawing.Point(0, 0);
-            this.TabTherapy.Name = "TabTherapy";
-            this.TabTherapy.SelectedIndex = 0;
-            this.TabTherapy.ShowToolTips = true;
-            this.TabTherapy.Size = new System.Drawing.Size(483, 316);
-            this.TabTherapy.TabIndex = 0;
+            this.TabDeepSpace.Controls.Add(this.TpTreatments);
+            this.TabDeepSpace.Controls.Add(this.TpMaterials);
+            this.TabDeepSpace.Controls.Add(this.TpCertificates);
+            this.TabDeepSpace.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabDeepSpace.HotTrack = true;
+            this.TabDeepSpace.Location = new System.Drawing.Point(0, 0);
+            this.TabDeepSpace.Name = "TabDeepSpace";
+            this.TabDeepSpace.SelectedIndex = 0;
+            this.TabDeepSpace.ShowToolTips = true;
+            this.TabDeepSpace.Size = new System.Drawing.Size(483, 316);
+            this.TabDeepSpace.TabIndex = 0;
             // 
-            // TpProcedures
+            // TpTreatments
             // 
-            this.TpProcedures.Location = new System.Drawing.Point(4, 22);
-            this.TpProcedures.Name = "TpProcedures";
-            this.TpProcedures.Padding = new System.Windows.Forms.Padding(3);
-            this.TpProcedures.Size = new System.Drawing.Size(475, 290);
-            this.TpProcedures.TabIndex = 1;
-            this.TpProcedures.Text = "Procedures/Treatments";
-            this.TpProcedures.UseVisualStyleBackColor = true;
+            this.TpTreatments.Location = new System.Drawing.Point(4, 22);
+            this.TpTreatments.Name = "TpTreatments";
+            this.TpTreatments.Padding = new System.Windows.Forms.Padding(3);
+            this.TpTreatments.Size = new System.Drawing.Size(475, 290);
+            this.TpTreatments.TabIndex = 1;
+            this.TpTreatments.Text = "Treatments / Procedures / Vaccinations";
+            this.TpTreatments.UseVisualStyleBackColor = true;
             // 
             // TpMaterials
             // 
@@ -77,23 +77,23 @@
             this.TpCertificates.Text = "Certificates";
             this.TpCertificates.UseVisualStyleBackColor = true;
             // 
-            // CtrlTherapy
+            // CtrlDeepSpace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.TabTherapy);
-            this.Name = "CtrlTherapy";
+            this.Controls.Add(this.TabDeepSpace);
+            this.Name = "CtrlDeepSpace";
             this.Size = new System.Drawing.Size(483, 316);
-            this.Load += new System.EventHandler(this.CtrlTherapy_Load);
-            this.TabTherapy.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.CtrlDeepSpace_Load);
+            this.TabDeepSpace.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl TabTherapy;
-        private System.Windows.Forms.TabPage TpProcedures;
+        private System.Windows.Forms.TabControl TabDeepSpace;
+        private System.Windows.Forms.TabPage TpTreatments;
         private System.Windows.Forms.TabPage TpMaterials;
         private System.Windows.Forms.TabPage TpCertificates;
     }

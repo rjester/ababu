@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Set 19, 2018 alle 08:22
+-- Creato il: Set 22, 2018 alle 07:17
 -- Versione del server: 10.1.34-MariaDB
 -- Versione PHP: 7.2.8
 
@@ -47,7 +47,8 @@ CREATE TABLE `examinations` (
 
 INSERT INTO `examinations` (`examination_id`, `diagnosis_id`, `diagnostic_test_id`, `pid`, `result`, `medical_report`, `is_pathologic`, `in_evidence`, `created`, `updated`) VALUES
 (1, 0, 13384, 1, '48/850°', '', 0, 1, '2018-09-18 15:40:49', '2018-09-18 15:40:54'),
-(2, 0, 18142, 1, '', 'djsflkdshjfds', 1, 1, '2018-09-18 15:39:31', '2018-09-18 15:39:34');
+(2, 0, 18142, 1, '', 'djsflkdshjfds', 1, 1, '2018-09-18 15:39:31', '2018-09-18 15:39:34'),
+(3, 0, 13385, 1, '', '', 1, 1, '2018-09-20 21:49:10', NULL);
 
 -- --------------------------------------------------------
 
@@ -3063,7 +3064,7 @@ CREATE TABLE `problems` (
 --
 
 INSERT INTO `problems` (`diagnosis_id`, `pid`, `uid`, `date_from`, `status_id`, `key_problem`, `subjective_analysis`, `objective_analysis`, `notes`, `created`, `updated`) VALUES
-(326, 1, 2, 1535784285, 2, 0, '', '', '', 1535741091, 1537277042),
+(326, 1, 2, 1535791485, 2, 1, '', '', '', 1535741091, 1537480159),
 (333, 1, 2, 1535755506, 3, 0, '', '', '', 1535741111, 1537277049),
 (336, 1, 2, 1535762722, 0, 1, '', '', '', 1535741129, 1537277035),
 (423, 1, 2, 1535769805, -1, 1, '', '', '', 1535741011, 1535741074),
@@ -3160,6 +3161,22 @@ INSERT INTO `species` (`tsn`, `complete_name`, `familiar_name`) VALUES
 (632545, 'Cricetinae', 'Hamster'),
 (658219, 'Gryllus cayensis', 'Gryllus'),
 (727488, 'Canis familiaris domesticus', 'Dog');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `treatments`
+--
+
+CREATE TABLE `treatments` (
+  `treatment_id` int(11) NOT NULL,
+  `procedure_id` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `notes` text,
+  `created` datetime NOT NULL,
+  `recall` datetime DEFAULT NULL,
+  `updated` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -7372,6 +7389,12 @@ ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indici per le tabelle `treatments`
+--
+ALTER TABLE `treatments`
+  ADD PRIMARY KEY (`treatment_id`);
+
+--
 -- Indici per le tabelle `users`
 --
 ALTER TABLE `users`
@@ -7398,7 +7421,7 @@ ALTER TABLE `visit`
 -- AUTO_INCREMENT per la tabella `examinations`
 --
 ALTER TABLE `examinations`
-  MODIFY `examination_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `examination_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT per la tabella `notes`
@@ -7423,6 +7446,12 @@ ALTER TABLE `pets`
 --
 ALTER TABLE `prescriptions`
   MODIFY `prescription_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT per la tabella `treatments`
+--
+ALTER TABLE `treatments`
+  MODIFY `treatment_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT per la tabella `users`

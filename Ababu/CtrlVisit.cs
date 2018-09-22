@@ -60,9 +60,9 @@ namespace Ababu
             TlpVisitBodyBottom.Controls.Add(ctrlDiary, 0, 0);
 
 
-            CtrlTherapy ctrlTherapy = new CtrlTherapy(P);
-            ctrlTherapy.Dock = DockStyle.Fill;
-            TlpVisitBodyBottom.Controls.Add(ctrlTherapy, 1, 0);
+            CtrlDeepSpace ctrlDeepSpace = new CtrlDeepSpace(P);
+            ctrlDeepSpace.Dock = DockStyle.Fill;
+            TlpVisitBodyBottom.Controls.Add(ctrlDeepSpace, 1, 0);
 
             // subriscribe the event handlers for problem selection
             ctrlProblem.OnProblemSelection += CtrlProblem_OnProblemSelection;
