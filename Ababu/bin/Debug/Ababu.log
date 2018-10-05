@@ -131,3 +131,13 @@
 21/09/2018 08:42:57 (error): Unable to connect to any of the specified MySQL hosts.
 21/09/2018 08:43:01 (error): Connection must be valid and open.
 21/09/2018 08:43:01 (error): Connection must be valid and open.
+22/09/2018 10:57:33 (error): Unknown column 'a.diagnostic_test_id' in 'where clause'
+22/09/2018 15:59:38 (error): Unknown column 'a.diagnostic_test_id' in 'where clause'
+22/09/2018 16:06:50 (error): Unknown column 'a.in_evidence' in 'order clause'
+22/09/2018 16:08:42 (error): Unknown column 'a.in_evidence' in 'order clause'
+03/10/2018 07:34:50 (error): The CommandText property has not been properly initialized.
+03/10/2018 07:34:51 (error): The CommandText property has not been properly initialized.
+03/10/2018 07:35:15 (error): The CommandText property has not been properly initialized.
+03/10/2018 08:34:44 (error): The CommandText property has not been properly initialized.
+03/10/2018 08:35:21 (error): The CommandText property has not been properly initialized.
+03/10/2018 08:36:53 (error): The CommandText property has not been properly initialized.

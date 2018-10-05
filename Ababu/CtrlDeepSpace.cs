@@ -30,7 +30,7 @@ namespace Ababu
             ctrlPrescription.Dock = DockStyle.Fill;
             TpPrescriptions.Controls.Add(ctrlPrescription);
             */
-            CtrlTreatment ctrlTreatment = new CtrlTreatment();
+            CtrlTreatment ctrlTreatment = new CtrlTreatment(P);
             ctrlTreatment.Dock = DockStyle.Fill;
             TpTreatments.Controls.Add(ctrlTreatment);
 

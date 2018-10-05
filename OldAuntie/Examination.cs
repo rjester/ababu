@@ -106,7 +106,7 @@ namespace OldAuntie
         {
             int affected_rows = 0;
 
-            string query = "INSERT into examinations (diagnosis_id, diagnostic_test_id, pid, result, medical_report, is_pathologic, in_evidence, created) " +
+            string query = "INSERT INTO examinations (diagnosis_id, diagnostic_test_id, pid, result, medical_report, is_pathologic, in_evidence, created) " +
                         "VALUES (@diagnosis_id, @diagnostic_test_id, @pid, @result, @medical_report, @is_pathologic, @in_evidence, @created)";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);

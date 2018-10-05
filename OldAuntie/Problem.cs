@@ -215,7 +215,6 @@ namespace OldAuntie
 
         public ProblemEventArgs(Problem problem, string action = ACTION_SELECT)
         {
-            // this.DiagnosisId = diagnosis_id;
             Problem = problem;
             Action = action;
         }

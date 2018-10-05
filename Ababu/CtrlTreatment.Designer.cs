@@ -47,8 +47,8 @@
             this.TlpTreatment.Location = new System.Drawing.Point(0, 0);
             this.TlpTreatment.Name = "TlpTreatment";
             this.TlpTreatment.RowCount = 2;
-            this.TlpTreatment.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.79365F));
-            this.TlpTreatment.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.20635F));
+            this.TlpTreatment.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.74603F));
+            this.TlpTreatment.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.25397F));
             this.TlpTreatment.Size = new System.Drawing.Size(509, 315);
             this.TlpTreatment.TabIndex = 0;
             // 
@@ -64,15 +64,16 @@
             this.GrdTreatments.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GrdTreatments.ColumnHeadersVisible = false;
             this.GrdTreatments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GrdTreatments.Location = new System.Drawing.Point(3, 36);
+            this.GrdTreatments.Location = new System.Drawing.Point(3, 40);
             this.GrdTreatments.Name = "GrdTreatments";
             this.GrdTreatments.ReadOnly = true;
             this.GrdTreatments.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.GrdTreatments.RowHeadersVisible = false;
             this.GrdTreatments.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GrdTreatments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GrdTreatments.Size = new System.Drawing.Size(503, 276);
+            this.GrdTreatments.Size = new System.Drawing.Size(503, 272);
             this.GrdTreatments.TabIndex = 6;
+            this.GrdTreatments.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdTreatments_CellDoubleClick);
             // 
             // PanProcedure
             // 
@@ -80,7 +81,7 @@
             this.PanProcedure.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanProcedure.Location = new System.Drawing.Point(3, 3);
             this.PanProcedure.Name = "PanProcedure";
-            this.PanProcedure.Size = new System.Drawing.Size(503, 27);
+            this.PanProcedure.Size = new System.Drawing.Size(503, 31);
             this.PanProcedure.TabIndex = 0;
             // 
             // CmbProcedures
@@ -92,6 +93,7 @@
             this.CmbProcedures.Name = "CmbProcedures";
             this.CmbProcedures.Size = new System.Drawing.Size(497, 21);
             this.CmbProcedures.TabIndex = 12;
+            this.CmbProcedures.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CmbProcedures_KeyDown);
             // 
             // CtrlTreatment
             // 
