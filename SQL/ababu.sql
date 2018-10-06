@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Set 22, 2018 alle 07:17
+-- Creato il: Ott 06, 2018 alle 10:25
 -- Versione del server: 10.1.34-MariaDB
 -- Versione PHP: 7.2.8
 
@@ -46,7 +46,7 @@ CREATE TABLE `examinations` (
 --
 
 INSERT INTO `examinations` (`examination_id`, `diagnosis_id`, `diagnostic_test_id`, `pid`, `result`, `medical_report`, `is_pathologic`, `in_evidence`, `created`, `updated`) VALUES
-(1, 0, 13384, 1, '48/850°', '', 0, 1, '2018-09-18 15:40:49', '2018-09-18 15:40:54'),
+(1, 0, 13384, 1, '48/850°', '', 0, 1, '2018-09-22 16:30:01', '2018-09-22 16:30:05'),
 (2, 0, 18142, 1, '', 'djsflkdshjfds', 1, 1, '2018-09-18 15:39:31', '2018-09-18 15:39:34'),
 (3, 0, 13385, 1, '', '', 1, 1, '2018-09-20 21:49:10', NULL);
 
@@ -3169,14 +3169,21 @@ INSERT INTO `species` (`tsn`, `complete_name`, `familiar_name`) VALUES
 --
 
 CREATE TABLE `treatments` (
-  `treatment_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `procedure_id` int(11) NOT NULL,
-  `pid` int(11) NOT NULL,
+  `pet_id` int(11) NOT NULL,
   `notes` text,
   `created` datetime NOT NULL,
   `recall` datetime DEFAULT NULL,
   `updated` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `treatments`
+--
+
+INSERT INTO `treatments` (`id`, `procedure_id`, `pet_id`, `notes`, `created`, `recall`, `updated`) VALUES
+(8, 12637, 1, '', '2018-10-05 19:44:21', NULL, '2018-10-05 19:45:15');
 
 -- --------------------------------------------------------
 
@@ -7392,7 +7399,7 @@ ALTER TABLE `settings`
 -- Indici per le tabelle `treatments`
 --
 ALTER TABLE `treatments`
-  ADD PRIMARY KEY (`treatment_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `users`
@@ -7451,7 +7458,7 @@ ALTER TABLE `prescriptions`
 -- AUTO_INCREMENT per la tabella `treatments`
 --
 ALTER TABLE `treatments`
-  MODIFY `treatment_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT per la tabella `users`

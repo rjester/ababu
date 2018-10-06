@@ -38,6 +38,11 @@ namespace Ababu
             CtrlMaterial ctrlMaterial = new CtrlMaterial();
             ctrlMaterial.Dock = DockStyle.Fill;
             TpMaterials.Controls.Add(ctrlMaterial);
+
+
+            CtrlCertificate ctrlCertificate = new CtrlCertificate();
+            ctrlCertificate.Dock = DockStyle.Fill;
+            TpCertificates.Controls.Add(ctrlCertificate);
         }
     }
 }
