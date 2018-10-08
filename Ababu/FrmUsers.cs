@@ -14,7 +14,7 @@ namespace Ababu
     public partial class FrmUsers : Form
     {
 
-        private User U = new User();
+        private User User = new User();
 
         private bool IsModified = false;
 
@@ -26,13 +26,15 @@ namespace Ababu
 
         private void FrmUsers_Load(object sender, EventArgs e)
         {
-            CmbRoles.ValueMember = "rid";
+            CmbRoles.ValueMember = "role_id";
             CmbRoles.DisplayMember = "name";
             CmbRoles.DataSource = Role.GetAllRoles();
 
+            /*
             CmbLocales.ValueMember = "lid";
             CmbLocales.DisplayMember = "language";
             CmbLocales.DataSource = Locale.GetAllLocales();
+            */
 
             LoadUserList();
 
@@ -42,13 +44,13 @@ namespace Ababu
 
         public void LoadUserList()
         {
-            if (Globals.Me.Rid == Security.ROLE_ADMIN)
+            if (Globals.Me.RoleId == Security.ROLE_ADMIN)
             {
                 GrdUsers.DataSource = User.GetUsersList();
             }
             else
             {
-                GrdUsers.DataSource = User.GetUsersList(Globals.Me.Uid);
+                GrdUsers.DataSource = User.GetUsersList(Globals.Me.Id);
                 GrdUsers.Enabled = false;
                 GrdUsers.ReadOnly = true;
             }
@@ -74,7 +76,7 @@ namespace Ababu
 
         private void TsbAddUser_Click(object sender, EventArgs e)
         {
-            U = new User();
+            User = new User();
             EmptyForm();
         }
 
@@ -86,14 +88,13 @@ namespace Ababu
                 if (GrdUsers.SelectedRows.Count > 0)
                 {
                     int uid = (int)GrdUsers.SelectedRows[0].Cells[0].Value;
-                    U.Load(uid);
+                    User.Load(uid);
                     FillForm();
                 }
             }
             catch (Exception ex)
             {
                 Globals.log.Write(ex.ToString());
-
             }
         }
 
@@ -119,7 +120,7 @@ namespace Ababu
             }
             else
             {
-                if (User.GetUidByUsername(TxtUsername.Text) != 0 && User.GetUidByUsername(TxtUsername.Text)!= U.Uid)
+                if (User.GetUidByUsername(TxtUsername.Text) != 0 && User.GetUidByUsername(TxtUsername.Text)!= User.Id)
                 {
                     result = result & false;
                     this.ErrUser.SetError(TxtUsername, "Username is in use.");
@@ -127,7 +128,7 @@ namespace Ababu
             }
 
             // Password check
-            if (U.Uid == 0)
+            if (User.Id == 0)
             {
                 if (TxtPassword.Text == "")
                 {
@@ -159,14 +160,13 @@ namespace Ababu
         private void FillForm()
         {
             // fill form with user details
-            TxtUid.Text = U.Uid.ToString();
-            TxtFullname.Text = U.Fullname;
-            TxtUsername.Text = U.Username;
+            TxtUid.Text = User.Id.ToString();
+            TxtFullname.Text = User.Fullname;
+            TxtUsername.Text = User.Username;
             TxtPassword.Text = String.Empty;
             TxtRepeatPassword.Text = String.Empty;
-            CmbRoles.SelectedValue = U.Rid;
-            CmbLocales.SelectedValue = U.Lid;
-            TxtPhone.Text = U.Phone;
+            CmbRoles.SelectedValue = User.RoleId;
+            TxtPhone.Text = User.Phone;
 
             // disable all buttons and functions to enable back further on according
             // to user permissions etc. etc
@@ -174,18 +174,15 @@ namespace Ababu
             TsbAddUser.Enabled = false;
             // BtnSaveUser.Enabled = false;
             CmbRoles.Enabled = false;
-
             GrbUser.Enabled = true;
-            
-
 
             // if user role is not ADMIN cannot add a user
-            if (Globals.Me.Rid == Security.ROLE_ADMIN)
+            if (Globals.Me.RoleId == Security.ROLE_ADMIN)
             {
                 TsbAddUser.Enabled = true;
                 // BtnSaveUser.Enabled = true;
                 // Users cannot delete themselves or change their role / permissions
-                if(Globals.Me.Uid != U.Uid)
+                if(Globals.Me.Id != User.Id)
                 {
                     TsbDeleteUser.Enabled = true;
                     CmbRoles.Enabled = true;
@@ -193,7 +190,7 @@ namespace Ababu
             }
 
             // if user is deleted I disable the input form
-            if (U.Deleted > 0)
+            if (User.Deleted > 0)
             {
                 GrbUser.Enabled = false;
                 TsbDeleteUser.Enabled = false;
@@ -277,21 +274,20 @@ namespace Ababu
         {
             if (IsValidForm() == true)
             {
-                U.Rid = (int)CmbRoles.SelectedValue;
-                U.Lid = CmbLocales.SelectedValue.ToString();
-                U.Username = TxtUsername.Text;
-                U.Password = TxtPassword.Text;
-                U.Fullname = TxtFullname.Text;
-                U.Phone = TxtPhone.Text;
+                User.RoleId = (int)CmbRoles.SelectedValue;
+                User.Username = TxtUsername.Text;
+                User.Password = TxtPassword.Text;
+                User.Fullname = TxtFullname.Text;
+                User.Phone = TxtPhone.Text;
 
                 int result = 0;
                 try
                 {
-                    result = U.Save();
+                    result = User.Save();
                     if(TxtPassword.Text != String.Empty)
                     {
-                        U.Password = TxtPassword.Text;
-                        U.UpdatePassword();
+                        User.Password = TxtPassword.Text;
+                        User.UpdatePassword();
                     }
 
                     if (result > 0)
@@ -332,7 +328,7 @@ namespace Ababu
             DialogResult answer = MessageBox.Show("Do you really want to delete selected user ?", "Warning", MessageBoxButtons.YesNo);
             if (answer == DialogResult.Yes)
             {
-                int result = U.Delete();
+                int result = User.Delete();
                 if (result > 0)
                 {
                     MessageBox.Show("User deleted.");

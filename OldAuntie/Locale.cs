@@ -13,7 +13,7 @@ namespace OldAuntie
         private string Country { get; set; }
         public static DataTable GetAllLocales()
         {
-            DataTable result = Globals.DBCon.Execute("SELECT lid, language FROM locales");
+            DataTable result = Globals.DBCon.Execute("SELECT id, language FROM locales");
             return result;
         }
     }

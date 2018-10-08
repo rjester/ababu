@@ -109,10 +109,10 @@ namespace Ababu
 
             // fill the problem combo
             // get the problem for a selected pet / patient
-            DataTable DtProblems = Problem.GetProblemsByPid(Pet.Pid);
+            DataTable DtProblems = Problem.GetProblemsByPetId(Pet.Id);
             // insert a new empty Row at 0 position for Problem indipendet prescription / Diary
             DataRow DrProblemIndependent = DtProblems.NewRow();
-            DrProblemIndependent[0] = Pet.Pid;
+            DrProblemIndependent[0] = Pet.Id;
             DrProblemIndependent[1] = 0;
             DrProblemIndependent[2] = 1;
             DrProblemIndependent[3] = "Problem indipendet prescription / Diary";
@@ -125,7 +125,7 @@ namespace Ababu
             CmbProblems.DisplayMember = "term_name";
             CmbProblems.SelectedValue = Problem.DiagnosisId;
 
-            TxtMid.Text = Medicine.Mid;
+            TxtMid.Text = Medicine.Id;
             TxtMedicineName.Text = Medicine.Name;
             TxtMedicineCompany.Text = Medicine.Company;
             TxtMedicineDateOfIssue.Text = Medicine.DateOfIssue.ToShortDateString();
@@ -154,8 +154,9 @@ namespace Ababu
             if (IsValidForm())
             {
                 Prescription.Created = DtpCreated.Value;
-                Prescription.Mid = Medicine.Mid;
-                Prescription.Pid = Pet.Pid;
+                Prescription.MedicineId = Medicine.Id;
+                Prescription.PetId = Pet.Id;
+                Prescription.UserId = Globals.Me.Id;
                 Prescription.Quantity = Convert.ToInt32(NumQuantity.Value);
                 Prescription.Dosage = TxtDosage.Text;
                 Prescription.InEvidence = ChkInEvidence.Checked;
@@ -202,23 +203,7 @@ namespace Ababu
             return result;
         }
 
-        // @todo: change with stepper and int value only text box
-        /*
-        private void TxtMedicineQuantity_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-
-            // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
-        }
-        */
-
+        
         
         private void FrmPrescriptionEdit_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -233,6 +218,8 @@ namespace Ababu
                 }
             }
         }
+
+
 
         private void BtnPrescriptionDelete_Click(object sender, EventArgs e)
         {

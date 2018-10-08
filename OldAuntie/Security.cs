@@ -17,7 +17,7 @@ namespace OldAuntie
         {
             bool result = false;
 
-            string query = "SELECT uid FROM users WHERE rid <= " + required_access_rid + " AND uid = " + uid;
+            string query = "SELECT uid FROM users WHERE role_id <= " + required_access_rid + " AND uid = " + uid;
             
             long rv_uid = Globals.DBCon.SelectOneValue(query);
 

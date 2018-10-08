@@ -10,42 +10,44 @@ namespace OldAuntie
 {
     public class Prescription
     {
-        public int PrescriptionId { get; set; }
+        public int Id { get; set; }
+        public string MedicineId { get; set; }
         public int DiagnosisId { get; set; }
-        public string Mid { get; set; }
-        public int Pid { get; set; }
+        public int PetId { get; set; }
+        public int UserId { get; set; }
         public int Quantity { get; set; }
         public string Dosage { get; set; }
         public bool InEvidence { get; set; }
         public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
 
-        public Prescription(int prescription_id)
+        public Prescription(int id)
         {
-            Load(prescription_id);
+            Load(id);
         }
 
         
-        public Prescription Load(int prescription_id)
+        public Prescription Load(int id)
         {
             string query = "SELECT * FROM prescriptions a, medicines b " +
-                    "WHERE a.mid = b.mid " +
-                    "AND a.prescription_id = " + prescription_id;
+                    "WHERE a.medicine_id = b.id " +
+                    "AND a.id = " + id;
 
 
             DataRow result = Globals.DBCon.SelectOneRow(query);
 
             if (result != null && result.ItemArray.Count() > 0)
             {
-                    PrescriptionId = prescription_id;
-                    DiagnosisId = (int)result["diagnosis_id"];
-                    Mid = result["mid"].ToString();
-                    Pid = (int)result["pid"];
-                    Quantity = (int)result["quantity"];
-                    Dosage = result["dosage"].ToString();
-                    InEvidence = (bool)result["in_evidence"];
-                    Created = (DateTime)result["created"];
-                    Updated = Utility.IfDBNull(result["updated"], null);
+                Id = id;
+                DiagnosisId = (int)result["diagnosis_id"];
+                MedicineId = result["medicine_id"].ToString();
+                PetId = (int)result["pet_id"];
+                UserId = (int)result["user_id"];
+                Quantity = (int)result["quantity"];
+                Dosage = result["dosage"].ToString();
+                InEvidence = (bool)result["in_evidence"];
+                Created = (DateTime)result["created"];
+                Updated = Utility.IfDBNull(result["updated"], null);
             }
 
             return this;
@@ -70,22 +72,24 @@ namespace OldAuntie
             int affected_rows = 0;
 
             string query = "UPDATE prescriptions  SET " +
+                                    "medicine_id=@medicine_id, " +
                                     "diagnosis_id=@diagnosis_id, " +
-                                    "mid=@mid, " +
-                                    "pid=@pid, " +
+                                    "pet_id=@pet_id, " +
+                                    "user_id=@user_id, " +
                                     "quantity=@quantity, " +
                                     "dosage=@dosage, " +
                                     "in_evidence=@in_evidence, " +
                                     "created=@created, " +
                                     "updated=@updated " +
-                                "WHERE prescription_id=@prescription_id";
+                                "WHERE id=@id";
 
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
-            Cmd.Parameters.AddWithValue("@prescription_id", PrescriptionId);
+            Cmd.Parameters.AddWithValue("@id", Id);
+            Cmd.Parameters.AddWithValue("@medicine_id", MedicineId);
             Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
-            Cmd.Parameters.AddWithValue("@mid", Mid);
-            Cmd.Parameters.AddWithValue("@pid", Pid);
+            Cmd.Parameters.AddWithValue("@pet_id", PetId);
+            Cmd.Parameters.AddWithValue("@user_id", UserId);
             Cmd.Parameters.AddWithValue("@quantity", Quantity);
             Cmd.Parameters.AddWithValue("@dosage", Dosage);
             Cmd.Parameters.AddWithValue("@in_evidence", InEvidence);
@@ -102,13 +106,13 @@ namespace OldAuntie
         {
             int affected_rows = 0;
 
-            string query = "INSERT into prescriptions (diagnosis_id, mid, pid, quantity, dosage, in_evidence, created) " +
-                        "VALUES (@diagnosis_id, @mid, @pid, @quantity, @dosage, @in_evidence, @created)";
+            string query = "INSERT into prescriptions (medicine_id, diagnosis_id, pet_id, quantity, dosage, in_evidence, created) " +
+                        "VALUES (@medicine_id, @diagnosis_id, @pet_id, @quantity, @dosage, @in_evidence, @created)";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@medicine_id", MedicineId);
             Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
-            Cmd.Parameters.AddWithValue("@mid", Mid);
-            Cmd.Parameters.AddWithValue("@pid", Pid);
+            Cmd.Parameters.AddWithValue("@pet_id", PetId);
             Cmd.Parameters.AddWithValue("@quantity", Quantity);
             Cmd.Parameters.AddWithValue("@dosage", Dosage);
             Cmd.Parameters.AddWithValue("@in_evidence", InEvidence);
@@ -123,47 +127,21 @@ namespace OldAuntie
         public int Delete()
         {
             int affected_rows = 0;
-            string query = "DELETE FROM prescriptions WHERE prescription_id=@prescription_id";
+            string query = "DELETE FROM prescriptions WHERE id=@id";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
-            Cmd.Parameters.AddWithValue("@prescription_id", PrescriptionId);
+            Cmd.Parameters.AddWithValue("@id", Id);
 
             affected_rows = Cmd.ExecuteNonQuery();
 
             return affected_rows;
         }
 
-
-        // @todo: delete me
-        /*
-        public bool Exists_OLD()
-        {
-            bool result = true;
-
-            string query = "SELECT count(*) FROM prescriptions " +
-                    "WHERE created = @created " +
-                    "AND pid = @pid " +
-                    "AND mid = @mid";
-
-            MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
-            Cmd.Parameters.AddWithValue("@created", Created);
-            Cmd.Parameters.AddWithValue("@mid", Mid);
-            Cmd.Parameters.AddWithValue("@pid", Pid);
-
-            object r = Cmd.ExecuteScalar();
-            if (r != null)
-            {
-                result = Convert.ToBoolean(r);
-            }
-
-            return result;
-        }
-        */
-
+        
 
         public bool Exists()
         {
-            if(PrescriptionId > 0)
+            if(Id > 0)
             {
                 return true;
             }
@@ -171,28 +149,18 @@ namespace OldAuntie
             {
                 return false;
             }
-
-            // @todo: delete me when you think this not useful anymore
-            /*
-            string query = "SELECT prescription_id FROM prescriptions " +
-                    "WHERE created = '" + Created.ToString(BaseDati.DATETIME_FORMAT) + "' " +
-                    "AND pid = " + Pid + " " +
-                    "AND mid = '" + Mid + "'";
-
-            return Globals.DBCon.Exists(query);
-            */
         }
 
 
 
 
 
-        static public DataTable GetPrescriptionsByPid(int pid, int diagnosis_id = 0)
+        static public DataTable GetPrescriptionsByPid(int pet_id, int diagnosis_id = 0)
         {
-            string query = "SELECT a.prescription_id, a.mid, a.pid, b.name, b.date_of_issue, b.date_of_withdrawal, a.quantity, a.dosage, a.in_evidence, a.created " +
+            string query = "SELECT a.id, a.medicine_id, a.pet_id, b.name, b.date_of_issue, b.date_of_withdrawal, a.quantity, a.dosage, a.in_evidence, a.created " +
                 "FROM prescriptions a, medicines b " +
-                "WHERE a.mid = b.mid " +
-                "AND a.pid = " + pid;
+                "WHERE a.medicine_id = b.id " +
+                "AND a.pet_id = " + pet_id;
 
             if(diagnosis_id > 0)
             {

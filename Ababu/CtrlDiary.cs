@@ -13,11 +13,11 @@ namespace Ababu
 {
     public partial class CtrlDiary : UserControl
     {
-        public Pet P { get; set; }
+        public Pet Pet { get; set; }
 
         public CtrlDiary(Pet pet)
         {
-            P = pet;
+            Pet = pet;
 
             InitializeComponent();
         }
@@ -39,15 +39,15 @@ namespace Ababu
             
             // create an object and a control for the new note
             Note NewNote = new Note();
-            NewNote.Pid = P.Pid;
+            NewNote.Pid = Pet.Id;
             CtrlNote ctrlNoteNew = new CtrlNote(NewNote);
             FlowDiary.Controls.Add(ctrlNoteNew);
 
             // load all other notes and show their controls
-            DataTable DtNotes = Note.GetNotesByPid(P.Pid);
+            DataTable DtNotes = Note.GetNotesByPid(Pet.Id);
             for (int j = 0; j < DtNotes.Rows.Count; j++)
             {
-                int nid = (int)DtNotes.Rows[j]["nid"];
+                int nid = (int)DtNotes.Rows[j]["id"];
                 CtrlNote ctrlNote = new CtrlNote(new Note(nid));
                 FlowDiary.Controls.Add(ctrlNote);
             }

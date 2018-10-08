@@ -9,12 +9,12 @@ namespace OldAuntie
 {
     public class Role
     {
-        private Int64 Rid  { get; set; }
+        private Int64 Id  { get; set; }
         private string Name { get; set; }
         private string Description { get; set; }
         public static DataTable GetAllRoles()
         {
-            DataTable result = Globals.DBCon.Execute("SELECT rid, name FROM roles");
+            DataTable result = Globals.DBCon.Execute("SELECT id, name FROM roles");
             return result;
         }
     }

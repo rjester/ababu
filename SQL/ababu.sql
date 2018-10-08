@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Ott 06, 2018 alle 10:25
+-- Creato il: Ott 08, 2018 alle 15:06
 -- Versione del server: 10.1.34-MariaDB
 -- Versione PHP: 7.2.8
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `examinations` (
-  `examination_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `diagnosis_id` int(11) NOT NULL,
   `diagnostic_test_id` int(11) NOT NULL,
   `pid` int(11) NOT NULL,
@@ -45,8 +45,8 @@ CREATE TABLE `examinations` (
 -- Dump dei dati per la tabella `examinations`
 --
 
-INSERT INTO `examinations` (`examination_id`, `diagnosis_id`, `diagnostic_test_id`, `pid`, `result`, `medical_report`, `is_pathologic`, `in_evidence`, `created`, `updated`) VALUES
-(1, 0, 13384, 1, '48/850°', '', 0, 1, '2018-09-22 16:30:01', '2018-09-22 16:30:05'),
+INSERT INTO `examinations` (`id`, `diagnosis_id`, `diagnostic_test_id`, `pid`, `result`, `medical_report`, `is_pathologic`, `in_evidence`, `created`, `updated`) VALUES
+(1, 0, 13384, 1, '48/850°', 'One report', 0, 1, '2018-10-06 10:44:08', '2018-10-06 10:44:16'),
 (2, 0, 18142, 1, '', 'djsflkdshjfds', 1, 1, '2018-09-18 15:39:31', '2018-09-18 15:39:34'),
 (3, 0, 13385, 1, '', '', 1, 1, '2018-09-20 21:49:10', NULL);
 
@@ -57,7 +57,7 @@ INSERT INTO `examinations` (`examination_id`, `diagnosis_id`, `diagnostic_test_i
 --
 
 CREATE TABLE `locales` (
-  `lid` varchar(10) NOT NULL,
+  `id` varchar(10) NOT NULL,
   `language` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -65,7 +65,7 @@ CREATE TABLE `locales` (
 -- Dump dei dati per la tabella `locales`
 --
 
-INSERT INTO `locales` (`lid`, `language`) VALUES
+INSERT INTO `locales` (`id`, `language`) VALUES
 ('en_GB', 'English - United Kingdom'),
 ('it_IT', 'Italian - Italy');
 
@@ -76,7 +76,7 @@ INSERT INTO `locales` (`lid`, `language`) VALUES
 --
 
 CREATE TABLE `medicines` (
-  `mid` varchar(255) NOT NULL,
+  `id` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `company` varchar(255) NOT NULL,
   `date_of_issue` datetime NOT NULL,
@@ -90,7 +90,7 @@ CREATE TABLE `medicines` (
 -- Dump dei dati per la tabella `medicines`
 --
 
-INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
+INSERT INTO `medicines` (`id`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
 ('00006/4082', 'Tylan G20 Premix for Medicated Feedingstuff', 'Eli Lilly and Company Limited', '1993-04-23 00:00:00', '0000-00-00 00:00:00', 'Premix for medicated feeding stuff', 'Pigs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_140140.DOC'),
 ('00006/4084', 'Apralan Soluble Powder for Oral Solution', 'Eli Lilly and Company Limited', '1992-10-20 00:00:00', '0000-00-00 00:00:00', 'Powder for oral solution', 'Cattle, Chickens, Pigs, Rabbits', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_140888.DOC'),
 ('00006/4091', 'Tylan Soluble Powder for oral solution', 'Eli Lilly and Company Limited', '1993-05-25 00:00:00', '0000-00-00 00:00:00', 'Powder for oral solution', 'Cattle, Chickens, Pigs, Turkeys', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_140142.DOC'),
@@ -286,7 +286,7 @@ INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_wit
 ('00866/4013', 'Garlic Sugar Coated Tablets', 'Dorwest Herbs Ltd', '1997-09-01 00:00:00', '0000-00-00 00:00:00', 'Coated tablet', 'Cats, Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_135708.DOC'),
 ('00866/4016', 'Green Releaf Tablets', 'Dorwest Herbs Ltd', '1992-09-01 00:00:00', '0000-00-00 00:00:00', 'Tablet', 'Cats, Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_139167.DOC'),
 ('00866/4017', 'Garlic and Fenugreek Sugar Coated Tablets', 'Dorwest Herbs Ltd', '1992-09-01 00:00:00', '0000-00-00 00:00:00', 'Coated tablet', 'Cats, Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_139161.DOC');
-INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
+INSERT INTO `medicines` (`id`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
 ('00866/4018', 'Kelp Seaweed Sugar Coated Tablets', 'Dorwest Herbs Ltd', '1992-09-01 00:00:00', '0000-00-00 00:00:00', 'Coated tablet', 'Cats, Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_139181.DOC'),
 ('00866/4019', 'Raspberry Leaf Tablets', 'Dorwest Herbs Ltd', '1992-09-01 00:00:00', '0000-00-00 00:00:00', 'Tablet', 'Cats, Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_128970.DOC'),
 ('00866/4021', 'Scullcap and Valerian Sugar Coated Tablets', 'Dorwest Herbs Ltd', '1992-09-01 00:00:00', '0000-00-00 00:00:00', 'Coated tablet', 'Cats, Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_101674.DOC'),
@@ -483,7 +483,7 @@ INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_wit
 ('01656/4119', 'Fiprotec Combo 134 mg/ 120.6 mg Spot-on Solution for Medium Dogs', 'Krka d.d., Novo Mesto', '2015-10-12 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_879447.DOC'),
 ('01656/4120', 'Fiprotec Combo 268 mg/ 241.2 mg Spot-on Solution for Large Dogs', 'Krka d.d., Novo Mesto', '2015-10-12 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_879446.DOC'),
 ('01656/4121', 'Fiprotec Combo 402 mg/ 361.8 mg Spot-on Solution for Extra Large Dogs', 'Krka d.d., Novo Mesto', '2015-10-12 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_879445.DOC');
-INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
+INSERT INTO `medicines` (`id`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
 ('01656/4122', 'Fiprotec Combo 50 mg/ 60 mg Spot-on Solution for Cats', 'Krka d.d., Novo Mesto', '2015-10-12 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Cats', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_879431.DOC'),
 ('01656/4123', 'Fiprotec Combo 67 mg/ 60.3 mg Spot-on Solution for Small Dogs', 'Krka d.d., Novo Mesto', '2015-10-12 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_879181.DOC'),
 ('01656/4124', 'Fleascreen Combo 50 mg/60 mg Spot-on Solution for Cats', 'Krka d.d., Novo Mesto', '2018-02-22 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Cats', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_1335065.DOC'),
@@ -679,7 +679,7 @@ INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_wit
 ('01808/4010', 'Clinidip L Concentrate 2.0% w/v Concentrate for Teat Dip or Teat Spray Solution', 'GEA Farm Technologies (UK) Ltd', '1992-08-28 00:00:00', '0000-00-00 00:00:00', 'Concentrate for teat dip/spray solution', 'Cattle, Goats, Sheep', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_228894.DOC'),
 ('01808/4011', 'Clinidip 2.5 % w/v Superconcentrate Concentrate for Teat Dip or Teat Spray Solution', 'GEA Farm Technologies (UK) Ltd', '1992-08-28 00:00:00', '0000-00-00 00:00:00', 'Concentrate for teat dip/spray solution', 'Cattle, Goats, Sheep', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_108572.DOC'),
 ('01808/4013', 'Suredip 3.7% Concentrate for Teat Dip or Teat Spray Lactating Cows, Sheep and Goats Chlorhexidine Gluconate', 'GEA Farm Technologies (UK) Ltd', '1999-05-25 00:00:00', '0000-00-00 00:00:00', 'Concentrate for teat dip/spray solution', 'Cattle, Goats, Sheep', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_91548.DOC');
-INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
+INSERT INTO `medicines` (`id`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
 ('01808/4017', 'Luxspray 50V 0.5% w/v Teat Dip / Teat Spray, Solution - Ready to Use', 'GEA Farm Technologies (UK) Ltd', '2008-04-11 00:00:00', '0000-00-00 00:00:00', 'Teat dip/spray solution', 'Cattle, Goats, Sheep', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_210267.DOC'),
 ('01808/4018', 'Sensospray 70V 0.74% w/v Teat Dip / Teat Spray, Solution - Ready to Use', 'GEA Farm Technologies (UK) Ltd', '2008-04-11 00:00:00', '0000-00-00 00:00:00', 'Teat dip/spray solution', 'Cattle, Goats, Sheep', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_210272.DOC'),
 ('01973/4002', 'Calicide Teflubenzuron 1000 g/kg Premix for Medicated Feeding Stuff', 'Trouw Ltd', '1999-08-18 00:00:00', '0000-00-00 00:00:00', 'Premix for medicated feeding stuff', 'Salmon (Atlantic)', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_138516.DOC'),
@@ -868,7 +868,7 @@ INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_wit
 ('02000/4371', 'Bob Martin Clear Double Action Spot-on Solution Imidacloprid 400 mg for Extra Large Dogs', 'Norbrook Laboratories Limited', '2014-01-08 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_528324.DOC'),
 ('02000/4372', 'Clearspot 40 mg Spot-on Solution for Small Cats and Small Dogs', 'Norbrook Laboratories Limited', '2014-01-08 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Cats, Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_528348.DOC'),
 ('02000/4373', 'Clearspot 80 mg Spot-on Solution for Large Cats', 'Norbrook Laboratories Limited', '2014-01-08 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Cats', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_528358.DOC');
-INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
+INSERT INTO `medicines` (`id`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
 ('02000/4374', 'Clearspot 100 mg Spot-on Solution for Medium Dogs', 'Norbrook Laboratories Limited', '2014-01-08 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_528340.DOC'),
 ('02000/4375', 'Clearspot 250 mg Spot-on Solution for Large Dogs', 'Norbrook Laboratories Limited', '2014-01-08 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_528344.DOC'),
 ('02000/4376', 'Clearspot 400 mg Spot-on Solution for Very Large Dogs', 'Norbrook Laboratories Limited', '2014-01-08 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_528351.DOC'),
@@ -1061,7 +1061,7 @@ INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_wit
 ('05653/4199', 'Effipro Duo 50 mg/60 mg Spot-on Solution for Cats', 'Virbac', '2015-12-09 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Cats', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_914088.DOC'),
 ('05653/4200', 'Effipro Duo 100 mg/120 mg Spot-on Solution for Very Large Cats ', 'Virbac', '2015-12-09 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Cats', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_913603.DOCX'),
 ('05653/4201', 'Canixin DHPPi Lyophilisate and Solvent for Suspension for Injection for Dogs ', 'Virbac', '2016-09-08 00:00:00', '0000-00-00 00:00:00', 'Lyophilisate and solvent for solution for injection', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_1042372.DOC');
-INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
+INSERT INTO `medicines` (`id`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
 ('05653/4202', 'Eraquell 18.7 mg/g Oral Paste', 'Virbac', '2000-11-16 00:00:00', '0000-00-00 00:00:00', 'Oral paste', 'Horses', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_131029.DOC'),
 ('05653/4203', 'Premadex 1% w/v Solution for Injection for Cattle, Swine and Sheep', 'Virbac', '2004-12-30 00:00:00', '0000-00-00 00:00:00', 'Solution for injection', 'Cattle, Pigs, Sheep', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_119369.DOC'),
 ('05653/4204', 'Virbamec 1.0% w/v Solution for Injection for Cattle and Swine', 'Virbac', '2000-10-06 00:00:00', '0000-00-00 00:00:00', 'Solution for injection', 'Cattle, Pigs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_131091.DOC'),
@@ -1257,7 +1257,7 @@ INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_wit
 ('08327/4286', 'Frontline Tri-Act Spot-on Solution for Dogs 40-60 kg', 'Merial Animal Health Limited', '2018-07-02 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_1407907.DOC'),
 ('08327/4287', 'Frontline Tri-Act Spot-on Solution for Dogs 5-10 kg ', 'Merial Animal Health Limited', '2018-07-02 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_1407965.DOC'),
 ('08327/4288', 'Gastrogard Sport 370 mg/g Oral Paste for Horses', 'Merial Animal Health Limited', '2018-08-09 00:00:00', '0000-00-00 00:00:00', 'Oral paste', 'Horses', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_1427785.DOC');
-INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
+INSERT INTO `medicines` (`id`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
 ('08327/4289', 'Bovalto Respi Intranasal, Nasal Spray, Lyophilisate and Solvent for Suspension', 'Merial Animal Health Limited', '2018-04-16 00:00:00', '0000-00-00 00:00:00', 'Nasal spray, suspension', 'Cattle', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_1364002.DOCX'),
 ('08749/4006', 'Rimifin 20 mg Tablets for Dogs', 'Chanelle Pharmaceuticals Manufacturing Ltd', '2007-11-08 00:00:00', '0000-00-00 00:00:00', 'Tablet', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_193492.DOC'),
 ('08749/4007', 'Rimifin 50 mg Tablets for Dogs', 'Chanelle Pharmaceuticals Manufacturing Ltd', '2007-11-08 00:00:00', '0000-00-00 00:00:00', 'Tablet', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_193494.DOC'),
@@ -1450,7 +1450,7 @@ INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_wit
 ('11990/4050', 'Albacert 2.5% w/v SC Oral Suspension', 'Chanelle Animal Health Ltd', '2009-04-02 00:00:00', '0000-00-00 00:00:00', 'Oral suspension', 'Cattle, Sheep', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_244736.DOC'),
 ('11990/4051', 'Triclacert 5% Oral Suspension for Sheep', 'Chanelle Animal Health Ltd', '2007-07-11 00:00:00', '0000-00-00 00:00:00', 'Oral suspension', 'Sheep', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_176397.DOC'),
 ('11990/4052', 'Triclacert 10% Oral Suspension for Cattle', 'Chanelle Animal Health Ltd', '2007-07-11 00:00:00', '0000-00-00 00:00:00', 'Oral suspension', 'Cattle', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_176396.DOC');
-INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
+INSERT INTO `medicines` (`id`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
 ('11990/4053', 'Clinacin 300 mg Tablets for Dogs', 'Chanelle Animal Health Ltd', '2010-02-10 00:00:00', '0000-00-00 00:00:00', 'Tablet', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_275714.DOC'),
 ('11990/4054', 'Animec Super 10 mg/ml / 100 mg/ml Solution for Injection for Cattle', 'Chanelle Animal Health Ltd', '2010-04-16 00:00:00', '0000-00-00 00:00:00', 'Solution for injection', 'Cattle', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_281857.DOC'),
 ('11990/4055', 'Topimec Plus 10/100 mg/ml Solution for Injection for Cattle', 'Chanelle Animal Health Ltd', '2011-01-21 00:00:00', '0000-00-00 00:00:00', 'Solution for injection', 'Cattle', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_311370.DOC'),
@@ -1647,7 +1647,7 @@ INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_wit
 ('15052/4149', 'Parvovax', 'Ceva Animal Health Ltd', '2005-10-17 00:00:00', '0000-00-00 00:00:00', 'Solution for injection', 'Pigs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_182497.DOC'),
 ('15052/4150', 'Progressis Emulsion for Injection for Pigs (Sows and Gilts)', 'Ceva Animal Health Ltd', '2000-09-21 00:00:00', '0000-00-00 00:00:00', 'Emulsion for injection', 'Pigs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_122133.DOC'),
 ('15519/4001', 'Cartrophen Vet 100 mg/ml Solution for Injection for Dogs', 'Arthropharm Europe Ltd', '2009-09-07 00:00:00', '0000-00-00 00:00:00', 'Solution for injection', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_260236.DOC');
-INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
+INSERT INTO `medicines` (`id`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
 ('15519/4002', 'Anarthron 100 mg/mL Solution for Injection for Dogs', 'Arthropharm Europe Ltd', '2007-05-01 00:00:00', '0000-00-00 00:00:00', 'Solution for injection', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_176337.DOC'),
 ('15985/4007', 'Deosan Super Iodip Iodine 2% w/v Concentrate Teat Dip and Teat Spray Solution', 'Diversey Ltd', '1984-06-06 00:00:00', '0000-00-00 00:00:00', 'Concentrate for teat dip/spray solution', 'Cattle', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_136473.DOC'),
 ('15985/4009', 'Deosan Teatcare Plus 0.425% w/w Teat Dip and Teat Spray Emulsion', 'Diversey Ltd', '1987-06-10 00:00:00', '0000-00-00 00:00:00', 'Teat dip emulsion', 'Cattle', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_138902.DOC'),
@@ -1838,7 +1838,7 @@ INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_wit
 ('17902/4097', 'Perfikan 26.8 mg/240 mg Spot-on Solution for Very Small Dogs', 'Alfamed', '2016-05-23 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_992357.DOC'),
 ('17902/4098', 'Perfikan 402 mg/3600 mg Spot-on Solution for Very Large Dogs', 'Alfamed', '2016-05-23 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_992649.DOC'),
 ('17902/4099', 'Perfikan 268 mg/2400 mg Spot-on Solution for Large Dogs', 'Alfamed', '2016-05-23 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_992548.DOC');
-INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
+INSERT INTO `medicines` (`id`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
 ('17902/4100', 'Perfikan 67 mg/600 mg Spot-on Solution for Small Dogs', 'Alfamed', '2016-05-23 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_992689.DOC'),
 ('17902/4101', 'Petalexin 75 mg Tablets for Dogs and Cats', 'Alfamed', '2018-01-15 00:00:00', '0000-00-00 00:00:00', 'Tablet', 'Cats, Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_1309965.DOC'),
 ('17902/4102', 'Petalexin 300 mg Tablets for Dogs', 'Alfamed', '2018-01-15 00:00:00', '0000-00-00 00:00:00', 'Tablet', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_1310412.DOC'),
@@ -2025,7 +2025,7 @@ INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_wit
 ('30282/4025', 'Amphen, 200 mg/g Granules for Use in Drinking Water for Pigs', 'Huvepharma N.V.', '2013-06-24 00:00:00', '0000-00-00 00:00:00', 'Granules for use in drinking water', 'Pigs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_486093.DOC'),
 ('30282/4026', 'Apravet 100 000 IU/g Premix for Medicated Feeding Stuff for Pigs and Rabbits', 'Huvepharma N.V.', '2017-02-02 00:00:00', '0000-00-00 00:00:00', 'Premix for medicated feeding stuff', 'Pigs, Rabbits', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_1119463.DOC'),
 ('30282/4027', 'Pigfen 40 mg/g Premix for Medicated Feeding Stuff for Pigs', 'Huvepharma N.V.', '2016-12-07 00:00:00', '0000-00-00 00:00:00', 'Premix for medicated feeding stuff', 'Pigs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_1090911.DOC');
-INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
+INSERT INTO `medicines` (`id`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
 ('30282/4028', 'Pharmasin 200 mg/ml Solution for Injection for Cattle and Pigs', 'Huvepharma N.V.', '2016-11-16 00:00:00', '0000-00-00 00:00:00', 'Solution for injection', 'Cattle, Pigs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_1082762.DOC'),
 ('30282/4029', 'Gallifen 40 mg/g Premix for Medicated Feeding Stuff for Chickens', 'Huvepharma N.V.', '2017-01-24 00:00:00', '0000-00-00 00:00:00', 'Premix for medicated feeding stuff', 'Chickens', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_1113762.DOC'),
 ('30282/4031', 'GalluDoxx 500 mg/g Powder for Use in Drinking Water/Milk Replacer for Calves, Chickens and Turkeys', 'Huvepharma N.V.', '2016-12-20 00:00:00', '0000-00-00 00:00:00', 'Powder for use in drinking water/milk replacer', 'Cattle, Chickens, Turkeys', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_1098594.DOC'),
@@ -2206,7 +2206,7 @@ INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_wit
 ('40162/4009', 'Milaxyn 230/20 mg Flavoured Film-Coated Tablets for Cats', 'C&H Generics Ltd', '2015-03-19 00:00:00', '0000-00-00 00:00:00', 'Tablet', 'Cats', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_775372.DOC'),
 ('40162/4010', 'MoleCare Cat Wormer 230/20 Film Coated Tablets', 'C&H Generics Ltd', '2015-05-06 00:00:00', '0000-00-00 00:00:00', 'Tablet', 'Cats', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_747381.DOC'),
 ('40162/4011', 'Beaphar WORMclear 230/20 mg Film-coated Tablets for Cats', 'C&H Generics Ltd', '2015-03-19 00:00:00', '0000-00-00 00:00:00', 'Tablet', 'Cats', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_776259.DOC');
-INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
+INSERT INTO `medicines` (`id`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
 ('40162/4012', 'VetUK Cat Wormer Film Coated Tablets (230mg Pyrantel embonate and 20mg Praziquantel) For the treatment of roundworms and tapeworms', 'C&H Generics Ltd', '2015-03-19 00:00:00', '0000-00-00 00:00:00', 'Tablet', 'Cats', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_776248.DOC'),
 ('40162/4013', 'Rofectan Plus Tablets for Dogs', 'C&H Generics Ltd', '2015-03-10 00:00:00', '0000-00-00 00:00:00', 'Tablet', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_773115.DOCX'),
 ('40162/4014', 'Ridaworm Plus Tablets for Dogs', 'C&H Generics Ltd', '2015-03-10 00:00:00', '0000-00-00 00:00:00', 'Tablet', 'Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_772268.DOCX'),
@@ -2400,7 +2400,7 @@ INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_wit
 ('42058/4127', 'Rispoval IBR-Marker Inactivated', 'Zoetis UK Limited', '1999-02-05 00:00:00', '0000-00-00 00:00:00', 'Suspension for injection', 'Cattle', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_163149.DOCX'),
 ('42058/4128', 'Rispoval Pasteurella', 'Zoetis UK Limited', '1999-07-02 00:00:00', '0000-00-00 00:00:00', 'Emulsion for injection', 'Cattle', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_138859.DOC'),
 ('42058/4129', 'Rispoval RS', 'Zoetis UK Limited', '2005-10-13 00:00:00', '0000-00-00 00:00:00', 'Powder and solvent for solution for injection', 'Cattle', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_146622.doc');
-INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
+INSERT INTO `medicines` (`id`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
 ('42058/4130', 'Rispoval RS + Pi3 IntraNasal', 'Zoetis UK Limited', '2005-10-11 00:00:00', '0000-00-00 00:00:00', 'Solution for injection', 'Cattle', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_161291.DOC'),
 ('42058/4131 ', 'Solu-Medrone V 62.5 mg/ml Powder and Solvent for Solution for Injection', 'Zoetis UK Limited', '1984-05-24 00:00:00', '0000-00-00 00:00:00', 'Powder and solvent for solution for injection', 'Cats, Dogs', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_138463.DOC'),
 ('42058/4134', 'Spirovac', 'Zoetis UK Limited', '2005-10-27 00:00:00', '0000-00-00 00:00:00', 'Solution for injection', 'Cattle', 'http://www.vmd.defra.gov.uk/productinformationdatabase/SPC_Documents/SPC_142181.DOC'),
@@ -2568,7 +2568,7 @@ INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_wit
 ('EU/2/06/062/004', 'Cerenia 160 mg Tablets for Dogs', 'Zoetis Belgium', '2006-09-29 00:00:00', '0000-00-00 00:00:00', 'Tablet', 'Dogs', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\''),
 ('EU/2/06/062/005', 'Cerenia 10 mg/ml Solution for Injection for Dogs and Cats', 'Zoetis Belgium', '2006-09-29 00:00:00', '0000-00-00 00:00:00', 'Solution for injection', 'Cats, Dogs', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\''),
 ('EU/2/06/066/001-003', 'Prac-tic 56.25 mg Spot-on Solution for Very Small Dogs', 'Elanco Europe Ltd', '2006-12-18 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\'');
-INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
+INSERT INTO `medicines` (`id`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
 ('EU/2/06/066/004-006', 'Prac-tic 137.5 mg Spot-on Solution for Small Dogs', 'Elanco Europe Ltd', '2006-12-18 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\''),
 ('EU/2/06/066/007-009', 'Prac-tic 275 mg Spot-on Solution for Medium Dogs', 'Elanco Europe Ltd', '2006-12-18 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\''),
 ('EU/2/06/066/010-012', 'Prac-tic 625 mg Spot-on Solution for Large Dogs', 'Elanco Europe Ltd', '2006-12-18 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\''),
@@ -2713,7 +2713,7 @@ INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_wit
 ('EU/2/11/134/021', 'Inflacam, Granules in a Sachet for Horses', 'Chanelle Pharmaceuticals Manufacturing Ltd', '2015-12-04 00:00:00', '0000-00-00 00:00:00', 'Granules', 'Horses', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\''),
 ('EU/2/11/135/002-003 ', 'Panacur AquaSol 200 mg/ml Oral Suspension for Use in Drinking Water for Pigs and Chicken', 'Intervet International BV', '2011-12-09 00:00:00', '0000-00-00 00:00:00', 'Oral suspension', 'Chickens, Pigs', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\''),
 ('EU/2/11/137/001-003', 'Activyl Tick Plus 75 mg + 240 mg Spot-on Solution for Very Small Dogs', 'Intervet International BV', '2012-01-09 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\'');
-INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
+INSERT INTO `medicines` (`id`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
 ('EU/2/11/137/004-006', 'Activyl Tick Plus 150 mg + 480 mg Spot-on Solution for Small Dogs', 'Intervet International BV', '2012-01-09 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\''),
 ('EU/2/11/137/007-009', 'Activyl Tick Plus 300 mg + 960 mg Spot-On Solution for Medium Dogs', 'Intervet International BV', '2012-01-09 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\''),
 ('EU/2/11/137/010-012', 'Activyl Tick Plus 600 mg + 1920 mg Spot-on Solution for Large Dogs', 'Intervet International BV', '2012-01-09 00:00:00', '0000-00-00 00:00:00', 'Spot-on solution', 'Dogs', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\''),
@@ -2856,7 +2856,7 @@ INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_wit
 ('EU/2/17/213/001-002', 'Innovax-ND-IBD, Suspension and Solvent for Suspension for Injection for Chickens', 'Intervet International BV', '2017-10-11 00:00:00', '0000-00-00 00:00:00', 'Suspension for injection', 'Chickens', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\''),
 ('EU/2/17/214/001–005', 'Vepured Suspension for Injection for Pigs', 'Laboratorios Hipra SA', '2017-08-23 00:00:00', '0000-00-00 00:00:00', 'Suspension for injection', 'Pigs', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\''),
 ('EU/2/17/215/001–003', 'Suvaxyn PRRS MLV Lyophilisate and Solvent for Suspension for Injection and for Intranasal Administration for Pigs', 'Zoetis Belgium', '2017-10-11 00:00:00', '0000-00-00 00:00:00', 'Lyophilisate and solvent for solution for injection', 'Pigs', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\'');
-INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
+INSERT INTO `medicines` (`id`, `name`, `company`, `date_of_issue`, `date_of_withdrawal`, `pharmaceutical_form`, `target_species`, `additional_info`) VALUES
 ('EU/2/17/216/001-002', 'Oxybee Powder and Solution for 39.4 mg/ml Bee-hive Dispersion for Honey Bees', 'DANY Bienenwohl GmbH', '2018-04-04 00:00:00', '0000-00-00 00:00:00', 'Powder and solution for bee-hive solution', 'Bees', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\''),
 ('EU/2/17/217/001-002', 'Nobivac LeuFel Suspension for Injection for Cats', 'Virbac', '2017-12-06 00:00:00', '0000-00-00 00:00:00', 'Suspension for injection', 'Cats', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\''),
 ('EU/2/17/218/001-003', 'Bovilis Blue-8 Suspension for Injection for Cattle and Sheep', 'Intervet International BV', '2017-12-06 00:00:00', '0000-00-00 00:00:00', 'Suspension for injection', 'Cattle, Sheep', 'http://www.ema.europa.eu/ema/index.jsp?curl=/pages/medicines/landing/vet_epar_search.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001fa1c\' target=\'_blank\''),
@@ -2922,9 +2922,9 @@ INSERT INTO `medicines` (`mid`, `name`, `company`, `date_of_issue`, `date_of_wit
 --
 
 CREATE TABLE `notes` (
-  `nid` int(11) NOT NULL,
-  `pid` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  `pet_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `note_text` text NOT NULL,
   `created` bigint(20) NOT NULL,
   `updated` bigint(20) DEFAULT NULL
@@ -2934,7 +2934,7 @@ CREATE TABLE `notes` (
 -- Dump dei dati per la tabella `notes`
 --
 
-INSERT INTO `notes` (`nid`, `pid`, `uid`, `note_text`, `created`, `updated`) VALUES
+INSERT INTO `notes` (`id`, `pet_id`, `user_id`, `note_text`, `created`, `updated`) VALUES
 (1, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis', 0, NULL),
 (2, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 0, NULL),
 (3, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis', 0, NULL),
@@ -2947,7 +2947,7 @@ INSERT INTO `notes` (`nid`, `pid`, `uid`, `note_text`, `created`, `updated`) VAL
 --
 
 CREATE TABLE `owners` (
-  `oid` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `country_id` varchar(2) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
@@ -2967,7 +2967,7 @@ CREATE TABLE `owners` (
 -- Dump dei dati per la tabella `owners`
 --
 
-INSERT INTO `owners` (`oid`, `country_id`, `firstname`, `lastname`, `address`, `zip`, `city`, `ssn`, `phone`, `mobile`, `email`, `created`, `updated`, `deleted`) VALUES
+INSERT INTO `owners` (`id`, `country_id`, `firstname`, `lastname`, `address`, `zip`, `city`, `ssn`, `phone`, `mobile`, `email`, `created`, `updated`, `deleted`) VALUES
 (1, 'gb', 'George Gordon', 'Byron', 'Gibbon Street', '00100', 'Plymouth dc', 'UK01234567890', '+44 01752 01234567', '+44 348 88 22 399', 'byron@romantic.org', 1467737328, NULL, NULL),
 (2, 'ie', 'Rory', 'Gallagher', 'Thin Lizzy Road, 1', '50127', 'Cork', 'IR0101010101', '+353 0123 123456789', '+353 348 88 22 399', 'rory@rockatcork.org', 1467737346, NULL, NULL),
 (3, 'ie', 'Phil', 'Lynott', 'Thin Lizzy Rd., 1', 'D01 123', 'Dublin', 'IRL0987654321', '+353 0000 01234567', '+353 348 88 22 399', 'phil.lynott@thinlizzy.com', 1467737416, NULL, NULL),
@@ -2982,9 +2982,9 @@ INSERT INTO `owners` (`oid`, `country_id`, `firstname`, `lastname`, `address`, `
 --
 
 CREATE TABLE `pets` (
-  `pid` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `tsn` int(11) NOT NULL,
-  `oid` int(11) NOT NULL,
+  `owner_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `gender` char(1) NOT NULL,
   `date_of_birth` bigint(20) NOT NULL,
@@ -3004,7 +3004,7 @@ CREATE TABLE `pets` (
 -- Dump dei dati per la tabella `pets`
 --
 
-INSERT INTO `pets` (`pid`, `tsn`, `oid`, `name`, `gender`, `date_of_birth`, `date_of_death`, `description`, `color`, `microchip`, `microchip_location`, `tatuatge`, `tatuatge_location`, `created`, `updated`, `deleted`) VALUES
+INSERT INTO `pets` (`id`, `tsn`, `owner_id`, `name`, `gender`, `date_of_birth`, `date_of_death`, `description`, `color`, `microchip`, `microchip_location`, `tatuatge`, `tatuatge_location`, `created`, `updated`, `deleted`) VALUES
 (1, 727488, 5, 'Ozzy', 'M', 1363280618, NULL, 'Beautiful and good Bergamasco, black and white', 'black and white', 'M12345', 'neck', '', '', 1406104554, 1533929383, NULL),
 (2, 727488, 2, 'Muddy', 'M', 1361231500, NULL, 'Beautiful and gentle Bobtail, black and white', 'black and white', 'M09876', 'neck', NULL, NULL, 0, NULL, NULL),
 (3, 727488, 3, 'Gnasher', 'M', 0, NULL, 'Good German Shepherd black and brown', 'black and brown', 'M45455', 'neck', '', '', 0, 1529190269, NULL),
@@ -3019,10 +3019,11 @@ INSERT INTO `pets` (`pid`, `tsn`, `oid`, `name`, `gender`, `date_of_birth`, `dat
 --
 
 CREATE TABLE `prescriptions` (
-  `prescription_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  `medicine_id` varchar(255) NOT NULL,
   `diagnosis_id` int(11) NOT NULL,
-  `mid` varchar(255) NOT NULL,
-  `pid` int(11) NOT NULL,
+  `pet_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `dosage` varchar(255) NOT NULL,
   `in_evidence` tinyint(1) NOT NULL,
@@ -3034,10 +3035,11 @@ CREATE TABLE `prescriptions` (
 -- Dump dei dati per la tabella `prescriptions`
 --
 
-INSERT INTO `prescriptions` (`prescription_id`, `diagnosis_id`, `mid`, `pid`, `quantity`, `dosage`, `in_evidence`, `created`, `updated`) VALUES
-(15, 0, '10347/4037', 1, 1, 'one per day', 1, '2018-09-11 17:57:22', '2018-09-18 08:38:57'),
-(16, 333, '10347/4037', 1, 1, 'one a day', 1, '2018-09-13 08:46:00', '2018-09-18 13:24:24'),
-(17, 0, '32742/4005', 1, 1, '1', 0, '2018-09-18 14:43:23', '2018-09-18 14:43:31');
+INSERT INTO `prescriptions` (`id`, `medicine_id`, `diagnosis_id`, `pet_id`, `user_id`, `quantity`, `dosage`, `in_evidence`, `created`, `updated`) VALUES
+(15, '10347/4037', 0, 1, 0, 1, 'one per day', 1, '2018-09-11 17:57:22', '2018-09-18 08:38:57'),
+(16, '10347/4037', 333, 1, 0, 1, 'one a day', 1, '2018-09-13 08:46:00', '2018-09-18 13:24:24'),
+(17, '32742/4005', 0, 1, 0, 1, '1', 0, '2018-09-18 14:43:23', '2018-09-18 14:43:31'),
+(18, 'EU/2/08/088/004', 0, 1, 2, 1, 'one or two', 1, '2018-10-08 10:27:07', '2018-10-08 15:04:07');
 
 -- --------------------------------------------------------
 
@@ -3047,51 +3049,24 @@ INSERT INTO `prescriptions` (`prescription_id`, `diagnosis_id`, `mid`, `pid`, `q
 
 CREATE TABLE `problems` (
   `diagnosis_id` int(11) NOT NULL,
-  `pid` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
-  `date_from` bigint(20) NOT NULL,
+  `pet_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `active_from` datetime NOT NULL,
   `status_id` int(11) NOT NULL,
   `key_problem` tinyint(1) NOT NULL,
   `subjective_analysis` text,
   `objective_analysis` text,
   `notes` text,
-  `created` bigint(20) NOT NULL,
-  `updated` bigint(20) DEFAULT NULL
+  `created` datetime NOT NULL,
+  `updated` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dump dei dati per la tabella `problems`
 --
 
-INSERT INTO `problems` (`diagnosis_id`, `pid`, `uid`, `date_from`, `status_id`, `key_problem`, `subjective_analysis`, `objective_analysis`, `notes`, `created`, `updated`) VALUES
-(326, 1, 2, 1535791485, 2, 1, '', '', '', 1535741091, 1537480159),
-(333, 1, 2, 1535755506, 3, 0, '', '', '', 1535741111, 1537277049),
-(336, 1, 2, 1535762722, 0, 1, '', '', '', 1535741129, 1537277035),
-(423, 1, 2, 1535769805, -1, 1, '', '', '', 1535741011, 1535741074),
-(11725, 1, 2, 1535763279, 1, 1, 'Presenta esco', '', '', 1535741711, 1536023190),
-(15209, 1, 2, 1536194307, 0, 1, 'io', '', '', 1536179949, 1537260465);
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `problem_status`
---
-
-CREATE TABLE `problem_status` (
-  `status_id` int(10) NOT NULL,
-  `status_description` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dump dei dati per la tabella `problem_status`
---
-
-INSERT INTO `problem_status` (`status_id`, `status_description`) VALUES
-(-1, 'suspect'),
-(0, 'closed'),
-(1, 'active / in progress'),
-(2, 'long term active'),
-(3, 'in evidence');
+INSERT INTO `problems` (`diagnosis_id`, `pet_id`, `user_id`, `active_from`, `status_id`, `key_problem`, `subjective_analysis`, `objective_analysis`, `notes`, `created`, `updated`) VALUES
+(328, 1, 2, '2018-10-08 14:44:23', 0, 0, '', '', '', '2018-10-08 14:44:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -3100,7 +3075,7 @@ INSERT INTO `problem_status` (`status_id`, `status_description`) VALUES
 --
 
 CREATE TABLE `roles` (
-  `rid` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
   `description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -3109,7 +3084,7 @@ CREATE TABLE `roles` (
 -- Dump dei dati per la tabella `roles`
 --
 
-INSERT INTO `roles` (`rid`, `name`, `description`) VALUES
+INSERT INTO `roles` (`id`, `name`, `description`) VALUES
 (1, 'admin', 'Administrator'),
 (2, 'user', 'Default (standard) user account'),
 (3, 'viewer', 'View only account');
@@ -3165,6 +3140,28 @@ INSERT INTO `species` (`tsn`, `complete_name`, `familiar_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `status`
+--
+
+CREATE TABLE `status` (
+  `id` int(10) NOT NULL,
+  `description` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `status`
+--
+
+INSERT INTO `status` (`id`, `description`) VALUES
+(-1, 'suspect'),
+(0, 'closed'),
+(1, 'active / in progress'),
+(2, 'long term active'),
+(3, 'in evidence');
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `treatments`
 --
 
@@ -3192,12 +3189,11 @@ INSERT INTO `treatments` (`id`, `procedure_id`, `pet_id`, `notes`, `created`, `r
 --
 
 CREATE TABLE `users` (
-  `uid` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(128) NOT NULL,
   `fullname` varchar(255) NOT NULL,
-  `rid` int(11) NOT NULL,
-  `lid` varchar(10) NOT NULL,
   `phone` varchar(64) NOT NULL,
   `login` bigint(20) DEFAULT NULL,
   `created` bigint(20) NOT NULL,
@@ -3209,12 +3205,12 @@ CREATE TABLE `users` (
 -- Dump dei dati per la tabella `users`
 --
 
-INSERT INTO `users` (`uid`, `username`, `password`, `fullname`, `rid`, `lid`, `phone`, `login`, `created`, `updated`, `deleted`) VALUES
-(1, 'ronnie@oldauntie.org', '5F4DCC3B5AA765D61D8327DEB882CF99', 'Ronnie James', 1, 'it_IT', '055959243', 1494432370, 60, 1529190722, 1529190722),
-(2, 'oldauntie@oldauntie.org', '5F4DCC3B5AA765D61D8327DEB882CF99', 'Maggie Marple', 1, 'en_GB', '+39 3480000000', 1494432703, 70457400, 101, NULL),
-(3, 'byron@romantic.org', '915C727A2D4D26664BA0DABF80CE6DCB', 'Lord George Gordon', 1, 'en_GB', '+44 055 4578568', 1494152963, 1465408981, 101, NULL),
-(4, 'roberto', 'F98ED07A4D5F50F7DE1410D905F1477F', 'Rob', 1, 'en_GB', '3488822399', NULL, 0, 101, NULL),
-(5, 'rob', 'F98ED07A4D5F50F7DE1410D905F1477F', 'Roberto', 1, 'en_GB', '3488822399', 0, 2147483647, 1529190706, NULL);
+INSERT INTO `users` (`id`, `role_id`, `username`, `password`, `fullname`, `phone`, `login`, `created`, `updated`, `deleted`) VALUES
+(1, 1, 'ronnie@oldauntie.org', '5F4DCC3B5AA765D61D8327DEB882CF99', 'Ronnie James', '055959243', 1494432370, 60, 1529190722, 1529190722),
+(2, 1, 'oldauntie@oldauntie.org', '5F4DCC3B5AA765D61D8327DEB882CF99', 'Maggie Marple', '+39 3480000000', 1494432703, 70457400, 101, NULL),
+(3, 1, 'byron@romantic.org', '915C727A2D4D26664BA0DABF80CE6DCB', 'Lord George Gordon', '+44 055 4578568', 1494152963, 1465408981, 101, NULL),
+(4, 1, 'roberto', 'F98ED07A4D5F50F7DE1410D905F1477F', 'Rob', '3488822399', NULL, 0, 101, NULL),
+(5, 1, 'rob', 'F98ED07A4D5F50F7DE1410D905F1477F', 'Roberto', '3488822399', 0, 2147483647, 1529190706, NULL);
 
 -- --------------------------------------------------------
 
@@ -7296,13 +7292,13 @@ INSERT INTO `venom_codes` (`id`, `status`, `previous_status`, `created`, `DDID`,
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `visit`
+-- Struttura della tabella `visit_tbe`
 --
 
-CREATE TABLE `visit` (
-  `vid` int(11) NOT NULL,
-  `pid` int(11) NOT NULL,
-  `oid` int(11) NOT NULL,
+CREATE TABLE `visit_tbe` (
+  `id` int(11) NOT NULL,
+  `pet_id` int(11) NOT NULL,
+  `owner_id` int(11) NOT NULL,
   `reason_id` int(11) NOT NULL,
   `diagnosis_id` int(11) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
@@ -7314,10 +7310,10 @@ CREATE TABLE `visit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dump dei dati per la tabella `visit`
+-- Dump dei dati per la tabella `visit_tbe`
 --
 
-INSERT INTO `visit` (`vid`, `pid`, `oid`, `reason_id`, `diagnosis_id`, `description`, `status_id`, `type_id`, `created`, `updated`, `deleted`) VALUES
+INSERT INTO `visit_tbe` (`id`, `pet_id`, `owner_id`, `reason_id`, `diagnosis_id`, `description`, `status_id`, `type_id`, `created`, `updated`, `deleted`) VALUES
 (1, 1, 5, 19034, 524, 'Control Visit', 2, 2, 1492592799, 1494006746, NULL),
 (2, 3, 3, 18812, 325, 'Cotroll Visit', 2, 1, 1493899500, 1493899543, NULL),
 (3, 1, 5, 19034, 524, 'short', 2, 1, 1493997982, 1493997982, NULL),
@@ -7332,67 +7328,67 @@ INSERT INTO `visit` (`vid`, `pid`, `oid`, `reason_id`, `diagnosis_id`, `descript
 -- Indici per le tabelle `examinations`
 --
 ALTER TABLE `examinations`
-  ADD PRIMARY KEY (`examination_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `locales`
 --
 ALTER TABLE `locales`
-  ADD PRIMARY KEY (`lid`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `medicines`
 --
 ALTER TABLE `medicines`
-  ADD PRIMARY KEY (`mid`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `notes`
 --
 ALTER TABLE `notes`
-  ADD PRIMARY KEY (`nid`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `owners`
 --
 ALTER TABLE `owners`
-  ADD PRIMARY KEY (`oid`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `cid` (`country_id`);
 
 --
 -- Indici per le tabelle `pets`
 --
 ALTER TABLE `pets`
-  ADD PRIMARY KEY (`pid`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `prescriptions`
 --
 ALTER TABLE `prescriptions`
-  ADD PRIMARY KEY (`prescription_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `problems`
 --
 ALTER TABLE `problems`
-  ADD PRIMARY KEY (`pid`,`diagnosis_id`);
-
---
--- Indici per le tabelle `problem_status`
---
-ALTER TABLE `problem_status`
-  ADD PRIMARY KEY (`status_id`);
+  ADD PRIMARY KEY (`pet_id`,`diagnosis_id`);
 
 --
 -- Indici per le tabelle `roles`
 --
 ALTER TABLE `roles`
-  ADD PRIMARY KEY (`rid`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `settings`
 --
 ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `status`
+--
+ALTER TABLE `status`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -7405,7 +7401,7 @@ ALTER TABLE `treatments`
 -- Indici per le tabelle `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`uid`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
@@ -7415,10 +7411,10 @@ ALTER TABLE `venom_codes`
   ADD PRIMARY KEY (`id`,`status`);
 
 --
--- Indici per le tabelle `visit`
+-- Indici per le tabelle `visit_tbe`
 --
-ALTER TABLE `visit`
-  ADD PRIMARY KEY (`vid`);
+ALTER TABLE `visit_tbe`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT per le tabelle scaricate
@@ -7428,31 +7424,31 @@ ALTER TABLE `visit`
 -- AUTO_INCREMENT per la tabella `examinations`
 --
 ALTER TABLE `examinations`
-  MODIFY `examination_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT per la tabella `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `nid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `owners`
 --
 ALTER TABLE `owners`
-  MODIFY `oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT per la tabella `pets`
 --
 ALTER TABLE `pets`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT per la tabella `prescriptions`
 --
 ALTER TABLE `prescriptions`
-  MODIFY `prescription_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT per la tabella `treatments`
@@ -7464,13 +7460,13 @@ ALTER TABLE `treatments`
 -- AUTO_INCREMENT per la tabella `users`
 --
 ALTER TABLE `users`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT per la tabella `visit`
+-- AUTO_INCREMENT per la tabella `visit_tbe`
 --
-ALTER TABLE `visit`
-  MODIFY `vid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `visit_tbe`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

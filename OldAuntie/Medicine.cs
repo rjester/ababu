@@ -9,7 +9,7 @@ namespace OldAuntie
 {
     public class Medicine
     {
-        public string Mid { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Company { get; set; }
         public DateTime DateOfIssue { get; set; }
@@ -18,21 +18,21 @@ namespace OldAuntie
         public string TargetSpecies { get; set; }
         public string AdditionalInfo{ get; set; }
 
-        public Medicine(string mid)
+        public Medicine(string id)
         {
-            Load(mid);
+            Load(id);
         }
 
 
-        public Medicine Load(string mid)
+        public Medicine Load(string id)
         {
             string query = "SELECT * FROM medicines a " +
-                    "WHERE a.mid = '" + mid.ToString() + "'";
+                    "WHERE a.id = '" + id.ToString() + "'";
             DataRow result = Globals.DBCon.SelectOneRow(query);
 
             if (result != null && result.ItemArray.Count() > 0)
             {
-                Mid = result["mid"].ToString();
+                Id = result["id"].ToString();
                 Name = result["name"].ToString();
                 Company = result["company"].ToString();
                
@@ -48,7 +48,7 @@ namespace OldAuntie
 
         public static DataTable Search(string search_string = "")
         {
-            string query = "SELECT mid, name as value " +
+            string query = "SELECT id, name as value " +
                 "FROM medicines " +
                 "WHERE 1=1 ";
 

@@ -52,13 +52,13 @@
             this.GrbKeyProblem = new System.Windows.Forms.GroupBox();
             this.ChkKeyProblem = new System.Windows.Forms.CheckBox();
             this.PicKeyProblem = new System.Windows.Forms.PictureBox();
-            this.DtpDateFrom = new System.Windows.Forms.DateTimePicker();
+            this.DtpActiveFrom = new System.Windows.Forms.DateTimePicker();
             this.LblActiveFrom = new System.Windows.Forms.Label();
             this.LblAge = new System.Windows.Forms.Label();
             this.TxtAge = new System.Windows.Forms.TextBox();
             this.ErrProblemEdit = new System.Windows.Forms.ErrorProvider(this.components);
             this.TxtDiagnosisId = new System.Windows.Forms.TextBox();
-            this.TxtPid = new System.Windows.Forms.TextBox();
+            this.TxtPetId = new System.Windows.Forms.TextBox();
             this.GrbPetDetail = new System.Windows.Forms.GroupBox();
             this.TxtDateOfBirth = new System.Windows.Forms.TextBox();
             this.LblDateOfBirth = new System.Windows.Forms.Label();
@@ -320,17 +320,17 @@
             this.PicKeyProblem.TabIndex = 56;
             this.PicKeyProblem.TabStop = false;
             // 
-            // DtpDateFrom
+            // DtpActiveFrom
             // 
-            this.DtpDateFrom.CustomFormat = "dd/MM/yyyy";
-            this.DtpDateFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DtpDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpDateFrom.Location = new System.Drawing.Point(209, 28);
-            this.DtpDateFrom.Name = "DtpDateFrom";
-            this.DtpDateFrom.Size = new System.Drawing.Size(116, 22);
-            this.DtpDateFrom.TabIndex = 7;
-            this.DtpDateFrom.Value = new System.DateTime(2018, 4, 21, 0, 0, 0, 0);
-            this.DtpDateFrom.ValueChanged += new System.EventHandler(this.DtpDateFrom_ValueChanged);
+            this.DtpActiveFrom.CustomFormat = "dd/MM/yyyy";
+            this.DtpActiveFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtpActiveFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpActiveFrom.Location = new System.Drawing.Point(209, 28);
+            this.DtpActiveFrom.Name = "DtpActiveFrom";
+            this.DtpActiveFrom.Size = new System.Drawing.Size(116, 22);
+            this.DtpActiveFrom.TabIndex = 7;
+            this.DtpActiveFrom.Value = new System.DateTime(2018, 4, 21, 0, 0, 0, 0);
+            this.DtpActiveFrom.ValueChanged += new System.EventHandler(this.DtpActiveFrom_ValueChanged);
             // 
             // LblActiveFrom
             // 
@@ -374,15 +374,15 @@
             this.TxtDiagnosisId.TabIndex = 58;
             this.TxtDiagnosisId.TabStop = false;
             // 
-            // TxtPid
+            // TxtPetId
             // 
-            this.TxtPid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtPid.Location = new System.Drawing.Point(47, 28);
-            this.TxtPid.Name = "TxtPid";
-            this.TxtPid.ReadOnly = true;
-            this.TxtPid.Size = new System.Drawing.Size(80, 13);
-            this.TxtPid.TabIndex = 59;
-            this.TxtPid.TabStop = false;
+            this.TxtPetId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtPetId.Location = new System.Drawing.Point(47, 28);
+            this.TxtPetId.Name = "TxtPetId";
+            this.TxtPetId.ReadOnly = true;
+            this.TxtPetId.Size = new System.Drawing.Size(80, 13);
+            this.TxtPetId.TabIndex = 59;
+            this.TxtPetId.TabStop = false;
             // 
             // GrbPetDetail
             // 
@@ -392,7 +392,7 @@
             this.GrbPetDetail.Controls.Add(this.TxtPetMonths);
             this.GrbPetDetail.Controls.Add(this.LblPetMonths);
             this.GrbPetDetail.Controls.Add(this.TxtPetYears);
-            this.GrbPetDetail.Controls.Add(this.TxtPid);
+            this.GrbPetDetail.Controls.Add(this.TxtPetId);
             this.GrbPetDetail.Controls.Add(this.TxtPetSpecie);
             this.GrbPetDetail.Controls.Add(this.TxtPetName);
             this.GrbPetDetail.Controls.Add(this.LblPetYears);
@@ -571,7 +571,7 @@
             this.Controls.Add(this.TxtDiagnosisId);
             this.Controls.Add(this.TxtAge);
             this.Controls.Add(this.LblAge);
-            this.Controls.Add(this.DtpDateFrom);
+            this.Controls.Add(this.DtpActiveFrom);
             this.Controls.Add(this.LblActiveFrom);
             this.Controls.Add(this.GrbKeyProblem);
             this.Controls.Add(this.LblNotes);
@@ -638,13 +638,13 @@
         private System.Windows.Forms.GroupBox GrbKeyProblem;
         private System.Windows.Forms.CheckBox ChkKeyProblem;
         private System.Windows.Forms.PictureBox PicKeyProblem;
-        private System.Windows.Forms.DateTimePicker DtpDateFrom;
+        private System.Windows.Forms.DateTimePicker DtpActiveFrom;
         private System.Windows.Forms.Label LblActiveFrom;
         private System.Windows.Forms.Label LblAge;
         private System.Windows.Forms.TextBox TxtAge;
         private System.Windows.Forms.ErrorProvider ErrProblemEdit;
         private System.Windows.Forms.TextBox TxtDiagnosisId;
-        private System.Windows.Forms.TextBox TxtPid;
+        private System.Windows.Forms.TextBox TxtPetId;
         private System.Windows.Forms.GroupBox GrbPetDetail;
         private System.Windows.Forms.Label LblPetSpecie;
         private System.Windows.Forms.Label LblPetName;

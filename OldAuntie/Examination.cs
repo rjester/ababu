@@ -10,7 +10,7 @@ namespace OldAuntie
 {
     public class Examination
     {
-        public int ExaminationId { get; set; }
+        public int Id { get; set; }
         public int DiagnosisId { get; set; }
         public int DiagnosticTestId { get; set; }
         public int Pid { get; set; }
@@ -22,23 +22,23 @@ namespace OldAuntie
         public DateTime? Updated { get; set; }
 
 
-        public Examination(int examination_id)
+        public Examination(int id)
         {
-            Load(examination_id);
+            Load(id);
         }
 
 
-        public Examination Load(int examination_id)
+        public Examination Load(int id)
         {
             string query = "SELECT * FROM examinations a " +
-                    "WHERE a.examination_id = " + examination_id;
+                    "WHERE a.id = " + id;
 
 
             DataRow result = Globals.DBCon.SelectOneRow(query);
 
             if (result != null && result.ItemArray.Count() > 0)
             {
-                ExaminationId = examination_id;
+                Id = id;
                 DiagnosisId = (int)result["diagnosis_id"];
                 DiagnosticTestId = (int)result["diagnostic_test_id"];
                 Pid = (int)result["pid"];
@@ -56,7 +56,7 @@ namespace OldAuntie
 
         public int Save()
         {
-            if (ExaminationId > 0)
+            if (Id > 0)
             {
                 return Update();
             }
@@ -81,11 +81,11 @@ namespace OldAuntie
                                     "in_evidence=@in_evidence, " +
                                     "created=@created, " +
                                     "updated=@updated " +
-                                "WHERE examination_id=@examination_id";
+                                "WHERE id=@id";
 
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
-            Cmd.Parameters.AddWithValue("@examination_id", ExaminationId);
+            Cmd.Parameters.AddWithValue("@id", Id);
             Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
             Cmd.Parameters.AddWithValue("@diagnostic_test_id", DiagnosticTestId);
             Cmd.Parameters.AddWithValue("@pid", Pid);
@@ -128,10 +128,10 @@ namespace OldAuntie
         public int Delete()
         {
             int affected_rows = 0;
-            string query = "DELETE FROM examinations WHERE examination_id=@examination_id";
+            string query = "DELETE FROM examinations WHERE id=@id";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
-            Cmd.Parameters.AddWithValue("@examination_id", ExaminationId);
+            Cmd.Parameters.AddWithValue("@id", Id);
 
             affected_rows = Cmd.ExecuteNonQuery();
 
@@ -166,7 +166,7 @@ namespace OldAuntie
 
         static public DataTable GetExaminationsByPid(int pid, int diagnosis_id = 0)
         {
-            string query = "SELECT a.examination_id, a.diagnosis_id, a.diagnostic_test_id, b.term_name, a.result, a.medical_report, a.is_pathologic, a.in_evidence, a.created " +
+            string query = "SELECT a.id, a.diagnosis_id, a.diagnostic_test_id, b.term_name, a.result, a.medical_report, a.is_pathologic, a.in_evidence, a.created " +
                 "FROM examinations a, venom_codes b " +
                 "WHERE a.diagnostic_test_id = b.id " +
                 "AND a.pid = " + pid;

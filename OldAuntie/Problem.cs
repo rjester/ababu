@@ -11,49 +11,50 @@ namespace OldAuntie
     public class Problem
     {
         public int DiagnosisId { get; set; }
-        public int Pid { get; set; }
-        public int Uid { get; set; }
-        public long? DateFrom { get; set; }
+        public int PetId { get; set; }
+        public int UserId { get; set; }
+        public DateTime? ActiveFrom { get; set; }
         public int StatusId { get; set; }
         public bool KeyProblem { get; set; }
         public string SubjectiveAnalysis { get; set; }
         public string ObjectiveAnalysis { get; set; }
         public string Notes { get; set; }
 
-        public long Created { get; set; }
-        public long? Updated { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime? Updated { get; set; }
 
         private bool disposed = false;
 
 
-        public Problem(int diagnosis_id, int pid)
+        public Problem(int diagnosis_id, int pet_id)
         {
-               Load(diagnosis_id, pid);
+               Load(diagnosis_id, pet_id);
         }
 
 
-        public Problem Load(int diagnosis_id, int pid)
+        public Problem Load(int diagnosis_id, int pet_id)
         {
             DiagnosisId = diagnosis_id;
-            Pid = pid;
+            PetId = pet_id;
 
-            string query = "SELECT * FROM problems a, problem_status b " +
-                    "WHERE a.status_id = b.status_id " +
-                    "AND a.pid = " + pid.ToString() + " " +
+            string query = "SELECT * FROM problems a, status b " +
+                    "WHERE a.status_id = b.id " +
+                    "AND a.pet_id = " + pet_id.ToString() + " " +
                     "AND a.diagnosis_id = " + diagnosis_id.ToString();
             DataRow result = Globals.DBCon.SelectOneRow(query);
 
             if (result != null && result.ItemArray.Count() > 0)
-                {
-                    DateFrom = (long)result["date_from"];
-                    StatusId = (int)result["status_id"];
-                    KeyProblem = (bool)result["key_problem"];
-                    SubjectiveAnalysis = result["subjective_analysis"].ToString();
-                    ObjectiveAnalysis = result["objective_analysis"].ToString();
-                    Notes = result["notes"].ToString();
+            {
+                UserId = (int)result["user_id"];
+                ActiveFrom = Utility.IfDBNull(result["active_from"], null);
+                StatusId = (int)result["status_id"];
+                KeyProblem = (bool)result["key_problem"];
+                SubjectiveAnalysis = result["subjective_analysis"].ToString();
+                ObjectiveAnalysis = result["objective_analysis"].ToString();
+                Notes = result["notes"].ToString();
 
-                    Created = (long)result["created"];
-                    Updated = Utility.IfDBNull(result["updated"], null);
+                Created = (DateTime)result["created"];
+                Updated = Utility.IfDBNull(result["updated"], null);
             }
 
             return this;
@@ -79,8 +80,8 @@ namespace OldAuntie
             int affected_rows = 0;
 
             string query = "UPDATE problems SET " +
-                                    "uid=@uid, " +
-                                    "date_from=@date_from, " +
+                                    "user_id=@user_id, " +
+                                    "active_from=@active_from, " +
                                     "status_id=@status_id, " +
                                     "key_problem=@key_problem, " +
                                     "subjective_analysis=@subjective_analysis, " +
@@ -88,21 +89,23 @@ namespace OldAuntie
                                     "notes=@notes, " +
                                     "created=@created, " +
                                     "updated=@updated " +
-                                "WHERE diagnosis_id=@diagnosis_id AND pid=@pid";
+                                "WHERE diagnosis_id=@diagnosis_id AND pet_id=@pet_id";
 
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            // primary keys
             Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
-            Cmd.Parameters.AddWithValue("@pid", Pid);
-            Cmd.Parameters.AddWithValue("@uid", Uid);
-            Cmd.Parameters.AddWithValue("@date_from", DateFrom);
+            Cmd.Parameters.AddWithValue("@pet_id", PetId);
+            // other fields
+            Cmd.Parameters.AddWithValue("@user_id", UserId);
+            Cmd.Parameters.AddWithValue("@active_from", ActiveFrom);
             Cmd.Parameters.AddWithValue("@status_id", StatusId);
             Cmd.Parameters.AddWithValue("@key_problem", KeyProblem);
             Cmd.Parameters.AddWithValue("@subjective_analysis", SubjectiveAnalysis);
             Cmd.Parameters.AddWithValue("@objective_analysis", ObjectiveAnalysis);
             Cmd.Parameters.AddWithValue("@notes", Notes);
             Cmd.Parameters.AddWithValue("@created", Created);
-            Cmd.Parameters.AddWithValue("@updated", Utility.Now());
+            Cmd.Parameters.AddWithValue("@updated", DateTime.Now);
 
             affected_rows = Cmd.ExecuteNonQuery();
 
@@ -115,20 +118,20 @@ namespace OldAuntie
         {
             int affected_rows = 0;
             
-            string query = "INSERT into problems (diagnosis_id, pid, uid, date_from, status_id, key_problem, subjective_analysis, objective_analysis, notes, created) " +
-                        "VALUES (@diagnosis_id, @pid, @uid, @date_from, @status_id, @key_problem, @subjective_analysis, @objective_analysis, @notes, @created)";
+            string query = "INSERT into problems (diagnosis_id, pet_id, user_id, active_from, status_id, key_problem, subjective_analysis, objective_analysis, notes, created) " +
+                        "VALUES (@diagnosis_id, @pet_id, @user_id, @active_from, @status_id, @key_problem, @subjective_analysis, @objective_analysis, @notes, @created)";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
-            Cmd.Parameters.AddWithValue("@pid", Pid);
-            Cmd.Parameters.AddWithValue("@uid", Uid);
-            Cmd.Parameters.AddWithValue("@date_from", DateFrom);
+            Cmd.Parameters.AddWithValue("@pet_id", PetId);
+            Cmd.Parameters.AddWithValue("@user_id", UserId);
+            Cmd.Parameters.AddWithValue("@active_from", ActiveFrom);
             Cmd.Parameters.AddWithValue("@status_id", StatusId);
             Cmd.Parameters.AddWithValue("@key_problem", KeyProblem);
             Cmd.Parameters.AddWithValue("@subjective_analysis", SubjectiveAnalysis);
             Cmd.Parameters.AddWithValue("@objective_analysis", ObjectiveAnalysis);
             Cmd.Parameters.AddWithValue("@notes", Notes);
-            Cmd.Parameters.AddWithValue("@created", Utility.Now());
+            Cmd.Parameters.AddWithValue("@created", DateTime.Now);
 
             affected_rows = Cmd.ExecuteNonQuery();
 
@@ -139,11 +142,11 @@ namespace OldAuntie
         public int Delete()
         {
             int affected_rows = 0;
-            string query = "DELETE FROM problems WHERE diagnosis_id=@diagnosis_id AND pid=@pid";
+            string query = "DELETE FROM problems WHERE diagnosis_id=@diagnosis_id AND pet_id=@pet_id";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
-            Cmd.Parameters.AddWithValue("@pid", Pid);
+            Cmd.Parameters.AddWithValue("@pet_id", PetId);
 
             affected_rows = Cmd.ExecuteNonQuery();
 
@@ -153,8 +156,8 @@ namespace OldAuntie
 
         public bool Exists()
         {
-            string query = "SELECT pid FROM problems " +
-                "WHERE pid = " + Pid + " " +
+            string query = "SELECT pet_id FROM problems " +
+                "WHERE pet_id = " + PetId + " " +
                 "AND diagnosis_id = " + DiagnosisId;
 
             bool result = Globals.DBCon.Exists(query);
@@ -163,13 +166,13 @@ namespace OldAuntie
         }
 
  
-        static public DataTable GetProblemsByPid(int pid)
+        static public DataTable GetProblemsByPetId(int pet_id)
         {
-            string query = "SELECT a.pid, a.diagnosis_id, a.status_id, b.term_name, a.key_problem " +
-                "FROM problems a, venom_codes b, problem_status c " +
+            string query = "SELECT a.pet_id, a.diagnosis_id, a.status_id, b.term_name, a.key_problem " +
+                "FROM problems a, venom_codes b, status c " +
                 "WHERE a.diagnosis_id = b.id " +
-                "AND a.status_id = c.status_id " +
-                "AND a.pid = " + pid +" " +
+                "AND a.status_id = c.id " +
+                "AND a.pet_id = " + pet_id +" " +
                 "ORDER BY a.status_id DESC";
 
             DataTable result = Globals.DBCon.Execute(query);
@@ -205,8 +208,6 @@ namespace OldAuntie
 
     public class ProblemEventArgs : EventArgs
     {
-
-        // public int DiagnosisId { get; private set; }
         public Problem Problem { get; private set; }
         public static string Action { get; private set; }
 

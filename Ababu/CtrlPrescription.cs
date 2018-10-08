@@ -24,7 +24,7 @@ namespace Ababu
             // set the pet to visit
             Pet = pet;
             // initialize an empty problem for the pet
-            Problem = new Problem(0, Pet.Pid);
+            Problem = new Problem(0, Pet.Id);
             // initialize the rest of the components
             InitializeComponent();
         }
@@ -45,7 +45,7 @@ namespace Ababu
         private void FillCombo()
         {
             CmbMedicines.DataSource = Medicine.Search();
-            CmbMedicines.ValueMember = "mid";
+            CmbMedicines.ValueMember = "id";
             CmbMedicines.DisplayMember = "value";
             CmbMedicines.SelectedValue = 0;
         }
@@ -53,7 +53,7 @@ namespace Ababu
 
         private void FillGrid()
         {
-            DataTable DtPrescriptions = Prescription.GetPrescriptionsByPid(Pet.Pid, Problem.DiagnosisId);
+            DataTable DtPrescriptions = Prescription.GetPrescriptionsByPid(Pet.Id, Problem.DiagnosisId);
             DtPrescriptions.Columns.Add("in_evidenve_image", typeof(Image));
 
             for (int j = 0; j < DtPrescriptions.Rows.Count; j++)
@@ -79,9 +79,9 @@ namespace Ababu
             GrdPrescriptions.Columns["created"].DefaultCellStyle.Format = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
             GrdPrescriptions.Columns["created"].DisplayIndex = 0;
 
-            GrdPrescriptions.Columns["prescription_id"].Visible = false;
-            GrdPrescriptions.Columns["pid"].Visible = false;
-            GrdPrescriptions.Columns["mid"].Visible = false;
+            GrdPrescriptions.Columns["id"].Visible = false;
+            GrdPrescriptions.Columns["pet_id"].Visible = false;
+            GrdPrescriptions.Columns["id"].Visible = false;
             GrdPrescriptions.Columns["in_evidence"].Visible = false;
             GrdPrescriptions.Columns["date_of_issue"].Visible = false;
             GrdPrescriptions.Columns["date_of_withdrawal"].Visible = false;
@@ -102,9 +102,9 @@ namespace Ababu
         }
 
 
-        private void OpenPrescriptionEdit(string mid, int prescription_id = 0)
+        private void OpenPrescriptionEdit(string id, int prescription_id = 0)
         {
-            FrmPrescriptionEdit frmPrescriptionEdit = new FrmPrescriptionEdit(new Prescription(prescription_id), Pet, new Medicine(mid), Problem);
+            FrmPrescriptionEdit frmPrescriptionEdit = new FrmPrescriptionEdit(new Prescription(prescription_id), Pet, new Medicine(id), Problem);
             frmPrescriptionEdit.FormClosing += new FormClosingEventHandler(PrescriptionEdit_FormClosing);
             frmPrescriptionEdit.ShowDialog();
         }
@@ -120,19 +120,9 @@ namespace Ababu
         {
             // DateTime created = (DateTime)GrdPrescriptions.Rows[e.RowIndex].Cells[0].Value;
             int prescription_id = (int)GrdPrescriptions.Rows[e.RowIndex].Cells[0].Value;
-            string mid = GrdPrescriptions.Rows[e.RowIndex].Cells[1].Value.ToString();
+            string id = GrdPrescriptions.Rows[e.RowIndex].Cells[1].Value.ToString();
             
-            OpenPrescriptionEdit(mid, prescription_id);
-            /*
-            if (e.ColumnIndex == 6)
-            {
-                MessageBox.Show("change evidence to ... " + pid.ToString());
-            }
-            else
-            {
-                OpenProblemEdit(diangosis_id, P.Pid);
-            }
-            */
+            OpenPrescriptionEdit(id, prescription_id);
         }
 
 

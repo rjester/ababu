@@ -133,12 +133,12 @@ namespace OldAuntie
         }
 
 
-        static public DataTable GetNotesByPid(int pid)
+        static public DataTable GetNotesByPid(int pet_id)
         {
             string query = "SELECT * " +
                 "FROM notes a " +
-                "WHERE a.pid = " + pid + " " +
-                "ORDER BY a.nid DESC";
+                "WHERE a.pet_id = " + pet_id + " " +
+                "ORDER BY a.id DESC";
 
             DataTable result = Globals.DBCon.Execute(query);
 

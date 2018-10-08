@@ -90,10 +90,10 @@ namespace Ababu
 
             // fill the problem combo
             // get the problem for a selected pet / patient
-            DataTable DtProblems = Problem.GetProblemsByPid(Pet.Pid);
+            DataTable DtProblems = Problem.GetProblemsByPetId(Pet.Id);
             // insert a new empty Row at 0 position for Problem indipendet prescription / Diary
             DataRow DrProblemIndependent = DtProblems.NewRow();
-            DrProblemIndependent[0] = Pet.Pid;
+            DrProblemIndependent[0] = Pet.Id;
             DrProblemIndependent[1] = 0;
             DrProblemIndependent[2] = 1;
             DrProblemIndependent[3] = "Problem indipendet prescription / Diary";
@@ -147,7 +147,7 @@ namespace Ababu
                 Examination.Created = DtpCreated.Value;
                 Examination.DiagnosisId = Convert.ToInt32(CmbProblems.SelectedValue);
                 Examination.DiagnosticTestId = Venom.Id;
-                Examination.Pid = Pet.Pid;
+                Examination.Pid = Pet.Id;
                 Examination.Result = TxtResult.Text;
                 Examination.MedicalReport = TxtMedicalReport.Text;
                 Examination.IsPathologic = ChkIsPathologic.Checked;

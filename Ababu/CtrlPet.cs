@@ -49,10 +49,10 @@ namespace Ababu
             }
         }
 
-        private void OpenPersonEditForm(int pid = 0)
+        private void OpenPersonEditForm(int pet_id = 0)
         {
             FrmPetEdit frmPetEdit = new FrmPetEdit();
-            frmPetEdit.P = new Pet(pid);
+            frmPetEdit.Pet = new Pet(pet_id);
             frmPetEdit.FormClosing += new FormClosingEventHandler(PetEdit_FormClosing);
             frmPetEdit.Show();
         }
@@ -154,7 +154,7 @@ namespace Ababu
                     if (this.OnPetSelectionToVisit != null)
                     {
                         // raise the event
-                        this.OnPetSelectionToVisit(this, new PetEventArgs(pet.Pid));
+                        this.OnPetSelectionToVisit(this, new PetEventArgs(pet.Id));
                     }
                 }
             }

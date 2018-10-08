@@ -36,12 +36,13 @@ namespace Ababu
 
         private void FillProblemForm()
         {
-            TxtPid.Text = Problema.Pid.ToString();
+            TxtPetId.Text = Problema.PetId.ToString();
             TxtDiagnosisId.Text = Problema.DiagnosisId.ToString();
             TxtDiagnosis.Text = Venom.GetTermNameById((int)Problema.DiagnosisId);
 
             // setting date from 
-            DtpDateFrom.Value = Utility.UnixTimeStampToDateTime(Utility.IfNull(Problema.DateFrom, Utility.Now()));
+            // DtpDateFrom.Value = Utility.UnixTimeStampToDateTime(Utility.IfNull(Problema.DateFrom, Utility.Now()));
+            DtpActiveFrom.Value = Utility.IfNull(Problema.ActiveFrom, DateTime.Now);
 
             ChkKeyProblem.Checked = (bool)Problema.KeyProblem;
 
@@ -135,9 +136,9 @@ namespace Ababu
             if (IsValidForm())
             {
                 Problema.DiagnosisId = Convert.ToInt32(TxtDiagnosisId.Text);
-                Problema.Pid = Convert.ToInt32(TxtPid.Text);
-                Problema.Uid = Globals.Me.Uid;
-                Problema.DateFrom = Utility.DateTimeToUnixTimestamp(DtpDateFrom.Value);
+                Problema.PetId = Convert.ToInt32(TxtPetId.Text);
+                Problema.UserId = Globals.Me.Id;
+                Problema.ActiveFrom = DtpActiveFrom.Value;
 
                 foreach (Control control in this.GrbProblemStatus.Controls)
                 {
@@ -186,10 +187,10 @@ namespace Ababu
             }
 
 
-            if (TxtPid.Text.Trim() == string.Empty)
+            if (TxtPetId.Text.Trim() == string.Empty)
             {
                 result = result & false;
-                ErrProblemEdit.SetError(TxtPid, "Pet ID cannot be empty");
+                ErrProblemEdit.SetError(TxtPetId, "Pet ID cannot be empty");
             }
 
             return result;
@@ -221,12 +222,12 @@ namespace Ababu
             }
         }
 
-        private void DtpDateFrom_ValueChanged(object sender, EventArgs e)
+        private void DtpActiveFrom_ValueChanged(object sender, EventArgs e)
         {
             // DateTime Now = Utility.UnixTimeStampToDateTime(Utility.Now());
             DateTime DateOfBirth = Utility.UnixTimeStampToDateTime(Pet.DateOfBirth);
 
-            int AtAge = Convert.ToInt32(DtpDateFrom.Value.Year - DateOfBirth.Year);
+            int AtAge = Convert.ToInt32(DtpActiveFrom.Value.Year - DateOfBirth.Year);
 
             TxtAge.Text = AtAge.ToString();
         }

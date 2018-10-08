@@ -115,7 +115,7 @@ namespace OldAuntie
             return affected_rows;
         }
 
-        static public DataTable GetTreatmentsByPid(int pet_id)
+        static public DataTable GetTreatmentsByPetId(int pet_id)
         {
             string query = "SELECT a.id, a.procedure_id, b.term_name, a.notes, a.created, a.recall " +
                 "FROM treatments a, venom_codes b " +

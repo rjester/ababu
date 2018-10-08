@@ -16,23 +16,20 @@ namespace Ababu
         
         // @todo: delete me
         // public int Pid { get; set; }
-        public Pet P { get; set; }
+        public Pet Pet { get; set; }
         public Problem Problem { get; set; }
-
-
-
 
 
         public CtrlVisit(Pet pet)
         {
             InitializeComponent();
-            P = pet;
-            Problem = new Problem(P.Pid, 0);
+            Pet = pet;
+            Problem = new Problem(Pet.Id, 0);
         }
 
         private void CtrlVisits_Load(object sender, EventArgs e)
         {
-            TslPetName.Text = P.Name + " (" + P.Specie.FamiliarName + ")";
+            TslPetName.Text = Pet.Name + " (" + Pet.Specie.FamiliarName + ")";
 
             LoadVisitComponents();
         }
@@ -40,27 +37,27 @@ namespace Ababu
         private void LoadVisitComponents()
         {
             // loading Problem section passing Pet to the user cotrol
-            CtrlProblem ctrlProblem = new CtrlProblem(P);
+            CtrlProblem ctrlProblem = new CtrlProblem(Pet);
             ctrlProblem.Dock = DockStyle.Fill;
             TlpVisitBodyHead.Controls.Add(ctrlProblem, 0, 0);
 
-            CtrlPrescription ctrlPrescription = new CtrlPrescription(P);
+            CtrlPrescription ctrlPrescription = new CtrlPrescription(Pet);
             ctrlPrescription.Dock = DockStyle.Fill;
             TlpVisitBodyHead.Controls.Add(ctrlPrescription, 1, 0);
 
 
-            CtrlExamination ctrlExamination = new CtrlExamination(P);
+            CtrlExamination ctrlExamination = new CtrlExamination(Pet);
             ctrlExamination.Dock = DockStyle.Fill;
             TlpVisitBodyHead.Controls.Add(ctrlExamination, 2, 0);
 
             // loading Diary
-            CtrlDiary ctrlDiary = new CtrlDiary(P);
+            CtrlDiary ctrlDiary = new CtrlDiary(Pet);
             ctrlDiary.Dock = DockStyle.Top;
             // TlpVisitBody.Controls.Add(ctrlDiary, 0, 1);
             TlpVisitBodyBottom.Controls.Add(ctrlDiary, 0, 0);
 
 
-            CtrlDeepSpace ctrlDeepSpace = new CtrlDeepSpace(P);
+            CtrlDeepSpace ctrlDeepSpace = new CtrlDeepSpace(Pet);
             ctrlDeepSpace.Dock = DockStyle.Fill;
             TlpVisitBodyBottom.Controls.Add(ctrlDeepSpace, 1, 0);
 

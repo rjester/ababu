@@ -22,7 +22,7 @@ namespace Ababu
             // set the pet to visit
             Pet = pet;
             // initialize an empty problem for the pet
-            Problem = new Problem(0, Pet.Pid);
+            Problem = new Problem(0, Pet.Id);
             // initialize the rest of the components
             InitializeComponent();
         }
@@ -50,7 +50,7 @@ namespace Ababu
 
         private void FillGrid()
         {
-            DataTable DtExaminations = Examination.GetExaminationsByPid(Pet.Pid, Problem.DiagnosisId);
+            DataTable DtExaminations = Examination.GetExaminationsByPid(Pet.Id, Problem.DiagnosisId);
             DtExaminations.Columns.Add("in_evidenve_image", typeof(Image));
             DtExaminations.Columns.Add("is_pathologic_image", typeof(Image));
             DtExaminations.Columns.Add("medical_report_image", typeof(Image));
@@ -104,7 +104,7 @@ namespace Ababu
             GrdExaminations.Columns["created"].DefaultCellStyle.Format = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
             GrdExaminations.Columns["created"].DisplayIndex = 0;
             
-            GrdExaminations.Columns["examination_id"].Visible = false;
+            GrdExaminations.Columns["id"].Visible = false;
             GrdExaminations.Columns["diagnosis_id"].Visible = false;
             GrdExaminations.Columns["diagnostic_test_id"].Visible = false;
             // GrdExaminations.Columns["result"].Visible = false;
@@ -116,9 +116,9 @@ namespace Ababu
         }
         
 
-        private void OpenExaminationEdit(int diagnostic_test_id, int examination_id = 0)
+        private void OpenExaminationEdit(int diagnostic_test_id, int id = 0)
         {
-            FrmExaminationEdit frmExaminationEdit = new FrmExaminationEdit(new Examination(examination_id), Pet, new Venom(diagnostic_test_id), Problem);
+            FrmExaminationEdit frmExaminationEdit = new FrmExaminationEdit(new Examination(id), Pet, new Venom(diagnostic_test_id), Problem);
             frmExaminationEdit.FormClosing += FrmExaminationEdit_FormClosing;
             frmExaminationEdit.ShowDialog();
         }
@@ -149,10 +149,10 @@ namespace Ababu
 
         private void GrdExaminations_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int examination_id = (int)GrdExaminations.Rows[e.RowIndex].Cells[0].Value;
+            int id = (int)GrdExaminations.Rows[e.RowIndex].Cells[0].Value;
             int diagnostic_test_id = (int)GrdExaminations.Rows[e.RowIndex].Cells[2].Value;
 
-            OpenExaminationEdit(diagnostic_test_id, examination_id);
+            OpenExaminationEdit(diagnostic_test_id, id);
         }
     }
 }

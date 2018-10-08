@@ -103,7 +103,7 @@ namespace Ababu
         private void NoteSave()
         {
             N.NoteText = TxtNote.Text;
-            N.Uid = Globals.Me.Uid;
+            N.Uid = Globals.Me.Id;
             if (IsValidForm())
             {
                 try

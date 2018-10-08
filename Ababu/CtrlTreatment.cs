@@ -48,7 +48,7 @@ namespace Ababu
 
         private void FillGrid()
         {
-            DataTable DtTreatments = Treatment.GetTreatmentsByPid(Pet.Pid);
+            DataTable DtTreatments = Treatment.GetTreatmentsByPetId(Pet.Id);
 
             GrdTreatments.DataSource = DtTreatments;
 
@@ -91,7 +91,7 @@ namespace Ababu
         private void OpenTreatmentEdit(int procedure_id, int id = 0)
         {
             Treatment treatment = new Treatment(id);
-            treatment.PetId = Pet.Pid;
+            treatment.PetId = Pet.Id;
             treatment.ProcedureId = procedure_id;
 
             FrmTreatmentEdit frmTreatmentEdit = new FrmTreatmentEdit(treatment);

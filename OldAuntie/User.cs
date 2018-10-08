@@ -9,12 +9,11 @@ namespace OldAuntie
 {
     public class User : IDisposable
     {
-        public int Uid = 0;
+        public int Id = 0;
+        public int RoleId = 0;
         public string Username { get; set; }
         public string Password { get; set; }
         public string Fullname { get; set; }
-        public int Rid = 0;
-        public string Lid { get; set; }
         public string Phone { get; set; }
         public long? Login { get; set; }
         public long Created { get; set; }
@@ -24,29 +23,28 @@ namespace OldAuntie
         private bool disposed = false;
 
 
-        public User(int uid = 0)
+        public User(int id = 0)
         {
-            if(uid > 0)
+            if(id > 0)
             {
-                Load(uid);
+                Load(id);
             }
         }
 
 
-        public User Load(int uid)
+        public User Load(int id)
         {
-            if(uid > 0)
+            if(id > 0)
             {
-                DataRow result = Globals.DBCon.SelectOneRow("SELECT * FROM users WHERE uid = " + uid.ToString());
+                DataRow result = Globals.DBCon.SelectOneRow("SELECT * FROM users WHERE id = " + id.ToString());
 
                 if (result != null && result.ItemArray.Count() > 0)
                 {
-                    Uid = uid;
+                    Id = id;
+                    RoleId = (int)result["role_id"];
                     Username = result["username"].ToString();
                     Password = result["password"].ToString();
                     Fullname = result["fullname"].ToString();
-                    Rid = (int)result["rid"];
-                    Lid = result["lid"].ToString();
                     Phone = result["phone"].ToString();
                     Login = Utility.IfDBNull(result["login"], null);
                     Created = (long)result["created"];
@@ -61,7 +59,7 @@ namespace OldAuntie
 
         public int Save()
         {
-            if (Uid > 0)
+            if (Id > 0)
             {
                 return Update();
             }
@@ -76,23 +74,21 @@ namespace OldAuntie
         {
             int affected_rows = 0;
             string query = "UPDATE users SET " +
+                                    "role_id=@role_id, " +
                                     "username=@username, " +
                                     "fullname=@fullname, " +
-                                    "rid=@rid, " +
-                                    "lid=@lid, " +
                                     "phone=@phone, " +
                                     "login=@login, " +
                                     "created=@created, " +
                                     "updated=@updated, " +
                                     "deleted=@deleted " +
-                                "WHERE uid=@uid";
+                                "WHERE id=@id";
 
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
-            Cmd.Parameters.AddWithValue("@uid", Uid);
+            Cmd.Parameters.AddWithValue("@id", Id);
+            Cmd.Parameters.AddWithValue("@role_id", RoleId);
             Cmd.Parameters.AddWithValue("@username", Username);
-            Cmd.Parameters.AddWithValue("@rid", Rid);
-            Cmd.Parameters.AddWithValue("@lid", Lid);
             Cmd.Parameters.AddWithValue("@fullname", Fullname);
             Cmd.Parameters.AddWithValue("@phone", Phone);
             Cmd.Parameters.AddWithValue("@login", Login);
@@ -110,11 +106,11 @@ namespace OldAuntie
             int affected_rows = 0;
             string query = "UPDATE users SET " +
                                     "password=@password " +
-                                "WHERE uid=@uid";
+                                "WHERE id=@id";
 
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
-            Cmd.Parameters.AddWithValue("@uid", Uid);
+            Cmd.Parameters.AddWithValue("@Id", Id);
             Cmd.Parameters.AddWithValue("@password", Utility.MD5(Password));
 
             affected_rows = Cmd.ExecuteNonQuery();
@@ -127,15 +123,14 @@ namespace OldAuntie
         {
             int affected_rows = 0;
 
-            string query = "INSERT INTO users (username, password, fullname, rid, lid, phone, created) " +
-                        "VALUES (@username, @password, @fullname, @rid, @lid, @phone, @created)";
+            string query = "INSERT INTO users (role_id, username, password, fullname, phone, created) " +
+                        "VALUES (@role_id, @username, @password, @fullname, @phone, @created)";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@role_id", RoleId);
             Cmd.Parameters.AddWithValue("@username", Username);
             Cmd.Parameters.AddWithValue("@password", Utility.MD5(Password));
             Cmd.Parameters.AddWithValue("@fullname", Fullname);
-            Cmd.Parameters.AddWithValue("@rid", Rid);
-            Cmd.Parameters.AddWithValue("@lid", Lid);
             Cmd.Parameters.AddWithValue("@phone", Phone);
             Cmd.Parameters.AddWithValue("@created", Utility.Now());
 
@@ -152,7 +147,7 @@ namespace OldAuntie
 
         public static bool Check(string username, string password)
         {
-            string query = "SELECT uid FROM users " +
+            string query = "SELECT id FROM users " +
                 "WHERE username = '" + username + "' " +
                 "AND UPPER(password) = UPPER('" + Utility.MD5(password) + "') " +
                 "AND deleted IS NULL";
@@ -165,7 +160,7 @@ namespace OldAuntie
 
         public static int GetUidByUsername(string username)
         {
-            string query = "SELECT uid FROM users " +
+            string query = "SELECT id FROM users " +
                 "WHERE username = '" + username + "'";
 
             int result = Utility.IfNull(Globals.DBCon.SelectOneValue(query), 0);
@@ -173,16 +168,16 @@ namespace OldAuntie
         } 
 
 
-        static public DataTable GetUsersList(int uid = 0)
+        static public DataTable GetUsersList(int id = 0)
         {
-            string query = "SELECT a.uid as uid, a.username, b.name as role, a.fullname, a.deleted " +
+            string query = "SELECT a.id as id, a.username, b.name as role, a.fullname, a.deleted " +
                 "FROM users a, roles b " +
-                "WHERE a.rid = b.rid";
-            if(uid > 0)
+                "WHERE a.role_id = b.id";
+            if(id > 0)
             {
-                query += " AND a.uid=" + uid;
+                query += " AND a.id=" + id;
             }
-            query += " ORDER BY a.rid DESC";
+            query += " ORDER BY a.role_id DESC";
 
             DataTable result = Globals.DBCon.Execute(query);
 

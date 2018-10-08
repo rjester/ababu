@@ -13,7 +13,7 @@ namespace Ababu
 {
     public partial class FrmPetEdit : Form
     {
-        public Pet P = new Pet();
+        public Pet Pet = new Pet();
 
         private bool IsModified = false;
 
@@ -107,36 +107,36 @@ namespace Ababu
         {
             if (IsValidForm())
             {
-                P.Pid = Convert.ToInt32(TxtPid.Text);
-                P.Tsn = Convert.ToInt32(Utility.IfNull(CmbSpecies.SelectedValue, P.Tsn));
-                P.Oid = Convert.ToInt32(Utility.IfNull(CmbOwner.SelectedValue, P.Oid));
-                P.Name = TxtName.Text;
-                P.Gender = CmbGender.SelectedItem.ToString();
-                P.DateOfBirth = Utility.DateTimeToUnixTimestamp(DtpDateOfBirth.Value);
+                Pet.Id = Convert.ToInt32(TxtPid.Text);
+                Pet.Tsn = Convert.ToInt32(Utility.IfNull(CmbSpecies.SelectedValue, Pet.Tsn));
+                Pet.OwnerId = Convert.ToInt32(Utility.IfNull(CmbOwner.SelectedValue, Pet.OwnerId));
+                Pet.Name = TxtName.Text;
+                Pet.Gender = CmbGender.SelectedItem.ToString();
+                Pet.DateOfBirth = Utility.DateTimeToUnixTimestamp(DtpDateOfBirth.Value);
 
                 if (ChkDateOfDeath.Checked == true)
                 {
-                    P.DateOfDeath = Utility.DateTimeToUnixTimestamp(DtpDateOfDeath.Value);
+                    Pet.DateOfDeath = Utility.DateTimeToUnixTimestamp(DtpDateOfDeath.Value);
                 }
                 else
                 {
-                    P.DateOfDeath = null;
+                    Pet.DateOfDeath = null;
                 }
 
-                P.Description = TxtDescription.Text;
-                P.Color = TxtColor.Text;
-                P.Microchip = TxtMicrochip.Text;
-                P.MicrochipLocation = TxtMicrochipLocation.Text;
-                P.Tatuatge = TxtTatuatge.Text;
-                P.TatuatgeLocation = TxtTatuatgeLocation.Text;
+                Pet.Description = TxtDescription.Text;
+                Pet.Color = TxtColor.Text;
+                Pet.Microchip = TxtMicrochip.Text;
+                Pet.MicrochipLocation = TxtMicrochipLocation.Text;
+                Pet.Tatuatge = TxtTatuatge.Text;
+                Pet.TatuatgeLocation = TxtTatuatgeLocation.Text;
 
                 try
                 {
                     // save patient and get the saved (i.e inserted or updated) pet id
-                    int affected_id = P.Save();
+                    int affected_id = Pet.Save();
                     if (affected_id  > 0)
                     {
-                        P.Load(affected_id);
+                        Pet.Load(affected_id);
                         FillPetForm();
                         UnlockForm();
                     }
@@ -192,54 +192,54 @@ namespace Ababu
 
         private void FillPetForm()
         {
-            TxtPid.Text = P.Pid.ToString();
-            TxtName.Text = P.Name;
+            TxtPid.Text = Pet.Id.ToString();
+            TxtName.Text = Pet.Name;
 
             CmbSpecies.DataSource = Species.List();
             CmbSpecies.ValueMember = "tsn";
             CmbSpecies.DisplayMember = "familiar_name";
-            CmbSpecies.SelectedValue = P.Tsn;
+            CmbSpecies.SelectedValue = Pet.Tsn;
 
             CmbOwner.DataSource = OldAuntie.Owner.List();
             CmbOwner.ValueMember = "oid";
             CmbOwner.DisplayMember = "owner";
-            CmbOwner.SelectedValue = P.Oid;
+            CmbOwner.SelectedValue = Pet.OwnerId;
 
-            CmbGender.SelectedItem = P.Gender;
+            CmbGender.SelectedItem = Pet.Gender;
 
-            TxtColor.Text = P.Color;
+            TxtColor.Text = Pet.Color;
 
-            DtpDateOfBirth.Value = Utility.UnixTimeStampToDateTime((int)P.DateOfBirth);
+            DtpDateOfBirth.Value = Utility.UnixTimeStampToDateTime((int)Pet.DateOfBirth);
 
-            if(P.DateOfDeath == null)
+            if(Pet.DateOfDeath == null)
             {
                 ChkDateOfDeath.Checked = false;
                 DtpDateOfDeath.Enabled = false;
             }
             else
             {
-                DtpDateOfDeath.Value = Utility.UnixTimeStampToDateTime(Utility.IfNull(P.DateOfDeath, 0));
+                DtpDateOfDeath.Value = Utility.UnixTimeStampToDateTime(Utility.IfNull(Pet.DateOfDeath, 0));
                 ChkDateOfDeath.Checked = true;
             }
 
-            TxtYears.Text = P.Years.ToString();
-            TxtMonths.Text = P.Months.ToString();
-            TxtDays.Text = P.Days.ToString();
-            TxtDescription.Text = P.Description;
-            TxtMicrochip.Text = P.Microchip;
-            TxtMicrochipLocation.Text = P.MicrochipLocation;
-            TxtTatuatge.Text = P.Tatuatge;
-            TxtTatuatgeLocation.Text = P.TatuatgeLocation;
+            TxtYears.Text = Pet.Years.ToString();
+            TxtMonths.Text = Pet.Months.ToString();
+            TxtDays.Text = Pet.Days.ToString();
+            TxtDescription.Text = Pet.Description;
+            TxtMicrochip.Text = Pet.Microchip;
+            TxtMicrochipLocation.Text = Pet.MicrochipLocation;
+            TxtTatuatge.Text = Pet.Tatuatge;
+            TxtTatuatgeLocation.Text = Pet.TatuatgeLocation;
 
             // set the status bar info
-            StlRecordInfo.Text = "Record created on " + Utility.UnixTimeStampToDateTime(P.Created).ToString();
-            if (P.Updated != null)
+            StlRecordInfo.Text = "Record created on " + Utility.UnixTimeStampToDateTime(Pet.Created).ToString();
+            if (Pet.Updated != null)
             {
-                StlRecordInfo.Text += " - modified on " + Utility.UnixTimeStampToDateTime(Utility.IfNull(P.Updated, 0)).ToString();
+                StlRecordInfo.Text += " - modified on " + Utility.UnixTimeStampToDateTime(Utility.IfNull(Pet.Updated, 0)).ToString();
             }
-            if (P.Deleted != null)
+            if (Pet.Deleted != null)
             {
-                StlRecordInfo.Text += " - deleted on " + Utility.UnixTimeStampToDateTime(Utility.IfNull(P.Deleted, 0)).ToString();
+                StlRecordInfo.Text += " - deleted on " + Utility.UnixTimeStampToDateTime(Utility.IfNull(Pet.Deleted, 0)).ToString();
                 // disable all controls to avoid edit
                 DisableFormControls();
             }
@@ -264,8 +264,8 @@ namespace Ababu
             DialogResult result = MessageBox.Show("Do you want to delete selected patient ?", "Warning", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                P.Delete();
-                P.Load(P.Pid);
+                Pet.Delete();
+                Pet.Load(Pet.Id);
                 FillPetForm();
                 UnlockForm();
             }

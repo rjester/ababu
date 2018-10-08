@@ -41,11 +41,11 @@ namespace Ababu
         private void FillGrid()
         {
             // get problems DataTable from database
-            DataTable DtProblems = Problem.GetProblemsByPid(Pet.Pid);
+            DataTable DtProblems = Problem.GetProblemsByPetId(Pet.Id);
 
             // insert a new empty Row at 0 position for Problem indipendet prescription / Diary
             DataRow DrProblemIndependent = DtProblems.NewRow();
-            DrProblemIndependent[0] = Pet.Pid;
+            DrProblemIndependent[0] = Pet.Id;
             DrProblemIndependent[1] = 0;
             DrProblemIndependent[2] = 1;
             DrProblemIndependent[3] = "Problem indipendet prescription / Diary";
@@ -108,7 +108,7 @@ namespace Ababu
 
             GrdProblems.DataSource = DtProblems;
             // GrdProblems.Columns["diagnosis_id"].Visible = false;
-            GrdProblems.Columns["pid"].Visible = false;
+            GrdProblems.Columns["pet_id"].Visible = false;
             GrdProblems.Columns["status_id"].Visible = false;
             GrdProblems.Columns["key_problem"].Visible = false;
             GrdProblems.Columns["term_name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -126,7 +126,7 @@ namespace Ababu
             {
                 if (CmbProblems.SelectedItem != null && CmbProblems.SelectedValue != null)
                 {
-                    OpenProblemEdit((int)CmbProblems.SelectedValue, Pet.Pid);
+                    OpenProblemEdit((int)CmbProblems.SelectedValue, Pet.Id);
                 }
             }
         }
@@ -134,7 +134,7 @@ namespace Ababu
 
         private void GrdProblems_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int pid = (int)GrdProblems.Rows[e.RowIndex].Cells[1].Value;
+            int pet_id = (int)GrdProblems.Rows[e.RowIndex].Cells[1].Value;
             int diangosis_id = (int)GrdProblems.Rows[e.RowIndex].Cells[2].Value;
 
             // don't consider a problem first row
@@ -143,25 +143,21 @@ namespace Ababu
                 // if click is on evidence column
                 if (e.ColumnIndex == 6)
                 {
-                    MessageBox.Show("change evidence to ... " + pid.ToString());
+                    MessageBox.Show("change evidence to ... " + pet_id.ToString());
                 }
                 else
                 {
-                    OpenProblemEdit(diangosis_id, Pet.Pid);
+                    OpenProblemEdit(diangosis_id, Pet.Id);
                 }
             }
 
         }
 
         
-        private void OpenProblemEdit(int diagnosis_id, int pid)
+        private void OpenProblemEdit(int diagnosis_id, int pet_id)
         {
-            FrmProblemEdit frmProblemEdit = new FrmProblemEdit(new Problem(diagnosis_id, pid) );
+            FrmProblemEdit frmProblemEdit = new FrmProblemEdit(new Problem(diagnosis_id, pet_id));
             frmProblemEdit.Pet = Pet;
-            /*
-            frmProblemEdit.Problema.DiagnosisId = diagnosis_id;
-            frmProblemEdit.Problema.Pid = pid;
-            */
             frmProblemEdit.FormClosing += new FormClosingEventHandler(ProblemEdit_FormClosing);
             frmProblemEdit.ShowDialog();
         }
@@ -178,7 +174,7 @@ namespace Ababu
                 if (this.OnProblemSelection != null)
                 {
                     // raise the event
-                    this.OnProblemSelection(this, new ProblemEventArgs(new Problem(diagnostis_id, Pet.Pid)));
+                    this.OnProblemSelection(this, new ProblemEventArgs(new Problem(diagnostis_id, Pet.Id)));
                 }
             }
         }
