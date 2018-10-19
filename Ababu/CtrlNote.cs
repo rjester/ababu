@@ -13,12 +13,12 @@ namespace Ababu
 {
     public partial class CtrlNote : UserControl
     {
-        public Note N;
+        public Note Note;
         public static event EventHandler NoteChanged;
 
         public CtrlNote(Note note)
         {
-            N = note;
+            Note = note;
             InitializeComponent();
         }
 
@@ -49,7 +49,7 @@ namespace Ababu
 
         private void TxtNote_Leave(object sender, EventArgs e)
         {
-            if(N.Nid > 0){
+            if(Note.Id > 0){
                 TxtNote.ReadOnly = true;
                 TxtNote.BackColor = Color.Cornsilk;
             }
@@ -65,10 +65,10 @@ namespace Ababu
 
         private void FillControl()
         {
-            if (N.Nid > 0)
+            if (Note.Id > 0)
             {
-                DtpDate.Value = Utility.UnixTimeStampToDateTime(N.Created);
-                TxtNote.Text = N.NoteText;
+                DtpDate.Value = Note.Created;
+                TxtNote.Text = Note.NoteText;
                 BtnNoteDelete.Enabled = true;
 
                 TxtNote.BackColor = Color.Cornsilk;
@@ -102,13 +102,13 @@ namespace Ababu
 
         private void NoteSave()
         {
-            N.NoteText = TxtNote.Text;
-            N.Uid = Globals.Me.Id;
+            Note.NoteText = TxtNote.Text;
+            Note.UserId = Globals.Me.Id;
             if (IsValidForm())
             {
                 try
                 {
-                    int affected_id = N.Save();
+                    int affected_id = Note.Save();
                     if (affected_id > 0)
                     {
                         OnNoteChanged(EventArgs.Empty);
@@ -154,7 +154,7 @@ namespace Ababu
             DialogResult result = MessageBox.Show("Do you want to delete this note ?", "Warning", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                int affected_rows = N.Delete();
+                int affected_rows = Note.Delete();
                 if(affected_rows > 0)
                 {
                     OnNoteChanged(EventArgs.Empty);

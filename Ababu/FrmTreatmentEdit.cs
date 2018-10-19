@@ -37,6 +37,7 @@ namespace Ababu
         {
             TxtProcedureId.Text = Treatment.ProcedureId.ToString();
             TxtProcedureName.Text = Venom.TermName;
+            TxtNotes.Text = Treatment.Notes;
 
             if(Treatment.Recall != null)
             {

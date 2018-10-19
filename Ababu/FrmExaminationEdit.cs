@@ -147,7 +147,7 @@ namespace Ababu
                 Examination.Created = DtpCreated.Value;
                 Examination.DiagnosisId = Convert.ToInt32(CmbProblems.SelectedValue);
                 Examination.DiagnosticTestId = Venom.Id;
-                Examination.Pid = Pet.Id;
+                Examination.PetId = Pet.Id;
                 Examination.Result = TxtResult.Text;
                 Examination.MedicalReport = TxtMedicalReport.Text;
                 Examination.IsPathologic = ChkIsPathologic.Checked;

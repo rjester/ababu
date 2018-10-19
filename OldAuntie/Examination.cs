@@ -13,7 +13,7 @@ namespace OldAuntie
         public int Id { get; set; }
         public int DiagnosisId { get; set; }
         public int DiagnosticTestId { get; set; }
-        public int Pid { get; set; }
+        public int PetId { get; set; }
         public string Result { get; set; }
         public string MedicalReport { get; set; }
         public bool IsPathologic { get; set; }
@@ -41,7 +41,7 @@ namespace OldAuntie
                 Id = id;
                 DiagnosisId = (int)result["diagnosis_id"];
                 DiagnosticTestId = (int)result["diagnostic_test_id"];
-                Pid = (int)result["pid"];
+                PetId = (int)result["pet_id"];
                 Result = result["result"].ToString();
                 MedicalReport = result["medical_report"].ToString();
                 IsPathologic = (bool)result["is_pathologic"];
@@ -74,7 +74,7 @@ namespace OldAuntie
             string query = "UPDATE examinations  SET " +
                                     "diagnosis_id=@diagnosis_id, " +
                                     "diagnostic_test_id=@diagnostic_test_id, " +
-                                    "pid=@pid, " +
+                                    "pet_id=@pet_id, " +
                                     "result=@result, " +
                                     "medical_report=@medical_report, " +
                                     "is_pathologic=@is_pathologic, " +
@@ -88,7 +88,7 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@id", Id);
             Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
             Cmd.Parameters.AddWithValue("@diagnostic_test_id", DiagnosticTestId);
-            Cmd.Parameters.AddWithValue("@pid", Pid);
+            Cmd.Parameters.AddWithValue("@pet_id", PetId);
             Cmd.Parameters.AddWithValue("@result", Result);
             Cmd.Parameters.AddWithValue("@medical_report", MedicalReport);
             Cmd.Parameters.AddWithValue("@is_pathologic", IsPathologic);
@@ -106,13 +106,13 @@ namespace OldAuntie
         {
             int affected_rows = 0;
 
-            string query = "INSERT INTO examinations (diagnosis_id, diagnostic_test_id, pid, result, medical_report, is_pathologic, in_evidence, created) " +
-                        "VALUES (@diagnosis_id, @diagnostic_test_id, @pid, @result, @medical_report, @is_pathologic, @in_evidence, @created)";
+            string query = "INSERT INTO examinations (diagnosis_id, diagnostic_test_id, pet_id, result, medical_report, is_pathologic, in_evidence, created) " +
+                        "VALUES (@diagnosis_id, @diagnostic_test_id, @pet_id, @result, @medical_report, @is_pathologic, @in_evidence, @created)";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@diagnosis_id", DiagnosisId);
             Cmd.Parameters.AddWithValue("@diagnostic_test_id", DiagnosticTestId);
-            Cmd.Parameters.AddWithValue("@pid", Pid);
+            Cmd.Parameters.AddWithValue("@pet_id", PetId);
             Cmd.Parameters.AddWithValue("@result", Result);
             Cmd.Parameters.AddWithValue("@medical_report", MedicalReport);
             Cmd.Parameters.AddWithValue("@is_pathologic", IsPathologic);
@@ -145,13 +145,13 @@ namespace OldAuntie
 
             string query = "SELECT count(*) FROM examinations " +
                     "WHERE created = @created " +
-                    "AND pid = @pid " +
+                    "AND pet_id = @pet_id " +
                     "AND diagnostic_test_id = @diagnostic_test_id";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@created", Created);
             Cmd.Parameters.AddWithValue("@diagnostic_test_id", DiagnosticTestId);
-            Cmd.Parameters.AddWithValue("@pid", Pid);
+            Cmd.Parameters.AddWithValue("@pet_id", PetId);
 
             object r = Cmd.ExecuteScalar();
             if (r != null)
@@ -164,12 +164,12 @@ namespace OldAuntie
 
 
 
-        static public DataTable GetExaminationsByPid(int pid, int diagnosis_id = 0)
+        static public DataTable GetExaminationsByPetId(int pet_id, int diagnosis_id = 0)
         {
             string query = "SELECT a.id, a.diagnosis_id, a.diagnostic_test_id, b.term_name, a.result, a.medical_report, a.is_pathologic, a.in_evidence, a.created " +
                 "FROM examinations a, venom_codes b " +
                 "WHERE a.diagnostic_test_id = b.id " +
-                "AND a.pid = " + pid;
+                "AND a.pet_id = " + pet_id;
 
             if (diagnosis_id > 0)
             {
@@ -194,7 +194,5 @@ namespace OldAuntie
 
             return affected_rows;
         }
-
-
     }
 }

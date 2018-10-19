@@ -6,6 +6,9 @@ Grb	GroupBox
 
 Num NumericUpDown
 
+Ms	MenuStrip
+Mnu	MenuItem
+
 Sts StatusBar
 Stl	StatusBarLabel
 

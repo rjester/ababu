@@ -38,17 +38,17 @@ namespace Ababu
             FlowDiary.Controls.Clear();
             
             // create an object and a control for the new note
-            Note NewNote = new Note();
-            NewNote.Pid = Pet.Id;
-            CtrlNote ctrlNoteNew = new CtrlNote(NewNote);
+            Note new_note = new Note();
+            new_note.PetId = Pet.Id;
+            CtrlNote ctrlNoteNew = new CtrlNote(new_note);
             FlowDiary.Controls.Add(ctrlNoteNew);
 
             // load all other notes and show their controls
-            DataTable DtNotes = Note.GetNotesByPid(Pet.Id);
-            for (int j = 0; j < DtNotes.Rows.Count; j++)
+            DataTable notes = Note.GetNotesByPetId(Pet.Id);
+            for (int j = 0; j < notes.Rows.Count; j++)
             {
-                int nid = (int)DtNotes.Rows[j]["id"];
-                CtrlNote ctrlNote = new CtrlNote(new Note(nid));
+                int id = (int)notes.Rows[j]["id"];
+                CtrlNote ctrlNote = new CtrlNote(new Note(id));
                 FlowDiary.Controls.Add(ctrlNote);
             }
         }

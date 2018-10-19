@@ -50,7 +50,7 @@ namespace Ababu
 
         private void FillGrid()
         {
-            DataTable DtExaminations = Examination.GetExaminationsByPid(Pet.Id, Problem.DiagnosisId);
+            DataTable DtExaminations = Examination.GetExaminationsByPetId(Pet.Id, Problem.DiagnosisId);
             DtExaminations.Columns.Add("in_evidenve_image", typeof(Image));
             DtExaminations.Columns.Add("is_pathologic_image", typeof(Image));
             DtExaminations.Columns.Add("medical_report_image", typeof(Image));

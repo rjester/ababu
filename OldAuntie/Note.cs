@@ -10,38 +10,35 @@ namespace OldAuntie
 {
     public class Note
     {
-        public int Nid { get; set; }
-        public int Pid { get; set; }
-        public int Uid { get; set; }
+        public int Id { get; set; }
+        public int PetId { get; set; }
+        public int UserId { get; set; }
         public string NoteText { get; set; }
-        public long Created { get; set; }
-        public long? Updated { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime? Updated { get; set; }
 
-        public Note(int nid = 0)
+        public Note(int id = 0)
         {
-            if (nid > 0)
-            {
-                Load(nid);
-            }
+            Id = id;
+            Created = DateTime.Now;
+
+            Load(id);
         }
 
 
-        public Note Load(int nid)
+        public Note Load(int id)
         {
-            if (nid > 0)
+            DataRow result = Globals.DBCon.SelectOneRow("SELECT * FROM notes WHERE id = " + id.ToString());
+
+            if (result != null && result.ItemArray.Count() > 0)
             {
-                DataRow result = Globals.DBCon.SelectOneRow("SELECT * FROM notes WHERE nid = " + nid.ToString());
+                Id = id;
+                PetId = (int)result["pet_id"];
+                UserId = (int)result["user_id"];
+                NoteText = result["note_text"].ToString();
 
-                if (result != null && result.ItemArray.Count() > 0)
-                {
-                    Nid = nid;
-                    Pid = (int)result["pid"];
-                    Uid = (int)result["uid"];
-                    NoteText = result["note_text"].ToString();
-
-                    Created = (long)result["created"];
-                    Updated = Utility.IfDBNull(result["updated"], null);
-                }
+                Created = (DateTime)result["created"];
+                Updated = Utility.IfDBNull(result["updated"], null);
             }
 
             return this;
@@ -50,7 +47,7 @@ namespace OldAuntie
 
         public int Save()
         {
-            if (Nid > 0)
+            if (Id > 0)
             {
                 return Update();
             }
@@ -67,8 +64,8 @@ namespace OldAuntie
             int updated_id = 0;
 
             string query = "UPDATE notes SET " +
-                                    "pid=@pid, " +
-                                    "uid=@uid, " +
+                                    "pet_id=@pet_id, " +
+                                    "user_id=@user_id, " +
                                     "note_text=@note_text, " +
                                     "created=@created, " +
                                     "updated=@updated " +
@@ -76,17 +73,17 @@ namespace OldAuntie
 
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
-            Cmd.Parameters.AddWithValue("@nid", Nid);
-            Cmd.Parameters.AddWithValue("@pid", Pid);
-            Cmd.Parameters.AddWithValue("@uid", Uid);
+            Cmd.Parameters.AddWithValue("@id", Id);
+            Cmd.Parameters.AddWithValue("@pet_id", PetId);
+            Cmd.Parameters.AddWithValue("@user_id", UserId);
             Cmd.Parameters.AddWithValue("@note_text", NoteText);
             Cmd.Parameters.AddWithValue("@created", Created);
-            Cmd.Parameters.AddWithValue("@updated", Utility.Now());
+            Cmd.Parameters.AddWithValue("@updated", DateTime.Now);
 
             affected_rows = Cmd.ExecuteNonQuery();
             if (affected_rows > 0)
             {
-                updated_id = Nid;
+                updated_id = Id;
             }
 
             return updated_id;
@@ -98,14 +95,14 @@ namespace OldAuntie
             int affected_rows = 0;
             int insert_id = 0;
 
-            string query = "INSERT into notes (pid, uid, note_text, created) " +
-                        "VALUES (@pid, @uid, @note_text, @created)";
+            string query = "INSERT into notes (pet_id, user_id, note_text, created) " +
+                        "VALUES (@pet_id, @user_id, @note_text, @created)";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
-            Cmd.Parameters.AddWithValue("@pid", Pid);
-            Cmd.Parameters.AddWithValue("@uid", Uid);
+            Cmd.Parameters.AddWithValue("@pet_id", PetId);
+            Cmd.Parameters.AddWithValue("@user_id", UserId);
             Cmd.Parameters.AddWithValue("@note_text", NoteText);
-            Cmd.Parameters.AddWithValue("@created", Utility.Now());
+            Cmd.Parameters.AddWithValue("@created", DateTime.Now);
 
             affected_rows = Cmd.ExecuteNonQuery();
 
@@ -122,10 +119,10 @@ namespace OldAuntie
         {
             int affected_rows = 0;
 
-            string query = "DELETE FROM notes WHERE nid=@nid";
+            string query = "DELETE FROM notes WHERE id=@id";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
-            Cmd.Parameters.AddWithValue("@nid", Nid);
+            Cmd.Parameters.AddWithValue("@id", Id);
 
             affected_rows = Cmd.ExecuteNonQuery();
 
@@ -133,7 +130,7 @@ namespace OldAuntie
         }
 
 
-        static public DataTable GetNotesByPid(int pet_id)
+        static public DataTable GetNotesByPetId(int pet_id)
         {
             string query = "SELECT * " +
                 "FROM notes a " +

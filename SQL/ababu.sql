@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Ott 08, 2018 alle 15:06
+-- Creato il: Ott 19, 2018 alle 09:37
 -- Versione del server: 10.1.34-MariaDB
 -- Versione PHP: 7.2.8
 
@@ -32,7 +32,7 @@ CREATE TABLE `examinations` (
   `id` int(11) NOT NULL,
   `diagnosis_id` int(11) NOT NULL,
   `diagnostic_test_id` int(11) NOT NULL,
-  `pid` int(11) NOT NULL,
+  `pet_id` int(11) NOT NULL,
   `result` varchar(255) DEFAULT NULL,
   `medical_report` text,
   `is_pathologic` tinyint(1) NOT NULL,
@@ -45,10 +45,11 @@ CREATE TABLE `examinations` (
 -- Dump dei dati per la tabella `examinations`
 --
 
-INSERT INTO `examinations` (`id`, `diagnosis_id`, `diagnostic_test_id`, `pid`, `result`, `medical_report`, `is_pathologic`, `in_evidence`, `created`, `updated`) VALUES
-(1, 0, 13384, 1, '48/850°', 'One report', 0, 1, '2018-10-06 10:44:08', '2018-10-06 10:44:16'),
-(2, 0, 18142, 1, '', 'djsflkdshjfds', 1, 1, '2018-09-18 15:39:31', '2018-09-18 15:39:34'),
-(3, 0, 13385, 1, '', '', 1, 1, '2018-09-20 21:49:10', NULL);
+INSERT INTO `examinations` (`id`, `diagnosis_id`, `diagnostic_test_id`, `pet_id`, `result`, `medical_report`, `is_pathologic`, `in_evidence`, `created`, `updated`) VALUES
+(1, 0, 13384, 1, '48/850°', 'One report, one result, one world', 1, 1, '2018-10-19 09:34:06', '2018-10-19 09:34:22'),
+(2, 0, 18142, 1, '', 'djsflkdshjfds', 0, 0, '2018-10-19 09:34:42', '2018-10-19 09:34:45'),
+(3, 0, 13385, 1, '', '', 0, 0, '2018-10-19 09:34:24', '2018-10-19 09:34:26'),
+(4, 328, 13379, 1, '', '', 0, 0, '2018-10-19 09:33:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -2926,8 +2927,8 @@ CREATE TABLE `notes` (
   `pet_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `note_text` text NOT NULL,
-  `created` bigint(20) NOT NULL,
-  `updated` bigint(20) DEFAULT NULL
+  `created` datetime NOT NULL,
+  `updated` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -2935,10 +2936,10 @@ CREATE TABLE `notes` (
 --
 
 INSERT INTO `notes` (`id`, `pet_id`, `user_id`, `note_text`, `created`, `updated`) VALUES
-(1, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis', 0, NULL),
-(2, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 0, NULL),
-(3, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis', 0, NULL),
-(4, 1, 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ...una modicica', 0, 1536180058);
+(1, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis', '2018-10-17 00:00:00', NULL),
+(2, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2018-10-17 00:00:00', NULL),
+(3, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis', '2018-10-17 00:00:00', NULL),
+(4, 1, 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ...una modicica', '2018-10-17 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -3180,7 +3181,8 @@ CREATE TABLE `treatments` (
 --
 
 INSERT INTO `treatments` (`id`, `procedure_id`, `pet_id`, `notes`, `created`, `recall`, `updated`) VALUES
-(8, 12637, 1, '', '2018-10-05 19:44:21', NULL, '2018-10-05 19:45:15');
+(8, 12637, 1, '', '2018-10-05 19:44:21', NULL, '2018-10-05 19:45:15'),
+(9, 12650, 1, 'nota... una sola nota...', '2018-10-19 08:36:18', '2018-10-26 08:41:11', '2018-10-19 08:41:23');
 
 -- --------------------------------------------------------
 
@@ -7424,13 +7426,13 @@ ALTER TABLE `visit_tbe`
 -- AUTO_INCREMENT per la tabella `examinations`
 --
 ALTER TABLE `examinations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT per la tabella `owners`
@@ -7454,7 +7456,7 @@ ALTER TABLE `prescriptions`
 -- AUTO_INCREMENT per la tabella `treatments`
 --
 ALTER TABLE `treatments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT per la tabella `users`
