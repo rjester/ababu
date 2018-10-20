@@ -30,6 +30,15 @@ namespace Ababu
             GridPetResultReload();
         }
 
+
+        private void GridPetResultReload()
+        {
+            GrdPets.DataSource = Pet.Search(TstPetSearch.Text, TsmPetSearchShowDeleted.Checked);
+            GrdPets.Columns["description"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+        }
+
+
         private void TsbPetSearch_TextChanged(object sender, EventArgs e)
         {
             GridPetResultReload();
@@ -45,7 +54,7 @@ namespace Ababu
             if (GrdPets.SelectedCells.Count > 0)
             {
                 DataGridViewRow selectedRow = GrdPets.SelectedRows[0];
-                OpenPersonEditForm((int)selectedRow.Cells["pid"].Value);
+                OpenPersonEditForm((int)selectedRow.Cells["id"].Value);
             }
         }
 
@@ -57,17 +66,12 @@ namespace Ababu
             frmPetEdit.Show();
         }
 
+
         private void PetEdit_FormClosing(object sender, FormClosingEventArgs e)
         {
             GridPetResultReload();
         }
 
-        private void GridPetResultReload()
-        {
-            GrdPets.DataSource = Pet.Search(TstPetSearch.Text, TsmPetSearchShowDeleted.Checked);
-            GrdPets.Columns["description"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-        }
 
         private void TsmPetSearchShowDeleted_Click(object sender, EventArgs e)
         {
@@ -86,7 +90,7 @@ namespace Ababu
             if (GrdPets.SelectedCells.Count > 0)
             {
                 DataGridViewRow selectedRow = GrdPets.SelectedRows[0];
-                Pet pet = new Pet((int)selectedRow.Cells["pid"].Value);
+                Pet pet = new Pet((int)selectedRow.Cells["id"].Value);
 
                 if(pet.Deleted == null)
                 {
@@ -102,7 +106,6 @@ namespace Ababu
 
         private void GrdPets_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-
             if (e.RowIndex != -1 && e.ColumnIndex == GrdPets.Columns["deleted"].Index)
             {
                 if (e.Value != null)
@@ -142,7 +145,7 @@ namespace Ababu
             if (GrdPets.SelectedCells.Count > 0)
             {
                 DataGridViewRow selectedRow = GrdPets.SelectedRows[0];
-                Pet pet = new Pet((int)selectedRow.Cells["pid"].Value);
+                Pet pet = new Pet((int)selectedRow.Cells["id"].Value);
 
                 if (pet.Deleted != null)
                 {
@@ -162,5 +165,28 @@ namespace Ababu
 
         // define a standard event
         public event EventHandler<PetEventArgs> OnPetSelectionToVisit;
+
+        private void GrdPets_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void GrdPets_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            FillPetDetail();
+        }
+
+
+        private void FillPetDetail()
+        {
+            if (GrdPets.SelectedCells.Count > 0)
+            {
+                int id = (int)GrdPets.SelectedRows[0].Cells["id"].Value;
+                Pet pet = new Pet(id);
+                Owner owner = new Owner();
+
+
+                LblName.Text = pet.Name;
+            }
+        }
     }
 }

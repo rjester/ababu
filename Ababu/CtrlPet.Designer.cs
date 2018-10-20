@@ -40,9 +40,16 @@
             this.TsmPetSearchShowDeleted = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmPetSearchShowOnlyUnderTheraphy = new System.Windows.Forms.ToolStripMenuItem();
             this.TsbPetRefreshList = new System.Windows.Forms.ToolStripButton();
+            this.PanPetDetail = new System.Windows.Forms.Panel();
+            this.LblName = new System.Windows.Forms.Label();
+            this.LblTsn = new System.Windows.Forms.Label();
+            this.GrbPetDetail = new System.Windows.Forms.GroupBox();
+            this.LblOwner = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GrdPets)).BeginInit();
             this.TlpPets.SuspendLayout();
             this.TsPets.SuspendLayout();
+            this.PanPetDetail.SuspendLayout();
+            this.GrbPetDetail.SuspendLayout();
             this.SuspendLayout();
             // 
             // GrdPets
@@ -64,8 +71,10 @@
             this.GrdPets.RowHeadersVisible = false;
             this.GrdPets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GrdPets.ShowEditingIcon = false;
-            this.GrdPets.Size = new System.Drawing.Size(799, 374);
+            this.GrdPets.Size = new System.Drawing.Size(799, 184);
             this.GrdPets.TabIndex = 0;
+            this.GrdPets.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdPets_CellClick);
+            this.GrdPets.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdPets_CellEnter);
             this.GrdPets.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.GrdPets_CellFormatting);
             // 
             // TlpPets
@@ -74,12 +83,14 @@
             this.TlpPets.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TlpPets.Controls.Add(this.GrdPets, 0, 1);
             this.TlpPets.Controls.Add(this.TsPets, 0, 0);
+            this.TlpPets.Controls.Add(this.PanPetDetail, 0, 2);
             this.TlpPets.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TlpPets.Location = new System.Drawing.Point(0, 0);
             this.TlpPets.Name = "TlpPets";
-            this.TlpPets.RowCount = 3;
+            this.TlpPets.RowCount = 4;
             this.TlpPets.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.TlpPets.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TlpPets.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TlpPets.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TlpPets.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.TlpPets.Size = new System.Drawing.Size(805, 437);
             this.TlpPets.TabIndex = 1;
@@ -189,6 +200,55 @@
             this.TsbPetRefreshList.Text = "Refresh";
             this.TsbPetRefreshList.Click += new System.EventHandler(this.TsbPetRefreshList_Click);
             // 
+            // PanPetDetail
+            // 
+            this.PanPetDetail.Controls.Add(this.GrbPetDetail);
+            this.PanPetDetail.Location = new System.Drawing.Point(3, 220);
+            this.PanPetDetail.Name = "PanPetDetail";
+            this.PanPetDetail.Size = new System.Drawing.Size(760, 184);
+            this.PanPetDetail.TabIndex = 2;
+            // 
+            // LblName
+            // 
+            this.LblName.AutoSize = true;
+            this.LblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblName.Location = new System.Drawing.Point(6, 16);
+            this.LblName.Name = "LblName";
+            this.LblName.Size = new System.Drawing.Size(56, 13);
+            this.LblName.TabIndex = 0;
+            this.LblName.Text = "LblName";
+            // 
+            // LblTsn
+            // 
+            this.LblTsn.AutoSize = true;
+            this.LblTsn.Location = new System.Drawing.Point(6, 38);
+            this.LblTsn.Name = "LblTsn";
+            this.LblTsn.Size = new System.Drawing.Size(39, 13);
+            this.LblTsn.TabIndex = 1;
+            this.LblTsn.Text = "LblTsn";
+            // 
+            // GrbPetDetail
+            // 
+            this.GrbPetDetail.Controls.Add(this.LblOwner);
+            this.GrbPetDetail.Controls.Add(this.LblName);
+            this.GrbPetDetail.Controls.Add(this.LblTsn);
+            this.GrbPetDetail.Location = new System.Drawing.Point(3, 3);
+            this.GrbPetDetail.Name = "GrbPetDetail";
+            this.GrbPetDetail.Size = new System.Drawing.Size(405, 178);
+            this.GrbPetDetail.TabIndex = 2;
+            this.GrbPetDetail.TabStop = false;
+            this.GrbPetDetail.Text = "Pet Detail";
+            // 
+            // LblOwner
+            // 
+            this.LblOwner.AutoSize = true;
+            this.LblOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblOwner.Location = new System.Drawing.Point(4, 93);
+            this.LblOwner.Name = "LblOwner";
+            this.LblOwner.Size = new System.Drawing.Size(60, 13);
+            this.LblOwner.TabIndex = 2;
+            this.LblOwner.Text = "LblOwner";
+            // 
             // CtrlPet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,6 +262,9 @@
             this.TlpPets.PerformLayout();
             this.TsPets.ResumeLayout(false);
             this.TsPets.PerformLayout();
+            this.PanPetDetail.ResumeLayout(false);
+            this.GrbPetDetail.ResumeLayout(false);
+            this.GrbPetDetail.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -220,5 +283,10 @@
         private System.Windows.Forms.ToolStripMenuItem TsmPetSearchShowDeleted;
         private System.Windows.Forms.ToolStripMenuItem TsmPetSearchShowOnlyUnderTheraphy;
         private System.Windows.Forms.ToolStripButton TsbPetRefreshList;
+        private System.Windows.Forms.Panel PanPetDetail;
+        private System.Windows.Forms.Label LblTsn;
+        private System.Windows.Forms.Label LblName;
+        private System.Windows.Forms.GroupBox GrbPetDetail;
+        private System.Windows.Forms.Label LblOwner;
     }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Ott 19, 2018 alle 09:37
+-- Creato il: Ott 20, 2018 alle 23:24
 -- Versione del server: 10.1.34-MariaDB
 -- Versione PHP: 7.2.8
 
@@ -2953,28 +2953,28 @@ CREATE TABLE `owners` (
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
-  `zip` varchar(10) NOT NULL,
+  `postcode` varchar(10) NOT NULL,
   `city` varchar(255) NOT NULL,
   `ssn` varchar(255) NOT NULL,
   `phone` varchar(64) NOT NULL,
   `mobile` varchar(64) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `created` bigint(20) NOT NULL,
-  `updated` bigint(20) DEFAULT NULL,
-  `deleted` bigint(20) DEFAULT NULL
+  `created` datetime NOT NULL,
+  `updated` datetime DEFAULT NULL,
+  `deleted` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dump dei dati per la tabella `owners`
 --
 
-INSERT INTO `owners` (`id`, `country_id`, `firstname`, `lastname`, `address`, `zip`, `city`, `ssn`, `phone`, `mobile`, `email`, `created`, `updated`, `deleted`) VALUES
-(1, 'gb', 'George Gordon', 'Byron', 'Gibbon Street', '00100', 'Plymouth dc', 'UK01234567890', '+44 01752 01234567', '+44 348 88 22 399', 'byron@romantic.org', 1467737328, NULL, NULL),
-(2, 'ie', 'Rory', 'Gallagher', 'Thin Lizzy Road, 1', '50127', 'Cork', 'IR0101010101', '+353 0123 123456789', '+353 348 88 22 399', 'rory@rockatcork.org', 1467737346, NULL, NULL),
-(3, 'ie', 'Phil', 'Lynott', 'Thin Lizzy Rd., 1', 'D01 123', 'Dublin', 'IRL0987654321', '+353 0000 01234567', '+353 348 88 22 399', 'phil.lynott@thinlizzy.com', 1467737416, NULL, NULL),
-(4, 'gb', 'Sherlock', 'Holmes', '221B, Baker street', '', 'London', 'UK01234567890', '+44 01752 01234567', '+44 348 88 22 399', 'sh@scotlandyard.org', 1467737328, NULL, NULL),
-(5, 'it', 'Roberto', 'Nannucci', 'via Valle 14', '50014', 'Fiesole', 'NNNRRT72C26D583N', '3488822399', '+393488822399', 'roberto.nannucci@gmail.com', 1468583717, NULL, NULL),
-(6, 'gb', 'Paul', 'McCartney', 'Abbey Road, 1', 'SN123LN', 'London', 'EN101010', '+44123456789', '+44987654321', 'paul@beatles.com', 1493984647, NULL, NULL);
+INSERT INTO `owners` (`id`, `country_id`, `firstname`, `lastname`, `address`, `postcode`, `city`, `ssn`, `phone`, `mobile`, `email`, `created`, `updated`, `deleted`) VALUES
+(1, 'gb', 'George Gordon', 'Byron', 'Gibbon Street', '00100', 'Plymouth dc', 'UK01234567890', '+44 01752 01234567', '+44 348 88 22 399', 'byron@romantic.org', '0000-00-00 00:00:00', NULL, NULL),
+(2, 'ie', 'Rory', 'Gallagher', 'Thin Lizzy Road, 1', '50127', 'Cork', 'IR0101010101', '+353 0123 123456789', '+353 348 88 22 399', 'rory@rockatcork.org', '0000-00-00 00:00:00', NULL, NULL),
+(3, 'ie', 'Phil', 'Lynott', 'Thin Lizzy Rd., 1', 'D01 123', 'Dublin', 'IRL0987654321', '+353 0000 01234567', '+353 348 88 22 399', 'phil.lynott@thinlizzy.com', '0000-00-00 00:00:00', NULL, NULL),
+(4, 'gb', 'Sherlock', 'Holmes', '221B, Baker street', '', 'London', 'UK01234567890', '+44 01752 01234567', '+44 348 88 22 399', 'sh@scotlandyard.org', '0000-00-00 00:00:00', NULL, NULL),
+(5, 'it', 'Roberto', 'Nannucci', 'via Valle 14', '50014', 'Fiesole', 'NNNRRT72C26D583N', '3488822399', '+393488822399', 'roberto.nannucci@gmail.com', '0000-00-00 00:00:00', NULL, NULL),
+(6, 'gb', 'Paul', 'McCartney', 'Abbey Road, 1', 'SN123LN', 'London', 'EN101010', '+44123456789', '+44987654321', 'paul@beatles.com', '0000-00-00 00:00:00', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -3011,7 +3011,7 @@ INSERT INTO `pets` (`id`, `tsn`, `owner_id`, `name`, `gender`, `date_of_birth`, 
 (3, 727488, 3, 'Gnasher', 'M', 0, NULL, 'Good German Shepherd black and brown', 'black and brown', 'M45455', 'neck', '', '', 0, 1529190269, NULL),
 (4, 727488, 1, 'Boatswain', 'M', 1052107200, 1226282400, 'Good and gentle and brave black dog.\r\nTo mark a friend\'s remains these stones arise;\r\nI never knew but one -- and here he lies.', 'black', 'M7878', 'neck', '', '', 0, 1529189575, NULL),
 (7, 183815, 0, 'Martha', 'M', -210158656, 208535744, 'Old English Sheepdog referred to in the title of the 1968 Beatles song \"Martha My Dear.\"', 'black, white', 'M1968', 'Leg', '', '', 1493904267, 1529189568, NULL),
-(8, 179558, 2, 'zio', 'M', 830100496, NULL, 'just a description.', 'any coulor you like', 'io', 'neck', '', '', 1529189996, 1529510869, NULL);
+(8, 179558, 2, 'Zeus', 'M', 830129296, NULL, 'just a description.', 'any coulor you like', 'MCHIP9090', 'neck', '', '', 1529189996, 1539978342, NULL);
 
 -- --------------------------------------------------------
 
@@ -3037,9 +3037,9 @@ CREATE TABLE `prescriptions` (
 --
 
 INSERT INTO `prescriptions` (`id`, `medicine_id`, `diagnosis_id`, `pet_id`, `user_id`, `quantity`, `dosage`, `in_evidence`, `created`, `updated`) VALUES
-(15, '10347/4037', 0, 1, 0, 1, 'one per day', 1, '2018-09-11 17:57:22', '2018-09-18 08:38:57'),
-(16, '10347/4037', 333, 1, 0, 1, 'one a day', 1, '2018-09-13 08:46:00', '2018-09-18 13:24:24'),
-(17, '32742/4005', 0, 1, 0, 1, '1', 0, '2018-09-18 14:43:23', '2018-09-18 14:43:31'),
+(15, '10347/4037', 328, 1, 2, 1, 'one per day..', 0, '2018-09-11 17:57:22', '2018-10-19 14:54:10'),
+(16, '10347/4037', 328, 1, 2, 1, 'one a day', 1, '2018-09-13 08:46:00', '2018-10-19 14:53:48'),
+(17, '32742/4005', 328, 1, 2, 1, '1', 0, '2018-09-18 14:43:23', '2018-10-19 14:53:38'),
 (18, 'EU/2/08/088/004', 0, 1, 2, 1, 'one or two', 1, '2018-10-08 10:27:07', '2018-10-08 15:04:07');
 
 -- --------------------------------------------------------
@@ -3067,7 +3067,7 @@ CREATE TABLE `problems` (
 --
 
 INSERT INTO `problems` (`diagnosis_id`, `pet_id`, `user_id`, `active_from`, `status_id`, `key_problem`, `subjective_analysis`, `objective_analysis`, `notes`, `created`, `updated`) VALUES
-(328, 1, 2, '2018-10-08 14:44:23', 0, 0, '', '', '', '2018-10-08 14:44:25', NULL);
+(328, 1, 2, '2018-10-08 14:44:23', -1, 0, '', '', '', '2018-10-08 14:44:25', '2018-10-19 14:53:53');
 
 -- --------------------------------------------------------
 

@@ -13,9 +13,6 @@ namespace Ababu
 {
     public partial class CtrlVisit : UserControl
     {
-        
-        // @todo: delete me
-        // public int Pid { get; set; }
         public Pet Pet { get; set; }
         public Problem Problem { get; set; }
 

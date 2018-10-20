@@ -25,7 +25,7 @@ namespace Ababu
 
         private void FrmPetEdit_Load(object sender, EventArgs e)
         {
-            FillPetForm();
+            FillForm();
 
             AddOnChangeHandlerToInputControls(this);
         }
@@ -107,7 +107,7 @@ namespace Ababu
         {
             if (IsValidForm())
             {
-                Pet.Id = Convert.ToInt32(TxtPid.Text);
+                Pet.Id = Convert.ToInt32(TxtPetId.Text);
                 Pet.Tsn = Convert.ToInt32(Utility.IfNull(CmbSpecies.SelectedValue, Pet.Tsn));
                 Pet.OwnerId = Convert.ToInt32(Utility.IfNull(CmbOwner.SelectedValue, Pet.OwnerId));
                 Pet.Name = TxtName.Text;
@@ -137,7 +137,7 @@ namespace Ababu
                     if (affected_id  > 0)
                     {
                         Pet.Load(affected_id);
-                        FillPetForm();
+                        FillForm();
                         UnlockForm();
                     }
                 }
@@ -190,9 +190,9 @@ namespace Ababu
         }
 
 
-        private void FillPetForm()
+        private void FillForm()
         {
-            TxtPid.Text = Pet.Id.ToString();
+            TxtPetId.Text = Pet.Id.ToString();
             TxtName.Text = Pet.Name;
 
             CmbSpecies.DataSource = Species.List();
@@ -201,7 +201,7 @@ namespace Ababu
             CmbSpecies.SelectedValue = Pet.Tsn;
 
             CmbOwner.DataSource = OldAuntie.Owner.List();
-            CmbOwner.ValueMember = "oid";
+            CmbOwner.ValueMember = "id";
             CmbOwner.DisplayMember = "owner";
             CmbOwner.SelectedValue = Pet.OwnerId;
 
@@ -266,7 +266,7 @@ namespace Ababu
             {
                 Pet.Delete();
                 Pet.Load(Pet.Id);
-                FillPetForm();
+                FillForm();
                 UnlockForm();
             }
         }

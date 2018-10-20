@@ -247,11 +247,11 @@ namespace OldAuntie
     // define a custom eventargs class to pass Pet ID
     public class PetEventArgs : EventArgs
     {
-        public PetEventArgs(int pid)
+        public PetEventArgs(int pet_id)
         {
-            this.Pid = pid;
+            this.PetId = pet_id;
         }
 
-        public int Pid { get; private set; }
+        public int PetId { get; private set; }
     }
 }

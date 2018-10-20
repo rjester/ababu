@@ -155,7 +155,7 @@ namespace OldAuntie
 
 
 
-        static public DataTable GetPrescriptionsByPid(int pet_id, int diagnosis_id = 0)
+        static public DataTable GetPrescriptionsByPetId(int pet_id, int diagnosis_id = 0)
         {
             string query = "SELECT a.id, a.medicine_id, a.pet_id, b.name, b.date_of_issue, b.date_of_withdrawal, a.quantity, a.dosage, a.in_evidence, a.created " +
                 "FROM prescriptions a, medicines b " +

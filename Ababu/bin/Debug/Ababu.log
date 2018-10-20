@@ -558,3 +558,6 @@
 19/10/2018 09:18:03 (error): Unknown column 'nid' in 'where clause'
 19/10/2018 09:19:15 (error): Unknown column 'nid' in 'where clause'
 19/10/2018 09:19:34 (error): Unknown column 'nid' in 'where clause'
+19/10/2018 19:34:53 (error): Unknown column 'oid' in 'field list'
+20/10/2018 08:06:39 (error): Fatal error encountered during command execution.
+20/10/2018 08:06:39 (error): Connection must be valid and open.

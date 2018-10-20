@@ -53,7 +53,7 @@ namespace Ababu
 
         private void FillGrid()
         {
-            DataTable DtPrescriptions = Prescription.GetPrescriptionsByPid(Pet.Id, Problem.DiagnosisId);
+            DataTable DtPrescriptions = Prescription.GetPrescriptionsByPetId(Pet.Id, Problem.DiagnosisId);
             DtPrescriptions.Columns.Add("in_evidenve_image", typeof(Image));
 
             for (int j = 0; j < DtPrescriptions.Rows.Count; j++)

@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPetEdit));
             this.PicIsModified = new System.Windows.Forms.PictureBox();
-            this.LblPid = new System.Windows.Forms.Label();
-            this.TxtPid = new System.Windows.Forms.TextBox();
+            this.LblPetId = new System.Windows.Forms.Label();
+            this.TxtPetId = new System.Windows.Forms.TextBox();
             this.TxtName = new System.Windows.Forms.TextBox();
             this.LblName = new System.Windows.Forms.Label();
             this.CmbSpecies = new System.Windows.Forms.ComboBox();
@@ -91,25 +91,25 @@
             this.PicIsModified.TabIndex = 1;
             this.PicIsModified.TabStop = false;
             // 
-            // LblPid
+            // LblPetId
             // 
-            this.LblPid.AutoSize = true;
-            this.LblPid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPid.Location = new System.Drawing.Point(662, 15);
-            this.LblPid.Name = "LblPid";
-            this.LblPid.Size = new System.Drawing.Size(44, 16);
-            this.LblPid.TabIndex = 21;
-            this.LblPid.Text = "Pet ID";
+            this.LblPetId.AutoSize = true;
+            this.LblPetId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPetId.Location = new System.Drawing.Point(662, 15);
+            this.LblPetId.Name = "LblPetId";
+            this.LblPetId.Size = new System.Drawing.Size(44, 16);
+            this.LblPetId.TabIndex = 21;
+            this.LblPetId.Text = "Pet ID";
             // 
-            // TxtPid
+            // TxtPetId
             // 
-            this.TxtPid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtPid.Location = new System.Drawing.Point(712, 12);
-            this.TxtPid.Name = "TxtPid";
-            this.TxtPid.ReadOnly = true;
-            this.TxtPid.Size = new System.Drawing.Size(50, 22);
-            this.TxtPid.TabIndex = 0;
-            this.TxtPid.TabStop = false;
+            this.TxtPetId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPetId.Location = new System.Drawing.Point(712, 12);
+            this.TxtPetId.Name = "TxtPetId";
+            this.TxtPetId.ReadOnly = true;
+            this.TxtPetId.Size = new System.Drawing.Size(50, 22);
+            this.TxtPetId.TabIndex = 0;
+            this.TxtPetId.TabStop = false;
             // 
             // TxtName
             // 
@@ -528,8 +528,8 @@
             this.Controls.Add(this.LblSpecies);
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.TxtName);
-            this.Controls.Add(this.LblPid);
-            this.Controls.Add(this.TxtPid);
+            this.Controls.Add(this.LblPetId);
+            this.Controls.Add(this.TxtPetId);
             this.Controls.Add(this.PicIsModified);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -556,8 +556,8 @@
         #endregion
 
         private System.Windows.Forms.PictureBox PicIsModified;
-        private System.Windows.Forms.Label LblPid;
-        private System.Windows.Forms.TextBox TxtPid;
+        private System.Windows.Forms.Label LblPetId;
+        private System.Windows.Forms.TextBox TxtPetId;
         private System.Windows.Forms.TextBox TxtName;
         private System.Windows.Forms.Label LblName;
         private System.Windows.Forms.ComboBox CmbSpecies;
