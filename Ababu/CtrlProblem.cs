@@ -31,9 +31,9 @@ namespace Ababu
 
         private void FillCombo()
         {
-            CmbProblems.DataSource = Venom.Search(Venom.DIAGNOSIS);
             CmbProblems.ValueMember = "id";
             CmbProblems.DisplayMember = "value";
+            CmbProblems.DataSource = Venom.Search(Venom.DIAGNOSIS);
             CmbProblems.SelectedValue = 0;
         }
 

@@ -44,9 +44,9 @@ namespace Ababu
 
         private void FillCombo()
         {
-            CmbMedicines.DataSource = Medicine.Search();
             CmbMedicines.ValueMember = "id";
             CmbMedicines.DisplayMember = "value";
+            CmbMedicines.DataSource = Medicine.Search();
             CmbMedicines.SelectedValue = 0;
         }
 
