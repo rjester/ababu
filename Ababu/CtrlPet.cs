@@ -16,6 +16,8 @@ namespace Ababu
         private bool SearchOptionShowDeleted;
         private bool SearchOptionShowOnlyUnderTheraphy;
 
+        private Owner Owner { get; set; }
+
 
         public CtrlPet()
         {
@@ -166,9 +168,6 @@ namespace Ababu
         // define a standard event
         public event EventHandler<PetEventArgs> OnPetSelectionToVisit;
 
-        private void GrdPets_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
 
         private void GrdPets_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -182,11 +181,30 @@ namespace Ababu
             {
                 int id = (int)GrdPets.SelectedRows[0].Cells["id"].Value;
                 Pet pet = new Pet(id);
-                Owner owner = new Owner();
+                Owner = new Owner(pet.OwnerId);
 
 
                 LblName.Text = pet.Name;
+
+                LblOwner.Text = Owner.Firtname + " " + Owner.Lastname;
+                LlbPhone.Text = Owner.Phone;
+                
+                LlbMobile.Text = Owner.Mobile;
+                LblEmail.Text = Owner.Email;
+
             }
+        }
+
+        private void LlbMobile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmLightbox lightbox = new FrmLightbox(Owner.Mobile);
+            lightbox.Show();
+        }
+
+        private void LlbPhone_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmLightbox lightbox = new FrmLightbox(Owner.Phone);
+            lightbox.Show();
         }
     }
 }

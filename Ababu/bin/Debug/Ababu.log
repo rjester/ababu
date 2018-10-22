@@ -561,3 +561,6 @@
 19/10/2018 19:34:53 (error): Unknown column 'oid' in 'field list'
 20/10/2018 08:06:39 (error): Fatal error encountered during command execution.
 20/10/2018 08:06:39 (error): Connection must be valid and open.
+22/10/2018 07:51:11 (error): Unable to connect to any of the specified MySQL hosts.
+22/10/2018 07:51:12 (error): Connection must be valid and open.
+22/10/2018 07:51:20 (error): Unable to connect to any of the specified MySQL hosts.
