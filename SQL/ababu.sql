@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Nov 01, 2018 alle 13:40
+-- Creato il: Nov 01, 2018 alle 18:34
 -- Versione del server: 10.1.34-MariaDB
 -- Versione PHP: 7.2.8
 
@@ -3240,7 +3240,7 @@ INSERT INTO `owners` (`id`, `country_id`, `firstname`, `lastname`, `address`, `p
 (2, 'ie', 'Rory', 'Gallagher', 'Thin Lizzy Road, 10', '50127', 'Cork', 'IR0101', '+353 0123 123456789', '+353 348 88 22 399', 'rory@rock.org', '0001-01-01 00:00:00', '2018-10-30 20:35:55'),
 (3, 'ie', 'Phil', 'Lynott', 'Thin Lizzy Rd., 10', 'D01 123', 'Dublin', 'IRL0987654321', '+353 0000 01234567', '+353 348 88 22 399', 'phil.lynott@thinlizzy.com', '0001-01-01 00:00:00', '2018-10-30 20:36:27'),
 (4, 'gb', 'Sherlock', 'Holmes', '221B, Baker street', '', 'London', 'UK01234567890', '+44 01752 01234567', '+44 348 88 22 399', 'sh@scotlandyard.org', '0000-00-00 00:00:00', NULL),
-(5, 'it', 'Roberto', 'Nannucci', 'via Valle 14', '50014', 'Fiesole', 'NNNRRT72C26D583N', '3488822399', '+393488822399', 'roberto.nannucci@gmail.com', '0000-00-00 00:00:00', NULL),
+(5, 'it', 'Roberto', 'Nannucci', 'via Valle 14', '50014', 'Fiesole', 'NNNRRT72C26D583N', '3488822399', '+39 348 88 22 399', 'roberto.nannucci@gmail.com', '0001-01-01 00:00:00', '2018-11-01 14:41:10'),
 (6, 'gb', 'Paul', 'McCartney', 'Abbey Road, 1', 'SN123LN', 'London', 'EN101010', '+44123456789', '+44987654321', 'paul@beatles.com', '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
@@ -3255,16 +3255,16 @@ CREATE TABLE `pets` (
   `owner_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `gender` char(1) NOT NULL,
-  `date_of_birth` bigint(20) NOT NULL,
-  `date_of_death` bigint(20) DEFAULT NULL,
+  `date_of_birth` datetime NOT NULL,
+  `date_of_death` datetime DEFAULT NULL,
   `description` text,
   `color` varchar(255) DEFAULT NULL,
   `microchip` varchar(255) DEFAULT NULL,
   `microchip_location` varchar(100) DEFAULT NULL,
   `tatuatge` varchar(64) DEFAULT NULL,
   `tatuatge_location` varchar(100) DEFAULT NULL,
-  `created` bigint(20) NOT NULL,
-  `updated` bigint(20) DEFAULT NULL
+  `created` datetime NOT NULL,
+  `updated` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -3272,11 +3272,11 @@ CREATE TABLE `pets` (
 --
 
 INSERT INTO `pets` (`id`, `tsn`, `owner_id`, `name`, `gender`, `date_of_birth`, `date_of_death`, `description`, `color`, `microchip`, `microchip_location`, `tatuatge`, `tatuatge_location`, `created`, `updated`) VALUES
-(1, 727488, 5, 'Ozzy', 'M', 1363320218, NULL, 'Beautiful and good Bergamasco, black and white', 'black and white', 'M12345', 'neck', '', '', 1406104554, 1541078339),
-(2, 727488, 1, 'Muddy', 'M', 1361231500, NULL, 'Beautiful and gentle Bobtail, black and white', 'black and white', 'M09876', 'neck', NULL, NULL, 0, NULL),
-(3, 727488, 1, 'Gnasher', 'M', 7200, NULL, 'Good German Shepherd black and brown', 'black and brown', 'M45455', 'neck', '', '', 0, 1540931855),
-(4, 727488, 1, 'Boatswain', 'M', 1052107200, 1226282400, 'Good and gentle and brave black dog.\r\nTo mark a friend\'s remains these stones arise;\r\nI never knew but one -- and here he lies.', 'black', 'M7878', 'neck', '', '', 0, 1529189575),
-(7, 183815, 1, 'Martha', 'M', -210158656, 208535744, 'Old English Sheepdog referred to in the title of the 1968 Beatles song \"Martha My Dear.\"', 'black, white', 'M1968', 'Leg', '', '', 1493904267, 1529189568);
+(1, 727488, 5, 'Ozzy', 'M', '2013-03-14 14:12:58', NULL, 'Beautiful and good Bergamasco, black and white', 'black and white', 'M12345', 'neck', '', '', '0001-01-01 00:00:00', '2018-11-01 14:35:48'),
+(2, 727488, 1, 'Muddy', 'M', '2009-06-13 14:12:58', NULL, 'Beautiful and gentle Bobtail, black and white', 'black and white', 'M09876', 'neck', '', '', '0001-01-01 00:00:00', '2018-11-01 14:24:02'),
+(3, 727488, 1, 'Gnasher', 'M', '2018-10-01 14:12:58', NULL, 'Good German Shepherd black and brown', 'black and brown', 'M45455', 'neck', '', '', '0001-01-01 00:00:00', '2018-11-01 14:25:38'),
+(4, 727488, 1, 'Boatswain', 'M', '2018-10-30 14:12:58', '2018-11-03 00:00:00', 'Good and gentle and brave black dog.\r\nTo mark a friend\'s remains these stones arise;\r\nI never knew but one -- and here he lies.', 'black', 'M7878', 'neck', '', '', '0001-01-01 00:00:00', '2018-11-01 14:31:49'),
+(7, 183815, 1, 'Martha', 'M', '2018-07-12 14:12:58', NULL, 'Old English Sheepdog referred to in the title of the 1968 Beatles song \"Martha My Dear.\"', 'black, white', 'M1968', 'Leg', '', '', '2018-11-01 14:12:58', '2018-11-01 16:21:09');
 
 -- --------------------------------------------------------
 

@@ -57,7 +57,6 @@
             this.LblMobile = new System.Windows.Forms.Label();
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.LblEmail = new System.Windows.Forms.Label();
-            this.BtnDelete = new System.Windows.Forms.Button();
             this.StsOwnerEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrOwnerEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).BeginInit();
@@ -295,25 +294,12 @@
             this.LblEmail.TabIndex = 66;
             this.LblEmail.Text = "Email";
             // 
-            // BtnDelete
-            // 
-            this.BtnDelete.Image = global::Ababu.Properties.Resources.delete;
-            this.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnDelete.Location = new System.Drawing.Point(563, 346);
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Size = new System.Drawing.Size(75, 23);
-            this.BtnDelete.TabIndex = 67;
-            this.BtnDelete.Text = "Delete";
-            this.BtnDelete.UseVisualStyleBackColor = true;
-            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
-            // 
             // FrmOwnerEdit
             // 
             this.AcceptButton = this.BtnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 406);
-            this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.GrbOwnerContact);
             this.Controls.Add(this.LblSsn);
             this.Controls.Add(this.TxtSsn);
@@ -379,6 +365,5 @@
         private System.Windows.Forms.Label LblPhone;
         private System.Windows.Forms.Label LblSsn;
         private System.Windows.Forms.TextBox TxtSsn;
-        private System.Windows.Forms.Button BtnDelete;
     }
 }

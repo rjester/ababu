@@ -68,7 +68,7 @@ namespace Ababu
             TxtPetName.Text = Pet.Name.ToString();
             Species species = new Species((int)Pet.Tsn);
             TxtPetSpecie.Text = species.FamiliarName;
-            TxtDateOfBirth.Text = Utility.UnixTimeStampToDateTime(Pet.DateOfBirth).ToString();
+            TxtDateOfBirth.Text = Pet.DateOfBirth.ToString();
             TxtPetYears.Text = Pet.Years.ToString();
             TxtPetMonths.Text = Pet.Months.ToString();
 
@@ -225,9 +225,9 @@ namespace Ababu
         private void DtpActiveFrom_ValueChanged(object sender, EventArgs e)
         {
             // DateTime Now = Utility.UnixTimeStampToDateTime(Utility.Now());
-            DateTime DateOfBirth = Utility.UnixTimeStampToDateTime(Pet.DateOfBirth);
+            // DateTime DateOfBirth = Utility.UnixTimeStampToDateTime(Pet.DateOfBirth);
 
-            int AtAge = Convert.ToInt32(DtpActiveFrom.Value.Year - DateOfBirth.Year);
+            int AtAge = Convert.ToInt32(DtpActiveFrom.Value.Year - Pet.DateOfBirth.Year);
 
             TxtAge.Text = AtAge.ToString();
         }

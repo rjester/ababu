@@ -16,16 +16,16 @@ namespace OldAuntie
         public int OwnerId { get; set; }
         public string Name { get; set; }
         public string Gender { get; set; }
-        public long DateOfBirth { get; set; }
-        public long? DateOfDeath { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfDeath { get; set; }
         public string Description { get; set; }
         public string Color { get; set; }
         public string Microchip { get; set; }
         public string MicrochipLocation { get; set; }
         public string Tatuatge { get; set; }
         public string TatuatgeLocation { get; set; }
-        public long Created { get; set; }
-        public long? Updated { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime? Updated { get; set; }
 
         // Properties / fields not in Database
         public int Years { get; set; }
@@ -59,7 +59,7 @@ namespace OldAuntie
                     OwnerId = (int)result["owner_id"];
                     Name = result["name"].ToString();
                     Gender = result["gender"].ToString();
-                    DateOfBirth = (long)result["date_of_birth"];
+                    DateOfBirth = (DateTime)result["date_of_birth"];
                     DateOfDeath = Utility.IfDBNull(result["date_of_death"], null);
 
                     Description = result["description"].ToString();
@@ -69,25 +69,33 @@ namespace OldAuntie
                     Tatuatge = result["tatuatge"].ToString();
                     TatuatgeLocation = result["tatuatge_location"].ToString();
 
-                    Created = (long)result["created"];
+                    Created = (DateTime)result["created"];
                     Updated = Utility.IfDBNull(result["updated"], null);
 
                     // calculate age of the patient
-                    DateTime DtDateOfBirth = Utility.UnixTimeStampToDateTime((long)DateOfBirth);
-                    DateTime DtDateMax = DateTime.Now;
+                    DateTime DateMax = DateTime.Today;
 
                     if (DateOfDeath != null)
                     {
-                        DtDateMax = Utility.UnixTimeStampToDateTime((long)DateOfDeath);
+                        DateMax = (DateTime)DateOfDeath;
                     }
 
-                    TimeSpan ts = DtDateMax - DtDateOfBirth;
-                    DateTime Age = DateTime.MinValue.AddDays(ts.Days);
-                    Years = DtDateMax.Year - DtDateOfBirth.Year;
-                    Months = DtDateMax.Month - DtDateOfBirth.Month;
-                    Days = DtDateMax.Day - DtDateOfBirth.Day;
+                    Months = DateMax.Month - DateOfBirth.Month;
+                    Years = DateMax.Year - DateOfBirth.Year;
 
+                    if (DateMax.Day < DateOfBirth.Day)
+                    {
+                        Months--;
+                    }
 
+                    if (Months < 0)
+                    {
+                        Years--;
+                        Months += 12;
+                    }
+
+                    Days = (DateMax - DateOfBirth.AddMonths((Years * 12) + Months)).Days;
+                    
                     Specie = new Species(Tsn);
                 }
             }
@@ -147,7 +155,7 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@tatuatge", Tatuatge);
             Cmd.Parameters.AddWithValue("@tatuatge_location", TatuatgeLocation);
             Cmd.Parameters.AddWithValue("@created", Created);
-            Cmd.Parameters.AddWithValue("@updated", Utility.Now());
+            Cmd.Parameters.AddWithValue("@updated", DateTime.Now);
 
             affected_rows = Cmd.ExecuteNonQuery();
             if(affected_rows > 0)
@@ -180,7 +188,7 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@microchip_location", MicrochipLocation);
             Cmd.Parameters.AddWithValue("@tatuatge", Tatuatge);
             Cmd.Parameters.AddWithValue("@tatuatge_location", TatuatgeLocation);
-            Cmd.Parameters.AddWithValue("@created", Utility.Now());
+            Cmd.Parameters.AddWithValue("@created", DateTime.Now);
 
             affected_rows = Cmd.ExecuteNonQuery();
 

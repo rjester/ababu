@@ -208,18 +208,5 @@ namespace Ababu
                 }
             }
         }
-
-        private void BtnDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Owner.Delete();
-            }
-            catch(Exception ex)
-            {
-                Globals.Log.Write(ex.ToString());
-                MessageBox.Show("Cannot delete selected owner. Some pets may be associated to it");
-            }
-        }
     }
 }

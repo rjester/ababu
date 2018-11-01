@@ -109,11 +109,11 @@ namespace Ababu
                 Pet.OwnerId = Convert.ToInt32(Utility.IfNull(CmbOwner.SelectedValue, Pet.OwnerId));
                 Pet.Name = TxtName.Text;
                 Pet.Gender = CmbGender.SelectedItem.ToString();
-                Pet.DateOfBirth = Utility.DateTimeToUnixTimestamp(DtpDateOfBirth.Value);
+                Pet.DateOfBirth = DtpDateOfBirth.Value;
 
                 if (ChkDateOfDeath.Checked == true)
                 {
-                    Pet.DateOfDeath = Utility.DateTimeToUnixTimestamp(DtpDateOfDeath.Value);
+                    Pet.DateOfDeath = DtpDateOfDeath.Value;
                 }
                 else
                 {
@@ -206,7 +206,7 @@ namespace Ababu
 
             TxtColor.Text = Pet.Color;
 
-            DtpDateOfBirth.Value = Utility.UnixTimeStampToDateTime((int)Pet.DateOfBirth);
+            DtpDateOfBirth.Value = Pet.DateOfBirth;
 
             if(Pet.DateOfDeath == null)
             {
@@ -215,7 +215,7 @@ namespace Ababu
             }
             else
             {
-                DtpDateOfDeath.Value = Utility.UnixTimeStampToDateTime(Utility.IfNull(Pet.DateOfDeath, 0));
+                DtpDateOfDeath.Value = Utility.IfNull(Pet.DateOfDeath, 0);
                 ChkDateOfDeath.Checked = true;
             }
 
@@ -229,10 +229,10 @@ namespace Ababu
             TxtTatuatgeLocation.Text = Pet.TatuatgeLocation;
 
             // set the status bar info
-            StlRecordInfo.Text = "Record created on " + Utility.UnixTimeStampToDateTime(Pet.Created).ToString();
+            StlRecordInfo.Text = "Record created on " + Pet.Created.ToString();
             if (Pet.Updated != null)
             {
-                StlRecordInfo.Text += " - modified on " + Utility.UnixTimeStampToDateTime(Utility.IfNull(Pet.Updated, 0)).ToString();
+                StlRecordInfo.Text += " - modified on " + Utility.IfNull(Pet.Updated, 0).ToString();
             }
         }
         
