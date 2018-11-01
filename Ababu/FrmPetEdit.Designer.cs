@@ -535,7 +535,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmPetEdit";
-            this.Text = "FrmPetEdit";
+            this.Text = "Pet Edit";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPetEdit_FormClosing);
             this.Load += new System.EventHandler(this.FrmPetEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).EndInit();

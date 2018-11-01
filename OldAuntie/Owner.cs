@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -69,6 +70,105 @@ namespace OldAuntie
         {
             DataTable result = Globals.DBCon.Execute("SELECT id, CONCAT(firstname, ' ', lastname) as owner FROM owners");
             return result;
+        }
+
+
+        public int Save()
+        {
+            if (Exists())
+            {
+                return Update();
+            }
+            else
+            {
+                return Insert();
+            }
+        }
+
+
+        public bool Exists()
+        {
+            if(Id > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        public int Update()
+        {
+            int affected_rows = 0;
+            string query = "UPDATE owners SET " +
+                "country_id=@country_id, " +
+                "firstname=@firstname, " +
+                "lastname=@lastname, " +
+                "address=@address, " +
+                "postcode=@postcode, " +
+                "city=@city, " +
+                "ssn=@ssn, " +
+                "phone=@phone, " +
+                "mobile=@mobile, " +
+                "email=@email, " +
+                "created=@created, " +
+                "updated=@updated, " +
+                "deleted=@deleted " +
+                "WHERE id=@id";
+
+            MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@id", Id);
+            Cmd.Parameters.AddWithValue("@country_id", CountryId);
+            Cmd.Parameters.AddWithValue("@firstname", Firtname);
+            Cmd.Parameters.AddWithValue("@lastname", Lastname);
+            Cmd.Parameters.AddWithValue("@address", Address);
+            Cmd.Parameters.AddWithValue("@postcode", Postcode);
+            Cmd.Parameters.AddWithValue("@city", City);
+            Cmd.Parameters.AddWithValue("@ssn", Ssn);
+            Cmd.Parameters.AddWithValue("@phone", Phone);
+            Cmd.Parameters.AddWithValue("@mobile", Mobile);
+            Cmd.Parameters.AddWithValue("@email", Email);
+
+            Cmd.Parameters.AddWithValue("@created", Created);
+            Cmd.Parameters.AddWithValue("@updated", DateTime.Now);
+            Cmd.Parameters.AddWithValue("@deleted", Deleted);
+
+            affected_rows = Cmd.ExecuteNonQuery();
+
+            return affected_rows;
+        }
+
+
+
+        public int Insert()
+        {
+            int affected_rows = 0;
+            string query = "INSERT INTO owners (country_id, firstname, lastname, address, postcode, city, ssn, phone, mobile, email, created, updated, deleted) " +
+                "VALUES (@country_id, @firstname, @lastname, @address, @postcode, @city, @ssn, @phone, @mobile, @email, @created, @updated, @deleted)";
+
+            MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@country_id", CountryId);
+            Cmd.Parameters.AddWithValue("@firstname", Firtname);
+            Cmd.Parameters.AddWithValue("@lastname", Lastname);
+            Cmd.Parameters.AddWithValue("@address", Address);
+            Cmd.Parameters.AddWithValue("@postcode", Postcode);
+            Cmd.Parameters.AddWithValue("@city", City);
+            Cmd.Parameters.AddWithValue("@ssn", Ssn);
+            Cmd.Parameters.AddWithValue("@phone", Phone);
+            Cmd.Parameters.AddWithValue("@mobile", Mobile);
+            Cmd.Parameters.AddWithValue("@email", Email);
+
+            Cmd.Parameters.AddWithValue("@created", DateTime.Now);
+            Cmd.Parameters.AddWithValue("@updated", Updated);
+            Cmd.Parameters.AddWithValue("@deleted", Deleted);
+
+            affected_rows = Cmd.ExecuteNonQuery();
+
+            return affected_rows;
+
+
         }
     }
 }

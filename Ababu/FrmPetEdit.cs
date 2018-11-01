@@ -13,13 +13,14 @@ namespace Ababu
 {
     public partial class FrmPetEdit : Form
     {
-        public Pet Pet = new Pet();
+        public Pet Pet { get; set; }
 
         private bool IsModified = false;
 
 
-        public FrmPetEdit()
+        public FrmPetEdit(Pet pet)
         {
+            Pet = pet;
             InitializeComponent();
         }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Ott 20, 2018 alle 23:24
+-- Creato il: Nov 01, 2018 alle 09:03
 -- Versione del server: 10.1.34-MariaDB
 -- Versione PHP: 7.2.8
 
@@ -21,6 +21,273 @@ SET time_zone = "+00:00";
 --
 -- Database: `ababu`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `countries`
+--
+
+CREATE TABLE `countries` (
+  `id` varchar(2) NOT NULL DEFAULT '',
+  `name` varchar(50) NOT NULL DEFAULT '',
+  `alpha_3` varchar(3) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `countries`
+--
+
+INSERT INTO `countries` (`id`, `name`, `alpha_3`) VALUES
+('ad', 'Andorra', 'and'),
+('ae', 'United Arab Emirates', 'are'),
+('af', 'Afghanistan', 'afg'),
+('ag', 'Antigua and Barbuda', 'atg'),
+('ai', 'Anguilla', 'aia'),
+('al', 'Albania', 'alb'),
+('am', 'Armenia', 'arm'),
+('ao', 'Angola', 'ago'),
+('aq', 'Antarctica', ''),
+('ar', 'Argentina', 'arg'),
+('as', 'American Samoa', 'asm'),
+('at', 'Austria', 'aut'),
+('au', 'Australia', 'aus'),
+('aw', 'Aruba', 'abw'),
+('ax', 'Aland Islands', 'ala'),
+('az', 'Azerbaijan', 'aze'),
+('ba', 'Bosnia and Herzegovina', 'bih'),
+('bb', 'Barbados', 'brb'),
+('bd', 'Bangladesh', 'bgd'),
+('be', 'Belgium', 'bel'),
+('bf', 'Burkina Faso', 'bfa'),
+('bg', 'Bulgaria', 'bgr'),
+('bh', 'Bahrain', 'bhr'),
+('bi', 'Burundi', 'bdi'),
+('bj', 'Benin', 'ben'),
+('bl', 'Saint Barthelemy', 'blm'),
+('bm', 'Bermuda', 'bmu'),
+('bn', 'Brunei Darussalam', 'brn'),
+('bo', 'Bolivia, Plurinational State of', 'bol'),
+('bq', 'Bonaire, Sint Eustatius and Saba', 'bes'),
+('br', 'Brazil', 'bra'),
+('bs', 'Bahamas', 'bhs'),
+('bt', 'Bhutan', 'btn'),
+('bv', 'Bouvet Island', ''),
+('bw', 'Botswana', 'bwa'),
+('by', 'Belarus', 'blr'),
+('bz', 'Belize', 'blz'),
+('ca', 'Canada', 'can'),
+('cc', 'Cocos (Keeling) Islands', ''),
+('cd', 'Congo, The Democratic Republic of the', 'cod'),
+('cf', 'Central African Republic', 'caf'),
+('cg', 'Congo', 'cog'),
+('ch', 'Switzerland', 'che'),
+('ci', 'Cote d\'Ivoire', 'civ'),
+('ck', 'Cook Islands', 'cok'),
+('cl', 'Chile', 'chl'),
+('cm', 'Cameroon', 'cmr'),
+('cn', 'China', 'chn'),
+('co', 'Colombia', 'col'),
+('cr', 'Costa Rica', 'cri'),
+('cu', 'Cuba', 'cub'),
+('cv', 'Cape Verde', 'cpv'),
+('cw', 'Curacao', 'cuw'),
+('cx', 'Christmas Island', ''),
+('cy', 'Cyprus', 'cyp'),
+('cz', 'Czech Republic', 'cze'),
+('de', 'Germany', 'deu'),
+('dj', 'Djibouti', 'dji'),
+('dk', 'Denmark', 'dnk'),
+('dm', 'Dominica', 'dma'),
+('do', 'Dominican Republic', 'dom'),
+('dz', 'Algeria', 'dza'),
+('ec', 'Ecuador', 'ecu'),
+('ee', 'Estonia', 'est'),
+('eg', 'Egypt', 'egy'),
+('eh', 'Western Sahara', 'esh'),
+('er', 'Eritrea', 'eri'),
+('es', 'Spain', 'esp'),
+('et', 'Ethiopia', 'eth'),
+('fi', 'Finland', 'fin'),
+('fj', 'Fiji', 'fji'),
+('fk', 'Falkland Islands (Malvinas)', 'flk'),
+('fm', 'Micronesia, Federated States of', 'fsm'),
+('fo', 'Faroe Islands', 'fro'),
+('fr', 'France', 'fra'),
+('ga', 'Gabon', 'gab'),
+('gb', 'United Kingdom', 'gbr'),
+('gd', 'Grenada', 'grd'),
+('ge', 'Georgia', 'geo'),
+('gf', 'French Guiana', 'guf'),
+('gg', 'Guernsey', 'ggy'),
+('gh', 'Ghana', 'gha'),
+('gi', 'Gibraltar', 'gib'),
+('gl', 'Greenland', 'grl'),
+('gm', 'Gambia', 'gmb'),
+('gn', 'Guinea', 'gin'),
+('gp', 'Guadeloupe', 'glp'),
+('gq', 'Equatorial Guinea', 'gnq'),
+('gr', 'Greece', 'grc'),
+('gs', 'South Georgia and The South Sandwich Islands', ''),
+('gt', 'Guatemala', 'gtm'),
+('gu', 'Guam', 'gum'),
+('gw', 'Guinea-Bissau', 'gnb'),
+('gy', 'Guyana', 'guy'),
+('hk', 'Hong Kong', 'hkg'),
+('hm', 'Heard Island and McDonald Islands', ''),
+('hn', 'Honduras', 'hnd'),
+('hr', 'Croatia', 'hrv'),
+('ht', 'Haiti', 'hti'),
+('hu', 'Hungary', 'hun'),
+('id', 'Indonesia', 'idn'),
+('ie', 'Ireland', 'irl'),
+('il', 'Israel', 'isr'),
+('im', 'Isle of Man', 'imn'),
+('in', 'India', 'ind'),
+('io', 'British Indian Ocean Territory', ''),
+('iq', 'Iraq', 'irq'),
+('ir', 'Iran, Islamic Republic of', 'irn'),
+('is', 'Iceland', 'isl'),
+('it', 'Italy', 'ita'),
+('je', 'Jersey', 'jey'),
+('jm', 'Jamaica', 'jam'),
+('jo', 'Jordan', 'jor'),
+('jp', 'Japan', 'jpn'),
+('ke', 'Kenya', 'ken'),
+('kg', 'Kyrgyzstan', 'kgz'),
+('kh', 'Cambodia', 'khm'),
+('ki', 'Kiribati', 'kir'),
+('km', 'Comoros', 'com'),
+('kn', 'Saint Kitts and Nevis', 'kna'),
+('kp', 'Korea, Democratic People\'s Republic of', 'prk'),
+('kr', 'Korea, Republic of', 'kor'),
+('kw', 'Kuwait', 'kwt'),
+('ky', 'Cayman Islands', 'cym'),
+('kz', 'Kazakhstan', 'kaz'),
+('la', 'Lao People\'s Democratic Republic', 'lao'),
+('lb', 'Lebanon', 'lbn'),
+('lc', 'Saint Lucia', 'lca'),
+('li', 'Liechtenstein', 'lie'),
+('lk', 'Sri Lanka', 'lka'),
+('lr', 'Liberia', 'lbr'),
+('ls', 'Lesotho', 'lso'),
+('lt', 'Lithuania', 'ltu'),
+('lu', 'Luxembourg', 'lux'),
+('lv', 'Latvia', 'lva'),
+('ly', 'Libyan Arab Jamahiriya', 'lby'),
+('ma', 'Morocco', 'mar'),
+('mc', 'Monaco', 'mco'),
+('md', 'Moldova, Republic of', 'mda'),
+('me', 'Montenegro', 'mne'),
+('mf', 'Saint Martin (French Part)', 'maf'),
+('mg', 'Madagascar', 'mdg'),
+('mh', 'Marshall Islands', 'mhl'),
+('mk', 'Macedonia, The former Yugoslav Republic of', 'mkd'),
+('ml', 'Mali', 'mli'),
+('mm', 'Myanmar', 'mmr'),
+('mn', 'Mongolia', 'mng'),
+('mo', 'Macao', 'mac'),
+('mp', 'Northern Mariana Islands', 'mnp'),
+('mq', 'Martinique', 'mtq'),
+('mr', 'Mauritania', 'mrt'),
+('ms', 'Montserrat', 'msr'),
+('mt', 'Malta', 'mlt'),
+('mu', 'Mauritius', 'mus'),
+('mv', 'Maldives', 'mdv'),
+('mw', 'Malawi', 'mwi'),
+('mx', 'Mexico', 'mex'),
+('my', 'Malaysia', 'mys'),
+('mz', 'Mozambique', 'moz'),
+('na', 'Namibia', 'nam'),
+('nc', 'New Caledonia', 'ncl'),
+('ne', 'Niger', 'ner'),
+('nf', 'Norfolk Island', 'nfk'),
+('ng', 'Nigeria', 'nga'),
+('ni', 'Nicaragua', 'nic'),
+('nl', 'Netherlands', 'nld'),
+('no', 'Norway', 'nor'),
+('np', 'Nepal', 'npl'),
+('nr', 'Nauru', 'nru'),
+('nu', 'Niue', 'niu'),
+('nz', 'New Zealand', 'nzl'),
+('om', 'Oman', 'omn'),
+('pa', 'Panama', 'pan'),
+('pe', 'Peru', 'per'),
+('pf', 'French Polynesia', 'pyf'),
+('pg', 'Papua New Guinea', 'png'),
+('ph', 'Philippines', 'phl'),
+('pk', 'Pakistan', 'pak'),
+('pl', 'Poland', 'pol'),
+('pm', 'Saint Pierre and Miquelon', 'spm'),
+('pn', 'Pitcairn', 'pcn'),
+('pr', 'Puerto Rico', 'pri'),
+('ps', 'Palestinian Territory, Occupied', 'pse'),
+('pt', 'Portugal', 'prt'),
+('pw', 'Palau', 'plw'),
+('py', 'Paraguay', 'pry'),
+('qa', 'Qatar', 'qat'),
+('re', 'Reunion', 'reu'),
+('ro', 'Romania', 'rou'),
+('rs', 'Serbia', 'srb'),
+('ru', 'Russian Federation', 'rus'),
+('rw', 'Rwanda', 'rwa'),
+('sa', 'Saudi Arabia', 'sau'),
+('sb', 'Solomon Islands', 'slb'),
+('sc', 'Seychelles', 'syc'),
+('sd', 'Sudan', 'sdn'),
+('se', 'Sweden', 'swe'),
+('sg', 'Singapore', 'sgp'),
+('sh', 'Saint Helena, Ascension and Tristan Da Cunha', 'shn'),
+('si', 'Slovenia', 'svn'),
+('sj', 'Svalbard and Jan Mayen', 'sjm'),
+('sk', 'Slovakia', 'svk'),
+('sl', 'Sierra Leone', 'sle'),
+('sm', 'San Marino', 'smr'),
+('sn', 'Senegal', 'sen'),
+('so', 'Somalia', 'som'),
+('sr', 'Suriname', 'sur'),
+('ss', 'South Sudan', 'ssd'),
+('st', 'Sao Tome and Principe', 'stp'),
+('sv', 'El Salvador', 'slv'),
+('sx', 'Sint Maarten (Dutch Part)', 'sxm'),
+('sy', 'Syrian Arab Republic', 'syr'),
+('sz', 'Swaziland', 'swz'),
+('tc', 'Turks and Caicos Islands', 'tca'),
+('td', 'Chad', 'tcd'),
+('tf', 'French Southern Territories', ''),
+('tg', 'Togo', 'tgo'),
+('th', 'Thailand', 'tha'),
+('tj', 'Tajikistan', 'tjk'),
+('tk', 'Tokelau', 'tkl'),
+('tl', 'Timor-Leste', 'tls'),
+('tm', 'Turkmenistan', 'tkm'),
+('tn', 'Tunisia', 'tun'),
+('to', 'Tonga', 'ton'),
+('tr', 'Turkey', 'tur'),
+('tt', 'Trinidad and Tobago', 'tto'),
+('tv', 'Tuvalu', 'tuv'),
+('tw', 'Taiwan, Province of China', ''),
+('tz', 'Tanzania, United Republic of', 'tza'),
+('ua', 'Ukraine', 'ukr'),
+('ug', 'Uganda', 'uga'),
+('um', 'United States Minor Outlying Islands', ''),
+('us', 'United States', 'usa'),
+('uy', 'Uruguay', 'ury'),
+('uz', 'Uzbekistan', 'uzb'),
+('va', 'Holy See (Vatican City State)', 'vat'),
+('vc', 'Saint Vincent and The Grenadines', 'vct'),
+('ve', 'Venezuela, Bolivarian Republic of', 'ven'),
+('vg', 'Virgin Islands, British', 'vgb'),
+('vi', 'Virgin Islands, U.S.', 'vir'),
+('vn', 'Viet Nam', 'vnm'),
+('vu', 'Vanuatu', 'vut'),
+('wf', 'Wallis and Futuna', 'wlf'),
+('ws', 'Samoa', 'wsm'),
+('ye', 'Yemen', 'yem'),
+('yt', 'Mayotte', 'myt'),
+('za', 'South Africa', 'zaf'),
+('zm', 'Zambia', 'zmb'),
+('zw', 'Zimbabwe', 'zwe');
 
 -- --------------------------------------------------------
 
@@ -49,7 +316,8 @@ INSERT INTO `examinations` (`id`, `diagnosis_id`, `diagnostic_test_id`, `pet_id`
 (1, 0, 13384, 1, '48/850°', 'One report, one result, one world', 1, 1, '2018-10-19 09:34:06', '2018-10-19 09:34:22'),
 (2, 0, 18142, 1, '', 'djsflkdshjfds', 0, 0, '2018-10-19 09:34:42', '2018-10-19 09:34:45'),
 (3, 0, 13385, 1, '', '', 0, 0, '2018-10-19 09:34:24', '2018-10-19 09:34:26'),
-(4, 328, 13379, 1, '', '', 0, 0, '2018-10-19 09:33:35', NULL);
+(4, 328, 13379, 1, '', '', 0, 0, '2018-10-19 09:33:35', NULL),
+(5, 505, 13387, 3, '', '', 0, 1, '2018-10-29 13:16:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -2939,7 +3207,8 @@ INSERT INTO `notes` (`id`, `pet_id`, `user_id`, `note_text`, `created`, `updated
 (1, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis', '2018-10-17 00:00:00', NULL),
 (2, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2018-10-17 00:00:00', NULL),
 (3, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis', '2018-10-17 00:00:00', NULL),
-(4, 1, 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ...una modicica', '2018-10-17 00:00:00', NULL);
+(4, 1, 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ...una modicica', '2018-10-17 00:00:00', NULL),
+(5, 3, 2, 'one day a diarty', '2018-10-29 13:16:28', NULL);
 
 -- --------------------------------------------------------
 
@@ -2952,10 +3221,10 @@ CREATE TABLE `owners` (
   `country_id` varchar(2) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `postcode` varchar(10) NOT NULL,
-  `city` varchar(255) NOT NULL,
-  `ssn` varchar(255) NOT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `postcode` varchar(10) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `ssn` varchar(255) DEFAULT NULL,
   `phone` varchar(64) NOT NULL,
   `mobile` varchar(64) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -2970,8 +3239,8 @@ CREATE TABLE `owners` (
 
 INSERT INTO `owners` (`id`, `country_id`, `firstname`, `lastname`, `address`, `postcode`, `city`, `ssn`, `phone`, `mobile`, `email`, `created`, `updated`, `deleted`) VALUES
 (1, 'gb', 'George Gordon', 'Byron', 'Gibbon Street', '00100', 'Plymouth dc', 'UK01234567890', '+44 01752 01234567', '+44 348 88 22 399', 'byron@romantic.org', '0000-00-00 00:00:00', NULL, NULL),
-(2, 'ie', 'Rory', 'Gallagher', 'Thin Lizzy Road, 1', '50127', 'Cork', 'IR0101010101', '+353 0123 123456789', '+353 348 88 22 399', 'rory@rockatcork.org', '0000-00-00 00:00:00', NULL, NULL),
-(3, 'ie', 'Phil', 'Lynott', 'Thin Lizzy Rd., 1', 'D01 123', 'Dublin', 'IRL0987654321', '+353 0000 01234567', '+353 348 88 22 399', 'phil.lynott@thinlizzy.com', '0000-00-00 00:00:00', NULL, NULL),
+(2, 'ie', 'Rory', 'Gallagher', 'Thin Lizzy Road, 10', '50127', 'Cork', 'IR0101', '+353 0123 123456789', '+353 348 88 22 399', 'rory@rock.org', '0001-01-01 00:00:00', '2018-10-30 20:35:55', '2018-10-30 20:35:55'),
+(3, 'ie', 'Phil', 'Lynott', 'Thin Lizzy Rd., 10', 'D01 123', 'Dublin', 'IRL0987654321', '+353 0000 01234567', '+353 348 88 22 399', 'phil.lynott@thinlizzy.com', '0001-01-01 00:00:00', '2018-10-30 20:36:27', NULL),
 (4, 'gb', 'Sherlock', 'Holmes', '221B, Baker street', '', 'London', 'UK01234567890', '+44 01752 01234567', '+44 348 88 22 399', 'sh@scotlandyard.org', '0000-00-00 00:00:00', NULL, NULL),
 (5, 'it', 'Roberto', 'Nannucci', 'via Valle 14', '50014', 'Fiesole', 'NNNRRT72C26D583N', '3488822399', '+393488822399', 'roberto.nannucci@gmail.com', '0000-00-00 00:00:00', NULL, NULL),
 (6, 'gb', 'Paul', 'McCartney', 'Abbey Road, 1', 'SN123LN', 'London', 'EN101010', '+44123456789', '+44987654321', 'paul@beatles.com', '0000-00-00 00:00:00', NULL, NULL);
@@ -3008,7 +3277,7 @@ CREATE TABLE `pets` (
 INSERT INTO `pets` (`id`, `tsn`, `owner_id`, `name`, `gender`, `date_of_birth`, `date_of_death`, `description`, `color`, `microchip`, `microchip_location`, `tatuatge`, `tatuatge_location`, `created`, `updated`, `deleted`) VALUES
 (1, 727488, 5, 'Ozzy', 'M', 1363280618, NULL, 'Beautiful and good Bergamasco, black and white', 'black and white', 'M12345', 'neck', '', '', 1406104554, 1533929383, NULL),
 (2, 727488, 2, 'Muddy', 'M', 1361231500, NULL, 'Beautiful and gentle Bobtail, black and white', 'black and white', 'M09876', 'neck', NULL, NULL, 0, NULL, NULL),
-(3, 727488, 3, 'Gnasher', 'M', 0, NULL, 'Good German Shepherd black and brown', 'black and brown', 'M45455', 'neck', '', '', 0, 1529190269, NULL),
+(3, 727488, 5, 'Gnasher', 'M', 7200, NULL, 'Good German Shepherd black and brown', 'black and brown', 'M45455', 'neck', '', '', 0, 1540931855, NULL),
 (4, 727488, 1, 'Boatswain', 'M', 1052107200, 1226282400, 'Good and gentle and brave black dog.\r\nTo mark a friend\'s remains these stones arise;\r\nI never knew but one -- and here he lies.', 'black', 'M7878', 'neck', '', '', 0, 1529189575, NULL),
 (7, 183815, 0, 'Martha', 'M', -210158656, 208535744, 'Old English Sheepdog referred to in the title of the 1968 Beatles song \"Martha My Dear.\"', 'black, white', 'M1968', 'Leg', '', '', 1493904267, 1529189568, NULL),
 (8, 179558, 2, 'Zeus', 'M', 830129296, NULL, 'just a description.', 'any coulor you like', 'MCHIP9090', 'neck', '', '', 1529189996, 1539978342, NULL);
@@ -3040,7 +3309,8 @@ INSERT INTO `prescriptions` (`id`, `medicine_id`, `diagnosis_id`, `pet_id`, `use
 (15, '10347/4037', 328, 1, 2, 1, 'one per day..', 0, '2018-09-11 17:57:22', '2018-10-19 14:54:10'),
 (16, '10347/4037', 328, 1, 2, 1, 'one a day', 1, '2018-09-13 08:46:00', '2018-10-19 14:53:48'),
 (17, '32742/4005', 328, 1, 2, 1, '1', 0, '2018-09-18 14:43:23', '2018-10-19 14:53:38'),
-(18, 'EU/2/08/088/004', 0, 1, 2, 1, 'one or two', 1, '2018-10-08 10:27:07', '2018-10-08 15:04:07');
+(18, 'EU/2/08/088/004', 0, 1, 2, 1, 'one or two', 1, '2018-10-08 10:27:07', '2018-10-08 15:04:07'),
+(19, '41821/4019', 0, 3, 0, 1, 'one per day', 0, '2018-10-29 13:15:51', NULL);
 
 -- --------------------------------------------------------
 
@@ -3067,7 +3337,8 @@ CREATE TABLE `problems` (
 --
 
 INSERT INTO `problems` (`diagnosis_id`, `pet_id`, `user_id`, `active_from`, `status_id`, `key_problem`, `subjective_analysis`, `objective_analysis`, `notes`, `created`, `updated`) VALUES
-(328, 1, 2, '2018-10-08 14:44:23', -1, 0, '', '', '', '2018-10-08 14:44:25', '2018-10-19 14:53:53');
+(328, 1, 2, '2018-10-08 14:44:23', -1, 0, '', '', '', '2018-10-08 14:44:25', '2018-10-19 14:53:53'),
+(505, 3, 2, '2018-10-29 13:15:15', 3, 1, 'a analysis', '', '', '2018-10-29 13:15:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -3182,7 +3453,8 @@ CREATE TABLE `treatments` (
 
 INSERT INTO `treatments` (`id`, `procedure_id`, `pet_id`, `notes`, `created`, `recall`, `updated`) VALUES
 (8, 12637, 1, '', '2018-10-05 19:44:21', NULL, '2018-10-05 19:45:15'),
-(9, 12650, 1, 'nota... una sola nota...', '2018-10-19 08:36:18', '2018-10-26 08:41:11', '2018-10-19 08:41:23');
+(9, 12650, 1, 'nota... una sola nota...', '2018-10-19 08:36:18', '2018-10-26 08:41:11', '2018-10-19 08:41:23'),
+(10, 12634, 3, '', '2018-10-29 13:16:20', NULL, '2018-10-29 13:16:20');
 
 -- --------------------------------------------------------
 
@@ -7327,6 +7599,12 @@ INSERT INTO `visit_tbe` (`id`, `pet_id`, `owner_id`, `reason_id`, `diagnosis_id`
 --
 
 --
+-- Indici per le tabelle `countries`
+--
+ALTER TABLE `countries`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indici per le tabelle `examinations`
 --
 ALTER TABLE `examinations`
@@ -7426,7 +7704,7 @@ ALTER TABLE `visit_tbe`
 -- AUTO_INCREMENT per la tabella `examinations`
 --
 ALTER TABLE `examinations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT per la tabella `notes`
@@ -7450,13 +7728,13 @@ ALTER TABLE `pets`
 -- AUTO_INCREMENT per la tabella `prescriptions`
 --
 ALTER TABLE `prescriptions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT per la tabella `treatments`
 --
 ALTER TABLE `treatments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT per la tabella `users`

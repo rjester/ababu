@@ -16,6 +16,7 @@ namespace Ababu
         private bool SearchOptionShowDeleted;
         private bool SearchOptionShowOnlyUnderTheraphy;
 
+        private Pet Pet { get; set; }
         private Owner Owner { get; set; }
 
 
@@ -33,12 +34,49 @@ namespace Ababu
         }
 
 
+
         private void GridPetResultReload()
         {
             GrdPets.DataSource = Pet.Search(TstPetSearch.Text, TsmPetSearchShowDeleted.Checked);
             GrdPets.Columns["description"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
         }
+
+
+
+        private void GrdPets_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (GrdPets.SelectedCells.Count > 0)
+            {
+                int id = (int)GrdPets.SelectedRows[0].Cells["id"].Value;
+                Pet = new Pet(id);
+                Owner = new Owner(Pet.OwnerId);
+
+                FillPetDetail();
+                FillOwnerDetail();
+            }
+        }
+
+
+
+        private void FillPetDetail()
+        {
+            LblName.Text = Pet.Name;
+            LblTsn.Text = Pet.Tsn.ToString();
+
+            LblAge.Text = Pet.Years.ToString() + ":" + Pet.Months.ToString() + " " + Pet.Days.ToString();
+        }
+
+
+
+        private void FillOwnerDetail()
+        {
+            LblOwner.Text = Owner.Firtname + " " + Owner.Lastname;
+            LlbPhone.Text = Owner.Phone;
+
+            LlbMobile.Text = Owner.Mobile;
+            LblEmail.Text = Owner.Email;
+        }
+
 
 
         private void TsbPetSearch_TextChanged(object sender, EventArgs e)
@@ -46,27 +84,6 @@ namespace Ababu
             GridPetResultReload();
         }
 
-        private void TsbPetAdd_Click(object sender, EventArgs e)
-        {
-            OpenPersonEditForm();
-        }
-
-        private void TsbPetEdit_Click(object sender, EventArgs e)
-        {
-            if (GrdPets.SelectedCells.Count > 0)
-            {
-                DataGridViewRow selectedRow = GrdPets.SelectedRows[0];
-                OpenPersonEditForm((int)selectedRow.Cells["id"].Value);
-            }
-        }
-
-        private void OpenPersonEditForm(int pet_id = 0)
-        {
-            FrmPetEdit frmPetEdit = new FrmPetEdit();
-            frmPetEdit.Pet = new Pet(pet_id);
-            frmPetEdit.FormClosing += new FormClosingEventHandler(PetEdit_FormClosing);
-            frmPetEdit.Show();
-        }
 
 
         private void PetEdit_FormClosing(object sender, FormClosingEventArgs e)
@@ -75,17 +92,62 @@ namespace Ababu
         }
 
 
+
+        private void TsbPetRefreshList_Click(object sender, EventArgs e)
+        {
+            GridPetResultReload();
+        }
+
+
+
         private void TsmPetSearchShowDeleted_Click(object sender, EventArgs e)
         {
             TsmPetSearchShowDeleted.Checked = !TsmPetSearchShowDeleted.Checked;
             GridPetResultReload();
         }
 
+
+
         private void TsmPetSearchShowOnlyUnderTheraphy_Click(object sender, EventArgs e)
         {
             TsmPetSearchShowOnlyUnderTheraphy.Checked = !TsmPetSearchShowOnlyUnderTheraphy.Checked;
             GridPetResultReload();
         }
+
+
+
+        private void TsbPetAdd_Click(object sender, EventArgs e)
+        {
+            OpenPetEditForm(new Pet());
+        }
+
+
+
+        private void TsbPetEdit_Click(object sender, EventArgs e)
+        {
+            if (GrdPets.SelectedCells.Count > 0)
+            {
+                OpenPetEditForm(Pet);
+            }
+        }
+
+
+
+        private void LlbPetEdit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            OpenPetEditForm(Pet);
+        }
+
+
+
+        private void OpenPetEditForm(Pet pet)
+        {
+            FrmPetEdit frmPetEdit = new FrmPetEdit(pet);
+            frmPetEdit.FormClosing += new FormClosingEventHandler(PetEdit_FormClosing);
+            frmPetEdit.Show();
+        }
+
+
 
         private void TsbPetDelete_Click(object sender, EventArgs e)
         {
@@ -105,6 +167,8 @@ namespace Ababu
                 }
             }
         }
+
+
 
         private void GrdPets_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -132,15 +196,7 @@ namespace Ababu
             }
         }
 
-        private void TsbPetRefreshList_Click(object sender, EventArgs e)
-        {
-            GridPetResultReload();
-        }
-
-
-
         
-
 
         private void TsbPetVisit_Click(object sender, EventArgs e)
         {
@@ -165,46 +221,39 @@ namespace Ababu
             }
         }
 
+
+
         // define a standard event
         public event EventHandler<PetEventArgs> OnPetSelectionToVisit;
+        
 
-
-        private void GrdPets_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            FillPetDetail();
-        }
-
-
-        private void FillPetDetail()
-        {
-            if (GrdPets.SelectedCells.Count > 0)
-            {
-                int id = (int)GrdPets.SelectedRows[0].Cells["id"].Value;
-                Pet pet = new Pet(id);
-                Owner = new Owner(pet.OwnerId);
-
-
-                LblName.Text = pet.Name;
-
-                LblOwner.Text = Owner.Firtname + " " + Owner.Lastname;
-                LlbPhone.Text = Owner.Phone;
-                
-                LlbMobile.Text = Owner.Mobile;
-                LblEmail.Text = Owner.Email;
-
-            }
-        }
-
+        
         private void LlbMobile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FrmLightbox lightbox = new FrmLightbox(Owner.Mobile);
             lightbox.Show();
         }
 
+
+
         private void LlbPhone_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FrmLightbox lightbox = new FrmLightbox(Owner.Phone);
             lightbox.Show();
+        }
+
+
+
+        private void LlbOwnerEdit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmOwnerEdit frmOwnerEdit = new FrmOwnerEdit(Owner);
+            frmOwnerEdit.FormClosed += FrmOwnerEdit_FormClosed;
+            frmOwnerEdit.ShowDialog();
+        }
+
+        private void FrmOwnerEdit_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FillOwnerDetail();
         }
     }
 }

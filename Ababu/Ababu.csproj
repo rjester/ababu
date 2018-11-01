@@ -150,6 +150,12 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmOwnerEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOwnerEdit.Designer.cs">
+      <DependentUpon>FrmOwnerEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPetEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOwnerEdit.resx">
+      <DependentUpon>FrmOwnerEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPetEdit.resx">
       <DependentUpon>FrmPetEdit.cs</DependentUpon>

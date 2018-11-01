@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="BaseDati.cs" />
     <Compile Include="BaseDatiMariaDB.cs" />
+    <Compile Include="Country.cs" />
     <Compile Include="Examination.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="Locale.cs" />

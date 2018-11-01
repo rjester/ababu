@@ -43,14 +43,19 @@
             this.PanDetail = new System.Windows.Forms.Panel();
             this.TlpDetail = new System.Windows.Forms.TableLayoutPanel();
             this.GrbPetDetail = new System.Windows.Forms.GroupBox();
+            this.LblAge = new System.Windows.Forms.Label();
+            this.LlbPetEdit = new System.Windows.Forms.LinkLabel();
             this.LblName = new System.Windows.Forms.Label();
             this.LblTsn = new System.Windows.Forms.Label();
             this.GrbOwnerDetail = new System.Windows.Forms.GroupBox();
+            this.LlbPhone = new System.Windows.Forms.LinkLabel();
             this.LlbMobile = new System.Windows.Forms.LinkLabel();
             this.LblEmail = new System.Windows.Forms.Label();
             this.LlbOwnerEdit = new System.Windows.Forms.LinkLabel();
             this.LblOwner = new System.Windows.Forms.Label();
-            this.LlbPhone = new System.Windows.Forms.LinkLabel();
+            this.GrbProblemInEvidence = new System.Windows.Forms.GroupBox();
+            this.GrpPrescriptionInEvidence = new System.Windows.Forms.GroupBox();
+            this.GrpExaminationInEvidence = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.GrdPets)).BeginInit();
             this.TlpPets.SuspendLayout();
             this.TsPets.SuspendLayout();
@@ -210,36 +215,66 @@
             // PanDetail
             // 
             this.PanDetail.Controls.Add(this.TlpDetail);
+            this.PanDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanDetail.Location = new System.Drawing.Point(3, 220);
             this.PanDetail.Name = "PanDetail";
-            this.PanDetail.Size = new System.Drawing.Size(778, 184);
+            this.PanDetail.Size = new System.Drawing.Size(799, 184);
             this.PanDetail.TabIndex = 2;
             // 
             // TlpDetail
             // 
-            this.TlpDetail.ColumnCount = 2;
-            this.TlpDetail.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TlpDetail.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TlpDetail.ColumnCount = 3;
+            this.TlpDetail.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TlpDetail.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TlpDetail.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.TlpDetail.Controls.Add(this.GrbPetDetail, 0, 0);
             this.TlpDetail.Controls.Add(this.GrbOwnerDetail, 1, 0);
-            this.TlpDetail.Location = new System.Drawing.Point(3, 3);
+            this.TlpDetail.Controls.Add(this.GrbProblemInEvidence, 0, 1);
+            this.TlpDetail.Controls.Add(this.GrpPrescriptionInEvidence, 1, 1);
+            this.TlpDetail.Controls.Add(this.GrpExaminationInEvidence, 2, 1);
+            this.TlpDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TlpDetail.Location = new System.Drawing.Point(0, 0);
             this.TlpDetail.Name = "TlpDetail";
             this.TlpDetail.RowCount = 2;
-            this.TlpDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.85394F));
-            this.TlpDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.14607F));
-            this.TlpDetail.Size = new System.Drawing.Size(737, 178);
+            this.TlpDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TlpDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TlpDetail.Size = new System.Drawing.Size(799, 184);
             this.TlpDetail.TabIndex = 4;
             // 
             // GrbPetDetail
             // 
+            this.GrbPetDetail.Controls.Add(this.LblAge);
+            this.GrbPetDetail.Controls.Add(this.LlbPetEdit);
             this.GrbPetDetail.Controls.Add(this.LblName);
             this.GrbPetDetail.Controls.Add(this.LblTsn);
+            this.GrbPetDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrbPetDetail.Location = new System.Drawing.Point(3, 3);
             this.GrbPetDetail.Name = "GrbPetDetail";
-            this.GrbPetDetail.Size = new System.Drawing.Size(299, 90);
+            this.GrbPetDetail.Size = new System.Drawing.Size(260, 86);
             this.GrbPetDetail.TabIndex = 2;
             this.GrbPetDetail.TabStop = false;
             this.GrbPetDetail.Text = "Pet Detail";
+            // 
+            // LblAge
+            // 
+            this.LblAge.AutoSize = true;
+            this.LblAge.Location = new System.Drawing.Point(6, 29);
+            this.LblAge.Name = "LblAge";
+            this.LblAge.Size = new System.Drawing.Size(40, 13);
+            this.LblAge.TabIndex = 10;
+            this.LblAge.Text = "LblAge";
+            // 
+            // LlbPetEdit
+            // 
+            this.LlbPetEdit.AutoSize = true;
+            this.LlbPetEdit.LinkColor = System.Drawing.Color.Navy;
+            this.LlbPetEdit.Location = new System.Drawing.Point(58, 0);
+            this.LlbPetEdit.Name = "LlbPetEdit";
+            this.LlbPetEdit.Size = new System.Drawing.Size(30, 13);
+            this.LlbPetEdit.TabIndex = 9;
+            this.LlbPetEdit.TabStop = true;
+            this.LlbPetEdit.Text = "[edit]";
+            this.LlbPetEdit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlbPetEdit_LinkClicked);
             // 
             // LblName
             // 
@@ -254,7 +289,7 @@
             // LblTsn
             // 
             this.LblTsn.AutoSize = true;
-            this.LblTsn.Location = new System.Drawing.Point(6, 38);
+            this.LblTsn.Location = new System.Drawing.Point(204, 16);
             this.LblTsn.Name = "LblTsn";
             this.LblTsn.Size = new System.Drawing.Size(39, 13);
             this.LblTsn.TabIndex = 1;
@@ -267,12 +302,25 @@
             this.GrbOwnerDetail.Controls.Add(this.LblEmail);
             this.GrbOwnerDetail.Controls.Add(this.LlbOwnerEdit);
             this.GrbOwnerDetail.Controls.Add(this.LblOwner);
-            this.GrbOwnerDetail.Location = new System.Drawing.Point(371, 3);
+            this.GrbOwnerDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GrbOwnerDetail.Location = new System.Drawing.Point(269, 3);
             this.GrbOwnerDetail.Name = "GrbOwnerDetail";
-            this.GrbOwnerDetail.Size = new System.Drawing.Size(316, 109);
+            this.GrbOwnerDetail.Size = new System.Drawing.Size(260, 86);
             this.GrbOwnerDetail.TabIndex = 3;
             this.GrbOwnerDetail.TabStop = false;
             this.GrbOwnerDetail.Text = "Owner Detail";
+            // 
+            // LlbPhone
+            // 
+            this.LlbPhone.AutoSize = true;
+            this.LlbPhone.LinkColor = System.Drawing.Color.Navy;
+            this.LlbPhone.Location = new System.Drawing.Point(6, 36);
+            this.LlbPhone.Name = "LlbPhone";
+            this.LlbPhone.Size = new System.Drawing.Size(52, 13);
+            this.LlbPhone.TabIndex = 8;
+            this.LlbPhone.TabStop = true;
+            this.LlbPhone.Text = "LlbPhone";
+            this.LlbPhone.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlbPhone_LinkClicked);
             // 
             // LlbMobile
             // 
@@ -305,6 +353,7 @@
             this.LlbOwnerEdit.TabIndex = 3;
             this.LlbOwnerEdit.TabStop = true;
             this.LlbOwnerEdit.Text = "[edit]";
+            this.LlbOwnerEdit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlbOwnerEdit_LinkClicked);
             // 
             // LblOwner
             // 
@@ -316,17 +365,36 @@
             this.LblOwner.TabIndex = 2;
             this.LblOwner.Text = "LblOwner";
             // 
-            // LlbPhone
+            // GrbProblemInEvidence
             // 
-            this.LlbPhone.AutoSize = true;
-            this.LlbPhone.LinkColor = System.Drawing.Color.Navy;
-            this.LlbPhone.Location = new System.Drawing.Point(6, 36);
-            this.LlbPhone.Name = "LlbPhone";
-            this.LlbPhone.Size = new System.Drawing.Size(52, 13);
-            this.LlbPhone.TabIndex = 8;
-            this.LlbPhone.TabStop = true;
-            this.LlbPhone.Text = "LlbPhone";
-            this.LlbPhone.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlbPhone_LinkClicked);
+            this.GrbProblemInEvidence.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GrbProblemInEvidence.Location = new System.Drawing.Point(3, 95);
+            this.GrbProblemInEvidence.Name = "GrbProblemInEvidence";
+            this.GrbProblemInEvidence.Size = new System.Drawing.Size(260, 86);
+            this.GrbProblemInEvidence.TabIndex = 4;
+            this.GrbProblemInEvidence.TabStop = false;
+            this.GrbProblemInEvidence.Text = "Problems - In evidence";
+            // 
+            // GrpPrescriptionInEvidence
+            // 
+            this.GrpPrescriptionInEvidence.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GrpPrescriptionInEvidence.Location = new System.Drawing.Point(269, 95);
+            this.GrpPrescriptionInEvidence.Name = "GrpPrescriptionInEvidence";
+            this.GrpPrescriptionInEvidence.Size = new System.Drawing.Size(260, 86);
+            this.GrpPrescriptionInEvidence.TabIndex = 5;
+            this.GrpPrescriptionInEvidence.TabStop = false;
+            this.GrpPrescriptionInEvidence.Text = "Prescriptions - In evidence";
+            // 
+            // GrpExaminationInEvidence
+            // 
+            this.GrpExaminationInEvidence.Cursor = System.Windows.Forms.Cursors.Default;
+            this.GrpExaminationInEvidence.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GrpExaminationInEvidence.Location = new System.Drawing.Point(535, 95);
+            this.GrpExaminationInEvidence.Name = "GrpExaminationInEvidence";
+            this.GrpExaminationInEvidence.Size = new System.Drawing.Size(261, 86);
+            this.GrpExaminationInEvidence.TabIndex = 5;
+            this.GrpExaminationInEvidence.TabStop = false;
+            this.GrpExaminationInEvidence.Text = "Examinantions - In evidence";
             // 
             // CtrlPet
             // 
@@ -376,5 +444,10 @@
         private System.Windows.Forms.Label LblEmail;
         private System.Windows.Forms.LinkLabel LlbMobile;
         private System.Windows.Forms.LinkLabel LlbPhone;
+        private System.Windows.Forms.LinkLabel LlbPetEdit;
+        private System.Windows.Forms.Label LblAge;
+        private System.Windows.Forms.GroupBox GrbProblemInEvidence;
+        private System.Windows.Forms.GroupBox GrpPrescriptionInEvidence;
+        private System.Windows.Forms.GroupBox GrpExaminationInEvidence;
     }
 }
