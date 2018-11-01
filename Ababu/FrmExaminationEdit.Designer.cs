@@ -278,6 +278,7 @@
             this.BtnPrescriptionDelete.Text = "Delete";
             this.BtnPrescriptionDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnPrescriptionDelete.UseVisualStyleBackColor = true;
+            this.BtnPrescriptionDelete.Click += new System.EventHandler(this.BtnPrescriptionDelete_Click);
             // 
             // BtnPrescriptionSave
             // 

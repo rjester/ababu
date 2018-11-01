@@ -9,7 +9,7 @@ namespace OldAuntie
         public static bool isUserLogged = false;
         public static User Me = null;
         public static BaseDati DBCon = new BaseDati();
-        public static Log log = new Log();
+        public static Log Log = new Log();
 
 
         public static DataTable problems;

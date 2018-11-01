@@ -94,9 +94,11 @@ namespace Ababu
             treatment.PetId = Pet.Id;
             treatment.ProcedureId = procedure_id;
 
-            FrmTreatmentEdit frmTreatmentEdit = new FrmTreatmentEdit(treatment);
-            frmTreatmentEdit.FormClosed += FrmTreatmentEdit_FormClosed;
-            frmTreatmentEdit.ShowDialog();
+            using (FrmTreatmentEdit frmTreatmentEdit = new FrmTreatmentEdit(treatment))
+            {
+                frmTreatmentEdit.FormClosed += FrmTreatmentEdit_FormClosed;
+                frmTreatmentEdit.ShowDialog();
+            }
         }
     }
 }

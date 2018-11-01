@@ -118,9 +118,11 @@ namespace Ababu
 
         private void OpenExaminationEdit(int diagnostic_test_id, int id = 0)
         {
-            FrmExaminationEdit frmExaminationEdit = new FrmExaminationEdit(new Examination(id), Pet, new Venom(diagnostic_test_id), Problem);
-            frmExaminationEdit.FormClosing += FrmExaminationEdit_FormClosing;
-            frmExaminationEdit.ShowDialog();
+            using(FrmExaminationEdit frmExaminationEdit = new FrmExaminationEdit( new Examination(id), Pet, new Venom(diagnostic_test_id), Problem ) )
+            {
+                frmExaminationEdit.FormClosing += FrmExaminationEdit_FormClosing;
+                frmExaminationEdit.ShowDialog();
+            }
         }
 
         private void FrmExaminationEdit_FormClosing(object sender, FormClosingEventArgs e)

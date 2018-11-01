@@ -23,7 +23,6 @@ namespace OldAuntie
         public string Email { get; set; }
         public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
-        public DateTime? Deleted { get; set; }
 
 
         public Owner(int id = 0)
@@ -53,7 +52,6 @@ namespace OldAuntie
                 Email = result["email"].ToString();
                 Created = (DateTime)result["created"];
                 Updated = Utility.IfDBNull(result["updated"], null);
-                Deleted = Utility.IfDBNull(result["deleted"], null);
             }
 
             return this;
@@ -88,7 +86,7 @@ namespace OldAuntie
 
         public bool Exists()
         {
-            if(Id > 0)
+            if (Id > 0)
             {
                 return true;
             }
@@ -114,8 +112,7 @@ namespace OldAuntie
                 "mobile=@mobile, " +
                 "email=@email, " +
                 "created=@created, " +
-                "updated=@updated, " +
-                "deleted=@deleted " +
+                "updated=@updated " +
                 "WHERE id=@id";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
@@ -133,7 +130,6 @@ namespace OldAuntie
 
             Cmd.Parameters.AddWithValue("@created", Created);
             Cmd.Parameters.AddWithValue("@updated", DateTime.Now);
-            Cmd.Parameters.AddWithValue("@deleted", Deleted);
 
             affected_rows = Cmd.ExecuteNonQuery();
 
@@ -145,8 +141,8 @@ namespace OldAuntie
         public int Insert()
         {
             int affected_rows = 0;
-            string query = "INSERT INTO owners (country_id, firstname, lastname, address, postcode, city, ssn, phone, mobile, email, created, updated, deleted) " +
-                "VALUES (@country_id, @firstname, @lastname, @address, @postcode, @city, @ssn, @phone, @mobile, @email, @created, @updated, @deleted)";
+            string query = "INSERT INTO owners (country_id, firstname, lastname, address, postcode, city, ssn, phone, mobile, email, created, updated) " +
+                "VALUES (@country_id, @firstname, @lastname, @address, @postcode, @city, @ssn, @phone, @mobile, @email, @created, @updated)";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@country_id", CountryId);
@@ -162,13 +158,23 @@ namespace OldAuntie
 
             Cmd.Parameters.AddWithValue("@created", DateTime.Now);
             Cmd.Parameters.AddWithValue("@updated", Updated);
-            Cmd.Parameters.AddWithValue("@deleted", Deleted);
 
             affected_rows = Cmd.ExecuteNonQuery();
 
             return affected_rows;
+        }
 
 
+        public int Delete()
+        {
+            int affected_rows = 0;
+            string query = "DELETE FROM owners WHERE id = @id";
+
+            MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@id", Id);
+            affected_rows = Cmd.ExecuteNonQuery();
+            
+            return affected_rows;
         }
     }
 }

@@ -41,7 +41,7 @@
             this.TxtLabel.ReadOnly = true;
             this.TxtLabel.Size = new System.Drawing.Size(863, 116);
             this.TxtLabel.TabIndex = 0;
-            this.TxtLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtLabel.Click += new System.EventHandler(this.TxtLabel_Click);
             // 
             // FrmLightbox

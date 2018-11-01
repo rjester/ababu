@@ -156,10 +156,12 @@ namespace Ababu
         
         private void OpenProblemEdit(int diagnosis_id, int pet_id)
         {
-            FrmProblemEdit frmProblemEdit = new FrmProblemEdit(new Problem(diagnosis_id, pet_id));
-            frmProblemEdit.Pet = Pet;
-            frmProblemEdit.FormClosing += new FormClosingEventHandler(ProblemEdit_FormClosing);
-            frmProblemEdit.ShowDialog();
+            using ( FrmProblemEdit frmProblemEdit = new FrmProblemEdit( new Problem(diagnosis_id, pet_id) ) )
+            {
+                frmProblemEdit.Pet = Pet;
+                frmProblemEdit.FormClosing += new FormClosingEventHandler(ProblemEdit_FormClosing);
+                frmProblemEdit.ShowDialog();
+            }
         }
 
         

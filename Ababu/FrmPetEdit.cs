@@ -97,11 +97,7 @@ namespace Ababu
         }
 
 
-        private void UnlockForm()
-        {
-            IsModified = false;
-            PicIsModified.Image = Properties.Resources.bullet_green;
-        }
+
 
 
         private void BtnPetSave_Click(object sender, EventArgs e)
@@ -137,14 +133,14 @@ namespace Ababu
                     int affected_id = Pet.Save();
                     if (affected_id  > 0)
                     {
-                        Pet.Load(affected_id);
-                        FillForm();
-                        UnlockForm();
+                        IsModified = false;
+                        PicIsModified.Image = Properties.Resources.bullet_green;
+                        this.Close();
                     }
                 }
                 catch (Exception ex)
                 {
-                    Globals.log.Write(ex.ToString());
+                    Globals.Log.Write(ex.ToString());
                 }
             }
         }
@@ -238,22 +234,8 @@ namespace Ababu
             {
                 StlRecordInfo.Text += " - modified on " + Utility.UnixTimeStampToDateTime(Utility.IfNull(Pet.Updated, 0)).ToString();
             }
-            if (Pet.Deleted != null)
-            {
-                StlRecordInfo.Text += " - deleted on " + Utility.UnixTimeStampToDateTime(Utility.IfNull(Pet.Deleted, 0)).ToString();
-                // disable all controls to avoid edit
-                DisableFormControls();
-            }
         }
-
-
-        private void DisableFormControls()
-        {
-            foreach(Control subctrl in this.Controls)
-            {
-                subctrl.Enabled = false;
-            }
-        }
+        
 
         private void ChkDateOfDeath_CheckedChanged(object sender, EventArgs e)
         {
@@ -262,13 +244,12 @@ namespace Ababu
 
         private void BtnPetDelete_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to delete selected patient ?", "Warning", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("*** This cannot be undone ***" + Environment.NewLine + "Do you want to delete selected patient and related information (Problems, prescription etc. ) ?", "Warning", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 Pet.Delete();
-                Pet.Load(Pet.Id);
-                FillForm();
-                UnlockForm();
+                IsModified = false;
+                PicIsModified.Image = Properties.Resources.bullet_green;
             }
         }
     }

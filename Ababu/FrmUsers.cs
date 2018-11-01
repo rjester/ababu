@@ -94,7 +94,7 @@ namespace Ababu
             }
             catch (Exception ex)
             {
-                Globals.log.Write(ex.ToString());
+                Globals.Log.Write(ex.ToString());
             }
         }
 

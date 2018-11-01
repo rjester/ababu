@@ -37,7 +37,7 @@ namespace Ababu
 
         private void GridPetResultReload()
         {
-            GrdPets.DataSource = Pet.Search(TstPetSearch.Text, TsmPetSearchShowDeleted.Checked);
+            GrdPets.DataSource = Pet.Search(TstPetSearch.Text);
             GrdPets.Columns["description"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
@@ -85,11 +85,7 @@ namespace Ababu
         }
 
 
-
-        private void PetEdit_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            GridPetResultReload();
-        }
+        
 
 
 
@@ -142,12 +138,17 @@ namespace Ababu
 
         private void OpenPetEditForm(Pet pet)
         {
-            FrmPetEdit frmPetEdit = new FrmPetEdit(pet);
-            frmPetEdit.FormClosing += new FormClosingEventHandler(PetEdit_FormClosing);
-            frmPetEdit.Show();
+            using (FrmPetEdit frmPetEdit = new FrmPetEdit(pet))
+            {
+                frmPetEdit.FormClosed += FrmPetEdit_FormClosed;
+                frmPetEdit.ShowDialog();
+            }
         }
 
-
+        private void FrmPetEdit_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            GridPetResultReload();
+        }
 
         private void TsbPetDelete_Click(object sender, EventArgs e)
         {
@@ -156,14 +157,11 @@ namespace Ababu
                 DataGridViewRow selectedRow = GrdPets.SelectedRows[0];
                 Pet pet = new Pet((int)selectedRow.Cells["id"].Value);
 
-                if(pet.Deleted == null)
+                DialogResult result = MessageBox.Show("Do you want to delete selected patient ?", "Warning", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
                 {
-                    DialogResult result = MessageBox.Show("Do you want to delete selected patient ?", "Warning", MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes)
-                    {
-                        pet.Delete();
-                        GridPetResultReload();
-                    }
+                    pet.Delete();
+                    GridPetResultReload();
                 }
             }
         }
@@ -172,6 +170,8 @@ namespace Ababu
 
         private void GrdPets_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            // @delete or @modify
+            /*
             if (e.RowIndex != -1 && e.ColumnIndex == GrdPets.Columns["deleted"].Index)
             {
                 if (e.Value != null)
@@ -192,8 +192,8 @@ namespace Ababu
 
                     }
                 }
-
             }
+            */
         }
 
         
@@ -205,18 +205,11 @@ namespace Ababu
                 DataGridViewRow selectedRow = GrdPets.SelectedRows[0];
                 Pet pet = new Pet((int)selectedRow.Cells["id"].Value);
 
-                if (pet.Deleted != null)
+                // bubble the event up to the parent
+                if (this.OnPetSelectionToVisit != null)
                 {
-                    DialogResult result = MessageBox.Show("You can't visit a deleted patient", "Warning");
-                }
-                else
-                {
-                    // bubble the event up to the parent
-                    if (this.OnPetSelectionToVisit != null)
-                    {
-                        // raise the event
-                        this.OnPetSelectionToVisit(this, new PetEventArgs(pet.Id));
-                    }
+                    // raise the event
+                    this.OnPetSelectionToVisit(this, new PetEventArgs(pet.Id));
                 }
             }
         }
@@ -246,10 +239,13 @@ namespace Ababu
 
         private void LlbOwnerEdit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrmOwnerEdit frmOwnerEdit = new FrmOwnerEdit(Owner);
-            frmOwnerEdit.FormClosed += FrmOwnerEdit_FormClosed;
-            frmOwnerEdit.ShowDialog();
+            using (FrmOwnerEdit frmOwnerEdit = new FrmOwnerEdit(Owner))
+            {
+                frmOwnerEdit.FormClosed += FrmOwnerEdit_FormClosed;
+                frmOwnerEdit.ShowDialog();
+            }
         }
+
 
         private void FrmOwnerEdit_FormClosed(object sender, FormClosedEventArgs e)
         {

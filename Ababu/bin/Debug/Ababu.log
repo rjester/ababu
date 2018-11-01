@@ -1,5 +1,4 @@
-﻿03/09/2018 09:12:56 (error): Unable to connect to any of the specified MySQL hosts.
-04/09/2018 01:14:12 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
+﻿01/11/2018 11:42:07 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Cannot delete or update a parent row: a foreign key constraint fails (`ababu`.`pets`, CONSTRAINT `fk_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `owners` (`id`) ON UPDATE NO ACTION)
    in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
    in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
    in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
@@ -7,117 +6,11 @@
    in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
    in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
    in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
-04/09/2018 01:14:15 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
-   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
-04/09/2018 01:15:13 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
-   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
-04/09/2018 01:15:14 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
-   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
-04/09/2018 01:15:15 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
-   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
-04/09/2018 01:15:15 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
-   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
-04/09/2018 01:15:15 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
-   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
-04/09/2018 01:15:16 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
-   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
-04/09/2018 01:15:16 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
-   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
-04/09/2018 01:15:20 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'diagnois_id' in 'field list'
-   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Insert() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 117
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 63
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 164
-11/09/2018 17:30:28 (error): Connection must be valid and open.
-11/09/2018 17:30:28 (error): Connection must be valid and open.
-11/09/2018 17:47:35 (error): Connection must be valid and open.
-11/09/2018 17:47:36 (error): Connection must be valid and open.
-13/09/2018 08:35:18 (error): Unable to connect to any of the specified MySQL hosts.
-13/09/2018 19:58:12 (error): Unknown column 'a.is_normal' in 'field list'
-15/09/2018 15:34:34 (error): Connection must be valid and open.
-15/09/2018 15:34:34 (error): Connection must be valid and open.
-17/09/2018 11:52:49 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@mediacal_report' must be defined.
+   in OldAuntie.Owner.Delete() in C:\dev\Ababu\OldAuntie\Owner.cs:riga 175
+   in Ababu.FrmOwnerEdit.BtnDelete_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmOwnerEdit.cs:riga 216
+01/11/2018 12:06:52 (error): Unknown column 'a.deleted' in 'field list'
+01/11/2018 12:08:29 (error): Unknown column 'a.deleted' in 'field list'
+01/11/2018 12:14:42 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
    in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
    in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
    in MySql.Data.MySqlClient.Statement.BindParameters()
@@ -125,42 +18,263 @@
    in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
    in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
    in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Examination.Update() in C:\dev\Ababu\OldAuntie\Examination.cs:riga 97
-   in OldAuntie.Examination.Save() in C:\dev\Ababu\OldAuntie\Examination.cs:riga 61
-   in Ababu.FrmExaminationEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmExaminationEdit.cs:riga 152
-21/09/2018 08:42:57 (error): Unable to connect to any of the specified MySQL hosts.
-21/09/2018 08:43:01 (error): Connection must be valid and open.
-21/09/2018 08:43:01 (error): Connection must be valid and open.
-22/09/2018 10:57:33 (error): Unknown column 'a.diagnostic_test_id' in 'where clause'
-22/09/2018 15:59:38 (error): Unknown column 'a.diagnostic_test_id' in 'where clause'
-22/09/2018 16:06:50 (error): Unknown column 'a.in_evidence' in 'order clause'
-22/09/2018 16:08:42 (error): Unknown column 'a.in_evidence' in 'order clause'
-03/10/2018 07:34:50 (error): The CommandText property has not been properly initialized.
-03/10/2018 07:34:51 (error): The CommandText property has not been properly initialized.
-03/10/2018 07:35:15 (error): The CommandText property has not been properly initialized.
-03/10/2018 08:34:44 (error): The CommandText property has not been properly initialized.
-03/10/2018 08:35:21 (error): The CommandText property has not been properly initialized.
-03/10/2018 08:36:53 (error): The CommandText property has not been properly initialized.
-06/10/2018 20:59:04 (error): Unknown column 'b.status_id' in 'where clause'
-06/10/2018 20:59:05 (error): Unknown column 'a.pid' in 'field list'
-06/10/2018 21:00:16 (error): Unknown column 'b.status_id' in 'where clause'
-06/10/2018 21:00:18 (error): Unknown column 'c.status_id' in 'where clause'
-06/10/2018 21:00:59 (error): Unknown column 'b.status_id' in 'where clause'
-06/10/2018 21:01:01 (error): Unknown column 'c.status_id' in 'where clause'
-06/10/2018 21:01:36 (error): Unknown column 'b.status_id' in 'where clause'
-06/10/2018 21:02:00 (error): Unknown column 'b.status_id' in 'where clause'
-06/10/2018 21:02:02 (error): Unknown column 'b.status_id' in 'where clause'
-07/10/2018 20:25:00 (error): Unknown column 'b.status_id' in 'where clause'
-07/10/2018 20:25:02 (error): Unknown column 'b.status_id' in 'where clause'
-07/10/2018 20:25:19 (error): Unknown column 'b.status_id' in 'where clause'
-07/10/2018 20:25:21 (error): Unknown column 'b.status_id' in 'where clause'
-07/10/2018 20:25:22 (error): Unknown column 'b.status_id' in 'where clause'
-07/10/2018 20:25:23 (error): Unknown column 'b.status_id' in 'where clause'
-07/10/2018 20:25:27 (error): Unknown column 'b.status_id' in 'where clause'
-07/10/2018 20:25:31 (error): Unknown column 'b.status_id' in 'where clause'
-07/10/2018 20:25:31 (error): Unknown column 'pid' in 'field list'
-07/10/2018 20:25:39 (error): Unknown column 'pid' in 'field list'
-07/10/2018 20:25:39 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'pid' in 'field list'
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:50:52 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:54:13 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:54:15 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:54:16 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:54:17 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:54:17 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:54:17 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:54:17 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:54:18 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:54:40 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:54:41 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:54:41 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:54:41 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:54:41 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:56:04 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:56:05 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:56:06 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:56:06 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:56:08 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:56:08 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:56:08 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:56:08 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 12:56:08 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@deleted' must be defined.
+   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
+   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
+   in MySql.Data.MySqlClient.Statement.BindParameters()
+   in MySql.Data.MySqlClient.PreparableStatement.Execute()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Pet.Update() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 153
+   in OldAuntie.Pet.Save() in C:\dev\Ababu\OldAuntie\Pet.cs:riga 103
+   in Ababu.FrmPetEdit.BtnPetSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPetEdit.cs:riga 137
+01/11/2018 13:37:59 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Cannot delete or update a parent row: a foreign key constraint fails (`ababu`.`pets`, CONSTRAINT `fk_pets_owners` FOREIGN KEY (`owner_id`) REFERENCES `owners` (`id`) ON UPDATE NO ACTION)
    in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
    in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
    in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
@@ -168,401 +282,5 @@
    in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
    in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
    in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Problem.Insert() in C:\dev\Ababu\OldAuntie\Problem.cs:riga 133
-   in OldAuntie.Problem.Save() in C:\dev\Ababu\OldAuntie\Problem.cs:riga 72
-   in Ababu.FrmProblemEdit.BtnProblemSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmProblemEdit.cs:riga 161
-07/10/2018 20:25:41 (error): Unknown column 'pid' in 'field list'
-07/10/2018 20:25:41 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'pid' in 'field list'
-   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Problem.Insert() in C:\dev\Ababu\OldAuntie\Problem.cs:riga 133
-   in OldAuntie.Problem.Save() in C:\dev\Ababu\OldAuntie\Problem.cs:riga 72
-   in Ababu.FrmProblemEdit.BtnProblemSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmProblemEdit.cs:riga 161
-07/10/2018 20:25:45 (error): Unknown column 'b.status_id' in 'where clause'
-07/10/2018 20:25:49 (error): Unknown column 'b.status_id' in 'where clause'
-07/10/2018 20:25:49 (error): Unknown column 'b.status_id' in 'where clause'
-07/10/2018 20:25:49 (error): Unknown column 'pid' in 'field list'
-07/10/2018 20:25:55 (error): Unknown column 'pid' in 'field list'
-07/10/2018 20:25:55 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'pid' in 'field list'
-   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Problem.Insert() in C:\dev\Ababu\OldAuntie\Problem.cs:riga 133
-   in OldAuntie.Problem.Save() in C:\dev\Ababu\OldAuntie\Problem.cs:riga 72
-   in Ababu.FrmProblemEdit.BtnProblemSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmProblemEdit.cs:riga 161
-07/10/2018 20:25:58 (error): Unknown column 'b.status_id' in 'where clause'
-07/10/2018 20:26:01 (error): Unknown column 'b.status_id' in 'where clause'
-07/10/2018 20:26:03 (error): Unknown column 'b.status_id' in 'where clause'
-07/10/2018 20:32:53 (error): Table 'ababu.problem_status' doesn't exist
-07/10/2018 20:32:54 (error): Table 'ababu.problem_status' doesn't exist
-07/10/2018 20:33:46 (error): Table 'ababu.problem_status' doesn't exist
-07/10/2018 20:33:48 (error): Table 'ababu.problem_status' doesn't exist
-07/10/2018 20:33:49 (error): Table 'ababu.problem_status' doesn't exist
-07/10/2018 20:33:50 (error): Unknown column 'a.pid' in 'where clause'
-07/10/2018 20:34:54 (error): Table 'ababu.problem_status' doesn't exist
-07/10/2018 20:34:56 (error): Table 'ababu.problem_status' doesn't exist
-07/10/2018 20:34:57 (error): Table 'ababu.problem_status' doesn't exist
-07/10/2018 20:35:14 (error): Table 'ababu.problem_status' doesn't exist
-07/10/2018 20:35:15 (error): Table 'ababu.problem_status' doesn't exist
-07/10/2018 20:35:17 (error): Table 'ababu.problem_status' doesn't exist
-07/10/2018 20:35:17 (error): Unknown column 'nid' in 'where clause'
-07/10/2018 20:35:18 (error): Unknown column 'nid' in 'where clause'
-07/10/2018 20:35:18 (error): Unknown column 'nid' in 'where clause'
-07/10/2018 20:35:18 (error): Unknown column 'nid' in 'where clause'
-07/10/2018 20:35:19 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:10:40 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:10:42 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:10:43 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:10:44 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:10:44 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:10:44 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:10:44 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:10:45 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:10:48 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:10:49 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:10:49 (error): Unknown column 'pid' in 'field list'
-08/10/2018 09:10:56 (error): Unknown column 'pid' in 'field list'
-08/10/2018 09:10:56 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'pid' in 'field list'
-   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Problem.Insert() in C:\dev\Ababu\OldAuntie\Problem.cs:riga 133
-   in OldAuntie.Problem.Save() in C:\dev\Ababu\OldAuntie\Problem.cs:riga 72
-   in Ababu.FrmProblemEdit.BtnProblemSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmProblemEdit.cs:riga 161
-08/10/2018 09:10:57 (error): Unknown column 'pid' in 'field list'
-08/10/2018 09:10:57 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'pid' in 'field list'
-   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Problem.Insert() in C:\dev\Ababu\OldAuntie\Problem.cs:riga 133
-   in OldAuntie.Problem.Save() in C:\dev\Ababu\OldAuntie\Problem.cs:riga 72
-   in Ababu.FrmProblemEdit.BtnProblemSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmProblemEdit.cs:riga 161
-08/10/2018 09:10:58 (error): Unknown column 'pid' in 'field list'
-08/10/2018 09:10:59 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'pid' in 'field list'
-   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Problem.Insert() in C:\dev\Ababu\OldAuntie\Problem.cs:riga 133
-   in OldAuntie.Problem.Save() in C:\dev\Ababu\OldAuntie\Problem.cs:riga 72
-   in Ababu.FrmProblemEdit.BtnProblemSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmProblemEdit.cs:riga 161
-08/10/2018 09:10:59 (error): Unknown column 'pid' in 'field list'
-08/10/2018 09:10:59 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'pid' in 'field list'
-   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Problem.Insert() in C:\dev\Ababu\OldAuntie\Problem.cs:riga 133
-   in OldAuntie.Problem.Save() in C:\dev\Ababu\OldAuntie\Problem.cs:riga 72
-   in Ababu.FrmProblemEdit.BtnProblemSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmProblemEdit.cs:riga 161
-08/10/2018 09:11:02 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:18:23 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:18:24 (error): Unknown column 'pid' in 'field list'
-08/10/2018 09:18:30 (error): Unknown column 'pid' in 'field list'
-08/10/2018 09:18:30 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'pid' in 'field list'
-   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
-   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
-   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
-   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Problem.Insert() in C:\dev\Ababu\OldAuntie\Problem.cs:riga 133
-   in OldAuntie.Problem.Save() in C:\dev\Ababu\OldAuntie\Problem.cs:riga 72
-   in Ababu.FrmProblemEdit.BtnProblemSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmProblemEdit.cs:riga 161
-08/10/2018 09:18:35 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:20:48 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:20:50 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:20:51 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:20:52 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:20:52 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:20:52 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:20:52 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:20:53 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:20:55 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:20:57 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:26:50 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:26:52 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:26:53 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:26:54 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:26:54 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:26:54 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:26:54 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:26:55 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:26:56 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:26:57 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:27:26 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:29:07 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:29:11 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:29:13 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:29:16 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:29:16 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:29:16 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:29:16 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:29:17 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:29:18 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:30:10 (error): Table 'ababu.problem_status' doesn't exist
-08/10/2018 09:31:47 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@uid' must be defined.
-   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
-   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
-   in MySql.Data.MySqlClient.Statement.BindParameters()
-   in MySql.Data.MySqlClient.PreparableStatement.Execute()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Problem.Update()
-   in OldAuntie.Problem.Save()
-   in Ababu.FrmProblemEdit.BtnProblemSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmProblemEdit.cs:riga 161
-08/10/2018 09:31:48 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@uid' must be defined.
-   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
-   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
-   in MySql.Data.MySqlClient.Statement.BindParameters()
-   in MySql.Data.MySqlClient.PreparableStatement.Execute()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Problem.Update()
-   in OldAuntie.Problem.Save()
-   in Ababu.FrmProblemEdit.BtnProblemSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmProblemEdit.cs:riga 161
-08/10/2018 09:31:51 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@uid' must be defined.
-   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
-   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
-   in MySql.Data.MySqlClient.Statement.BindParameters()
-   in MySql.Data.MySqlClient.PreparableStatement.Execute()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Problem.Update()
-   in OldAuntie.Problem.Save()
-   in Ababu.FrmProblemEdit.BtnProblemSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmProblemEdit.cs:riga 161
-08/10/2018 09:32:57 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:32:57 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:32:57 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:32:57 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:35:30 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:35:30 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:35:30 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 09:35:30 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 10:25:19 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 10:25:19 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 10:25:20 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 10:25:20 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:21:26 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:21:26 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:21:26 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:21:26 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:22:35 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@pid' must be defined.
-   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
-   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
-   in MySql.Data.MySqlClient.Statement.BindParameters()
-   in MySql.Data.MySqlClient.PreparableStatement.Execute()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Update() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 95
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 59
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 167
-08/10/2018 13:22:36 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@pid' must be defined.
-   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
-   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
-   in MySql.Data.MySqlClient.Statement.BindParameters()
-   in MySql.Data.MySqlClient.PreparableStatement.Execute()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Update() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 95
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 59
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 167
-08/10/2018 13:22:36 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@pid' must be defined.
-   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
-   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
-   in MySql.Data.MySqlClient.Statement.BindParameters()
-   in MySql.Data.MySqlClient.PreparableStatement.Execute()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Update() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 95
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 59
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 167
-08/10/2018 13:22:37 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@pid' must be defined.
-   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
-   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
-   in MySql.Data.MySqlClient.Statement.BindParameters()
-   in MySql.Data.MySqlClient.PreparableStatement.Execute()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Update() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 95
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 59
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 167
-08/10/2018 13:22:37 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@pid' must be defined.
-   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
-   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
-   in MySql.Data.MySqlClient.Statement.BindParameters()
-   in MySql.Data.MySqlClient.PreparableStatement.Execute()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Update() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 95
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 59
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 167
-08/10/2018 13:22:37 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@pid' must be defined.
-   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
-   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
-   in MySql.Data.MySqlClient.Statement.BindParameters()
-   in MySql.Data.MySqlClient.PreparableStatement.Execute()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Update() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 95
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 59
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 167
-08/10/2018 13:22:37 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@pid' must be defined.
-   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
-   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
-   in MySql.Data.MySqlClient.Statement.BindParameters()
-   in MySql.Data.MySqlClient.PreparableStatement.Execute()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Update() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 95
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 59
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 167
-08/10/2018 13:24:32 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:24:32 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:24:32 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:24:32 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:35:07 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:35:08 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:35:08 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:35:08 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:35:44 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:35:45 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:35:45 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:35:45 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:39:01 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:39:01 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:39:01 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:39:02 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:40:02 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:40:02 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:40:02 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:40:02 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:55:21 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:55:21 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:55:21 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 13:55:21 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:32:59 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@pid' must be defined.
-   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
-   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
-   in MySql.Data.MySqlClient.Statement.BindParameters()
-   in MySql.Data.MySqlClient.PreparableStatement.Execute()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Update() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 95
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 59
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 167
-08/10/2018 14:33:41 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:33:41 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:33:41 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:33:42 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:33:46 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@pid' must be defined.
-   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
-   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
-   in MySql.Data.MySqlClient.Statement.BindParameters()
-   in MySql.Data.MySqlClient.PreparableStatement.Execute()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Update() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 95
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 59
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 167
-08/10/2018 14:33:47 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Parameter '@pid' must be defined.
-   in MySql.Data.MySqlClient.Statement.SerializeParameter(MySqlParameterCollection parameters, MySqlPacket packet, String parmName, Int32 parameterIndex)
-   in MySql.Data.MySqlClient.Statement.InternalBindParameters(String sql, MySqlParameterCollection parameters, MySqlPacket packet)
-   in MySql.Data.MySqlClient.Statement.BindParameters()
-   in MySql.Data.MySqlClient.PreparableStatement.Execute()
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
-   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
-   in OldAuntie.Prescription.Update() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 95
-   in OldAuntie.Prescription.Save() in C:\dev\Ababu\OldAuntie\Prescription.cs:riga 59
-   in Ababu.FrmPrescriptionEdit.BtnPrescriptionSave_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmPrescriptionEdit.cs:riga 167
-08/10/2018 14:40:35 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:40:36 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:40:36 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:40:36 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:41:20 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:41:20 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:41:20 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:41:20 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:42:08 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:42:08 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:42:08 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:42:08 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:43:34 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:43:34 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:43:34 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 14:43:34 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 15:03:45 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 15:03:45 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 15:03:45 (error): Unknown column 'nid' in 'where clause'
-08/10/2018 15:03:45 (error): Unknown column 'nid' in 'where clause'
-17/10/2018 08:32:27 (error): Unable to connect to any of the specified MySQL hosts.
-17/10/2018 08:32:30 (error): Connection must be valid and open.
-17/10/2018 08:32:31 (error): Connection must be valid and open.
-17/10/2018 09:35:00 (error): Connection must be valid and open.
-17/10/2018 09:35:00 (error): Connection must be valid and open.
-19/10/2018 08:36:00 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 08:36:00 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 08:36:00 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 08:36:00 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 08:40:44 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 08:40:44 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 08:40:44 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 08:40:44 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 08:55:40 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 08:55:41 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 09:12:20 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 09:12:20 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 09:14:17 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 09:14:17 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 09:14:17 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 09:14:18 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 09:14:18 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 09:14:58 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 09:18:03 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 09:19:15 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 09:19:34 (error): Unknown column 'nid' in 'where clause'
-19/10/2018 19:34:53 (error): Unknown column 'oid' in 'field list'
-20/10/2018 08:06:39 (error): Fatal error encountered during command execution.
-20/10/2018 08:06:39 (error): Connection must be valid and open.
-22/10/2018 07:51:11 (error): Unable to connect to any of the specified MySQL hosts.
-22/10/2018 07:51:12 (error): Connection must be valid and open.
-22/10/2018 07:51:20 (error): Unable to connect to any of the specified MySQL hosts.
-29/10/2018 09:28:09 (error): Unable to connect to any of the specified MySQL hosts.
-30/10/2018 20:33:17 (error): Unable to connect to any of the specified MySQL hosts.
+   in OldAuntie.Owner.Delete() in C:\dev\Ababu\OldAuntie\Owner.cs:riga 175
+   in Ababu.FrmOwnerEdit.BtnDelete_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\FrmOwnerEdit.cs:riga 216

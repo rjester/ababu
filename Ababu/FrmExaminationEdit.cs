@@ -161,13 +161,12 @@ namespace Ababu
                     {
                         IsModified = false;
                         PicIsModified.Image = Properties.Resources.bullet_green;
-                        this.Close();
-                        this.Dispose();
+                        Close();
                     }
                 }
                 catch (Exception ex)
                 {
-                    Globals.log.Write(ex.ToString());
+                    Globals.Log.Write(ex.ToString());
                 }
             }
         }
@@ -188,6 +187,11 @@ namespace Ababu
 
 
             return result;
+        }
+
+        private void BtnPrescriptionDelete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

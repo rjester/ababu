@@ -535,6 +535,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmPetEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pet Edit";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPetEdit_FormClosing);
             this.Load += new System.EventHandler(this.FrmPetEdit_Load);

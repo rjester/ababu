@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Nov 01, 2018 alle 09:03
+-- Creato il: Nov 01, 2018 alle 13:40
 -- Versione del server: 10.1.34-MariaDB
 -- Versione PHP: 7.2.8
 
@@ -317,7 +317,9 @@ INSERT INTO `examinations` (`id`, `diagnosis_id`, `diagnostic_test_id`, `pet_id`
 (2, 0, 18142, 1, '', 'djsflkdshjfds', 0, 0, '2018-10-19 09:34:42', '2018-10-19 09:34:45'),
 (3, 0, 13385, 1, '', '', 0, 0, '2018-10-19 09:34:24', '2018-10-19 09:34:26'),
 (4, 328, 13379, 1, '', '', 0, 0, '2018-10-19 09:33:35', NULL),
-(5, 505, 13387, 3, '', '', 0, 1, '2018-10-29 13:16:11', NULL);
+(5, 505, 13387, 3, '', '', 0, 1, '2018-10-29 13:16:11', NULL),
+(6, 0, 18188, 2, '', '', 0, 0, '2018-11-01 12:13:56', NULL),
+(9, 0, 18189, 7, '', '', 1, 1, '2018-11-01 13:15:04', '2018-11-01 13:15:06');
 
 -- --------------------------------------------------------
 
@@ -3204,11 +3206,8 @@ CREATE TABLE `notes` (
 --
 
 INSERT INTO `notes` (`id`, `pet_id`, `user_id`, `note_text`, `created`, `updated`) VALUES
-(1, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis', '2018-10-17 00:00:00', NULL),
-(2, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2018-10-17 00:00:00', NULL),
-(3, 1, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis', '2018-10-17 00:00:00', NULL),
-(4, 1, 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ...una modicica', '2018-10-17 00:00:00', NULL),
-(5, 3, 2, 'one day a diarty', '2018-10-29 13:16:28', NULL);
+(1, 2, 2, 'on now on', '2018-11-01 12:14:16', NULL),
+(4, 1, 2, 'una nota nel diario', '2018-11-01 12:45:27', NULL);
 
 -- --------------------------------------------------------
 
@@ -3229,21 +3228,20 @@ CREATE TABLE `owners` (
   `mobile` varchar(64) NOT NULL,
   `email` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
-  `updated` datetime DEFAULT NULL,
-  `deleted` datetime DEFAULT NULL
+  `updated` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dump dei dati per la tabella `owners`
 --
 
-INSERT INTO `owners` (`id`, `country_id`, `firstname`, `lastname`, `address`, `postcode`, `city`, `ssn`, `phone`, `mobile`, `email`, `created`, `updated`, `deleted`) VALUES
-(1, 'gb', 'George Gordon', 'Byron', 'Gibbon Street', '00100', 'Plymouth dc', 'UK01234567890', '+44 01752 01234567', '+44 348 88 22 399', 'byron@romantic.org', '0000-00-00 00:00:00', NULL, NULL),
-(2, 'ie', 'Rory', 'Gallagher', 'Thin Lizzy Road, 10', '50127', 'Cork', 'IR0101', '+353 0123 123456789', '+353 348 88 22 399', 'rory@rock.org', '0001-01-01 00:00:00', '2018-10-30 20:35:55', '2018-10-30 20:35:55'),
-(3, 'ie', 'Phil', 'Lynott', 'Thin Lizzy Rd., 10', 'D01 123', 'Dublin', 'IRL0987654321', '+353 0000 01234567', '+353 348 88 22 399', 'phil.lynott@thinlizzy.com', '0001-01-01 00:00:00', '2018-10-30 20:36:27', NULL),
-(4, 'gb', 'Sherlock', 'Holmes', '221B, Baker street', '', 'London', 'UK01234567890', '+44 01752 01234567', '+44 348 88 22 399', 'sh@scotlandyard.org', '0000-00-00 00:00:00', NULL, NULL),
-(5, 'it', 'Roberto', 'Nannucci', 'via Valle 14', '50014', 'Fiesole', 'NNNRRT72C26D583N', '3488822399', '+393488822399', 'roberto.nannucci@gmail.com', '0000-00-00 00:00:00', NULL, NULL),
-(6, 'gb', 'Paul', 'McCartney', 'Abbey Road, 1', 'SN123LN', 'London', 'EN101010', '+44123456789', '+44987654321', 'paul@beatles.com', '0000-00-00 00:00:00', NULL, NULL);
+INSERT INTO `owners` (`id`, `country_id`, `firstname`, `lastname`, `address`, `postcode`, `city`, `ssn`, `phone`, `mobile`, `email`, `created`, `updated`) VALUES
+(1, 'gb', 'George Gordon', 'Byron', 'Gibbon Street', '50100', 'Plymouth dc', 'UK01234567890', '+44 01752 01234567', '+44 348 000000', 'byron@romantic.org', '0001-01-01 00:00:00', '2018-11-01 13:18:23'),
+(2, 'ie', 'Rory', 'Gallagher', 'Thin Lizzy Road, 10', '50127', 'Cork', 'IR0101', '+353 0123 123456789', '+353 348 88 22 399', 'rory@rock.org', '0001-01-01 00:00:00', '2018-10-30 20:35:55'),
+(3, 'ie', 'Phil', 'Lynott', 'Thin Lizzy Rd., 10', 'D01 123', 'Dublin', 'IRL0987654321', '+353 0000 01234567', '+353 348 88 22 399', 'phil.lynott@thinlizzy.com', '0001-01-01 00:00:00', '2018-10-30 20:36:27'),
+(4, 'gb', 'Sherlock', 'Holmes', '221B, Baker street', '', 'London', 'UK01234567890', '+44 01752 01234567', '+44 348 88 22 399', 'sh@scotlandyard.org', '0000-00-00 00:00:00', NULL),
+(5, 'it', 'Roberto', 'Nannucci', 'via Valle 14', '50014', 'Fiesole', 'NNNRRT72C26D583N', '3488822399', '+393488822399', 'roberto.nannucci@gmail.com', '0000-00-00 00:00:00', NULL),
+(6, 'gb', 'Paul', 'McCartney', 'Abbey Road, 1', 'SN123LN', 'London', 'EN101010', '+44123456789', '+44987654321', 'paul@beatles.com', '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -3266,21 +3264,19 @@ CREATE TABLE `pets` (
   `tatuatge` varchar(64) DEFAULT NULL,
   `tatuatge_location` varchar(100) DEFAULT NULL,
   `created` bigint(20) NOT NULL,
-  `updated` bigint(20) DEFAULT NULL,
-  `deleted` bigint(20) DEFAULT NULL
+  `updated` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dump dei dati per la tabella `pets`
 --
 
-INSERT INTO `pets` (`id`, `tsn`, `owner_id`, `name`, `gender`, `date_of_birth`, `date_of_death`, `description`, `color`, `microchip`, `microchip_location`, `tatuatge`, `tatuatge_location`, `created`, `updated`, `deleted`) VALUES
-(1, 727488, 5, 'Ozzy', 'M', 1363280618, NULL, 'Beautiful and good Bergamasco, black and white', 'black and white', 'M12345', 'neck', '', '', 1406104554, 1533929383, NULL),
-(2, 727488, 2, 'Muddy', 'M', 1361231500, NULL, 'Beautiful and gentle Bobtail, black and white', 'black and white', 'M09876', 'neck', NULL, NULL, 0, NULL, NULL),
-(3, 727488, 5, 'Gnasher', 'M', 7200, NULL, 'Good German Shepherd black and brown', 'black and brown', 'M45455', 'neck', '', '', 0, 1540931855, NULL),
-(4, 727488, 1, 'Boatswain', 'M', 1052107200, 1226282400, 'Good and gentle and brave black dog.\r\nTo mark a friend\'s remains these stones arise;\r\nI never knew but one -- and here he lies.', 'black', 'M7878', 'neck', '', '', 0, 1529189575, NULL),
-(7, 183815, 0, 'Martha', 'M', -210158656, 208535744, 'Old English Sheepdog referred to in the title of the 1968 Beatles song \"Martha My Dear.\"', 'black, white', 'M1968', 'Leg', '', '', 1493904267, 1529189568, NULL),
-(8, 179558, 2, 'Zeus', 'M', 830129296, NULL, 'just a description.', 'any coulor you like', 'MCHIP9090', 'neck', '', '', 1529189996, 1539978342, NULL);
+INSERT INTO `pets` (`id`, `tsn`, `owner_id`, `name`, `gender`, `date_of_birth`, `date_of_death`, `description`, `color`, `microchip`, `microchip_location`, `tatuatge`, `tatuatge_location`, `created`, `updated`) VALUES
+(1, 727488, 5, 'Ozzy', 'M', 1363320218, NULL, 'Beautiful and good Bergamasco, black and white', 'black and white', 'M12345', 'neck', '', '', 1406104554, 1541078339),
+(2, 727488, 1, 'Muddy', 'M', 1361231500, NULL, 'Beautiful and gentle Bobtail, black and white', 'black and white', 'M09876', 'neck', NULL, NULL, 0, NULL),
+(3, 727488, 1, 'Gnasher', 'M', 7200, NULL, 'Good German Shepherd black and brown', 'black and brown', 'M45455', 'neck', '', '', 0, 1540931855),
+(4, 727488, 1, 'Boatswain', 'M', 1052107200, 1226282400, 'Good and gentle and brave black dog.\r\nTo mark a friend\'s remains these stones arise;\r\nI never knew but one -- and here he lies.', 'black', 'M7878', 'neck', '', '', 0, 1529189575),
+(7, 183815, 1, 'Martha', 'M', -210158656, 208535744, 'Old English Sheepdog referred to in the title of the 1968 Beatles song \"Martha My Dear.\"', 'black, white', 'M1968', 'Leg', '', '', 1493904267, 1529189568);
 
 -- --------------------------------------------------------
 
@@ -3310,7 +3306,9 @@ INSERT INTO `prescriptions` (`id`, `medicine_id`, `diagnosis_id`, `pet_id`, `use
 (16, '10347/4037', 328, 1, 2, 1, 'one a day', 1, '2018-09-13 08:46:00', '2018-10-19 14:53:48'),
 (17, '32742/4005', 328, 1, 2, 1, '1', 0, '2018-09-18 14:43:23', '2018-10-19 14:53:38'),
 (18, 'EU/2/08/088/004', 0, 1, 2, 1, 'one or two', 1, '2018-10-08 10:27:07', '2018-10-08 15:04:07'),
-(19, '41821/4019', 0, 3, 0, 1, 'one per day', 0, '2018-10-29 13:15:51', NULL);
+(19, '41821/4019', 0, 1, 0, 1, 'one per day', 0, '2018-10-29 13:15:51', NULL),
+(20, '00879/4011', 328, 2, 0, 1, 'one', 0, '2018-11-01 12:13:34', NULL),
+(23, '10347/4037', 0, 7, 0, 1, 'r', 0, '2018-11-01 13:16:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -3338,7 +3336,10 @@ CREATE TABLE `problems` (
 
 INSERT INTO `problems` (`diagnosis_id`, `pet_id`, `user_id`, `active_from`, `status_id`, `key_problem`, `subjective_analysis`, `objective_analysis`, `notes`, `created`, `updated`) VALUES
 (328, 1, 2, '2018-10-08 14:44:23', -1, 0, '', '', '', '2018-10-08 14:44:25', '2018-10-19 14:53:53'),
-(505, 3, 2, '2018-10-29 13:15:15', 3, 1, 'a analysis', '', '', '2018-10-29 13:15:36', NULL);
+(328, 2, 2, '2018-11-01 12:13:19', 0, 0, '', '', '', '2018-11-01 12:13:20', NULL),
+(334, 2, 2, '2018-11-01 12:13:48', 0, 0, '', '', '', '2018-11-01 12:13:49', NULL),
+(505, 3, 2, '2018-10-29 13:15:15', 3, 1, 'a analysis', '', '', '2018-10-29 13:15:36', NULL),
+(332, 7, 2, '2018-11-01 13:10:41', 0, 0, '', '', '', '2018-11-01 13:10:42', NULL);
 
 -- --------------------------------------------------------
 
@@ -3454,7 +3455,8 @@ CREATE TABLE `treatments` (
 INSERT INTO `treatments` (`id`, `procedure_id`, `pet_id`, `notes`, `created`, `recall`, `updated`) VALUES
 (8, 12637, 1, '', '2018-10-05 19:44:21', NULL, '2018-10-05 19:45:15'),
 (9, 12650, 1, 'nota... una sola nota...', '2018-10-19 08:36:18', '2018-10-26 08:41:11', '2018-10-19 08:41:23'),
-(10, 12634, 3, '', '2018-10-29 13:16:20', NULL, '2018-10-29 13:16:20');
+(10, 12634, 3, '', '2018-10-29 13:16:20', NULL, '2018-10-29 13:16:20'),
+(11, 12629, 2, '', '2018-11-01 12:14:04', NULL, '2018-11-01 12:14:04');
 
 -- --------------------------------------------------------
 
@@ -7608,7 +7610,8 @@ ALTER TABLE `countries`
 -- Indici per le tabelle `examinations`
 --
 ALTER TABLE `examinations`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_examinations_pets` (`pet_id`);
 
 --
 -- Indici per le tabelle `locales`
@@ -7626,26 +7629,28 @@ ALTER TABLE `medicines`
 -- Indici per le tabelle `notes`
 --
 ALTER TABLE `notes`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_notes_pets` (`pet_id`);
 
 --
 -- Indici per le tabelle `owners`
 --
 ALTER TABLE `owners`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `cid` (`country_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `pets`
 --
 ALTER TABLE `pets`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_pets_owners` (`owner_id`);
 
 --
 -- Indici per le tabelle `prescriptions`
 --
 ALTER TABLE `prescriptions`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_prescriptions_pets` (`pet_id`);
 
 --
 -- Indici per le tabelle `problems`
@@ -7675,7 +7680,8 @@ ALTER TABLE `status`
 -- Indici per le tabelle `treatments`
 --
 ALTER TABLE `treatments`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_treatments_pets` (`pet_id`);
 
 --
 -- Indici per le tabelle `users`
@@ -7704,13 +7710,13 @@ ALTER TABLE `visit_tbe`
 -- AUTO_INCREMENT per la tabella `examinations`
 --
 ALTER TABLE `examinations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT per la tabella `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `owners`
@@ -7722,19 +7728,19 @@ ALTER TABLE `owners`
 -- AUTO_INCREMENT per la tabella `pets`
 --
 ALTER TABLE `pets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT per la tabella `prescriptions`
 --
 ALTER TABLE `prescriptions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT per la tabella `treatments`
 --
 ALTER TABLE `treatments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT per la tabella `users`
@@ -7747,6 +7753,46 @@ ALTER TABLE `users`
 --
 ALTER TABLE `visit_tbe`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Limiti per le tabelle scaricate
+--
+
+--
+-- Limiti per la tabella `examinations`
+--
+ALTER TABLE `examinations`
+  ADD CONSTRAINT `fk_examinations_pets` FOREIGN KEY (`pet_id`) REFERENCES `pets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Limiti per la tabella `notes`
+--
+ALTER TABLE `notes`
+  ADD CONSTRAINT `fk_notes_pets` FOREIGN KEY (`pet_id`) REFERENCES `pets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Limiti per la tabella `pets`
+--
+ALTER TABLE `pets`
+  ADD CONSTRAINT `fk_pets_owners` FOREIGN KEY (`owner_id`) REFERENCES `owners` (`id`) ON UPDATE NO ACTION;
+
+--
+-- Limiti per la tabella `prescriptions`
+--
+ALTER TABLE `prescriptions`
+  ADD CONSTRAINT `fk_prescriptions_pets` FOREIGN KEY (`pet_id`) REFERENCES `pets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Limiti per la tabella `problems`
+--
+ALTER TABLE `problems`
+  ADD CONSTRAINT `fk_problems_pets` FOREIGN KEY (`pet_id`) REFERENCES `pets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Limiti per la tabella `treatments`
+--
+ALTER TABLE `treatments`
+  ADD CONSTRAINT `fk_treatments_pets` FOREIGN KEY (`pet_id`) REFERENCES `pets` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

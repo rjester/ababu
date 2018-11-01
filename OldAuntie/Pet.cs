@@ -26,7 +26,6 @@ namespace OldAuntie
         public string TatuatgeLocation { get; set; }
         public long Created { get; set; }
         public long? Updated { get; set; }
-        public long? Deleted { get; set; }
 
         // Properties / fields not in Database
         public int Years { get; set; }
@@ -72,7 +71,6 @@ namespace OldAuntie
 
                     Created = (long)result["created"];
                     Updated = Utility.IfDBNull(result["updated"], null);
-                    Deleted = Utility.IfDBNull(result["deleted"], null);
 
                     // calculate age of the patient
                     DateTime DtDateOfBirth = Utility.UnixTimeStampToDateTime((long)DateOfBirth);
@@ -130,8 +128,7 @@ namespace OldAuntie
                                     "tatuatge=@tatuatge, " +
                                     "tatuatge_location=@tatuatge_location, " +
                                     "created=@created, " +
-                                    "updated=@updated, " +
-                                    "deleted=@deleted " +
+                                    "updated=@updated " +
                                 "WHERE id=@id";
 
 
@@ -151,7 +148,6 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@tatuatge_location", TatuatgeLocation);
             Cmd.Parameters.AddWithValue("@created", Created);
             Cmd.Parameters.AddWithValue("@updated", Utility.Now());
-            Cmd.Parameters.AddWithValue("@deleted", Deleted);
 
             affected_rows = Cmd.ExecuteNonQuery();
             if(affected_rows > 0)
@@ -199,24 +195,24 @@ namespace OldAuntie
 
         public long Delete()
         {
-            Deleted = Utility.Now();
-            return Update();
+            int affected_rows = 0;
+            string query = "DELETE FROM pets WHERE id = @id";
+
+            MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@id", Id);
+            affected_rows = Cmd.ExecuteNonQuery();
+
+            return affected_rows;
         }
 
 
-        static public DataTable Search(string what = "", bool IncludeDeleted = false)
+        static public DataTable Search(string what = "")
         {
-            string query = "SELECT a.id as id, a.name, b.familiar_name as species, a.microchip, a.description, a.color, a.deleted " +
+            string query = "SELECT a.id as id, a.name, b.familiar_name as species, a.microchip, a.description, a.color " +
                 "FROM pets a, species b " +
                 "WHERE a.tsn = b.tsn " +
-                "AND (LOWER(a.name) LIKE '%" + what.ToLower() + "%' OR LOWER(b.familiar_name) LIKE '%" + what.ToLower() + "%' OR LOWER(microchip) LIKE '%" + what.ToLower() + "%' OR LOWER(description) LIKE '%" + what + "%' OR LOWER(color) LIKE '%" + what.ToLower() + "%') ";
-
-            if (IncludeDeleted == false)
-            {
-                query += "AND a.deleted IS NULL ";
-            }
-
-            query += "ORDER BY a.id DESC";
+                "AND (LOWER(a.name) LIKE '%" + what.ToLower() + "%' OR LOWER(b.familiar_name) LIKE '%" + what.ToLower() + "%' OR LOWER(microchip) LIKE '%" + what.ToLower() + "%' OR LOWER(description) LIKE '%" + what + "%' OR LOWER(color) LIKE '%" + what.ToLower() + "%') " +
+                "ORDER BY a.id DESC";
 
             DataTable result = Globals.DBCon.Execute(query);
             return result;

@@ -104,9 +104,11 @@ namespace Ababu
 
         private void OpenPrescriptionEdit(string id, int prescription_id = 0)
         {
-            FrmPrescriptionEdit frmPrescriptionEdit = new FrmPrescriptionEdit(new Prescription(prescription_id), Pet, new Medicine(id), Problem);
-            frmPrescriptionEdit.FormClosing += new FormClosingEventHandler(PrescriptionEdit_FormClosing);
-            frmPrescriptionEdit.ShowDialog();
+            using (FrmPrescriptionEdit frmPrescriptionEdit = new FrmPrescriptionEdit(new Prescription(prescription_id), Pet, new Medicine(id), Problem))
+            {
+                frmPrescriptionEdit.FormClosing += new FormClosingEventHandler(PrescriptionEdit_FormClosing);
+                frmPrescriptionEdit.ShowDialog();
+            }
         }
 
 

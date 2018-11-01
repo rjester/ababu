@@ -54,25 +54,10 @@ namespace Ababu
             {
                 StlRecordInfo.Text += " - modified on " + Owner.Updated.ToString();
             }
-            if (Owner.Deleted != null)
-            {
-                StlRecordInfo.Text += " - deleted on " + Owner.Deleted.ToString();
-                // disable all controls to avoid edit
-                DisableFormControls();
-            }
+            
         }
 
-
-
-        private void DisableFormControls()
-        {
-            foreach (Control subctrl in this.Controls)
-            {
-                subctrl.Enabled = false;
-            }
-        }
-
-
+        
 
         private bool IsValidForm()
         {
@@ -198,7 +183,7 @@ namespace Ababu
                     {
                         IsModified = false;
                         PicIsModified.Image = Properties.Resources.bullet_green;
-                        this.Dispose();
+                        Close();
                     }
 
                 }
@@ -221,6 +206,19 @@ namespace Ababu
                 {
                     e.Cancel = true;
                 }
+            }
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Owner.Delete();
+            }
+            catch(Exception ex)
+            {
+                Globals.Log.Write(ex.ToString());
+                MessageBox.Show("Cannot delete selected owner. Some pets may be associated to it");
             }
         }
     }
