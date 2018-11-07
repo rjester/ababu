@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Nov 01, 2018 alle 18:34
+-- Creato il: Nov 07, 2018 alle 10:16
 -- Versione del server: 10.1.34-MariaDB
 -- Versione PHP: 7.2.8
 
@@ -3207,7 +3207,9 @@ CREATE TABLE `notes` (
 
 INSERT INTO `notes` (`id`, `pet_id`, `user_id`, `note_text`, `created`, `updated`) VALUES
 (1, 2, 2, 'on now on', '2018-11-01 12:14:16', NULL),
-(4, 1, 2, 'una nota nel diario', '2018-11-01 12:45:27', NULL);
+(4, 1, 2, 'una nota nel diario', '2018-11-01 12:45:27', NULL),
+(7, 7, 2, 'a note', '2018-11-07 09:35:34', NULL),
+(9, 7, 2, 'another note', '2018-11-07 09:35:46', NULL);
 
 -- --------------------------------------------------------
 
@@ -3241,7 +3243,8 @@ INSERT INTO `owners` (`id`, `country_id`, `firstname`, `lastname`, `address`, `p
 (3, 'ie', 'Phil', 'Lynott', 'Thin Lizzy Rd., 10', 'D01 123', 'Dublin', 'IRL0987654321', '+353 0000 01234567', '+353 348 88 22 399', 'phil.lynott@thinlizzy.com', '0001-01-01 00:00:00', '2018-10-30 20:36:27'),
 (4, 'gb', 'Sherlock', 'Holmes', '221B, Baker street', '', 'London', 'UK01234567890', '+44 01752 01234567', '+44 348 88 22 399', 'sh@scotlandyard.org', '0000-00-00 00:00:00', NULL),
 (5, 'it', 'Roberto', 'Nannucci', 'via Valle 14', '50014', 'Fiesole', 'NNNRRT72C26D583N', '3488822399', '+39 348 88 22 399', 'roberto.nannucci@gmail.com', '0001-01-01 00:00:00', '2018-11-01 14:41:10'),
-(6, 'gb', 'Paul', 'McCartney', 'Abbey Road, 1', 'SN123LN', 'London', 'EN101010', '+44123456789', '+44987654321', 'paul@beatles.com', '0000-00-00 00:00:00', NULL);
+(6, 'gb', 'Paul', 'McCartney', 'Abbey Road, 1', 'SN123LN', 'London', 'EN101010', '+44123456789', '+44987654321', 'paul@beatles.com', '0000-00-00 00:00:00', NULL),
+(7, 'gb', 'Piano', 'Pianissimo', 'Via del Barbiere, Siviglia', '50100', 'Florence', '', '+33 055 000 000', '+39 348 000 0000', 'piano@pianissimo.org', '2018-11-02 23:32:15', '2018-11-07 09:20:22');
 
 -- --------------------------------------------------------
 
@@ -3308,7 +3311,8 @@ INSERT INTO `prescriptions` (`id`, `medicine_id`, `diagnosis_id`, `pet_id`, `use
 (18, 'EU/2/08/088/004', 0, 1, 2, 1, 'one or two', 1, '2018-10-08 10:27:07', '2018-10-08 15:04:07'),
 (19, '41821/4019', 0, 1, 0, 1, 'one per day', 0, '2018-10-29 13:15:51', NULL),
 (20, '00879/4011', 328, 2, 0, 1, 'one', 0, '2018-11-01 12:13:34', NULL),
-(23, '10347/4037', 0, 7, 0, 1, 'r', 0, '2018-11-01 13:16:11', NULL);
+(23, '10347/4037', 0, 7, 0, 1, 'r', 0, '2018-11-01 13:16:11', NULL),
+(24, 'EU/2/10/118/001-002,015', 332, 7, 0, 1, 'one a day', 0, '2018-11-07 09:36:59', NULL);
 
 -- --------------------------------------------------------
 
@@ -3456,7 +3460,9 @@ INSERT INTO `treatments` (`id`, `procedure_id`, `pet_id`, `notes`, `created`, `r
 (8, 12637, 1, '', '2018-10-05 19:44:21', NULL, '2018-10-05 19:45:15'),
 (9, 12650, 1, 'nota... una sola nota...', '2018-10-19 08:36:18', '2018-10-26 08:41:11', '2018-10-19 08:41:23'),
 (10, 12634, 3, '', '2018-10-29 13:16:20', NULL, '2018-10-29 13:16:20'),
-(11, 12629, 2, '', '2018-11-01 12:14:04', NULL, '2018-11-01 12:14:04');
+(11, 12629, 2, '', '2018-11-01 12:14:04', NULL, '2018-11-01 12:14:04'),
+(12, 12650, 7, 'Other procedure ha to come\r\n', '2018-11-07 09:36:27', NULL, '2018-11-07 09:36:27'),
+(13, 3720, 7, '', '2018-11-07 09:36:39', '2018-11-07 09:36:33', '2018-11-07 09:36:39');
 
 -- --------------------------------------------------------
 
@@ -7716,25 +7722,25 @@ ALTER TABLE `examinations`
 -- AUTO_INCREMENT per la tabella `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT per la tabella `owners`
 --
 ALTER TABLE `owners`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT per la tabella `pets`
 --
 ALTER TABLE `pets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT per la tabella `prescriptions`
 --
 ALTER TABLE `prescriptions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT per la tabella `treatments`

@@ -34,7 +34,7 @@ namespace Ababu
             CmbCountryId.DataSource = Globals.DBCon.EntityLoad("countries");
             CmbCountryId.ValueMember = "id";
             CmbCountryId.DisplayMember = "name";
-            CmbCountryId.SelectedValue = Owner.CountryId;
+            CmbCountryId.SelectedValue = Utility.IfNull(Owner.CountryId, "gb");
 
             TxtFirstname.Text = Owner.Firtname;
             TxtLastname.Text = Owner.Lastname;
@@ -100,9 +100,6 @@ namespace Ababu
                 ErrOwnerEdit.SetError(TxtEmail, "Mobile phone cannot be empty");
             }
 
-
-
-
             return result;
         }
 
@@ -161,6 +158,7 @@ namespace Ababu
             this.Close();
         }
 
+
         private void BtnSave_Click(object sender, EventArgs e)
         {
             if (IsValidForm())
@@ -191,11 +189,9 @@ namespace Ababu
                 {
                     MessageBox.Show(ex.ToString());
                 }
-
-
-
             }
         }
+
 
         private void FrmOwnerEdit_FormClosing(object sender, FormClosingEventArgs e)
         {

@@ -26,7 +26,9 @@ namespace Ababu
 
             SearchOptionShowDeleted = TsmPetSearchShowDeleted.Checked;
             SearchOptionShowOnlyUnderTheraphy = TsmPetSearchShowOnlyUnderTheraphy.Checked;
-    }
+        }
+
+
 
         private void CtrlPets_Load(object sender, EventArgs e)
         {
@@ -83,9 +85,6 @@ namespace Ababu
         {
             GridPetResultReload();
         }
-
-
-        
 
 
 
@@ -152,16 +151,21 @@ namespace Ababu
 
         private void TsbPetDelete_Click(object sender, EventArgs e)
         {
-            if (GrdPets.SelectedCells.Count > 0)
+            if (GrdPets.SelectedRows.Count > 0)
             {
-                DataGridViewRow selectedRow = GrdPets.SelectedRows[0];
-                Pet pet = new Pet((int)selectedRow.Cells["id"].Value);
-
-                DialogResult result = MessageBox.Show("Do you want to delete selected patient ?", "Warning", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("*** This cannot be undone ***" + Environment.NewLine + "Do you want to delete selected patient and related information (Problems, prescription etc. ) ?", "Warning", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    pet.Delete();
-                    GridPetResultReload();
+                    try
+                    {
+                        int id = (int)GrdPets.SelectedRows[0].Cells["id"].Value;
+                        Pet pet = new Pet(id);
+                        pet.Delete();
+                    }
+                    catch (Exception ex)
+                    {
+                        Globals.Log.Write(ex.ToString());
+                    }
                 }
             }
         }

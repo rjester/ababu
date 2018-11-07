@@ -19,16 +19,6 @@ namespace Ababu
         public FrmAbabu()
         {
             InitializeComponent();
-
-            // @todo: delete me. moved insside the login form
-            // initialize and connect to database
-            /*
-            Globals.DBCon.Database = Properties.Settings.Default.database_name;
-            Globals.DBCon.Server = Properties.Settings.Default.database_server;
-            Globals.DBCon.Username = Properties.Settings.Default.database_username;
-            Globals.DBCon.Password = Properties.Settings.Default.database_password;
-            Globals.DBCon.Connect();
-            */
         }
 
 
@@ -40,16 +30,7 @@ namespace Ababu
             this.WindowState = FormWindowState.Maximized;
 
             // @todo: delete me ... for debug purpose only
-            TsbPets_Click(this, new EventArgs());
-            /*
-            TabPage TpVisit = new TabPage("Visits");
-            CtrlVisit ctrlVisits = new CtrlVisit(new Pet(1));
-            ctrlVisits.Dock = DockStyle.Fill;
-            TpVisit.Controls.Add(ctrlVisits);
-            TabAbabu.TabPages.Add(TpVisit);
-            TabAbabu.SelectedTab = TpVisit;
-            */
-            // @todo: end delete me
+            // TsbOwners_Click(this, new EventArgs());
         }
 
 
@@ -141,7 +122,31 @@ namespace Ababu
             FrmPreferences frmPreferences = new FrmPreferences();
             frmPreferences.ShowDialog();
         }
-    }
 
-    
+        private void TsbOwners_Click(object sender, EventArgs e)
+        {
+            TabPage TpOwner = new TabPage("Owners");
+            CtrlOwner ctrlOwner = new CtrlOwner();
+            ctrlOwner.Dock = DockStyle.Fill;
+            TpOwner.Controls.Add(ctrlOwner);
+
+            TabAbabu.TabPages.Add(TpOwner);
+            TabAbabu.SelectedTab = TpOwner;
+
+            // subscribe the event. "Tell me when it occurs!"
+            ctrlOwner.OnPetSelectionToVisit += new EventHandler<PetEventArgs>(VisitPet);
+
+        }
+
+        private void TsbCalendar_Click(object sender, EventArgs e)
+        {
+            TabPage TpCalendar = new TabPage("Calendar");
+            CtrlCalendar ctrlCalendar = new CtrlCalendar();
+            ctrlCalendar.Dock = DockStyle.Fill;
+            TpCalendar.Controls.Add(ctrlCalendar);
+
+            TabAbabu.TabPages.Add(TpCalendar);
+            TabAbabu.SelectedTab = TpCalendar;
+        }
+    }
 }

@@ -97,7 +97,7 @@
             this.TxtFirstname.Location = new System.Drawing.Point(12, 44);
             this.TxtFirstname.Name = "TxtFirstname";
             this.TxtFirstname.Size = new System.Drawing.Size(282, 20);
-            this.TxtFirstname.TabIndex = 48;
+            this.TxtFirstname.TabIndex = 1;
             // 
             // CmbCountryId
             // 
@@ -106,14 +106,14 @@
             this.CmbCountryId.Location = new System.Drawing.Point(12, 126);
             this.CmbCountryId.Name = "CmbCountryId";
             this.CmbCountryId.Size = new System.Drawing.Size(282, 21);
-            this.CmbCountryId.TabIndex = 49;
+            this.CmbCountryId.TabIndex = 3;
             // 
             // TxtLastname
             // 
             this.TxtLastname.Location = new System.Drawing.Point(12, 83);
             this.TxtLastname.Name = "TxtLastname";
             this.TxtLastname.Size = new System.Drawing.Size(282, 20);
-            this.TxtLastname.TabIndex = 51;
+            this.TxtLastname.TabIndex = 2;
             // 
             // LblLastname
             // 
@@ -139,7 +139,7 @@
             this.TxtAddress.Multiline = true;
             this.TxtAddress.Name = "TxtAddress";
             this.TxtAddress.Size = new System.Drawing.Size(345, 78);
-            this.TxtAddress.TabIndex = 53;
+            this.TxtAddress.TabIndex = 4;
             // 
             // LblAddress
             // 
@@ -155,7 +155,7 @@
             this.TxtCity.Location = new System.Drawing.Point(99, 268);
             this.TxtCity.Name = "TxtCity";
             this.TxtCity.Size = new System.Drawing.Size(258, 20);
-            this.TxtCity.TabIndex = 56;
+            this.TxtCity.TabIndex = 6;
             // 
             // LblCity
             // 
@@ -171,7 +171,7 @@
             this.TxtPostcode.Location = new System.Drawing.Point(12, 268);
             this.TxtPostcode.Name = "TxtPostcode";
             this.TxtPostcode.Size = new System.Drawing.Size(81, 20);
-            this.TxtPostcode.TabIndex = 58;
+            this.TxtPostcode.TabIndex = 5;
             // 
             // LblPostcode
             // 
@@ -189,7 +189,7 @@
             this.BtnSave.Location = new System.Drawing.Point(278, 346);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(75, 23);
-            this.BtnSave.TabIndex = 59;
+            this.BtnSave.TabIndex = 12;
             this.BtnSave.Text = "Save";
             this.BtnSave.UseVisualStyleBackColor = true;
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
@@ -201,7 +201,7 @@
             this.BtnClose.Location = new System.Drawing.Point(359, 346);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(75, 23);
-            this.BtnClose.TabIndex = 60;
+            this.BtnClose.TabIndex = 13;
             this.BtnClose.Text = "Close";
             this.BtnClose.UseVisualStyleBackColor = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
@@ -220,7 +220,7 @@
             this.TxtSsn.Location = new System.Drawing.Point(12, 312);
             this.TxtSsn.Name = "TxtSsn";
             this.TxtSsn.Size = new System.Drawing.Size(345, 20);
-            this.TxtSsn.TabIndex = 62;
+            this.TxtSsn.TabIndex = 7;
             // 
             // LblSsn
             // 
@@ -236,7 +236,7 @@
             this.TxtPhone.Location = new System.Drawing.Point(16, 39);
             this.TxtPhone.Name = "TxtPhone";
             this.TxtPhone.Size = new System.Drawing.Size(282, 20);
-            this.TxtPhone.TabIndex = 65;
+            this.TxtPhone.TabIndex = 9;
             // 
             // LblPhone
             // 
@@ -258,7 +258,7 @@
             this.GrbOwnerContact.Location = new System.Drawing.Point(377, 28);
             this.GrbOwnerContact.Name = "GrbOwnerContact";
             this.GrbOwnerContact.Size = new System.Drawing.Size(324, 155);
-            this.GrbOwnerContact.TabIndex = 66;
+            this.GrbOwnerContact.TabIndex = 8;
             this.GrbOwnerContact.TabStop = false;
             this.GrbOwnerContact.Text = "Contact";
             // 
@@ -267,7 +267,7 @@
             this.TxtMobile.Location = new System.Drawing.Point(16, 78);
             this.TxtMobile.Name = "TxtMobile";
             this.TxtMobile.Size = new System.Drawing.Size(282, 20);
-            this.TxtMobile.TabIndex = 69;
+            this.TxtMobile.TabIndex = 10;
             // 
             // LblMobile
             // 
@@ -283,7 +283,7 @@
             this.TxtEmail.Location = new System.Drawing.Point(16, 117);
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(282, 20);
-            this.TxtEmail.TabIndex = 67;
+            this.TxtEmail.TabIndex = 11;
             // 
             // LblEmail
             // 

@@ -71,6 +71,7 @@
             this.GrdPets.AllowUserToDeleteRows = false;
             this.GrdPets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.GrdPets.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.GrdPets.BackgroundColor = System.Drawing.SystemColors.Window;
             this.GrdPets.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.GrdPets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GrdPets.Dock = System.Windows.Forms.DockStyle.Fill;

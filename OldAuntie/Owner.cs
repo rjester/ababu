@@ -176,5 +176,35 @@ namespace OldAuntie
             
             return affected_rows;
         }
+
+
+        static public DataTable Search(string what = "")
+        {
+            string query = "SELECT * FROM owners ";
+
+            if(what != "")
+            {
+                query += "WHERE (LOWER(firstname) LIKE '%" + what.ToLower() + "%' OR LOWER(lastname) LIKE '%" + what.ToLower() + "%' OR LOWER(email) LIKE '%" + what.ToLower() + "%') ";
+            }
+            query += "ORDER BY id DESC";
+
+            DataTable result = Globals.DBCon.Execute(query);
+            return result;
+        }
+
+
+        static public DataTable GetPetListByOwnerId(int id = 0)
+        {
+            string query = "SELECT * FROM pets ";
+
+            if (id > 0)
+            {
+                query += "WHERE owner_id = " + id.ToString() + " ";
+            }
+            query += "ORDER BY id DESC";
+
+            DataTable result = Globals.DBCon.Execute(query);
+            return result;
+        }
     }
 }
