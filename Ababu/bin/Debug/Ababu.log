@@ -1,1 +1,18 @@
-﻿
+﻿08/11/2018 15:01:34 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '%'cani'% AND tsn NOT IN (SELECT tsn FROM species)' at line 1
+08/11/2018 15:01:48 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '%'Cani'% AND tsn NOT IN (SELECT tsn FROM species)' at line 1
+08/11/2018 15:02:08 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '%'Cani'% AND tsn NOT IN (SELECT tsn FROM species)' at line 1
+08/11/2018 15:03:18 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '%'Cani'% AND tsn NOT IN (SELECT tsn FROM species)' at line 1
+08/11/2018 15:03:28 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '%'Lupu'% AND tsn NOT IN (SELECT tsn FROM species)' at line 1
+08/11/2018 15:04:20 (error): Connection must be valid and open.
+09/11/2018 08:31:28 (error): Unable to connect to any of the specified MySQL hosts.
+09/11/2018 08:32:34 (error): Connection must be valid and open.
+10/11/2018 14:02:20 (message): MySql.Data.MySqlClient.MySqlException (0x80004005): Cannot delete or update a parent row: a foreign key constraint fails (`ababu`.`pets`, CONSTRAINT `fk_pets_species` FOREIGN KEY (`tsn`) REFERENCES `species` (`tsn`) ON UPDATE NO ACTION)
+   in MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   in MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   in MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   in MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   in OldAuntie.Specie.Delete() in C:\dev\Ababu\OldAuntie\Specie.cs:riga 73
+   in Ababu.CtrlSpecie.TsbSpecieRemove_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\CtrlSpecie.cs:riga 74

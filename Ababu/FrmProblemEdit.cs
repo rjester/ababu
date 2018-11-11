@@ -66,7 +66,7 @@ namespace Ababu
 
             // filling pet detail GroupBox
             TxtPetName.Text = Pet.Name.ToString();
-            Species species = new Species((int)Pet.Tsn);
+            Specie species = new Specie((int)Pet.Tsn);
             TxtPetSpecie.Text = species.FamiliarName;
             TxtDateOfBirth.Text = Pet.DateOfBirth.ToString();
             TxtPetYears.Text = Pet.Years.ToString();

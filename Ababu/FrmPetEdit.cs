@@ -192,7 +192,7 @@ namespace Ababu
             TxtPetId.Text = Pet.Id.ToString();
             TxtName.Text = Pet.Name;
 
-            CmbSpecies.DataSource = Species.List();
+            CmbSpecies.DataSource = Specie.List();
             CmbSpecies.ValueMember = "tsn";
             CmbSpecies.DisplayMember = "familiar_name";
             CmbSpecies.SelectedValue = Pet.Tsn;

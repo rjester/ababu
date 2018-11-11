@@ -30,7 +30,7 @@ namespace Ababu
             this.WindowState = FormWindowState.Maximized;
 
             // @todo: delete me ... for debug purpose only
-            // TsbOwners_Click(this, new EventArgs());
+            TsbSpecies_Click(this, new EventArgs());
         }
 
 
@@ -147,6 +147,17 @@ namespace Ababu
 
             TabAbabu.TabPages.Add(TpCalendar);
             TabAbabu.SelectedTab = TpCalendar;
+        }
+
+        private void TsbSpecies_Click(object sender, EventArgs e)
+        {
+            TabPage TpSpecies = new TabPage("Species");
+            CtrlSpecie ctrlSpecie = new CtrlSpecie();
+            ctrlSpecie.Dock = DockStyle.Fill;
+            TpSpecies.Controls.Add(ctrlSpecie);
+
+            TabAbabu.TabPages.Add(TpSpecies);
+            TabAbabu.SelectedTab = TpSpecies;
         }
     }
 }

@@ -32,7 +32,7 @@ namespace OldAuntie
         public int Months { get; set; }
         public int Days { get; set; }
 
-        public Species Specie { get; set; }
+        public Specie Specie { get; set; }
 
         private bool disposed = false;
 
@@ -96,7 +96,7 @@ namespace OldAuntie
 
                     Days = (DateMax - DateOfBirth.AddMonths((Years * 12) + Months)).Days;
                     
-                    Specie = new Species(Tsn);
+                    Specie = new Specie(Tsn);
                 }
             }
 

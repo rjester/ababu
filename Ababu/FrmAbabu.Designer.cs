@@ -40,11 +40,11 @@
             this.TsbDashboard = new System.Windows.Forms.ToolStripButton();
             this.TsbPets = new System.Windows.Forms.ToolStripButton();
             this.TsbOwners = new System.Windows.Forms.ToolStripButton();
-            this.TsbTags = new System.Windows.Forms.ToolStripButton();
+            this.TsbCalendar = new System.Windows.Forms.ToolStripButton();
             this.TsbSearch = new System.Windows.Forms.ToolStripButton();
             this.TsbUsers = new System.Windows.Forms.ToolStripButton();
             this.TsbPreferences = new System.Windows.Forms.ToolStripButton();
-            this.TsbCalendar = new System.Windows.Forms.ToolStripButton();
+            this.TsbSpecies = new System.Windows.Forms.ToolStripButton();
             this.TlpAbabu.SuspendLayout();
             this.TsAbabu.SuspendLayout();
             this.TabAbabu.SuspendLayout();
@@ -74,10 +74,10 @@
             this.TsbPets,
             this.TsbOwners,
             this.TsbCalendar,
-            this.TsbTags,
             this.toolStripSeparator1,
             this.TsbSearch,
             this.toolStripSeparator2,
+            this.TsbSpecies,
             this.TsbUsers,
             this.toolStripButton1,
             this.TsbPreferences});
@@ -130,7 +130,7 @@
             this.TlpDashboard.ColumnCount = 3;
             this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.79722F));
             this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.20278F));
-            this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 171F));
+            this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
             this.TlpDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TlpDashboard.Location = new System.Drawing.Point(3, 3);
             this.TlpDashboard.Name = "TlpDashboard";
@@ -169,15 +169,15 @@
             this.TsbOwners.Text = "toolStripButton2";
             this.TsbOwners.Click += new System.EventHandler(this.TsbOwners_Click);
             // 
-            // TsbTags
+            // TsbCalendar
             // 
-            this.TsbTags.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TsbTags.Image = global::Ababu.Properties.Resources.tag_blue;
-            this.TsbTags.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TsbTags.Name = "TsbTags";
-            this.TsbTags.Size = new System.Drawing.Size(23, 22);
-            this.TsbTags.Text = "toolStripButton2";
-            this.TsbTags.Click += new System.EventHandler(this.TsbTags_Click);
+            this.TsbCalendar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbCalendar.Image = global::Ababu.Properties.Resources.date;
+            this.TsbCalendar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbCalendar.Name = "TsbCalendar";
+            this.TsbCalendar.Size = new System.Drawing.Size(23, 22);
+            this.TsbCalendar.Text = "Open calendar...";
+            this.TsbCalendar.Click += new System.EventHandler(this.TsbCalendar_Click);
             // 
             // TsbSearch
             // 
@@ -208,15 +208,15 @@
             this.TsbPreferences.Text = "Preferences...";
             this.TsbPreferences.Click += new System.EventHandler(this.TsbPreferences_Click);
             // 
-            // TsbCalendar
+            // TsbSpecies
             // 
-            this.TsbCalendar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TsbCalendar.Image = global::Ababu.Properties.Resources.date;
-            this.TsbCalendar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TsbCalendar.Name = "TsbCalendar";
-            this.TsbCalendar.Size = new System.Drawing.Size(23, 22);
-            this.TsbCalendar.Text = "Open calendar...";
-            this.TsbCalendar.Click += new System.EventHandler(this.TsbCalendar_Click);
+            this.TsbSpecies.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbSpecies.Image = global::Ababu.Properties.Resources.shape_align_left;
+            this.TsbSpecies.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbSpecies.Name = "TsbSpecies";
+            this.TsbSpecies.Size = new System.Drawing.Size(23, 22);
+            this.TsbSpecies.Text = "Species selection...";
+            this.TsbSpecies.Click += new System.EventHandler(this.TsbSpecies_Click);
             // 
             // FrmAbabu
             // 
@@ -246,7 +246,6 @@
         private System.Windows.Forms.TabControl TabAbabu;
         private System.Windows.Forms.TabPage TpDashboard;
         private System.Windows.Forms.ToolStripButton TsbDashboard;
-        private System.Windows.Forms.ToolStripButton TsbTags;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton TsbUsers;
         private System.Windows.Forms.ToolStripButton TsbSearch;
@@ -257,5 +256,6 @@
         private System.Windows.Forms.ToolStripButton TsbPreferences;
         private System.Windows.Forms.ToolStripButton TsbOwners;
         private System.Windows.Forms.ToolStripButton TsbCalendar;
+        private System.Windows.Forms.ToolStripButton TsbSpecies;
     }
 }
