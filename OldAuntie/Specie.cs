@@ -14,8 +14,10 @@ namespace OldAuntie
         public int Tsn { get; set; }
         public string CompleteName { get; set; }
         public string FamiliarName { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime? Updated { get; set; }
 
-        public Specie(int tsn = 0)
+        public Specie(int tsn)
         {
             Tsn = tsn;
             Load(tsn);
@@ -30,12 +32,61 @@ namespace OldAuntie
 
                 if (result != null && result.ItemArray.Count() > 0)
                 {
+                    Tsn = (int)result["tsn"];
                     CompleteName = result["complete_name"].ToString();
                     FamiliarName = result["familiar_name"].ToString();
+                    Created = (DateTime)result["created"];
+                    Updated = Utility.IfDBNull(result["updated"], null);
                 }
             }
 
             return this;
+        }
+
+
+
+        public int Save()
+        {
+            if (Exists())
+            {
+                return Update();
+            }
+            else
+            {
+                return Insert();
+            }
+        }
+
+
+        public bool Exists()
+        {
+            string query = "SELECT tsn FROM species WHERE tsn = " + Tsn;
+            bool result = Globals.DBCon.Exists(query);
+
+            return result;
+        }
+
+
+
+        public int Update()
+        {
+            int affected_rows = 0;
+            string query = "UPDATE species SET " +
+                "complete_name=@complete_name, " +
+                "familiar_name=@familiar_name, " +
+                "updated=@updated " +
+                "WHERE tsn=@tsn";
+
+            MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@tsn", Tsn);
+            Cmd.Parameters.AddWithValue("@complete_name", CompleteName);
+            Cmd.Parameters.AddWithValue("@familiar_name", FamiliarName);
+            Cmd.Parameters.AddWithValue("@updated", DateTime.Now);
+
+
+            affected_rows = Cmd.ExecuteNonQuery();
+
+            return affected_rows;
         }
 
 
@@ -50,7 +101,6 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@tsn", Tsn);
             Cmd.Parameters.AddWithValue("@complete_name", CompleteName);
             Cmd.Parameters.AddWithValue("@familiar_name", FamiliarName);
-            
             Cmd.Parameters.AddWithValue("@created", DateTime.Now);
 
             affected_rows = Cmd.ExecuteNonQuery();

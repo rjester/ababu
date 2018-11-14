@@ -25,7 +25,17 @@ namespace Ababu
 
         private void FrmSpecieEdit_Load(object sender, EventArgs e)
         {
+            FillForm();
 
+            AddOnChangeHandlerToInputControls(this);
+        }
+
+
+        private void FillForm()
+        {
+            TxtTsn.Text = Specie.Tsn.ToString();
+            TxtCompleteName.Text = Specie.CompleteName;
+            TxtFamiliarName.Text = Specie.FamiliarName;
         }
 
 
@@ -102,21 +112,20 @@ namespace Ababu
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (IsValidForm())
+            if(IsValidForm())
             {
                 try
                 {
                     Specie.Tsn = Convert.ToInt32(TxtTsn.Text);
                     Specie.CompleteName = TxtCompleteName.Text;
                     Specie.FamiliarName = TxtFamiliarName.Text;
-                    int affected_rows = Specie.Insert();
+                    int affected_rows = Specie.Save();
                     if (affected_rows > 0)
                     {
                         IsModified = false;
                         PicIsModified.Image = Properties.Resources.bullet_green;
                         Close();
                     }
-
                 }
                 catch (Exception ex)
                 {

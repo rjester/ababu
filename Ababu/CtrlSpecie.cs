@@ -27,6 +27,7 @@ namespace Ababu
 
         private void FillControl()
         {
+            TxtSpecieFilter.Text = "";
             FillSpecieSelected();
         }
 
@@ -64,14 +65,15 @@ namespace Ababu
                 {
                     int tsn = (int)GrdSpecieList.SelectedRows[0].Cells["tsn"].Value;
                     Specie specie = new Specie(tsn);
+                    specie.CompleteName = GrdSpecieList.SelectedRows[0].Cells["completename"].Value.ToString();
 
                     FrmSpecieEdit frmSpecieEdit = new FrmSpecieEdit(specie);
+                    frmSpecieEdit.FormClosed += FrmSpecieEdit_FormClosed;
                     frmSpecieEdit.ShowDialog();
-
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Cannot add selected Specie. Unlink associated Pet first.");
+                    MessageBox.Show("Cannot add selected Specie. View Log file for details on exception.");
                     Globals.Log.Write(ex.ToString());
                 }
             }
@@ -80,7 +82,7 @@ namespace Ababu
 
         private void TsbSpecieRemove_Click(object sender, EventArgs e)
         {
-            if(GrdSpecieSelected.SelectedRows.Count > 0)
+            if (GrdSpecieSelected.SelectedRows.Count > 0)
             {
                 DialogResult result = MessageBox.Show("Do you want to delete selected specie ?", "Warning", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
@@ -97,14 +99,37 @@ namespace Ababu
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Cannot delete selected Specie. Unlink associated Pet first.");
+                        MessageBox.Show("Cannot delete selected Specie. Unlink associated Pets first.");
                         Globals.Log.Write(ex.ToString());
                     }
                 }
             }
         }
 
+        private void TsbSpecieEdit_Click(object sender, EventArgs e)
+        {
+            if (GrdSpecieSelected.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    int tsn = (int)GrdSpecieSelected.SelectedRows[0].Cells["tsn"].Value;
+                    Specie specie = new Specie(tsn);
 
+                    FrmSpecieEdit frmSpecieEdit = new FrmSpecieEdit(specie);
+                    frmSpecieEdit.FormClosed += FrmSpecieEdit_FormClosed;
+                    frmSpecieEdit.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Cannot edit selected Specie. View Log file for details on exception.");
+                    Globals.Log.Write(ex.ToString());
+                }
+            }
+        }
 
+        private void FrmSpecieEdit_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FillControl();
+        }
     }
 }

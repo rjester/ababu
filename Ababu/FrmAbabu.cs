@@ -30,7 +30,7 @@ namespace Ababu
             this.WindowState = FormWindowState.Maximized;
 
             // @todo: delete me ... for debug purpose only
-            TsbSpecies_Click(this, new EventArgs());
+            // TsbCalendar_Click(this, new EventArgs());
         }
 
 

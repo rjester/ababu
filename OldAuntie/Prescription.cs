@@ -71,7 +71,7 @@ namespace OldAuntie
         {
             int affected_rows = 0;
 
-            string query = "UPDATE prescriptions  SET " +
+            string query = "UPDATE prescriptions SET " +
                                     "medicine_id=@medicine_id, " +
                                     "diagnosis_id=@diagnosis_id, " +
                                     "pet_id=@pet_id, " +

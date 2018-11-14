@@ -135,6 +135,7 @@
             // 
             // FrmSpecieEdit
             // 
+            this.AcceptButton = this.BtnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(459, 186);
@@ -151,7 +152,7 @@
             this.MaximumSize = new System.Drawing.Size(475, 225);
             this.Name = "FrmSpecieEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Specie Edit";
+            this.Text = "Animalia - Select species to be used in the platform";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmSpecieEdit_FormClosing);
             this.Load += new System.EventHandler(this.FrmSpecieEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).EndInit();

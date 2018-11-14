@@ -37,10 +37,12 @@
             this.LblStartFromChar = new System.Windows.Forms.Label();
             this.LblSpecieFilter = new System.Windows.Forms.Label();
             this.NumStartFronChar = new System.Windows.Forms.NumericUpDown();
-            this.TsSpecie = new System.Windows.Forms.ToolStrip();
+            this.TsSpecieSelection = new System.Windows.Forms.ToolStrip();
+            this.TsbSpecieAdd = new System.Windows.Forms.ToolStripButton();
             this.TlpSpecieSelected = new System.Windows.Forms.TableLayoutPanel();
             this.GrdSpecieSelected = new System.Windows.Forms.DataGridView();
-            this.TsbSpecieAdd = new System.Windows.Forms.ToolStripButton();
+            this.TsSpecie = new System.Windows.Forms.ToolStrip();
+            this.TsbSpecieEdit = new System.Windows.Forms.ToolStripButton();
             this.TsbSpecieRemove = new System.Windows.Forms.ToolStripButton();
             this.TlpSpecie.SuspendLayout();
             this.TlpSpecieList.SuspendLayout();
@@ -48,9 +50,10 @@
             this.TlpSpecieFilter.SuspendLayout();
             this.PanSpecieFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumStartFronChar)).BeginInit();
-            this.TsSpecie.SuspendLayout();
+            this.TsSpecieSelection.SuspendLayout();
             this.TlpSpecieSelected.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrdSpecieSelected)).BeginInit();
+            this.TsSpecie.SuspendLayout();
             this.SuspendLayout();
             // 
             // TlpSpecie
@@ -61,7 +64,7 @@
             this.TlpSpecie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TlpSpecie.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TlpSpecie.Controls.Add(this.TlpSpecieList, 0, 0);
-            this.TlpSpecie.Controls.Add(this.TsSpecie, 1, 0);
+            this.TlpSpecie.Controls.Add(this.TsSpecieSelection, 1, 0);
             this.TlpSpecie.Controls.Add(this.TlpSpecieSelected, 2, 0);
             this.TlpSpecie.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TlpSpecie.Location = new System.Drawing.Point(0, 0);
@@ -148,11 +151,11 @@
             // 
             this.LblStartFromChar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblStartFromChar.AutoSize = true;
-            this.LblStartFromChar.Location = new System.Drawing.Point(200, 7);
+            this.LblStartFromChar.Location = new System.Drawing.Point(207, 7);
             this.LblStartFromChar.Name = "LblStartFromChar";
-            this.LblStartFromChar.Size = new System.Drawing.Size(125, 13);
+            this.LblStartFromChar.Size = new System.Drawing.Size(343, 13);
             this.LblStartFromChar.TabIndex = 3;
-            this.LblStartFromChar.Text = "chars. (es: Canis lupus...)";
+            this.LblStartFromChar.Text = "chars. (es: Canis lupus...). Note: Species already chosen won\'t be listed";
             // 
             // LblSpecieFilter
             // 
@@ -160,13 +163,13 @@
             this.LblSpecieFilter.AutoSize = true;
             this.LblSpecieFilter.Location = new System.Drawing.Point(3, 7);
             this.LblSpecieFilter.Name = "LblSpecieFilter";
-            this.LblSpecieFilter.Size = new System.Drawing.Size(156, 13);
+            this.LblSpecieFilter.Size = new System.Drawing.Size(164, 13);
             this.LblSpecieFilter.TabIndex = 1;
-            this.LblSpecieFilter.Text = "Start searching when I digit no. ";
+            this.LblSpecieFilter.Text = "Start searching when digiting no. ";
             // 
             // NumStartFronChar
             // 
-            this.NumStartFronChar.Location = new System.Drawing.Point(156, 3);
+            this.NumStartFronChar.Location = new System.Drawing.Point(164, 3);
             this.NumStartFronChar.Maximum = new decimal(new int[] {
             10,
             0,
@@ -183,27 +186,37 @@
             0});
             this.NumStartFronChar.ValueChanged += new System.EventHandler(this.NumStartFronChar_ValueChanged);
             // 
-            // TsSpecie
+            // TsSpecieSelection
             // 
-            this.TsSpecie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TsSpecie.BackColor = System.Drawing.Color.Transparent;
-            this.TsSpecie.Dock = System.Windows.Forms.DockStyle.None;
-            this.TsSpecie.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.TsSpecie.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TsbSpecieAdd,
-            this.TsbSpecieRemove});
-            this.TsSpecie.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-            this.TsSpecie.Location = new System.Drawing.Point(355, 240);
-            this.TsSpecie.Name = "TsSpecie";
-            this.TsSpecie.Size = new System.Drawing.Size(27, 48);
-            this.TsSpecie.TabIndex = 1;
-            this.TsSpecie.Text = "Actions...";
+            this.TsSpecieSelection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.TsSpecieSelection.BackColor = System.Drawing.Color.Transparent;
+            this.TsSpecieSelection.Dock = System.Windows.Forms.DockStyle.None;
+            this.TsSpecieSelection.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.TsSpecieSelection.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsbSpecieAdd});
+            this.TsSpecieSelection.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
+            this.TsSpecieSelection.Location = new System.Drawing.Point(355, 252);
+            this.TsSpecieSelection.Name = "TsSpecieSelection";
+            this.TsSpecieSelection.Size = new System.Drawing.Size(27, 25);
+            this.TsSpecieSelection.TabIndex = 1;
+            this.TsSpecieSelection.Text = "Actions...";
+            // 
+            // TsbSpecieAdd
+            // 
+            this.TsbSpecieAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbSpecieAdd.Image = global::Ababu.Properties.Resources.arrow_right;
+            this.TsbSpecieAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbSpecieAdd.Name = "TsbSpecieAdd";
+            this.TsbSpecieAdd.Size = new System.Drawing.Size(25, 20);
+            this.TsbSpecieAdd.Text = "TsbSpecieAdd";
+            this.TsbSpecieAdd.Click += new System.EventHandler(this.TsbSpecieAdd_Click);
             // 
             // TlpSpecieSelected
             // 
             this.TlpSpecieSelected.ColumnCount = 1;
             this.TlpSpecieSelected.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TlpSpecieSelected.Controls.Add(this.GrdSpecieSelected, 0, 1);
+            this.TlpSpecieSelected.Controls.Add(this.TsSpecie, 0, 2);
             this.TlpSpecieSelected.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TlpSpecieSelected.Location = new System.Drawing.Point(385, 3);
             this.TlpSpecieSelected.Name = "TlpSpecieSelected";
@@ -238,23 +251,36 @@
             this.GrdSpecieSelected.Size = new System.Drawing.Size(344, 415);
             this.GrdSpecieSelected.TabIndex = 6;
             // 
-            // TsbSpecieAdd
+            // TsSpecie
             // 
-            this.TsbSpecieAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TsbSpecieAdd.Image = global::Ababu.Properties.Resources.arrow_right;
-            this.TsbSpecieAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TsbSpecieAdd.Name = "TsbSpecieAdd";
-            this.TsbSpecieAdd.Size = new System.Drawing.Size(25, 20);
-            this.TsbSpecieAdd.Text = "TsbSpecieAdd";
-            this.TsbSpecieAdd.Click += new System.EventHandler(this.TsbSpecieAdd_Click);
+            this.TsSpecie.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsbSpecieEdit,
+            this.TsbSpecieRemove});
+            this.TsSpecie.Location = new System.Drawing.Point(0, 496);
+            this.TsSpecie.Name = "TsSpecie";
+            this.TsSpecie.Size = new System.Drawing.Size(350, 25);
+            this.TsSpecie.TabIndex = 7;
+            this.TsSpecie.Text = "Specie Edit";
+            // 
+            // TsbSpecieEdit
+            // 
+            this.TsbSpecieEdit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.TsbSpecieEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbSpecieEdit.Image = global::Ababu.Properties.Resources.cog_edit;
+            this.TsbSpecieEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbSpecieEdit.Name = "TsbSpecieEdit";
+            this.TsbSpecieEdit.Size = new System.Drawing.Size(23, 22);
+            this.TsbSpecieEdit.Text = "Edit Specie";
+            this.TsbSpecieEdit.Click += new System.EventHandler(this.TsbSpecieEdit_Click);
             // 
             // TsbSpecieRemove
             // 
+            this.TsbSpecieRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.TsbSpecieRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TsbSpecieRemove.Image = global::Ababu.Properties.Resources.arrow_left;
+            this.TsbSpecieRemove.Image = global::Ababu.Properties.Resources.delete;
             this.TsbSpecieRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsbSpecieRemove.Name = "TsbSpecieRemove";
-            this.TsbSpecieRemove.Size = new System.Drawing.Size(25, 20);
+            this.TsbSpecieRemove.Size = new System.Drawing.Size(23, 22);
             this.TsbSpecieRemove.Text = "Remove Specie";
             this.TsbSpecieRemove.Click += new System.EventHandler(this.TsbSpecieRemove_Click);
             // 
@@ -275,10 +301,13 @@
             this.PanSpecieFilter.ResumeLayout(false);
             this.PanSpecieFilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumStartFronChar)).EndInit();
+            this.TsSpecieSelection.ResumeLayout(false);
+            this.TsSpecieSelection.PerformLayout();
+            this.TlpSpecieSelected.ResumeLayout(false);
+            this.TlpSpecieSelected.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrdSpecieSelected)).EndInit();
             this.TsSpecie.ResumeLayout(false);
             this.TsSpecie.PerformLayout();
-            this.TlpSpecieSelected.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GrdSpecieSelected)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -289,9 +318,8 @@
         private System.Windows.Forms.TableLayoutPanel TlpSpecieList;
         private System.Windows.Forms.TextBox TxtSpecieFilter;
         private System.Windows.Forms.DataGridView GrdSpecieList;
-        private System.Windows.Forms.ToolStrip TsSpecie;
+        private System.Windows.Forms.ToolStrip TsSpecieSelection;
         private System.Windows.Forms.ToolStripButton TsbSpecieAdd;
-        private System.Windows.Forms.ToolStripButton TsbSpecieRemove;
         private System.Windows.Forms.TableLayoutPanel TlpSpecieSelected;
         private System.Windows.Forms.TableLayoutPanel TlpSpecieFilter;
         private System.Windows.Forms.Panel PanSpecieFilter;
@@ -299,5 +327,8 @@
         private System.Windows.Forms.NumericUpDown NumStartFronChar;
         private System.Windows.Forms.Label LblStartFromChar;
         private System.Windows.Forms.DataGridView GrdSpecieSelected;
+        private System.Windows.Forms.ToolStrip TsSpecie;
+        private System.Windows.Forms.ToolStripButton TsbSpecieRemove;
+        private System.Windows.Forms.ToolStripButton TsbSpecieEdit;
     }
 }
