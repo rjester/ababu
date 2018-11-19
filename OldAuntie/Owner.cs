@@ -61,16 +61,6 @@ namespace OldAuntie
 
 
 
-
-
-
-        public static DataTable List()
-        {
-            DataTable result = Globals.DBCon.Execute("SELECT id, CONCAT(firstname, ' ', lastname) as owner FROM owners");
-            return result;
-        }
-
-
         public int Save()
         {
             if (Exists())
@@ -176,6 +166,15 @@ namespace OldAuntie
             
             return affected_rows;
         }
+
+
+
+        public static DataTable List()
+        {
+            DataTable result = Globals.DBCon.Execute("SELECT id, CONCAT(firstname, ' ', lastname) as owner FROM owners");
+            return result;
+        }
+
 
 
         static public DataTable Search(string what = "")

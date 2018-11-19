@@ -141,6 +141,18 @@
     <Compile Include="CtrlVisit.Designer.cs">
       <DependentUpon>CtrlVisit.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCalendarEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCalendarEdit.Designer.cs">
+      <DependentUpon>FrmCalendarEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCalendarItemEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCalendarItemEdit.Designer.cs">
+      <DependentUpon>FrmCalendarItemEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLightbox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +274,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlVisit.resx">
       <DependentUpon>CtrlVisit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCalendarEdit.resx">
+      <DependentUpon>FrmCalendarEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCalendarItemEdit.resx">
+      <DependentUpon>FrmCalendarItemEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLightbox.resx">
       <DependentUpon>FrmLightbox.cs</DependentUpon>
