@@ -108,8 +108,10 @@ namespace Ababu
             {
                 try
                 {
-                    // int affected_rows = Owner.Save();
-                    int affected_rows = 0;
+                    Calendar.Name = TxtName.Text;
+                    Calendar.CalendarTypeId = 1;
+
+                    int affected_rows = Calendar.Save();
 
                     if (affected_rows > 0)
                     {

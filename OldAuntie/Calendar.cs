@@ -13,11 +13,117 @@ namespace OldAuntie
     public class Calendar
     {
         public int Id { get; set; }
+        public int CalendarTypeId { get; set; }
         public string Name { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime? Updated { get; set; }
 
-        public Calendar()
+
+        public Calendar(int id = 0)
         {
+            Load(id);
         }
+        
+
+        public Calendar Load(int id)
+        {
+            Id = id;
+
+            string query = "SELECT * FROM calendars WHERE id = " + id;
+            DataRow result = Globals.DBCon.SelectOneRow(query);
+
+            if (result != null && result.ItemArray.Count() > 0)
+            {
+                CalendarTypeId = (int)result["calendar_type_id"];
+                Name = result["name"].ToString();
+                Created = (DateTime)result["created"];
+                Updated = Utility.IfDBNull(result["updated"], null);
+            }
+
+            return this;
+        }
+
+
+
+        public int Save()
+        {
+            if (Exists())
+            {
+                return Update();
+            }
+            else
+            {
+                return Insert();
+            }
+        }
+
+
+        public bool Exists()
+        {
+            if (Id > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        public int Update()
+        {
+            int affected_rows = 0;
+            string query = "UPDATE calendars SET " +
+                "name=@name, " +
+                "calendar_type_id=@calendar_type_id, " +
+                "created=@created, " +
+                "updated=@updated " +
+                "WHERE id=@id";
+
+            MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@id", Id);
+            Cmd.Parameters.AddWithValue("@calendar_type_id", CalendarTypeId);
+            Cmd.Parameters.AddWithValue("@name", Name);
+            Cmd.Parameters.AddWithValue("@created", Created);
+            Cmd.Parameters.AddWithValue("@updated", DateTime.Now);
+            affected_rows = Cmd.ExecuteNonQuery();
+
+            return affected_rows;
+        }
+
+
+
+        public int Insert()
+        {
+            int affected_rows = 0;
+            string query = "INSERT INTO calendars (name, calendar_type_id, created) " +
+                "VALUES (@name, @calendar_type_id, @created)";
+
+            MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@calendar_type_id", CalendarTypeId);
+            Cmd.Parameters.AddWithValue("@name", Name);
+            Cmd.Parameters.AddWithValue("@created", DateTime.Now);
+            Cmd.Parameters.AddWithValue("@updated", Updated);
+            affected_rows = Cmd.ExecuteNonQuery();
+
+            return affected_rows;
+        }
+
+
+        public int Delete()
+        {
+            int affected_rows = 0;
+            string query = "DELETE FROM calendars WHERE id = @id";
+
+            MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
+            Cmd.Parameters.AddWithValue("@id", Id);
+            affected_rows = Cmd.ExecuteNonQuery();
+
+            return affected_rows;
+        }
+
+
 
         public static DataTable GetAllCalendar()
         {
@@ -25,6 +131,11 @@ namespace OldAuntie
             return Globals.DBCon.Execute(query);
         }
     }
+
+
+
+
+
 
     public class CalendarItem
     {

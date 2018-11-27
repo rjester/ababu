@@ -35,7 +35,8 @@
             this.MonthViewSelection = new WindowsFormsCalendar.MonthView();
             this.TsCalendar = new System.Windows.Forms.ToolStrip();
             this.TsbCalendarAdd = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.TsbCalendarDelete = new System.Windows.Forms.ToolStripButton();
+            this.TsbCalendarEdit = new System.Windows.Forms.ToolStripButton();
             this.TlpCalendar.SuspendLayout();
             this.TlpCalendarSelection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrdCalendarSelection)).BeginInit();
@@ -73,7 +74,6 @@
             this.CalCalendar.ItemCreated += new WindowsFormsCalendar.Calendar.CalendarItemCancelEventHandler(this.CalCalendar_ItemCreated);
             this.CalCalendar.ItemDatesChanged += new WindowsFormsCalendar.Calendar.CalendarItemEventHandler(this.CalCalendar_ItemDatesChanged);
             this.CalCalendar.ItemDoubleClick += new WindowsFormsCalendar.Calendar.CalendarItemEventHandler(this.CalCalendar_ItemDoubleClick);
-            this.CalCalendar.Paint += new System.Windows.Forms.PaintEventHandler(this.CalCalendar_Paint);
             // 
             // TlpCalendarSelection
             // 
@@ -103,6 +103,7 @@
             this.GrdCalendarSelection.ColumnHeadersVisible = false;
             this.GrdCalendarSelection.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrdCalendarSelection.Location = new System.Drawing.Point(3, 303);
+            this.GrdCalendarSelection.MultiSelect = false;
             this.GrdCalendarSelection.Name = "GrdCalendarSelection";
             this.GrdCalendarSelection.ReadOnly = true;
             this.GrdCalendarSelection.RowHeadersVisible = false;
@@ -110,6 +111,7 @@
             this.GrdCalendarSelection.Size = new System.Drawing.Size(208, 160);
             this.GrdCalendarSelection.TabIndex = 0;
             this.GrdCalendarSelection.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdCalendarSelection_CellClick);
+            this.GrdCalendarSelection.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdCalendarSelection_RowEnter);
             // 
             // MonthViewSelection
             // 
@@ -136,7 +138,8 @@
             // 
             this.TsCalendar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TsbCalendarAdd,
-            this.toolStripButton1});
+            this.TsbCalendarDelete,
+            this.TsbCalendarEdit});
             this.TsCalendar.Location = new System.Drawing.Point(0, 466);
             this.TsCalendar.Name = "TsCalendar";
             this.TsCalendar.Size = new System.Drawing.Size(214, 25);
@@ -153,14 +156,26 @@
             this.TsbCalendarAdd.Text = "Add a Calendar";
             this.TsbCalendarAdd.Click += new System.EventHandler(this.TsbCalendarAdd_Click);
             // 
-            // toolStripButton1
+            // TsbCalendarDelete
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::Ababu.Properties.Resources.delete;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "Delete a Calendar";
+            this.TsbCalendarDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbCalendarDelete.Image = global::Ababu.Properties.Resources.delete;
+            this.TsbCalendarDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbCalendarDelete.Name = "TsbCalendarDelete";
+            this.TsbCalendarDelete.Size = new System.Drawing.Size(23, 22);
+            this.TsbCalendarDelete.Text = "Delete a Calendar";
+            this.TsbCalendarDelete.Click += new System.EventHandler(this.TsbCalendarDelete_Click);
+            // 
+            // TsbCalendarEdit
+            // 
+            this.TsbCalendarEdit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.TsbCalendarEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbCalendarEdit.Image = global::Ababu.Properties.Resources.application_form_edit;
+            this.TsbCalendarEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbCalendarEdit.Name = "TsbCalendarEdit";
+            this.TsbCalendarEdit.Size = new System.Drawing.Size(23, 22);
+            this.TsbCalendarEdit.Text = "Edit selected Calendar";
+            this.TsbCalendarEdit.Click += new System.EventHandler(this.TspCalendarEdit_Click);
             // 
             // CtrlCalendar
             // 
@@ -189,6 +204,7 @@
         private WindowsFormsCalendar.MonthView MonthViewSelection;
         private System.Windows.Forms.ToolStrip TsCalendar;
         private System.Windows.Forms.ToolStripButton TsbCalendarAdd;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton TsbCalendarDelete;
+        private System.Windows.Forms.ToolStripButton TsbCalendarEdit;
     }
 }
