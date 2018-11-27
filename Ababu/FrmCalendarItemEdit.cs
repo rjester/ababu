@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OldAuntie;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,13 @@ namespace Ababu
 {
     public partial class FrmCalendarItemEdit : Form
     {
+        private CalendarItem CalendarItem { get; set; }
         private bool IsModified { get; set; }
 
-        public FrmCalendarItemEdit()
+        public FrmCalendarItemEdit(CalendarItem calendar_item)
         {
             InitializeComponent();
+            CalendarItem = calendar_item;
         }
 
 
@@ -26,15 +29,43 @@ namespace Ababu
         {
             FillForm();
             AddOnChangeHandlerToInputControls(this);
-
         }
 
 
         private void FillForm()
         {
+            CmbCalendar.DataSource = Calendar.GetAllCalendar();
+            CmbCalendar.DisplayMember = "name";
+            CmbCalendar.ValueMember = "id";
+            CmbCalendar.SelectedValue = CalendarItem.CalendarId;
+
+            TxtDescription.Text = CalendarItem.Description;
+            LblStartDate.Text = "Start: " + CalendarItem.StartDate.ToString();
+            LblEndDate.Text = "End: " + CalendarItem.EndDate.ToString();
+
 
         }
 
+
+        private bool IsValidForm()
+        {
+            bool result = true;
+            ErrCalendarItemEdit.Clear();
+
+            if (CmbCalendar.SelectedValue.ToString() == "")
+            {
+                result = result & false;
+                ErrCalendarItemEdit.SetError(CmbCalendar, "Select a calendar for the event or create one.");
+            }
+
+            if (TxtDescription.Text.Trim() == string.Empty)
+            {
+                result = result & false;
+                ErrCalendarItemEdit.SetError(TxtDescription, "Descriptiion cannot be empty");
+            }
+
+            return result;
+        }
 
 
         void AddOnChangeHandlerToInputControls(Control ctrl)
@@ -88,7 +119,29 @@ namespace Ababu
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+            if (IsValidForm())
+            {
+                try
+                {
+                    // change the calendar according to the combobox selecttor
+                    CalendarItem.CalendarId = (int)CmbCalendar.SelectedValue;
+                    CalendarItem.Description = TxtDescription.Text;
 
+
+                    int affected_rows = CalendarItem.Save();
+                    if (affected_rows > 0)
+                    {
+                        IsModified = false;
+                        PicIsModified.Image = Properties.Resources.bullet_green;
+                        Close();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
 
 

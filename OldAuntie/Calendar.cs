@@ -6,10 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace OldAuntie
 {
     public class Calendar
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+
         public Calendar()
         {
         }
@@ -23,18 +28,18 @@ namespace OldAuntie
 
     public class CalendarItem
     {
-        private int Id { get; set; }
-        private int CalendarId { get; set; }
-        private int UserId { get; set; }
-        private string Description { get; set; }
-        private DateTime StartDate { get; set; }
-        private DateTime EndDate { get; set; }
-        private DateTime Created { get; set; }
-        private DateTime Updated { get; set; }
+        public int Id { get; set; }
+        public int CalendarId { get; set; }
+        public int UserId { get; set; }
+        public string Description { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime? Updated { get; set; }
 
 
 
-        public CalendarItem(int id)
+        public CalendarItem(int id = 0)
         {
             Load(id);
         }
@@ -153,8 +158,19 @@ namespace OldAuntie
 
 
 
+        public static DataTable GetCalendarItems(int calendar_id = 0)
+        {
+            DataTable result = null;
+            string query = "SELECT * FROM calendar_items WHERE 1=1";
 
+            if(calendar_id > 0)
+            {
+                query += " AND calendar_id = " + calendar_id;
+            }
 
+            result = Globals.DBCon.Execute(query);
 
+            return result;
+        }
     }
 }

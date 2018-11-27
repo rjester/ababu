@@ -37,3 +37,5 @@
    in MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
    in OldAuntie.Specie.Delete() in C:\dev\Ababu\OldAuntie\Specie.cs:riga 124
    in Ababu.CtrlSpecie.TsbSpecieRemove_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\CtrlSpecie.cs:riga 93
+26/11/2018 09:33:11 (error): Table 'ababu.calnedar_items' doesn't exist
+26/11/2018 09:33:35 (error): Table 'ababu.calnedar_items' doesn't exist

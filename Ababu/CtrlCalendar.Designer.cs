@@ -72,6 +72,8 @@
             this.CalCalendar.ItemCreating += new WindowsFormsCalendar.Calendar.CalendarItemCancelEventHandler(this.CalCalendar_ItemCreating);
             this.CalCalendar.ItemCreated += new WindowsFormsCalendar.Calendar.CalendarItemCancelEventHandler(this.CalCalendar_ItemCreated);
             this.CalCalendar.ItemDatesChanged += new WindowsFormsCalendar.Calendar.CalendarItemEventHandler(this.CalCalendar_ItemDatesChanged);
+            this.CalCalendar.ItemDoubleClick += new WindowsFormsCalendar.Calendar.CalendarItemEventHandler(this.CalCalendar_ItemDoubleClick);
+            this.CalCalendar.Paint += new System.Windows.Forms.PaintEventHandler(this.CalCalendar_Paint);
             // 
             // TlpCalendarSelection
             // 
@@ -149,6 +151,7 @@
             this.TsbCalendarAdd.Name = "TsbCalendarAdd";
             this.TsbCalendarAdd.Size = new System.Drawing.Size(23, 22);
             this.TsbCalendarAdd.Text = "Add a Calendar";
+            this.TsbCalendarAdd.Click += new System.EventHandler(this.TsbCalendarAdd_Click);
             // 
             // toolStripButton1
             // 
