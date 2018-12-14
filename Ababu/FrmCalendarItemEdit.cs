@@ -42,8 +42,6 @@ namespace Ababu
             TxtDescription.Text = CalendarItem.Description;
             LblStartDate.Text = "Start: " + CalendarItem.StartDate.ToString();
             LblEndDate.Text = "End: " + CalendarItem.EndDate.ToString();
-
-
         }
 
 

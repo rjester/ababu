@@ -36,6 +36,7 @@
             this.LblName = new System.Windows.Forms.Label();
             this.TxtName = new System.Windows.Forms.TextBox();
             this.ErrCalendarEdit = new System.Windows.Forms.ErrorProvider(this.components);
+            this.BtnColor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrCalendarEdit)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +44,7 @@
             // PicIsModified
             // 
             this.PicIsModified.Image = global::Ababu.Properties.Resources.bullet_green;
-            this.PicIsModified.Location = new System.Drawing.Point(337, 7);
+            this.PicIsModified.Location = new System.Drawing.Point(343, 7);
             this.PicIsModified.Name = "PicIsModified";
             this.PicIsModified.Size = new System.Drawing.Size(20, 20);
             this.PicIsModified.TabIndex = 67;
@@ -86,12 +87,22 @@
             // 
             this.TxtName.Location = new System.Drawing.Point(15, 35);
             this.TxtName.Name = "TxtName";
-            this.TxtName.Size = new System.Drawing.Size(342, 20);
+            this.TxtName.Size = new System.Drawing.Size(322, 20);
             this.TxtName.TabIndex = 63;
             // 
             // ErrCalendarEdit
             // 
             this.ErrCalendarEdit.ContainerControl = this;
+            // 
+            // BtnColor
+            // 
+            this.BtnColor.BackColor = System.Drawing.Color.Teal;
+            this.BtnColor.Location = new System.Drawing.Point(343, 35);
+            this.BtnColor.Name = "BtnColor";
+            this.BtnColor.Size = new System.Drawing.Size(20, 20);
+            this.BtnColor.TabIndex = 68;
+            this.BtnColor.UseVisualStyleBackColor = false;
+            this.BtnColor.Click += new System.EventHandler(this.BtnColor_Click);
             // 
             // FrmCalendarEdit
             // 
@@ -99,6 +110,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 106);
+            this.Controls.Add(this.BtnColor);
             this.Controls.Add(this.PicIsModified);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.BtnSave);
@@ -129,5 +141,6 @@
         private System.Windows.Forms.Label LblName;
         private System.Windows.Forms.TextBox TxtName;
         private System.Windows.Forms.ErrorProvider ErrCalendarEdit;
+        private System.Windows.Forms.Button BtnColor;
     }
 }

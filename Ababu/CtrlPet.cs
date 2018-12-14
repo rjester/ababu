@@ -81,7 +81,7 @@ namespace Ababu
 
 
 
-        private void TsbPetSearch_TextChanged(object sender, EventArgs e)
+        private void TstPetSearch_TextChanged(object sender, EventArgs e)
         {
             GridPetResultReload();
         }
@@ -144,6 +144,22 @@ namespace Ababu
             }
         }
 
+        private void VisitPet()
+        {
+            if (GrdPets.SelectedCells.Count > 0)
+            {
+                DataGridViewRow selectedRow = GrdPets.SelectedRows[0];
+                Pet pet = new Pet((int)selectedRow.Cells["id"].Value);
+
+                // bubble the event up to the parent
+                if (this.OnPetSelectionToVisit != null)
+                {
+                    // raise the event
+                    this.OnPetSelectionToVisit(this, new PetEventArgs(pet.Id));
+                }
+            }
+        }
+
         private void FrmPetEdit_FormClosed(object sender, FormClosedEventArgs e)
         {
             GridPetResultReload();
@@ -170,55 +186,12 @@ namespace Ababu
             }
         }
 
-
-
-        private void GrdPets_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            // @delete or @modify
-            /*
-            if (e.RowIndex != -1 && e.ColumnIndex == GrdPets.Columns["deleted"].Index)
-            {
-                if (e.Value != null)
-                {
-                    string RepVisits = e.Value.ToString();
-
-                    if (RepVisits != "")
-                    {
-                        // GrdPets.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
-                        GrdPets.Rows[e.RowIndex].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Strikeout);
-                        GrdPets.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Gray;
-                    }
-                    else
-                    {
-                        // GrdPets.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
-                        GrdPets.Rows[e.RowIndex].DefaultCellStyle.Font = new Font(this.Font, FontStyle.Regular);
-                        GrdPets.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
-
-                    }
-                }
-            }
-            */
-        }
-
         
 
         private void TsbPetVisit_Click(object sender, EventArgs e)
         {
-            if (GrdPets.SelectedCells.Count > 0)
-            {
-                DataGridViewRow selectedRow = GrdPets.SelectedRows[0];
-                Pet pet = new Pet((int)selectedRow.Cells["id"].Value);
-
-                // bubble the event up to the parent
-                if (this.OnPetSelectionToVisit != null)
-                {
-                    // raise the event
-                    this.OnPetSelectionToVisit(this, new PetEventArgs(pet.Id));
-                }
-            }
+            VisitPet();
         }
-
-
 
         // define a standard event
         public event EventHandler<PetEventArgs> OnPetSelectionToVisit;
@@ -254,6 +227,11 @@ namespace Ababu
         private void FrmOwnerEdit_FormClosed(object sender, FormClosedEventArgs e)
         {
             FillOwnerDetail();
+        }
+
+        private void GrdPets_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            VisitPet();
         }
     }
 }

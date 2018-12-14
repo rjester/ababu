@@ -46,7 +46,7 @@ namespace Ababu
             if (TxtName.Text.Trim() == string.Empty)
             {
                 result = result & false;
-                ErrCalendarEdit.SetError(TxtName, "Calendar name cannot be empty");
+                ErrCalendarEdit.SetError(BtnColor, "Calendar name cannot be empty");
             }
 
             return result;
@@ -110,6 +110,8 @@ namespace Ababu
                 {
                     Calendar.Name = TxtName.Text;
                     Calendar.CalendarTypeId = 1;
+                    Calendar.Color = BtnColor.BackColor.ToArgb();
+                    MessageBox.Show(Calendar.Color.ToString());
 
                     int affected_rows = Calendar.Save();
 
@@ -142,6 +144,19 @@ namespace Ababu
                 {
                     e.Cancel = true;
                 }
+            }
+        }
+
+        private void BtnColor_Click(object sender, EventArgs e)
+        {
+            ColorDialog color_dialog = new ColorDialog();
+
+            //show the colour dialog and check that user clicked ok
+            if (color_dialog.ShowDialog() == DialogResult.OK)
+            {
+                //save the colour that the user chose
+                Color c = color_dialog.Color;
+                BtnColor.BackColor = c;
             }
         }
     }

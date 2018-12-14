@@ -100,7 +100,7 @@
             this.CmbCalendar.FormattingEnabled = true;
             this.CmbCalendar.Location = new System.Drawing.Point(13, 44);
             this.CmbCalendar.Name = "CmbCalendar";
-            this.CmbCalendar.Size = new System.Drawing.Size(341, 21);
+            this.CmbCalendar.Size = new System.Drawing.Size(297, 21);
             this.CmbCalendar.TabIndex = 63;
             // 
             // ErrCalendarItemEdit

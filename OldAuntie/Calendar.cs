@@ -15,6 +15,9 @@ namespace OldAuntie
         public int Id { get; set; }
         public int CalendarTypeId { get; set; }
         public string Name { get; set; }
+        public int Color { get; set; }
+        public bool Visible { get; set; }
+
         public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
 
@@ -36,6 +39,8 @@ namespace OldAuntie
             {
                 CalendarTypeId = (int)result["calendar_type_id"];
                 Name = result["name"].ToString();
+                Color = (int)result["color"];
+                Visible = (bool)result["visible"];
                 Created = (DateTime)result["created"];
                 Updated = Utility.IfDBNull(result["updated"], null);
             }
@@ -76,6 +81,8 @@ namespace OldAuntie
             int affected_rows = 0;
             string query = "UPDATE calendars SET " +
                 "name=@name, " +
+                "color=@color, " +
+                "visible=@visible, " +
                 "calendar_type_id=@calendar_type_id, " +
                 "created=@created, " +
                 "updated=@updated " +
@@ -85,6 +92,8 @@ namespace OldAuntie
             Cmd.Parameters.AddWithValue("@id", Id);
             Cmd.Parameters.AddWithValue("@calendar_type_id", CalendarTypeId);
             Cmd.Parameters.AddWithValue("@name", Name);
+            Cmd.Parameters.AddWithValue("@color", Color);
+            Cmd.Parameters.AddWithValue("@visible", Visible);
             Cmd.Parameters.AddWithValue("@created", Created);
             Cmd.Parameters.AddWithValue("@updated", DateTime.Now);
             affected_rows = Cmd.ExecuteNonQuery();
@@ -97,12 +106,14 @@ namespace OldAuntie
         public int Insert()
         {
             int affected_rows = 0;
-            string query = "INSERT INTO calendars (name, calendar_type_id, created) " +
-                "VALUES (@name, @calendar_type_id, @created)";
+            string query = "INSERT INTO calendars (name, color, visible, calendar_type_id, created) " +
+                "VALUES (@name, @color, @visible, @calendar_type_id, @created)";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@calendar_type_id", CalendarTypeId);
             Cmd.Parameters.AddWithValue("@name", Name);
+            Cmd.Parameters.AddWithValue("@color", Color);
+            Cmd.Parameters.AddWithValue("@visible", true);
             Cmd.Parameters.AddWithValue("@created", DateTime.Now);
             Cmd.Parameters.AddWithValue("@updated", Updated);
             affected_rows = Cmd.ExecuteNonQuery();
@@ -272,11 +283,11 @@ namespace OldAuntie
         public static DataTable GetCalendarItems(int calendar_id = 0)
         {
             DataTable result = null;
-            string query = "SELECT * FROM calendar_items WHERE 1=1";
+            string query = "SELECT * FROM calendar_items a, calendars b WHERE a.calendar_id = b.id";
 
             if(calendar_id > 0)
             {
-                query += " AND calendar_id = " + calendar_id;
+                query += " AND a.calendar_id = " + calendar_id;
             }
 
             result = Globals.DBCon.Execute(query);

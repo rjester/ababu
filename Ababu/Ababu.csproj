@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -80,6 +81,12 @@
     </Compile>
     <Compile Include="CtrlExamination.Designer.cs">
       <DependentUpon>CtrlExamination.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlFeed.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlFeed.Designer.cs">
+      <DependentUpon>CtrlFeed.cs</DependentUpon>
     </Compile>
     <Compile Include="CtrlMaterial.cs">
       <SubType>UserControl</SubType>
@@ -244,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlExamination.resx">
       <DependentUpon>CtrlExamination.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlFeed.resx">
+      <DependentUpon>CtrlFeed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlMaterial.resx">
       <DependentUpon>CtrlMaterial.cs</DependentUpon>

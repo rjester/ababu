@@ -9,8 +9,12 @@ Num NumericUpDown
 Ms	MenuStrip
 Mnu	MenuItem
 
+Prb ProgressBar
+
+Spc SplitContainer
 Sts StatusBar
 Stl	StatusBarLabel
+
 
 Tab TabControl
 Tp  TabControl->TabPage
@@ -20,6 +24,8 @@ Tsb ToolStripButton
 Tsl	ToolStripLabel
 Tsm ToolStripMenuItem
 Tst	ToolStripText
+Tsp ToolStripProgressBar
+
 
 Tlp TableLayoutPanel
 Btn	Button

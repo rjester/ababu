@@ -14,7 +14,7 @@ namespace Ababu
 {
     public partial class CtrlCalendar : UserControl
     {
-        List<WindowsFormsCalendar.CalendarItem> _items = new List<WindowsFormsCalendar.CalendarItem>();
+        // List<WindowsFormsCalendar.CalendarItem> _items = new List<WindowsFormsCalendar.CalendarItem>();
 
         public CtrlCalendar()
         {
@@ -23,22 +23,32 @@ namespace Ababu
 
         private void CtrlCalendar_Load(object sender, EventArgs e)
         {
+            // @todo: eliminare
+            /*
             DataGridViewCheckBoxColumn checkbox_column = new DataGridViewCheckBoxColumn();
             checkbox_column.Name = "select";
             checkbox_column.ValueType = typeof(bool);
             checkbox_column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             checkbox_column.DefaultCellStyle.NullValue = true;
             GrdCalendarSelection.Columns.Add(checkbox_column);
+            */
 
+            FillControl();
+        }
+
+        private void FillControl()
+        {
             FillCalendarGrid();
             PlaceItems();
         }
 
-
-
         private void FillCalendarGrid()
         {
-            GrdCalendarSelection.DataSource = OldAuntie.Calendar.GetAllCalendar();
+            DataTable calendars = OldAuntie.Calendar.GetAllCalendar();
+            calendars.Columns["visible"].SetOrdinal(0);
+
+            GrdCalendarSelection.DataSource = calendars;
+            GrdCalendarSelection.Columns["visible"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             GrdCalendarSelection.Columns["name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             GrdCalendarSelection.Columns["id"].Visible = false;
@@ -51,24 +61,21 @@ namespace Ababu
 
         private void PlaceItems()
         {
-            // Read items from Database
+            // Read items from Database and Fill calendar with items
+            CalCalendar.Items.Clear();
             DataTable calendar_items = OldAuntie.CalendarItem.GetCalendarItems();
             foreach (DataRow rows in calendar_items.Rows)
             {
-                WindowsFormsCalendar.CalendarItem cal = new WindowsFormsCalendar.CalendarItem(CalCalendar, (DateTime)rows["start_date"], (DateTime)rows["end_date"], rows["description"].ToString());
-                cal.Tag = rows["id"].ToString();
-                cal.Font = CalCalendar.Font;
-                _items.Add(cal);
-            }
-
-
-            // Fill calendar with items
-            CalCalendar.Items.Clear();
-            foreach (WindowsFormsCalendar.CalendarItem item in _items)
-            {
-                if (CalCalendar.ViewIntersects(item))
+                if((bool)rows["visible"] == true)
                 {
-                    CalCalendar.Items.Add(item);
+                    WindowsFormsCalendar.CalendarItem item = new WindowsFormsCalendar.CalendarItem(CalCalendar, (DateTime)rows["start_date"], (DateTime)rows["end_date"], rows["description"].ToString());
+                    item.Tag = rows["id"].ToString();
+                    item.Font = CalCalendar.Font;
+
+                    if (CalCalendar.ViewIntersects(item))
+                    {
+                        CalCalendar.Items.Add(item);
+                    }
                 }
             }
         }
@@ -81,21 +88,43 @@ namespace Ababu
 
         private void CalCalendar_ItemDatesChanged(object sender, CalendarItemEventArgs e)
         {
-        }
+            int calendar_item_id = Convert.ToInt32(e.Item.Tag);
 
-        private void CalCalendar_ItemCreated(object sender, CalendarItemCancelEventArgs e)
-        {
+            // create a CalendarItem object and passes to the edit form
+            OldAuntie.CalendarItem calendar_item = new OldAuntie.CalendarItem(calendar_item_id);
+            calendar_item.StartDate = e.Item.StartDate;
+            calendar_item.EndDate = e.Item.EndDate;
+            int affected_rows = calendar_item.Save();
+            if(affected_rows > 0)
+            {
+                PlaceItems();
+            }
         }
+        
 
-        private void CalCalendar_ItemCreating(object sender, CalendarItemCancelEventArgs e)
+        private void FrmCalendarItemEdit_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(GrdCalendarSelection.SelectedRows.Count > 0)
+            PlaceItems();
+        }
+        
+
+        
+        private void CalCalendar_ItemDoubleClick(object sender, CalendarItemEventArgs e)
+        {
+            if (GrdCalendarSelection.SelectedRows.Count > 0)
             {
                 int calendar_id = (int)GrdCalendarSelection.SelectedRows[0].Cells["id"].Value;
+                int calendar_item_id = Convert.ToInt32(e.Item.Tag);
 
                 // create a CalendarItem object and passes to the edit form
-                OldAuntie.CalendarItem calendar_item = new OldAuntie.CalendarItem();
-                calendar_item.CalendarId = calendar_id;
+                OldAuntie.CalendarItem calendar_item = new OldAuntie.CalendarItem(calendar_item_id);
+
+                // insert mode: get the calendar id from calendar list
+                if(calendar_item_id == 0)
+                {
+                    calendar_item.CalendarId = calendar_id;
+                }
+
                 calendar_item.StartDate = e.Item.StartDate;
                 calendar_item.EndDate = e.Item.EndDate;
                 calendar_item.UserId = Globals.Me.Id;
@@ -107,36 +136,6 @@ namespace Ababu
                 // show the edit form
                 frmCalendarItemEdit.ShowDialog();
             }
-            // e.Cancel = true;
-        }
-
-        private void FrmCalendarItemEdit_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            PlaceItems();
-        }
-
-        private void GrdCalendarSelection_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if(GrdCalendarSelection.SelectedCells.Count > 0 && e.ColumnIndex == 0)
-            {
-                GrdCalendarSelection.SelectedRows[0].Cells["select"].Value = Utility.IfNull(GrdCalendarSelection.SelectedRows[0].Cells["select"].Value, true);
-                GrdCalendarSelection.SelectedRows[0].Cells["select"].Value = !(bool)GrdCalendarSelection.SelectedRows[0].Cells["select"].Value;
-                if( (bool)GrdCalendarSelection.SelectedRows[0].Cells["select"].Value == true)
-                {
-                    int id = (int)GrdCalendarSelection.SelectedRows[0].Cells["id"].Value;
-                    MessageBox.Show(id.ToString());
-                }
-            }
-        }
-
-
-        
-        private void CalCalendar_ItemDoubleClick(object sender, CalendarItemEventArgs e)
-        {
-            int calendar_item_id = Convert.ToInt32(e.Item.Tag);
-            FrmCalendarItemEdit frmCalendarItemEdit = new FrmCalendarItemEdit(new OldAuntie.CalendarItem(calendar_item_id));
-            frmCalendarItemEdit.FormClosed += FrmCalendarItemEdit_FormClosed;
-            frmCalendarItemEdit.ShowDialog();
         }
 
         private void GrdCalendarSelection_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -202,6 +201,23 @@ namespace Ababu
         private void FrmCalendarEdit_FormClosed(object sender, FormClosedEventArgs e)
         {
             FillCalendarGrid();
+        }
+
+        private void GrdCalendarSelection_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                int id = (int)GrdCalendarSelection.SelectedRows[0].Cells["id"].Value;
+
+                OldAuntie.Calendar calendar = new OldAuntie.Calendar(id);
+                calendar.Visible = !calendar.Visible;
+
+                int affected_rows = calendar.Save();
+                if(affected_rows > 0)
+                {
+                    FillControl();
+                }
+            }
         }
     }
 }

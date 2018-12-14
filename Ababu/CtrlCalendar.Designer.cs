@@ -62,7 +62,7 @@
             // 
             this.CalCalendar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CalCalendar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.CalCalendar.ItemsBackgroundColor = System.Drawing.Color.RoyalBlue;
+            this.CalCalendar.ItemsBackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.CalCalendar.ItemsFont = null;
             this.CalCalendar.ItemsForeColor = System.Drawing.Color.Black;
             this.CalCalendar.Location = new System.Drawing.Point(223, 3);
@@ -70,8 +70,6 @@
             this.CalCalendar.Size = new System.Drawing.Size(574, 494);
             this.CalCalendar.TabIndex = 0;
             this.CalCalendar.LoadItems += new WindowsFormsCalendar.Calendar.CalendarLoadEventHandler(this.CalCalendar_LoadItems);
-            this.CalCalendar.ItemCreating += new WindowsFormsCalendar.Calendar.CalendarItemCancelEventHandler(this.CalCalendar_ItemCreating);
-            this.CalCalendar.ItemCreated += new WindowsFormsCalendar.Calendar.CalendarItemCancelEventHandler(this.CalCalendar_ItemCreated);
             this.CalCalendar.ItemDatesChanged += new WindowsFormsCalendar.Calendar.CalendarItemEventHandler(this.CalCalendar_ItemDatesChanged);
             this.CalCalendar.ItemDoubleClick += new WindowsFormsCalendar.Calendar.CalendarItemEventHandler(this.CalCalendar_ItemDoubleClick);
             // 
@@ -110,7 +108,7 @@
             this.GrdCalendarSelection.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GrdCalendarSelection.Size = new System.Drawing.Size(208, 160);
             this.GrdCalendarSelection.TabIndex = 0;
-            this.GrdCalendarSelection.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdCalendarSelection_CellClick);
+            this.GrdCalendarSelection.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdCalendarSelection_CellContentClick);
             this.GrdCalendarSelection.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdCalendarSelection_RowEnter);
             // 
             // MonthViewSelection

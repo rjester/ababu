@@ -88,7 +88,6 @@ namespace Ababu
         }
 
 
-
         private void GrdOwner_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (GrdOwner.SelectedCells.Count > 0)
@@ -162,6 +161,5 @@ namespace Ababu
         }
 
         public event EventHandler<PetEventArgs> OnPetSelectionToVisit;
-
     }
 }

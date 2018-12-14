@@ -31,20 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbabu));
             this.TlpAbabu = new System.Windows.Forms.TableLayoutPanel();
             this.TsAbabu = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripSeparator();
-            this.TabAbabu = new System.Windows.Forms.TabControl();
-            this.TpDashboard = new System.Windows.Forms.TabPage();
-            this.TlpDashboard = new System.Windows.Forms.TableLayoutPanel();
             this.TsbDashboard = new System.Windows.Forms.ToolStripButton();
             this.TsbPets = new System.Windows.Forms.ToolStripButton();
             this.TsbOwners = new System.Windows.Forms.ToolStripButton();
             this.TsbCalendar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.TsbSearch = new System.Windows.Forms.ToolStripButton();
-            this.TsbUsers = new System.Windows.Forms.ToolStripButton();
-            this.TsbPreferences = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.TsbSpecies = new System.Windows.Forms.ToolStripButton();
+            this.TsbUsers = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripSeparator();
+            this.TsbPreferences = new System.Windows.Forms.ToolStripButton();
+            this.TabAbabu = new System.Windows.Forms.TabControl();
+            this.TpDashboard = new System.Windows.Forms.TabPage();
+            this.TlpDashboard = new System.Windows.Forms.TableLayoutPanel();
             this.TlpAbabu.SuspendLayout();
             this.TsAbabu.SuspendLayout();
             this.TabAbabu.SuspendLayout();
@@ -87,58 +87,6 @@
             this.TsAbabu.TabIndex = 0;
             this.TsAbabu.Text = "toolStrip1";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // TabAbabu
-            // 
-            this.TabAbabu.Controls.Add(this.TpDashboard);
-            this.TabAbabu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabAbabu.Location = new System.Drawing.Point(3, 28);
-            this.TabAbabu.Name = "TabAbabu";
-            this.TabAbabu.SelectedIndex = 0;
-            this.TabAbabu.Size = new System.Drawing.Size(675, 302);
-            this.TabAbabu.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.TabAbabu.TabIndex = 1;
-            this.TabAbabu.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TabAbabu_MouseUp);
-            // 
-            // TpDashboard
-            // 
-            this.TpDashboard.Controls.Add(this.TlpDashboard);
-            this.TpDashboard.Location = new System.Drawing.Point(4, 22);
-            this.TpDashboard.Name = "TpDashboard";
-            this.TpDashboard.Padding = new System.Windows.Forms.Padding(3);
-            this.TpDashboard.Size = new System.Drawing.Size(667, 276);
-            this.TpDashboard.TabIndex = 0;
-            this.TpDashboard.Text = "Dashboard";
-            this.TpDashboard.UseVisualStyleBackColor = true;
-            // 
-            // TlpDashboard
-            // 
-            this.TlpDashboard.ColumnCount = 3;
-            this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.79722F));
-            this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.20278F));
-            this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
-            this.TlpDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TlpDashboard.Location = new System.Drawing.Point(3, 3);
-            this.TlpDashboard.Name = "TlpDashboard";
-            this.TlpDashboard.RowCount = 1;
-            this.TlpDashboard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TlpDashboard.Size = new System.Drawing.Size(661, 270);
-            this.TlpDashboard.TabIndex = 0;
-            // 
             // TsbDashboard
             // 
             this.TsbDashboard.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -156,7 +104,7 @@
             this.TsbPets.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsbPets.Name = "TsbPets";
             this.TsbPets.Size = new System.Drawing.Size(23, 22);
-            this.TsbPets.Text = "Pets management";
+            this.TsbPets.Text = "Pets management...";
             this.TsbPets.Click += new System.EventHandler(this.TsbPets_Click);
             // 
             // TsbOwners
@@ -166,7 +114,7 @@
             this.TsbOwners.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsbOwners.Name = "TsbOwners";
             this.TsbOwners.Size = new System.Drawing.Size(23, 22);
-            this.TsbOwners.Text = "toolStripButton2";
+            this.TsbOwners.Text = "Owners management...";
             this.TsbOwners.Click += new System.EventHandler(this.TsbOwners_Click);
             // 
             // TsbCalendar
@@ -179,6 +127,11 @@
             this.TsbCalendar.Text = "Open calendar...";
             this.TsbCalendar.Click += new System.EventHandler(this.TsbCalendar_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // TsbSearch
             // 
             this.TsbSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -186,7 +139,22 @@
             this.TsbSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsbSearch.Name = "TsbSearch";
             this.TsbSearch.Size = new System.Drawing.Size(23, 22);
-            this.TsbSearch.Text = "toolStripButton5";
+            this.TsbSearch.Text = "Search...";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // TsbSpecies
+            // 
+            this.TsbSpecies.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbSpecies.Image = global::Ababu.Properties.Resources.shape_align_left;
+            this.TsbSpecies.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbSpecies.Name = "TsbSpecies";
+            this.TsbSpecies.Size = new System.Drawing.Size(23, 22);
+            this.TsbSpecies.Text = "Species selection...";
+            this.TsbSpecies.Click += new System.EventHandler(this.TsbSpecies_Click);
             // 
             // TsbUsers
             // 
@@ -195,8 +163,13 @@
             this.TsbUsers.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsbUsers.Name = "TsbUsers";
             this.TsbUsers.Size = new System.Drawing.Size(23, 22);
-            this.TsbUsers.Text = "Users management";
+            this.TsbUsers.Text = "Users management...";
             this.TsbUsers.Click += new System.EventHandler(this.TsbUsers_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(6, 25);
             // 
             // TsbPreferences
             // 
@@ -208,15 +181,45 @@
             this.TsbPreferences.Text = "Preferences...";
             this.TsbPreferences.Click += new System.EventHandler(this.TsbPreferences_Click);
             // 
-            // TsbSpecies
+            // TabAbabu
             // 
-            this.TsbSpecies.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TsbSpecies.Image = global::Ababu.Properties.Resources.shape_align_left;
-            this.TsbSpecies.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TsbSpecies.Name = "TsbSpecies";
-            this.TsbSpecies.Size = new System.Drawing.Size(23, 22);
-            this.TsbSpecies.Text = "Species selection...";
-            this.TsbSpecies.Click += new System.EventHandler(this.TsbSpecies_Click);
+            this.TabAbabu.Controls.Add(this.TpDashboard);
+            this.TabAbabu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabAbabu.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.TabAbabu.Location = new System.Drawing.Point(3, 28);
+            this.TabAbabu.Name = "TabAbabu";
+            this.TabAbabu.SelectedIndex = 0;
+            this.TabAbabu.Size = new System.Drawing.Size(675, 302);
+            this.TabAbabu.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.TabAbabu.TabIndex = 1;
+            this.TabAbabu.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.TabAbabu_DrawItem);
+            this.TabAbabu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TabAbabu_MouseDown);
+            this.TabAbabu.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TabAbabu_MouseUp);
+            // 
+            // TpDashboard
+            // 
+            this.TpDashboard.Controls.Add(this.TlpDashboard);
+            this.TpDashboard.Location = new System.Drawing.Point(4, 22);
+            this.TpDashboard.Name = "TpDashboard";
+            this.TpDashboard.Padding = new System.Windows.Forms.Padding(3);
+            this.TpDashboard.Size = new System.Drawing.Size(667, 276);
+            this.TpDashboard.TabIndex = 0;
+            this.TpDashboard.Text = "Dashboard";
+            this.TpDashboard.UseVisualStyleBackColor = true;
+            // 
+            // TlpDashboard
+            // 
+            this.TlpDashboard.ColumnCount = 3;
+            this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TlpDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TlpDashboard.Location = new System.Drawing.Point(3, 3);
+            this.TlpDashboard.Name = "TlpDashboard";
+            this.TlpDashboard.RowCount = 1;
+            this.TlpDashboard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TlpDashboard.Size = new System.Drawing.Size(661, 270);
+            this.TlpDashboard.TabIndex = 0;
             // 
             // FrmAbabu
             // 

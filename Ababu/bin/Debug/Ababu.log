@@ -39,3 +39,9 @@
    in Ababu.CtrlSpecie.TsbSpecieRemove_Click(Object sender, EventArgs e) in C:\dev\Ababu\Ababu\CtrlSpecie.cs:riga 93
 26/11/2018 09:33:11 (error): Table 'ababu.calnedar_items' doesn't exist
 26/11/2018 09:33:35 (error): Table 'ababu.calnedar_items' doesn't exist
+10/12/2018 10:40:04 (error): Unable to connect to any of the specified MySQL hosts.
+10/12/2018 10:40:16 (error): Unable to connect to any of the specified MySQL hosts.
+14/12/2018 08:55:12 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE a.id = b.calendar_id' at line 1
+14/12/2018 08:55:57 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE a.id = b.calendar_id' at line 1
+14/12/2018 08:56:47 (error): Table 'ababu.calendar' doesn't exist
+14/12/2018 08:57:00 (error): Table 'ababu.calendar' doesn't exist
