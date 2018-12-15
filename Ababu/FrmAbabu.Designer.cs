@@ -198,6 +198,7 @@
             // 
             // TpDashboard
             // 
+            this.TpDashboard.BackColor = System.Drawing.Color.DimGray;
             this.TpDashboard.Controls.Add(this.TlpDashboard);
             this.TpDashboard.Location = new System.Drawing.Point(4, 22);
             this.TpDashboard.Name = "TpDashboard";
@@ -205,10 +206,10 @@
             this.TpDashboard.Size = new System.Drawing.Size(667, 276);
             this.TpDashboard.TabIndex = 0;
             this.TpDashboard.Text = "Dashboard";
-            this.TpDashboard.UseVisualStyleBackColor = true;
             // 
             // TlpDashboard
             // 
+            this.TlpDashboard.BackColor = System.Drawing.Color.DimGray;
             this.TlpDashboard.ColumnCount = 3;
             this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));

@@ -45,3 +45,5 @@
 14/12/2018 08:55:57 (error): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE a.id = b.calendar_id' at line 1
 14/12/2018 08:56:47 (error): Table 'ababu.calendar' doesn't exist
 14/12/2018 08:57:00 (error): Table 'ababu.calendar' doesn't exist
+15/12/2018 13:21:29 (error): Unable to connect to any of the specified MySQL hosts.
+15/12/2018 13:21:31 (error): Connection must be valid and open.

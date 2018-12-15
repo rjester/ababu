@@ -11,6 +11,7 @@ using System.Xml;
 using System.ServiceModel.Syndication;
 using System.Net;
 using System.IO;
+using OldAuntie;
 
 namespace Ababu
 {
@@ -49,7 +50,8 @@ namespace Ababu
         private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             string url = "http://www.oldauntie.org/feed";
-            
+            // string url = "http://www.oldauntie.org/?call_custom_simple_rss=1";
+
             using (XmlReader reader = XmlReader.Create(url))
             {
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
@@ -71,7 +73,7 @@ namespace Ababu
                     BackgroundWorker.ReportProgress(progress);
 
                     string subject = item.Title.Text;
-                    string summary = item.Summary.Text;
+                    string summary = WebUtility.HtmlDecode(item.Summary.Text);
                     content += subject + Environment.NewLine + summary + Environment.NewLine + Environment.NewLine;
                 }
 

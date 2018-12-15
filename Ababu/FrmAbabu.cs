@@ -37,6 +37,8 @@ namespace Ababu
             TlpDashboard.Controls.Add(ctrlFeed, 2, 0);
         }
 
+
+        // @todo: right mouse click. Delete ?
         private void TabAbabu_MouseUp(object sender, MouseEventArgs e)
         {
             // check if the right mouse button was pressed
@@ -156,11 +158,7 @@ namespace Ababu
         {
             // var tabPage = this.TabAbabu.TabPages[e.Index];
             var tab_rect = this.TabAbabu.GetTabRect(e.Index);
-
-            // tabRect.Inflate(-2, -2);
-
-
-            // var closeImage = new Bitmap(closeButtonFullPath);
+            
             Bitmap close_image = new Bitmap(Properties.Resources.bullet_red);
 
             // don't draw close image for Dashboard
@@ -168,10 +166,20 @@ namespace Ababu
             {
                 e.Graphics.DrawImage(close_image, (tab_rect.Right - close_image.Width), tab_rect.Top + (tab_rect.Height - close_image.Height) / 2);
             }
+            else
+            {
+                SolidBrush myBrush = new SolidBrush(Color.DarkGray);
+                e.Graphics.DrawRectangle(new Pen(myBrush), tab_rect);
+                e.Graphics.FillRectangle(myBrush, tab_rect);
+            }
 
             // draw tab title
             e.Graphics.DrawString(this.TabAbabu.TabPages[e.Index].Text, e.Font, Brushes.Black, e.Bounds.Left + 12, e.Bounds.Top + 4);
         }
+
+
+
+
 
         private void TabAbabu_MouseDown(object sender, MouseEventArgs e)
         {

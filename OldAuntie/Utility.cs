@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace OldAuntie
@@ -37,6 +38,7 @@ namespace OldAuntie
         }
 
         // DATE AND TIME
+        // @todo: change database structure to date time
         public static long Now()
         {
             long unixTimestamp = (long)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
@@ -57,7 +59,7 @@ namespace OldAuntie
             return System.Convert.ToInt64((Date - epoch).TotalSeconds);
         }
 
-
+        
         // @todo: delete me ?
         /*
         public static string DateTimeToString(DateTime? Date, String Format = DATETIME_DEFAULT_FORMAT)
@@ -65,8 +67,6 @@ namespace OldAuntie
             return Date.ToString(Format);
         }
         */
-
-
 
 
 

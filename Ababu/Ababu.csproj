@@ -88,6 +88,12 @@
     <Compile Include="CtrlFeed.Designer.cs">
       <DependentUpon>CtrlFeed.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtrlFeedItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlFeedItem.Designer.cs">
+      <DependentUpon>CtrlFeedItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtrlMaterial.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlFeed.resx">
       <DependentUpon>CtrlFeed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlFeedItem.resx">
+      <DependentUpon>CtrlFeedItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlMaterial.resx">
       <DependentUpon>CtrlMaterial.cs</DependentUpon>
