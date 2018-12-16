@@ -47,3 +47,8 @@
 14/12/2018 08:57:00 (error): Table 'ababu.calendar' doesn't exist
 15/12/2018 13:21:29 (error): Unable to connect to any of the specified MySQL hosts.
 15/12/2018 13:21:31 (error): Connection must be valid and open.
+16/12/2018 10:40:14 (error): Unable to connect to any of the specified MySQL hosts.
+16/12/2018 10:40:21 (error): Unable to connect to any of the specified MySQL hosts.
+16/12/2018 10:40:25 (error): Unable to connect to any of the specified MySQL hosts.
+16/12/2018 10:40:33 (error): Connection must be valid and open.
+16/12/2018 10:40:37 (error): Connection must be valid and open.

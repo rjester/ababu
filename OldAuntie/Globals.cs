@@ -11,9 +11,7 @@ namespace OldAuntie
         public static BaseDati DBCon = new BaseDati();
         public static Log Log = new Log();
 
-
-        public static DataTable problems;
-        public static DataTable medicines;
+        public const string FEED_URL = "http://www.oldauntie.org/feed";
 
         static Globals()
         {

@@ -38,8 +38,7 @@ namespace Ababu
 
         private void FillControl()
         {
-            TspFeed.Value = 0;
-            TxtFeed.Text = "";
+            FlpFeed.Controls.Clear();
             if (BackgroundWorker.IsBusy == false)
             {
                 BackgroundWorker.RunWorkerAsync();
@@ -49,37 +48,22 @@ namespace Ababu
 
         private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            string url = "http://www.oldauntie.org/feed";
-            // string url = "http://www.oldauntie.org/?call_custom_simple_rss=1";
-
-            using (XmlReader reader = XmlReader.Create(url))
+            using (XmlReader reader = XmlReader.Create(Globals.FEED_URL))
             {
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
                 reader.Close();
 
-                string content = "";
-
-                int i = 1;
-                int count = feed.Items.Count();
-
-
-                Rss20FeedFormatter rss = new Rss20FeedFormatter(feed);
-
-
-                foreach (SyndicationItem item in feed.Items)
+                BeginInvoke(new Action(delegate ()
                 {
-                    i++;
-                    int progress = (i / count) * 100;
-                    BackgroundWorker.ReportProgress(progress);
-
-                    string subject = item.Title.Text;
-                    string summary = WebUtility.HtmlDecode(item.Summary.Text);
-                    content += subject + Environment.NewLine + summary + Environment.NewLine + Environment.NewLine;
-                }
-
-                TxtFeed.BeginInvoke(new Action(delegate ()
-                {
-                    TxtFeed.Text = content;
+                    if (feed.Items.Count() > 0)
+                    {
+                        TsFeed.Visible = false;
+                        foreach (SyndicationItem item in feed.Items)
+                        {
+                            CtrlFeedItem ctrlFeedItem = new CtrlFeedItem(item);
+                            FlpFeed.Controls.Add(ctrlFeedItem);
+                        }
+                    }
                 }));
             }
         }
@@ -88,11 +72,6 @@ namespace Ababu
         private void BackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             Console.WriteLine(e.ProgressPercentage.ToString());
-
-            this.Invoke(new Action(delegate ()
-            {
-                TspFeed.Value = e.ProgressPercentage;
-            }));
         }
 
 
@@ -100,13 +79,10 @@ namespace Ababu
         private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             // MessageBox.Show("work completed");
-            // BackgroundWorker.CancelAsync();
-            // TspFeed.Value = 0;
         }
 
-
-
-        private void TsbFeedReload_Click(object sender, EventArgs e)
+        
+        private void TsbRetry_Click(object sender, EventArgs e)
         {
             FillControl();
         }

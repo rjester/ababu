@@ -209,11 +209,11 @@
             // 
             // TlpDashboard
             // 
-            this.TlpDashboard.BackColor = System.Drawing.Color.DimGray;
+            this.TlpDashboard.BackColor = System.Drawing.SystemColors.Control;
             this.TlpDashboard.ColumnCount = 3;
-            this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TlpDashboard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 337F));
             this.TlpDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TlpDashboard.Location = new System.Drawing.Point(3, 3);
             this.TlpDashboard.Name = "TlpDashboard";
