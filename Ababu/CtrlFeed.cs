@@ -17,10 +17,16 @@ namespace Ababu
 {
     public partial class CtrlFeed : UserControl
     {
+        string Title { get; set; }
+        string Url { get; set; }
+
         BackgroundWorker BackgroundWorker = new BackgroundWorker();
 
-        public CtrlFeed()
+        public CtrlFeed(string title, string url)
         {
+            Title = title;
+            Url = url;
+
             InitializeComponent();
         }
 
@@ -38,6 +44,7 @@ namespace Ababu
 
         private void FillControl()
         {
+            LblTitle.Text = Title;
             FlpFeed.Controls.Clear();
             if (BackgroundWorker.IsBusy == false)
             {
@@ -48,7 +55,7 @@ namespace Ababu
 
         private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            using (XmlReader reader = XmlReader.Create(Globals.FEED_URL))
+            using (XmlReader reader = XmlReader.Create(Url))
             {
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
                 reader.Close();

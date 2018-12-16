@@ -32,7 +32,16 @@ namespace Ababu
 
         private void FillDashboard()
         {
-            CtrlFeed ctrlFeed = new CtrlFeed();
+            CtrlDashboardColumn1 ctrlDashboardColumn1 = new CtrlDashboardColumn1();
+            ctrlDashboardColumn1.Dock = DockStyle.Fill;
+            TlpDashboard.Controls.Add(ctrlDashboardColumn1, 0, 0);
+
+            CtrlDashboardColumn2 ctrlDashboardColumn2 = new CtrlDashboardColumn2();
+            ctrlDashboardColumn2.Dock = DockStyle.Fill;
+            TlpDashboard.Controls.Add(ctrlDashboardColumn2, 1, 0);
+
+
+            CtrlFeed ctrlFeed = new CtrlFeed("Ababu News", Globals.FEED_URL);
             ctrlFeed.Dock = DockStyle.Fill;
             TlpDashboard.Controls.Add(ctrlFeed, 2, 0);
         }

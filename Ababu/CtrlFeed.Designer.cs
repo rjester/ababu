@@ -33,7 +33,7 @@
             this.TsbRetry = new System.Windows.Forms.ToolStripButton();
             this.FlpFeed = new System.Windows.Forms.FlowLayoutPanel();
             this.PanFeed = new System.Windows.Forms.Panel();
-            this.LblFeed = new System.Windows.Forms.Label();
+            this.LblTitle = new System.Windows.Forms.Label();
             this.TlpFeed.SuspendLayout();
             this.TsFeed.SuspendLayout();
             this.PanFeed.SuspendLayout();
@@ -91,23 +91,23 @@
             // 
             // PanFeed
             // 
-            this.PanFeed.Controls.Add(this.LblFeed);
+            this.PanFeed.Controls.Add(this.LblTitle);
             this.PanFeed.Location = new System.Drawing.Point(3, 3);
             this.PanFeed.Name = "PanFeed";
             this.PanFeed.Size = new System.Drawing.Size(200, 31);
             this.PanFeed.TabIndex = 4;
             // 
-            // LblFeed
+            // LblTitle
             // 
-            this.LblFeed.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.LblFeed.AutoSize = true;
-            this.LblFeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFeed.ForeColor = System.Drawing.Color.SteelBlue;
-            this.LblFeed.Location = new System.Drawing.Point(8, 4);
-            this.LblFeed.Name = "LblFeed";
-            this.LblFeed.Size = new System.Drawing.Size(133, 25);
-            this.LblFeed.TabIndex = 5;
-            this.LblFeed.Text = "Ababu News";
+            this.LblTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.LblTitle.AutoSize = true;
+            this.LblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitle.ForeColor = System.Drawing.Color.SteelBlue;
+            this.LblTitle.Location = new System.Drawing.Point(8, 4);
+            this.LblTitle.Name = "LblTitle";
+            this.LblTitle.Size = new System.Drawing.Size(82, 25);
+            this.LblTitle.TabIndex = 5;
+            this.LblTitle.Text = "LblTitle";
             // 
             // CtrlFeed
             // 
@@ -135,7 +135,7 @@
         private System.Windows.Forms.ToolStrip TsFeed;
         private System.Windows.Forms.FlowLayoutPanel FlpFeed;
         private System.Windows.Forms.Panel PanFeed;
-        private System.Windows.Forms.Label LblFeed;
+        private System.Windows.Forms.Label LblTitle;
         private System.Windows.Forms.ToolStripButton TsbRetry;
     }
 }

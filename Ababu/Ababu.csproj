@@ -70,6 +70,12 @@
     <Compile Include="CtrlCertificate.Designer.cs">
       <DependentUpon>CtrlCertificate.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtrlDashboardColumn2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDashboardColumn2.Designer.cs">
+      <DependentUpon>CtrlDashboardColumn2.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtrlDiary.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -129,6 +135,12 @@
     </Compile>
     <Compile Include="CtrlProblem.Designer.cs">
       <DependentUpon>CtrlProblem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDashboardColumn1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDashboardColumn1.Designer.cs">
+      <DependentUpon>CtrlDashboardColumn1.cs</DependentUpon>
     </Compile>
     <Compile Include="CtrlSpecie.cs">
       <SubType>UserControl</SubType>
@@ -252,6 +264,9 @@
     <EmbeddedResource Include="CtrlCertificate.resx">
       <DependentUpon>CtrlCertificate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDashboardColumn2.resx">
+      <DependentUpon>CtrlDashboardColumn2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtrlDiary.resx">
       <DependentUpon>CtrlDiary.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlProblem.resx">
       <DependentUpon>CtrlProblem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDashboardColumn1.resx">
+      <DependentUpon>CtrlDashboardColumn1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlSpecie.resx">
       <DependentUpon>CtrlSpecie.cs</DependentUpon>
