@@ -58,7 +58,7 @@
             // 
             this.SpcDashboardColumn2.Panel1.Controls.Add(this.TlpGetStarted);
             this.SpcDashboardColumn2.Size = new System.Drawing.Size(383, 529);
-            this.SpcDashboardColumn2.SplitterDistance = 309;
+            this.SpcDashboardColumn2.SplitterDistance = 176;
             this.SpcDashboardColumn2.TabIndex = 0;
             // 
             // TlpGetStarted
@@ -172,7 +172,7 @@
             this.TlpGetStarted.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TlpGetStarted.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TlpGetStarted.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.TlpGetStarted.Size = new System.Drawing.Size(381, 307);
+            this.TlpGetStarted.Size = new System.Drawing.Size(381, 174);
             this.TlpGetStarted.TabIndex = 3;
             // 
             // PanGetStarted
@@ -207,7 +207,7 @@
             this.FlpActions.Location = new System.Drawing.Point(3, 40);
             this.FlpActions.Name = "FlpActions";
             this.FlpActions.Padding = new System.Windows.Forms.Padding(10);
-            this.FlpActions.Size = new System.Drawing.Size(375, 264);
+            this.FlpActions.Size = new System.Drawing.Size(375, 131);
             this.FlpActions.TabIndex = 3;
             // 
             // LblPets

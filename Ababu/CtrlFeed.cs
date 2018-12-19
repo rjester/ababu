@@ -17,8 +17,10 @@ namespace Ababu
 {
     public partial class CtrlFeed : UserControl
     {
-        string Title { get; set; }
-        string Url { get; set; }
+        private string Title { get; set; }
+        private string Url { get; set; }
+
+        public bool ShowFeedItemsMinimised { get; set; }
 
         BackgroundWorker BackgroundWorker = new BackgroundWorker();
 
@@ -29,6 +31,8 @@ namespace Ababu
 
             InitializeComponent();
         }
+
+
 
         private void CtrlFeed_Load(object sender, EventArgs e)
         {
@@ -68,6 +72,14 @@ namespace Ababu
                         foreach (SyndicationItem item in feed.Items)
                         {
                             CtrlFeedItem ctrlFeedItem = new CtrlFeedItem(item);
+
+                            if(ShowFeedItemsMinimised == true)
+                            {
+                                ctrlFeedItem.TxtSummary.Visible = false;
+                                ctrlFeedItem.PanPubishDate.Visible = false;
+                                ctrlFeedItem.Height = LblTitle.Height - 5;
+                            }
+
                             FlpFeed.Controls.Add(ctrlFeedItem);
                         }
                     }

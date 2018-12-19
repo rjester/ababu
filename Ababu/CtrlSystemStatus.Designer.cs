@@ -33,6 +33,8 @@
             this.PicRefresh = new System.Windows.Forms.PictureBox();
             this.LblSystemStatus = new System.Windows.Forms.Label();
             this.PanSystemStatus = new System.Windows.Forms.Panel();
+            this.LblDatabaseConnectionInfo = new System.Windows.Forms.Label();
+            this.LblServerConnectionInfo = new System.Windows.Forms.Label();
             this.LblUserInformation = new System.Windows.Forms.Label();
             this.LblUserUptime = new System.Windows.Forms.Label();
             this.LblUserInfo = new System.Windows.Forms.Label();
@@ -42,14 +44,15 @@
             this.LblDatabaseConnection = new System.Windows.Forms.Label();
             this.LblServerConnectionDescription = new System.Windows.Forms.Label();
             this.LblServerConnection = new System.Windows.Forms.Label();
-            this.LblServerConnectionInfo = new System.Windows.Forms.Label();
-            this.LblDatabaseConnectionInfo = new System.Windows.Forms.Label();
+            this.LblSoftwareVersion = new System.Windows.Forms.Label();
+            this.PicSoftwareVersion = new System.Windows.Forms.PictureBox();
             this.TlpSystemStatus.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicRefresh)).BeginInit();
             this.PanSystemStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicServerConnection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicDatabaseConnection)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicSoftwareVersion)).BeginInit();
             this.SuspendLayout();
             // 
             // TlpSystemStatus
@@ -102,6 +105,8 @@
             // 
             // PanSystemStatus
             // 
+            this.PanSystemStatus.Controls.Add(this.PicSoftwareVersion);
+            this.PanSystemStatus.Controls.Add(this.LblSoftwareVersion);
             this.PanSystemStatus.Controls.Add(this.LblDatabaseConnectionInfo);
             this.PanSystemStatus.Controls.Add(this.LblServerConnectionInfo);
             this.PanSystemStatus.Controls.Add(this.LblUserInformation);
@@ -119,12 +124,32 @@
             this.PanSystemStatus.Size = new System.Drawing.Size(398, 282);
             this.PanSystemStatus.TabIndex = 3;
             // 
+            // LblDatabaseConnectionInfo
+            // 
+            this.LblDatabaseConnectionInfo.AutoSize = true;
+            this.LblDatabaseConnectionInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDatabaseConnectionInfo.Location = new System.Drawing.Point(29, 83);
+            this.LblDatabaseConnectionInfo.Name = "LblDatabaseConnectionInfo";
+            this.LblDatabaseConnectionInfo.Size = new System.Drawing.Size(164, 13);
+            this.LblDatabaseConnectionInfo.TabIndex = 9;
+            this.LblDatabaseConnectionInfo.Text = "LblDatabaseConnectionInfo";
+            // 
+            // LblServerConnectionInfo
+            // 
+            this.LblServerConnectionInfo.AutoSize = true;
+            this.LblServerConnectionInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblServerConnectionInfo.Location = new System.Drawing.Point(29, 154);
+            this.LblServerConnectionInfo.Name = "LblServerConnectionInfo";
+            this.LblServerConnectionInfo.Size = new System.Drawing.Size(147, 13);
+            this.LblServerConnectionInfo.TabIndex = 8;
+            this.LblServerConnectionInfo.Text = "LblServerConnectionInfo";
+            // 
             // LblUserInformation
             // 
             this.LblUserInformation.AutoSize = true;
             this.LblUserInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblUserInformation.ForeColor = System.Drawing.Color.SteelBlue;
-            this.LblUserInformation.Location = new System.Drawing.Point(29, 154);
+            this.LblUserInformation.Location = new System.Drawing.Point(29, 181);
             this.LblUserInformation.Name = "LblUserInformation";
             this.LblUserInformation.Size = new System.Drawing.Size(100, 13);
             this.LblUserInformation.TabIndex = 7;
@@ -133,7 +158,7 @@
             // LblUserUptime
             // 
             this.LblUserUptime.AutoSize = true;
-            this.LblUserUptime.Location = new System.Drawing.Point(29, 193);
+            this.LblUserUptime.Location = new System.Drawing.Point(29, 220);
             this.LblUserUptime.Name = "LblUserUptime";
             this.LblUserUptime.Size = new System.Drawing.Size(76, 13);
             this.LblUserUptime.TabIndex = 1;
@@ -142,7 +167,7 @@
             // LblUserInfo
             // 
             this.LblUserInfo.AutoSize = true;
-            this.LblUserInfo.Location = new System.Drawing.Point(29, 174);
+            this.LblUserInfo.Location = new System.Drawing.Point(29, 201);
             this.LblUserInfo.Name = "LblUserInfo";
             this.LblUserInfo.Size = new System.Drawing.Size(61, 13);
             this.LblUserInfo.TabIndex = 0;
@@ -151,7 +176,7 @@
             // PicServerConnection
             // 
             this.PicServerConnection.Image = global::Ababu.Properties.Resources.bullet_black;
-            this.PicServerConnection.Location = new System.Drawing.Point(3, 77);
+            this.PicServerConnection.Location = new System.Drawing.Point(3, 104);
             this.PicServerConnection.Name = "PicServerConnection";
             this.PicServerConnection.Size = new System.Drawing.Size(18, 18);
             this.PicServerConnection.TabIndex = 6;
@@ -160,7 +185,7 @@
             // PicDatabaseConnection
             // 
             this.PicDatabaseConnection.Image = global::Ababu.Properties.Resources.bullet_black;
-            this.PicDatabaseConnection.Location = new System.Drawing.Point(3, 7);
+            this.PicDatabaseConnection.Location = new System.Drawing.Point(3, 34);
             this.PicDatabaseConnection.Name = "PicDatabaseConnection";
             this.PicDatabaseConnection.Size = new System.Drawing.Size(18, 18);
             this.PicDatabaseConnection.TabIndex = 5;
@@ -169,7 +194,7 @@
             // LblDatabaseConnectionDescription
             // 
             this.LblDatabaseConnectionDescription.AutoSize = true;
-            this.LblDatabaseConnectionDescription.Location = new System.Drawing.Point(29, 25);
+            this.LblDatabaseConnectionDescription.Location = new System.Drawing.Point(29, 52);
             this.LblDatabaseConnectionDescription.Name = "LblDatabaseConnectionDescription";
             this.LblDatabaseConnectionDescription.Size = new System.Drawing.Size(266, 26);
             this.LblDatabaseConnectionDescription.TabIndex = 3;
@@ -181,7 +206,7 @@
             this.LblDatabaseConnection.AutoSize = true;
             this.LblDatabaseConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblDatabaseConnection.ForeColor = System.Drawing.Color.SteelBlue;
-            this.LblDatabaseConnection.Location = new System.Drawing.Point(29, 9);
+            this.LblDatabaseConnection.Location = new System.Drawing.Point(29, 36);
             this.LblDatabaseConnection.Name = "LblDatabaseConnection";
             this.LblDatabaseConnection.Size = new System.Drawing.Size(129, 13);
             this.LblDatabaseConnection.TabIndex = 2;
@@ -190,7 +215,7 @@
             // LblServerConnectionDescription
             // 
             this.LblServerConnectionDescription.AutoSize = true;
-            this.LblServerConnectionDescription.Location = new System.Drawing.Point(29, 95);
+            this.LblServerConnectionDescription.Location = new System.Drawing.Point(29, 122);
             this.LblServerConnectionDescription.Name = "LblServerConnectionDescription";
             this.LblServerConnectionDescription.Size = new System.Drawing.Size(223, 26);
             this.LblServerConnectionDescription.TabIndex = 1;
@@ -201,31 +226,31 @@
             this.LblServerConnection.AutoSize = true;
             this.LblServerConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblServerConnection.ForeColor = System.Drawing.Color.SteelBlue;
-            this.LblServerConnection.Location = new System.Drawing.Point(29, 79);
+            this.LblServerConnection.Location = new System.Drawing.Point(29, 106);
             this.LblServerConnection.Name = "LblServerConnection";
             this.LblServerConnection.Size = new System.Drawing.Size(112, 13);
             this.LblServerConnection.TabIndex = 0;
             this.LblServerConnection.Text = "Server Connection";
             // 
-            // LblServerConnectionInfo
+            // LblSoftwareVersion
             // 
-            this.LblServerConnectionInfo.AutoSize = true;
-            this.LblServerConnectionInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblServerConnectionInfo.Location = new System.Drawing.Point(29, 127);
-            this.LblServerConnectionInfo.Name = "LblServerConnectionInfo";
-            this.LblServerConnectionInfo.Size = new System.Drawing.Size(147, 13);
-            this.LblServerConnectionInfo.TabIndex = 8;
-            this.LblServerConnectionInfo.Text = "LblServerConnectionInfo";
+            this.LblSoftwareVersion.AutoSize = true;
+            this.LblSoftwareVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblSoftwareVersion.ForeColor = System.Drawing.Color.SteelBlue;
+            this.LblSoftwareVersion.Location = new System.Drawing.Point(29, 9);
+            this.LblSoftwareVersion.Name = "LblSoftwareVersion";
+            this.LblSoftwareVersion.Size = new System.Drawing.Size(135, 13);
+            this.LblSoftwareVersion.TabIndex = 10;
+            this.LblSoftwareVersion.Text = "Ababu Ver: 0.3 (latest)";
             // 
-            // LblDatabaseConnectionInfo
+            // PicSoftwareVersion
             // 
-            this.LblDatabaseConnectionInfo.AutoSize = true;
-            this.LblDatabaseConnectionInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDatabaseConnectionInfo.Location = new System.Drawing.Point(29, 56);
-            this.LblDatabaseConnectionInfo.Name = "LblDatabaseConnectionInfo";
-            this.LblDatabaseConnectionInfo.Size = new System.Drawing.Size(164, 13);
-            this.LblDatabaseConnectionInfo.TabIndex = 9;
-            this.LblDatabaseConnectionInfo.Text = "LblDatabaseConnectionInfo";
+            this.PicSoftwareVersion.Image = global::Ababu.Properties.Resources.bullet_black;
+            this.PicSoftwareVersion.Location = new System.Drawing.Point(3, 6);
+            this.PicSoftwareVersion.Name = "PicSoftwareVersion";
+            this.PicSoftwareVersion.Size = new System.Drawing.Size(18, 18);
+            this.PicSoftwareVersion.TabIndex = 11;
+            this.PicSoftwareVersion.TabStop = false;
             // 
             // CtrlSystemStatus
             // 
@@ -243,6 +268,7 @@
             this.PanSystemStatus.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicServerConnection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicDatabaseConnection)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicSoftwareVersion)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -265,5 +291,7 @@
         private System.Windows.Forms.PictureBox PicRefresh;
         private System.Windows.Forms.Label LblDatabaseConnectionInfo;
         private System.Windows.Forms.Label LblServerConnectionInfo;
+        private System.Windows.Forms.Label LblSoftwareVersion;
+        private System.Windows.Forms.PictureBox PicSoftwareVersion;
     }
 }

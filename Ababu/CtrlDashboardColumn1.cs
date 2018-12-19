@@ -28,6 +28,7 @@ namespace Ababu
         {
             CtrlFeed ctrlFeed = new CtrlFeed("Get Started", Globals.FEED_URL_GET_STARTED);
             ctrlFeed.Dock = DockStyle.Fill;
+            ctrlFeed.ShowFeedItemsMinimised = true;
             SpcRecentActicity.Panel1.Controls.Add(ctrlFeed);
 
             CtrlRecentActivity ctrlRecentActivity = new CtrlRecentActivity();
