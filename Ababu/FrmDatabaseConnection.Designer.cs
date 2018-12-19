@@ -42,6 +42,7 @@
             this.BtnDatabaseConnectionClose = new System.Windows.Forms.Button();
             this.tabPageDatabase = new System.Windows.Forms.TabPage();
             this.TabPreferences = new System.Windows.Forms.TabControl();
+            this.LblFormIsModified = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PicIsModifed)).BeginInit();
             this.tabPageDatabase.SuspendLayout();
             this.TabPreferences.SuspendLayout();
@@ -189,11 +190,20 @@
             this.TabPreferences.Size = new System.Drawing.Size(530, 259);
             this.TabPreferences.TabIndex = 29;
             // 
+            // LblFormIsModified
+            // 
+            this.LblFormIsModified.AutoSize = true;
+            this.LblFormIsModified.Location = new System.Drawing.Point(27, 283);
+            this.LblFormIsModified.Name = "LblFormIsModified";
+            this.LblFormIsModified.Size = new System.Drawing.Size(0, 13);
+            this.LblFormIsModified.TabIndex = 33;
+            // 
             // FrmDatabaseConnection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(553, 311);
+            this.Controls.Add(this.LblFormIsModified);
             this.Controls.Add(this.PicIsModifed);
             this.Controls.Add(this.BtnDatabaseConnectionApply);
             this.Controls.Add(this.BtnDatabaseConnectionClose);
@@ -207,6 +217,7 @@
             this.tabPageDatabase.PerformLayout();
             this.TabPreferences.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -226,5 +237,6 @@
         private System.Windows.Forms.Button BtnDatabaseConnectionClose;
         private System.Windows.Forms.TabPage tabPageDatabase;
         private System.Windows.Forms.TabControl TabPreferences;
+        private System.Windows.Forms.Label LblFormIsModified;
     }
 }

@@ -29,7 +29,7 @@ namespace Ababu
             TxtDatabaseUsername.Text = Properties.Settings.Default.database_username;
             TxtDatabasePassword.Text = Properties.Settings.Default.database_password;
 
-            // 
+            // test database connection
             TestConnection();
 
             // add en hadler to check if something got changed inside the form
@@ -79,6 +79,7 @@ namespace Ababu
             IsModified = true;
             BtnDatabaseConnectionApply.Enabled = true;
             PicIsModifed.Image = Properties.Resources.bullet_red;
+            LblFormIsModified.Text = "Form has been modified.";
         }
 
 
@@ -95,6 +96,7 @@ namespace Ababu
             IsModified = false;
             BtnDatabaseConnectionApply.Enabled = false;
             PicIsModifed.Image = Properties.Resources.bullet_green;
+            LblFormIsModified.Text = "";
         }
 
 
@@ -122,8 +124,7 @@ namespace Ababu
             }
             catch (Exception ex)
             {
-                Log mylog = new Log();
-                mylog.Write(ex.Message);
+                Globals.Log.Write(ex.ToString());
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -30,7 +31,27 @@ namespace OldAuntie
 
             return sb.ToString();
         }
-        
+
+
+
+        public static bool PingHost(string nameOrAddress, int timeout = 1000)
+        {
+            bool pingable = false;
+            Ping pinger = new Ping();
+            try
+            {
+                PingReply reply = pinger.Send(nameOrAddress, timeout);
+                pingable = reply.Status == IPStatus.Success;
+            }
+            catch (PingException)
+            {
+                // Discard PingExceptions and return false;
+                pingable = false;
+            }
+            return pingable;
+        }
+
+
 
         public static void d(dynamic what)
         {

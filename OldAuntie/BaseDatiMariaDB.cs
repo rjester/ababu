@@ -64,8 +64,13 @@ namespace OldAuntie
             }
             catch (MySqlException e)
             {
+                Globals.Log.Write(e.Message, Log.LOG_TYPE_ERROR);
+
+                /*
                 Log log = new Log();
                 log.Write(e.Message, Log.LOG_TYPE_ERROR);
+                */
+
             }
 
             return result;
@@ -114,10 +119,9 @@ namespace OldAuntie
                     return reader;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Log log = new Log();
-                log.Write(e.Message, Log.LOG_TYPE_ERROR);
+                Globals.Log.Write(ex.ToString());
             }
 
             return reader;
@@ -137,10 +141,10 @@ namespace OldAuntie
                 command = connection.CreateCommand();
                 command.CommandText = query;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Log log = new Log();
-                log.Write(e.ToString());
+                Globals.Log.Write(ex.ToString());
+
             }
             return command;
         }

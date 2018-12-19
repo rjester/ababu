@@ -8,7 +8,7 @@ namespace Ababu
 {
     public partial class FrmAbabu : Form
     {
-        public DataTable medicines;
+        // public DataTable medicines;
 
 
         public FrmAbabu()
@@ -21,13 +21,28 @@ namespace Ababu
         {
             // show login form
             FrmLogin frmLogin = new FrmLogin();
+            frmLogin.FormClosed += FrmLogin_FormClosed;
             frmLogin.ShowDialog();
-            this.WindowState = FormWindowState.Maximized;
-
-            FillDashboard();
             
-            // @todo: delete me ... for debug purpose only
-            // TsbCalendar_Click(this, new EventArgs());
+        }
+
+        // when login windows is closed, verify if user is connected and thus go on or close Ababu
+        private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Globals.isUserLogged == true)
+            {
+                this.WindowState = FormWindowState.Maximized;
+
+                FillDashboard();
+
+                // @todo: delete me ... for debug purpose only
+                // TsbCalendar_Click(this, new EventArgs());
+            }
+            else
+            {
+                Close();
+                Application.Exit();
+            }
         }
 
         private void FillDashboard()
@@ -38,13 +53,125 @@ namespace Ababu
 
             CtrlDashboardColumn2 ctrlDashboardColumn2 = new CtrlDashboardColumn2();
             ctrlDashboardColumn2.Dock = DockStyle.Fill;
+            ctrlDashboardColumn2.ActionEvent += OnDashboardColumn2_ActionEvent;
+
             TlpDashboard.Controls.Add(ctrlDashboardColumn2, 1, 0);
 
-
-            CtrlFeed ctrlFeed = new CtrlFeed("Ababu News", Globals.FEED_URL);
+            CtrlFeed ctrlFeed = new CtrlFeed("Ababu News", Globals.FEED_URL_NEWS);
             ctrlFeed.Dock = DockStyle.Fill;
             TlpDashboard.Controls.Add(ctrlFeed, 2, 0);
         }
+
+
+        // open 
+        protected void OpenVisitTab(object sender, PetEventArgs e)
+        {
+            TabPage TpVisit = new TabPage("Visits");
+            CtrlVisit ctrlVisits = new CtrlVisit(new Pet(e.PetId));
+            ctrlVisits.Dock = DockStyle.Fill;
+            TpVisit.Controls.Add(ctrlVisits);
+
+            TabAbabu.TabPages.Add(TpVisit);
+            TabAbabu.SelectedTab = TpVisit;
+        }
+
+
+
+        private void OpenPetTab()
+        {
+            TabPage TpPet = new TabPage("Pets");
+            CtrlPet ctrlPets = new CtrlPet();
+            ctrlPets.Dock = DockStyle.Fill;
+            TpPet.Controls.Add(ctrlPets);
+
+            TabAbabu.TabPages.Add(TpPet);
+            TabAbabu.SelectedTab = TpPet;
+
+            // subscribe the event. "Tell me when it occurs!"
+            ctrlPets.OnPetSelectionToVisit += new EventHandler<PetEventArgs>(OpenVisitTab);
+        }
+
+
+
+        private void OpenOwnerTab()
+        {
+            TabPage TpOwner = new TabPage("Owners");
+            CtrlOwner ctrlOwner = new CtrlOwner();
+            ctrlOwner.Dock = DockStyle.Fill;
+            TpOwner.Controls.Add(ctrlOwner);
+
+            TabAbabu.TabPages.Add(TpOwner);
+            TabAbabu.SelectedTab = TpOwner;
+
+            // subscribe the event. "Tell me when it occurs!"
+            ctrlOwner.OnPetSelectionToVisit += new EventHandler<PetEventArgs>(OpenVisitTab);
+        }
+
+
+
+        private void OpenSpecieTab()
+        {
+            TabPage TpSpecies = new TabPage("Species");
+            CtrlSpecie ctrlSpecie = new CtrlSpecie();
+            ctrlSpecie.Dock = DockStyle.Fill;
+            TpSpecies.Controls.Add(ctrlSpecie);
+
+            TabAbabu.TabPages.Add(TpSpecies);
+            TabAbabu.SelectedTab = TpSpecies;
+        }
+
+
+
+        private void OpenCalendarTab()
+        {
+            TabPage TpCalendar = new TabPage("Calendar");
+            CtrlCalendar ctrlCalendar = new CtrlCalendar();
+            ctrlCalendar.Dock = DockStyle.Fill;
+            TpCalendar.Controls.Add(ctrlCalendar);
+
+            TabAbabu.TabPages.Add(TpCalendar);
+            TabAbabu.SelectedTab = TpCalendar;
+        }
+
+
+
+        private void OpenPreferences()
+        {
+            FrmPreferences frmPreferences = new FrmPreferences();
+            frmPreferences.ShowDialog();
+        }
+
+
+
+        // Intercept a click on the Quick Action Panel and perform selected action
+        private void OnDashboardColumn2_ActionEvent(object sender, EventArgs e)
+        {
+            Label action_sender = (Label)sender;
+
+            switch (action_sender.Name)
+            {
+                case "LblPets":
+                    OpenPetTab();
+                    break;
+
+                case "LblOwners":
+                    OpenOwnerTab();
+                    break;
+
+                case "LblCalendar":
+                    OpenCalendarTab(); ;
+                    break;
+
+                case "LblSpecies":
+                    OpenSpecieTab();
+                    break;
+
+                case "LblPreferences":
+                    OpenPreferences();
+                    break;
+            }
+        }
+
 
 
         // @todo: right mouse click. Delete ?
@@ -72,7 +199,6 @@ namespace Ababu
         private void TsbUsers_Click(object sender, EventArgs e)
         {
             FrmUsers frmUsers = new FrmUsers();
-            // frmUsers.TopMost = true;
             frmUsers.ShowDialog();
         }
 
@@ -91,77 +217,38 @@ namespace Ababu
 
         private void TsbPets_Click(object sender, EventArgs e)
         {
-            TabPage TpPet = new TabPage("Pets");
-            CtrlPet ctrlPets = new CtrlPet();
-            ctrlPets.Dock = DockStyle.Fill;
-            TpPet.Controls.Add(ctrlPets);
-
-            TabAbabu.TabPages.Add(TpPet);
-            TabAbabu.SelectedTab = TpPet;
-
-            // subscribe the event. "Tell me when it occurs!"
-            ctrlPets.OnPetSelectionToVisit += new EventHandler<PetEventArgs>(VisitPet);
-        }
-
-
-
-        protected void VisitPet(object sender, PetEventArgs e)
-        {
-            //handle the event 
-            TabPage TpVisit = new TabPage("Visits");
-            CtrlVisit ctrlVisits = new CtrlVisit(new Pet(e.PetId));
-            ctrlVisits.Dock = DockStyle.Fill;
-            TpVisit.Controls.Add(ctrlVisits);
-
-            TabAbabu.TabPages.Add(TpVisit);
-            TabAbabu.SelectedTab = TpVisit;
+            OpenPetTab();
         }
 
 
         
         private void TsbPreferences_Click(object sender, EventArgs e)
         {
-            FrmPreferences frmPreferences = new FrmPreferences();
-            frmPreferences.ShowDialog();
+            OpenPreferences();
         }
+
+
 
         private void TsbOwners_Click(object sender, EventArgs e)
         {
-            TabPage TpOwner = new TabPage("Owners");
-            CtrlOwner ctrlOwner = new CtrlOwner();
-            ctrlOwner.Dock = DockStyle.Fill;
-            TpOwner.Controls.Add(ctrlOwner);
-
-            TabAbabu.TabPages.Add(TpOwner);
-            TabAbabu.SelectedTab = TpOwner;
-
-            // subscribe the event. "Tell me when it occurs!"
-            ctrlOwner.OnPetSelectionToVisit += new EventHandler<PetEventArgs>(VisitPet);
+            OpenOwnerTab();
         }
 
 
 
         private void TsbCalendar_Click(object sender, EventArgs e)
         {
-            TabPage TpCalendar = new TabPage("Calendar");
-            CtrlCalendar ctrlCalendar = new CtrlCalendar();
-            ctrlCalendar.Dock = DockStyle.Fill;
-            TpCalendar.Controls.Add(ctrlCalendar);
-
-            TabAbabu.TabPages.Add(TpCalendar);
-            TabAbabu.SelectedTab = TpCalendar;
+            OpenCalendarTab();
         }
+
+
 
         private void TsbSpecies_Click(object sender, EventArgs e)
         {
-            TabPage TpSpecies = new TabPage("Species");
-            CtrlSpecie ctrlSpecie = new CtrlSpecie();
-            ctrlSpecie.Dock = DockStyle.Fill;
-            TpSpecies.Controls.Add(ctrlSpecie);
-
-            TabAbabu.TabPages.Add(TpSpecies);
-            TabAbabu.SelectedTab = TpSpecies;
+            OpenSpecieTab();
         }
+
+
 
         private void TabAbabu_DrawItem(object sender, DrawItemEventArgs e)
         {
@@ -179,8 +266,6 @@ namespace Ababu
             // draw tab title
             e.Graphics.DrawString(this.TabAbabu.TabPages[e.Index].Text, e.Font, Brushes.Black, e.Bounds.Left + 12, e.Bounds.Top + 4);
         }
-
-
 
 
 

@@ -304,8 +304,7 @@ namespace Ababu
                 catch (Exception ex)
                 {
                     // Exception
-                    Log log = new Log();
-                    log.Write(ex.ToString());
+                    Globals.Log.Write(ex.ToString());
                     MessageBox.Show("Something went wrong while saving the User. Please, check Log file for details.");
                 }
             }

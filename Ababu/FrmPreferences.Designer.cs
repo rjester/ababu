@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPreferences));
             this.TabPreferences = new System.Windows.Forms.TabControl();
-            this.tabPageGeneral = new System.Windows.Forms.TabPage();
             this.tabPagePrinter = new System.Windows.Forms.TabPage();
             this.LblDefaultPrinter = new System.Windows.Forms.Label();
             this.CmbDefaultPrinter = new System.Windows.Forms.ComboBox();
+            this.tabPageGeneral = new System.Windows.Forms.TabPage();
             this.PicIsModifed = new System.Windows.Forms.PictureBox();
             this.BtnPreferencesClose = new System.Windows.Forms.Button();
             this.BtnPreferencesApply = new System.Windows.Forms.Button();
@@ -51,16 +51,6 @@
             this.TabPreferences.SelectedIndex = 0;
             this.TabPreferences.Size = new System.Drawing.Size(530, 259);
             this.TabPreferences.TabIndex = 1;
-            // 
-            // tabPageGeneral
-            // 
-            this.tabPageGeneral.Location = new System.Drawing.Point(4, 22);
-            this.tabPageGeneral.Name = "tabPageGeneral";
-            this.tabPageGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGeneral.Size = new System.Drawing.Size(522, 233);
-            this.tabPageGeneral.TabIndex = 0;
-            this.tabPageGeneral.Text = "Generali";
-            this.tabPageGeneral.UseVisualStyleBackColor = true;
             // 
             // tabPagePrinter
             // 
@@ -90,6 +80,16 @@
             this.CmbDefaultPrinter.Name = "CmbDefaultPrinter";
             this.CmbDefaultPrinter.Size = new System.Drawing.Size(248, 21);
             this.CmbDefaultPrinter.TabIndex = 0;
+            // 
+            // tabPageGeneral
+            // 
+            this.tabPageGeneral.Location = new System.Drawing.Point(4, 22);
+            this.tabPageGeneral.Name = "tabPageGeneral";
+            this.tabPageGeneral.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageGeneral.Size = new System.Drawing.Size(522, 233);
+            this.tabPageGeneral.TabIndex = 0;
+            this.tabPageGeneral.Text = "Generali";
+            this.tabPageGeneral.UseVisualStyleBackColor = true;
             // 
             // PicIsModifed
             // 
@@ -133,6 +133,7 @@
             this.Controls.Add(this.TabPreferences);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPreferences";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Preferences";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPreferences_FormClosing);
             this.Load += new System.EventHandler(this.FrmPreferences_Load);

@@ -21,6 +21,9 @@ namespace Ababu
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
+            // MessageBox.Show(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+
+
             TestConnection();
         }
 
@@ -67,10 +70,7 @@ namespace Ababu
 
         private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (Globals.isUserLogged == false)
-            {
-                Application.Exit();
-            }
+
         }
 
 
@@ -89,15 +89,16 @@ namespace Ababu
 
         private void TestConnection()
         {
-            // initialize and connect to database
-            Globals.DBCon.Database = Properties.Settings.Default.database_name;
-            Globals.DBCon.Server = Properties.Settings.Default.database_server;
-            Globals.DBCon.Username = Properties.Settings.Default.database_username;
-            Globals.DBCon.Password = Properties.Settings.Default.database_password;
-            Globals.DBCon.Connect();
-            
             try
             {
+                // initialize and connect to database
+                Globals.DBCon.Database = Properties.Settings.Default.database_name;
+                Globals.DBCon.Server = Properties.Settings.Default.database_server;
+                Globals.DBCon.Username = Properties.Settings.Default.database_username;
+                Globals.DBCon.Password = Properties.Settings.Default.database_password;
+
+                Globals.DBCon.Connect();
+
                 if (Globals.DBCon.IsConnected() == true)
                 {
                     PicTestConnection.Image = Properties.Resources.bullet_green;
@@ -109,8 +110,7 @@ namespace Ababu
             }
             catch (Exception ex)
             {
-                Log mylog = new Log();
-                mylog.Write(ex.Message);
+                Globals.Log.Write(ex.ToString());
             }
         }
     }

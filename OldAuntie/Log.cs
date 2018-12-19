@@ -1,35 +1,50 @@
 ﻿using System;
-
+using System.IO;
 
 namespace OldAuntie
 {
     public class Log
     {
-        private string filePath = string.Empty;
-        private string message = string.Empty;
+        private string FilePath = string.Empty;
+        private string Message = string.Empty;
         private System.IO.StreamWriter file = null;
         public const string LOG_TYPE_MESSAGE = "message";
         public const string LOG_TYPE_WARNING = "warning";
         public const string LOG_TYPE_ERROR = "error";
 
-        public Log()
+
+        private static Log instance;
+
+
+        public Log(string file_path = "")
         {
-            Load();
-        }
-
-        public string Message { get => message; set => message = value; }
-        public string FilePath { get => filePath; set => filePath = value; }
-
-
-        public void Load()
-        {
-            if (filePath == string.Empty)
+            if(file_path == "")
             {
-                filePath = AppDomain.CurrentDomain.BaseDirectory + System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".log";
+                string log_dir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + Path.DirectorySeparatorChar + System.Diagnostics.Process.GetCurrentProcess().ProcessName + Path.DirectorySeparatorChar;
+                DirectoryInfo DI = Directory.CreateDirectory(log_dir);
+
+                FilePath = log_dir + System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".log";
+            }
+            else
+            {
+                FilePath = file_path;
             }
         }
 
-        public void Load(string path) => filePath = path;
+
+
+        public static Log Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Log();
+                }
+                return instance;
+            }
+        }
+
 
 
         public void Write(string message)
@@ -37,20 +52,20 @@ namespace OldAuntie
             Write(message, LOG_TYPE_MESSAGE);
         }
 
+
+
         public void Write(string message, string logType)
         {
-            DateTime now = DateTime.Now;
-            // Display the date in the default (general) format.
-
             Open();
-            AddLine(now.ToString() + " (" + logType + "): " + message);
+            AddLine(DateTime.Now.ToString() + " (" + logType + "): " + message);
             Close();
         }
 
 
+
         public string Read()
         {
-            return System.IO.File.ReadAllText(filePath);
+            return System.IO.File.ReadAllText(FilePath);
         }
 
 

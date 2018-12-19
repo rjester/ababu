@@ -26,13 +26,13 @@ namespace Ababu
 
         private void FillControl()
         {
-            FillRecentVisit();
-        }
+            CtrlFeed ctrlFeed = new CtrlFeed("Get Started", Globals.FEED_URL_GET_STARTED);
+            ctrlFeed.Dock = DockStyle.Fill;
+            SpcRecentActicity.Panel1.Controls.Add(ctrlFeed);
 
-
-        private void FillRecentVisit()
-        {
-            GrdRecentVisit.DataSource = RecentActicity.GetRecentVisits();
+            CtrlRecentActivity ctrlRecentActivity = new CtrlRecentActivity();
+            ctrlRecentActivity.Dock = DockStyle.Fill;
+            SpcRecentActicity.Panel2.Controls.Add(ctrlRecentActivity);
         }
         
     }

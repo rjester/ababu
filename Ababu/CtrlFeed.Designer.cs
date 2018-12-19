@@ -114,8 +114,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.TlpFeed);
-            this.MaximumSize = new System.Drawing.Size(337, 0);
-            this.MinimumSize = new System.Drawing.Size(337, 473);
             this.Name = "CtrlFeed";
             this.Size = new System.Drawing.Size(337, 473);
             this.Load += new System.EventHandler(this.CtrlFeed_Load);
