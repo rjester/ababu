@@ -36,7 +36,7 @@ namespace Ababu
                 FillDashboard();
 
                 // @todo: delete me ... for debug purpose only
-                // TsbCalendar_Click(this, new EventArgs());
+                TsbCalendar_Click(this, new EventArgs());
             }
             else
             {

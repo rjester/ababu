@@ -12,6 +12,8 @@ namespace OldAuntie
         private Int64 Id  { get; set; }
         private string Name { get; set; }
         private string Description { get; set; }
+
+
         public static DataTable GetAllRoles()
         {
             DataTable result = Globals.DBCon.Execute("SELECT id, name FROM roles");

@@ -84,8 +84,8 @@
             this.TlpCalendarSelection.Location = new System.Drawing.Point(3, 3);
             this.TlpCalendarSelection.Name = "TlpCalendarSelection";
             this.TlpCalendarSelection.RowCount = 3;
-            this.TlpCalendarSelection.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.44954F));
-            this.TlpCalendarSelection.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.55046F));
+            this.TlpCalendarSelection.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.90987F));
+            this.TlpCalendarSelection.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.09013F));
             this.TlpCalendarSelection.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.TlpCalendarSelection.Size = new System.Drawing.Size(214, 494);
             this.TlpCalendarSelection.TabIndex = 1;
@@ -100,13 +100,13 @@
             this.GrdCalendarSelection.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GrdCalendarSelection.ColumnHeadersVisible = false;
             this.GrdCalendarSelection.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GrdCalendarSelection.Location = new System.Drawing.Point(3, 303);
+            this.GrdCalendarSelection.Location = new System.Drawing.Point(3, 175);
             this.GrdCalendarSelection.MultiSelect = false;
             this.GrdCalendarSelection.Name = "GrdCalendarSelection";
             this.GrdCalendarSelection.ReadOnly = true;
             this.GrdCalendarSelection.RowHeadersVisible = false;
             this.GrdCalendarSelection.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GrdCalendarSelection.Size = new System.Drawing.Size(208, 160);
+            this.GrdCalendarSelection.Size = new System.Drawing.Size(208, 288);
             this.GrdCalendarSelection.TabIndex = 0;
             this.GrdCalendarSelection.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdCalendarSelection_CellContentClick);
             this.GrdCalendarSelection.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdCalendarSelection_RowEnter);
@@ -120,6 +120,7 @@
             this.MonthViewSelection.DaySelectedBackgroundColor = System.Drawing.SystemColors.Highlight;
             this.MonthViewSelection.DaySelectedColor = System.Drawing.SystemColors.WindowText;
             this.MonthViewSelection.DaySelectedTextColor = System.Drawing.SystemColors.HighlightText;
+            this.MonthViewSelection.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MonthViewSelection.ItemPadding = new System.Windows.Forms.Padding(2);
             this.MonthViewSelection.Location = new System.Drawing.Point(3, 3);
             this.MonthViewSelection.MonthTitleColor = System.Drawing.SystemColors.ActiveCaption;
@@ -127,10 +128,11 @@
             this.MonthViewSelection.MonthTitleTextColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MonthViewSelection.MonthTitleTextColorInactive = System.Drawing.SystemColors.InactiveCaptionText;
             this.MonthViewSelection.Name = "MonthViewSelection";
-            this.MonthViewSelection.Size = new System.Drawing.Size(194, 294);
+            this.MonthViewSelection.Size = new System.Drawing.Size(208, 166);
             this.MonthViewSelection.TabIndex = 1;
             this.MonthViewSelection.Text = "monthView1";
             this.MonthViewSelection.TodayBorderColor = System.Drawing.Color.Maroon;
+            this.MonthViewSelection.SelectionChanged += new System.EventHandler(this.MonthViewSelection_SelectionChanged);
             // 
             // TsCalendar
             // 

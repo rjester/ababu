@@ -205,5 +205,18 @@ namespace OldAuntie
             DataTable result = Globals.DBCon.Execute(query);
             return result;
         }
+
+
+        public bool HasPets()
+        {
+            bool result = true;
+            DataTable associated_pet = Owner.GetPetListByOwnerId(Id);
+            if(associated_pet.Rows.Count == 0)
+            {
+                result = false;
+            }
+
+            return result;
+        }
     }
 }

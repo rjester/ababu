@@ -135,6 +135,7 @@
             // TsbSearch
             // 
             this.TsbSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbSearch.Enabled = false;
             this.TsbSearch.Image = global::Ababu.Properties.Resources.search;
             this.TsbSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsbSearch.Name = "TsbSearch";

@@ -144,6 +144,7 @@
             this.BtnDelete.TabIndex = 67;
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // FrmCalendarItemEdit
             // 

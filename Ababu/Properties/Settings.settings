@@ -14,5 +14,8 @@
     <Setting Name="database_password" Type="System.String" Scope="User">
       <Value Profile="(Default)">ozzy</Value>
     </Setting>
+    <Setting Name="default_printer_name" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

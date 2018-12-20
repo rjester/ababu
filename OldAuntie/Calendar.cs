@@ -269,7 +269,7 @@ namespace OldAuntie
         public int Delete()
         {
             int affected_rows = 0;
-            string query = "DELETE FROM owners WHERE id = @id";
+            string query = "DELETE FROM calendar_items WHERE id = @id";
 
             MySqlCommand Cmd = Globals.DBCon.CreateCommand(query);
             Cmd.Parameters.AddWithValue("@id", Id);

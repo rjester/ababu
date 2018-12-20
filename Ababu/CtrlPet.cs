@@ -40,6 +40,7 @@ namespace Ababu
         private void GridPetResultReload()
         {
             GrdPets.DataSource = Pet.Search(TstPetSearch.Text);
+            GrdPets.Columns["id"].Visible = false;
             GrdPets.Columns["description"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 

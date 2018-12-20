@@ -165,7 +165,7 @@ namespace Ababu
                         int affected_rows = calendar.Delete();
                         if (affected_rows > 0)
                         {
-                            FillCalendarGrid();
+                            FillControl();
                         }
                     }
                     catch (Exception ex)
@@ -218,6 +218,12 @@ namespace Ababu
                     FillControl();
                 }
             }
+        }
+
+        private void MonthViewSelection_SelectionChanged(object sender, EventArgs e)
+        {
+            CalCalendar.SetViewRange(MonthViewSelection.SelectionStart, MonthViewSelection.SelectionEnd);
+            PlaceItems();
         }
     }
 }

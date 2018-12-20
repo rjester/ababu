@@ -42,6 +42,12 @@ namespace Ababu
             TxtDescription.Text = CalendarItem.Description;
             LblStartDate.Text = "Start: " + CalendarItem.StartDate.ToString();
             LblEndDate.Text = "End: " + CalendarItem.EndDate.ToString();
+
+            // cannot delete an item if does not exists yet
+            if (CalendarItem.Id == 0)
+            {
+                BtnDelete.Enabled = false;
+            }
         }
 
 
@@ -161,6 +167,22 @@ namespace Ababu
             }
         }
 
-        
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to delete selected calednar item?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    CalendarItem.Delete();
+                    Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Cannot delete selected calendar item.");
+                    Globals.Log.Write(ex.ToString());
+                }
+            }
+        }
     }
 }

@@ -21,15 +21,20 @@ namespace Ababu
             InitializeComponent();
         }
 
+
+
         private void CtrlOwner_Load(object sender, EventArgs e)
         {
             FillControl();
         }
 
 
+
         private void FillControl()
         {
             GrdOwner.DataSource = Owner.Search(TstOwnerSearch.Text);
+            GrdOwner.Columns["id"].Visible = false;
+            GrdOwner.Columns["country_id"].Visible = false;
             GrdOwner.Columns["ssn"].Visible = false;
             GrdOwner.Columns["updated"].Visible = false;
 
@@ -48,6 +53,7 @@ namespace Ababu
             GrdOwnerPets.DataSource = Owner.GetPetListByOwnerId(Owner.Id);
 
             GrdOwnerPets.Columns["id"].Visible = false;
+            GrdOwnerPets.Columns["owner_id"].Visible = false;
             GrdOwnerPets.Columns["tsn"].Visible = false;
             GrdOwnerPets.Columns["owner_id"].Visible = false;
             GrdOwnerPets.Columns["date_of_birth"].Visible = false;
@@ -70,8 +76,6 @@ namespace Ababu
             {
                 TsbPetVisit.Enabled = false;
             }
-
-            GrdOwner.ColumnHeadersVisible = false;
         }
 
 
@@ -95,7 +99,18 @@ namespace Ababu
                 int id = (int)GrdOwner.SelectedRows[0].Cells["id"].Value;
                 Owner = new Owner(id);
 
+                // fill the list of pet owned
                 FillPetListByOwner();
+
+                // prevent to delete an owner if it has a pet associated
+                if (Owner.HasPets())
+                {
+                    TsbOwnerDelete.Enabled = false;
+                }
+                else
+                {
+                    TsbOwnerDelete.Enabled = true;
+                }
             }
         }
 
@@ -161,5 +176,10 @@ namespace Ababu
         }
 
         public event EventHandler<PetEventArgs> OnPetSelectionToVisit;
+
+        private void TstOwnerSearch_TextChanged_1(object sender, EventArgs e)
+        {
+            FillControl();
+        }
     }
 }

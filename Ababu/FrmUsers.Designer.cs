@@ -52,8 +52,6 @@
             this.LblUsername = new System.Windows.Forms.Label();
             this.TxtUsername = new System.Windows.Forms.TextBox();
             this.TxtFullname = new System.Windows.Forms.TextBox();
-            this.CmbLocales = new System.Windows.Forms.ComboBox();
-            this.LblLocale = new System.Windows.Forms.Label();
             this.LblUid = new System.Windows.Forms.Label();
             this.TxtUid = new System.Windows.Forms.TextBox();
             this.PicIsModified = new System.Windows.Forms.PictureBox();
@@ -194,8 +192,6 @@
             this.GrbUser.Controls.Add(this.LblUsername);
             this.GrbUser.Controls.Add(this.TxtUsername);
             this.GrbUser.Controls.Add(this.TxtFullname);
-            this.GrbUser.Controls.Add(this.CmbLocales);
-            this.GrbUser.Controls.Add(this.LblLocale);
             this.GrbUser.Location = new System.Drawing.Point(3, 41);
             this.GrbUser.Name = "GrbUser";
             this.GrbUser.Size = new System.Drawing.Size(400, 388);
@@ -329,26 +325,6 @@
             this.TxtFullname.TabIndex = 2;
             this.TxtFullname.Leave += new System.EventHandler(this.TxtFullname_Leave);
             // 
-            // CmbLocales
-            // 
-            this.CmbLocales.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbLocales.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbLocales.FormattingEnabled = true;
-            this.CmbLocales.Location = new System.Drawing.Point(9, 267);
-            this.CmbLocales.Name = "CmbLocales";
-            this.CmbLocales.Size = new System.Drawing.Size(373, 24);
-            this.CmbLocales.TabIndex = 7;
-            // 
-            // LblLocale
-            // 
-            this.LblLocale.AutoSize = true;
-            this.LblLocale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLocale.Location = new System.Drawing.Point(9, 242);
-            this.LblLocale.Name = "LblLocale";
-            this.LblLocale.Size = new System.Drawing.Size(121, 16);
-            this.LblLocale.TabIndex = 14;
-            this.LblLocale.Text = "Language (Locale)";
-            // 
             // LblUid
             // 
             this.LblUid.AutoSize = true;
@@ -425,8 +401,6 @@
         private System.Windows.Forms.ToolStripButton TsbAddUser;
         private System.Windows.Forms.ToolStripButton TsbDeleteUser;
         private System.Windows.Forms.PictureBox PicIsModified;
-        private System.Windows.Forms.ComboBox CmbLocales;
-        private System.Windows.Forms.Label LblLocale;
         private System.Windows.Forms.TextBox TxtFullname;
         private System.Windows.Forms.TextBox TxtPhone;
         private System.Windows.Forms.TextBox TxtUsername;

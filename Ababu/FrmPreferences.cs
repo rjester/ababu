@@ -30,7 +30,7 @@ namespace Ababu
             }
 
             // setup printer settings
-            // CmbDefaultPrinter.SelectedItem = Properties.Settings.Default.defaulut_printer_name;
+            CmbDefaultPrinter.SelectedItem = Properties.Settings.Default.default_printer_name;
 
             // aggiungo l'handler per verificare se viene cambiato un elemento del form e richiedere all'utente l'eventuale salvataggio
             AddOnChangeHandlerToInputControls(this);
@@ -81,12 +81,14 @@ namespace Ababu
             PicIsModifed.Image = Properties.Resources.bullet_red;
         }
 
+
+
         private void BtnPreferencesApply_Click(object sender, EventArgs e)
         {
             // save printers
             if (CmbDefaultPrinter.SelectedItem != null)
             {
-                // Properties.Settings.Default.badge_printer_name = CmbPrinterBadge.SelectedItem.ToString();
+                Properties.Settings.Default.default_printer_name = CmbDefaultPrinter.SelectedItem.ToString();
             }
 
             Properties.Settings.Default.Save();

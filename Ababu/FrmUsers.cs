@@ -26,21 +26,79 @@ namespace Ababu
 
         private void FrmUsers_Load(object sender, EventArgs e)
         {
-            CmbRoles.ValueMember = "role_id";
+            CmbRoles.ValueMember = "id";
             CmbRoles.DisplayMember = "name";
             CmbRoles.DataSource = Role.GetAllRoles();
 
-            /*
-            CmbLocales.ValueMember = "lid";
-            CmbLocales.DisplayMember = "language";
-            CmbLocales.DataSource = Locale.GetAllLocales();
-            */
-
+            // 
             LoadUserList();
 
             // check if any control is changed
             AddOnChangeHandlerToInputControls(this);
         }
+
+
+
+        private void FillForm()
+        {
+            // fill form with user details
+            TxtUid.Text = User.Id.ToString();
+            TxtFullname.Text = User.Fullname;
+            TxtUsername.Text = User.Username;
+            TxtPassword.Text = String.Empty;
+            TxtRepeatPassword.Text = String.Empty;
+            CmbRoles.SelectedValue = User.RoleId;
+            TxtPhone.Text = User.Phone;
+
+            // disable all buttons and functions to enable back further on according
+            // to user permissions etc. etc
+            TsbDeleteUser.Enabled = false;
+            TsbAddUser.Enabled = false;
+            // BtnSaveUser.Enabled = false;
+            CmbRoles.Enabled = false;
+            GrbUser.Enabled = true;
+
+            // if user role is not ADMIN cannot add a user
+            if (Globals.Me.RoleId == Security.ROLE_ADMIN)
+            {
+                TsbAddUser.Enabled = true;
+                // BtnSaveUser.Enabled = true;
+                // Users cannot delete themselves or change their role / permissions
+                if (Globals.Me.Id != User.Id)
+                {
+                    TsbDeleteUser.Enabled = true;
+                    CmbRoles.Enabled = true;
+                }
+            }
+
+            // if user is deleted I disable the input form
+            if (User.Deleted > 0)
+            {
+                GrbUser.Enabled = false;
+                TsbDeleteUser.Enabled = false;
+            }
+
+
+            // unlock/reset the form status (modified / not modified)
+            UnlockForm();
+        }
+
+
+
+        private void EmptyForm()
+        {
+            TxtUid.Text = String.Empty;
+            TxtFullname.Text = String.Empty;
+            TxtUsername.Text = String.Empty;
+            TxtPassword.Text = String.Empty;
+            TxtRepeatPassword.Text = String.Empty;
+            CmbRoles.SelectedIndex = 0;
+            TxtPhone.Text = String.Empty;
+
+            UnlockForm();
+        }
+
+
 
         public void LoadUserList()
         {
@@ -74,30 +132,6 @@ namespace Ababu
             }
         }
 
-        private void TsbAddUser_Click(object sender, EventArgs e)
-        {
-            User = new User();
-            EmptyForm();
-        }
-
-        
-        private void GrdUsers_SelectionChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (GrdUsers.SelectedRows.Count > 0)
-                {
-                    int uid = (int)GrdUsers.SelectedRows[0].Cells[0].Value;
-                    User.Load(uid);
-                    FillForm();
-                }
-            }
-            catch (Exception ex)
-            {
-                Globals.Log.Write(ex.ToString());
-            }
-        }
-
 
 
         private bool IsValidForm()
@@ -120,7 +154,7 @@ namespace Ababu
             }
             else
             {
-                if (User.GetUidByUsername(TxtUsername.Text) != 0 && User.GetUidByUsername(TxtUsername.Text)!= User.Id)
+                if (User.GetUidByUsername(TxtUsername.Text) != 0 && User.GetUidByUsername(TxtUsername.Text) != User.Id)
                 {
                     result = result & false;
                     this.ErrUser.SetError(TxtUsername, "Username is in use.");
@@ -137,7 +171,7 @@ namespace Ababu
                 }
                 else
                 {
-                    if(TxtPassword.Text != TxtRepeatPassword.Text)
+                    if (TxtPassword.Text != TxtRepeatPassword.Text)
                     {
                         result = result & false;
                         this.ErrUser.SetError(TxtRepeatPassword, "Passwords don't match");
@@ -157,64 +191,6 @@ namespace Ababu
         }
 
 
-        private void FillForm()
-        {
-            // fill form with user details
-            TxtUid.Text = User.Id.ToString();
-            TxtFullname.Text = User.Fullname;
-            TxtUsername.Text = User.Username;
-            TxtPassword.Text = String.Empty;
-            TxtRepeatPassword.Text = String.Empty;
-            CmbRoles.SelectedValue = User.RoleId;
-            TxtPhone.Text = User.Phone;
-
-            // disable all buttons and functions to enable back further on according
-            // to user permissions etc. etc
-            TsbDeleteUser.Enabled = false;
-            TsbAddUser.Enabled = false;
-            // BtnSaveUser.Enabled = false;
-            CmbRoles.Enabled = false;
-            GrbUser.Enabled = true;
-
-            // if user role is not ADMIN cannot add a user
-            if (Globals.Me.RoleId == Security.ROLE_ADMIN)
-            {
-                TsbAddUser.Enabled = true;
-                // BtnSaveUser.Enabled = true;
-                // Users cannot delete themselves or change their role / permissions
-                if(Globals.Me.Id != User.Id)
-                {
-                    TsbDeleteUser.Enabled = true;
-                    CmbRoles.Enabled = true;
-                }
-            }
-
-            // if user is deleted I disable the input form
-            if (User.Deleted > 0)
-            {
-                GrbUser.Enabled = false;
-                TsbDeleteUser.Enabled = false;
-            }
-
-
-            // unlock/reset the form status (modified / not modified)
-            UnlockForm();
-        }
-
-
-        private void EmptyForm()
-        {
-            TxtUid.Text = String.Empty;
-            TxtFullname.Text = String.Empty;
-            TxtUsername.Text = String.Empty;
-            TxtPassword.Text = String.Empty;
-            TxtRepeatPassword.Text = String.Empty;
-            CmbRoles.SelectedIndex = 0;
-            CmbLocales.SelectedIndex = 0;
-            TxtPhone.Text = String.Empty;
-
-            UnlockForm();
-        }
 
         private void UnlockForm()
         {
@@ -228,6 +204,36 @@ namespace Ababu
             IsModified = false;
         }
 
+
+
+        private void TsbAddUser_Click(object sender, EventArgs e)
+        {
+            User = new User();
+            EmptyForm();
+        }
+
+        
+
+        private void GrdUsers_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (GrdUsers.SelectedRows.Count > 0)
+                {
+                    int uid = (int)GrdUsers.SelectedRows[0].Cells[0].Value;
+                    User.Load(uid);
+                    FillForm();
+                }
+            }
+            catch (Exception ex)
+            {
+                Globals.Log.Write(ex.ToString());
+            }
+        }
+
+
+
+        
         void AddOnChangeHandlerToInputControls(Control ctrl)
         {
             foreach (Control subctrl in ctrl.Controls)
@@ -264,11 +270,14 @@ namespace Ababu
         }
 
 
+
         void InputControls_OnChange(object sender, EventArgs e)
         {
             IsModified = true;
             PicIsModified.Image = Properties.Resources.bullet_red;
         }
+
+
 
         private void BtnUserSave_Click(object sender, EventArgs e)
         {
@@ -311,6 +320,7 @@ namespace Ababu
         }
 
 
+
         // create a standardized Username from Full Name
         private void TxtFullname_Leave(object sender, EventArgs e)
         {
@@ -342,10 +352,12 @@ namespace Ababu
         }
 
 
+
         private void GrdUsers_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
         {
             IfFormIsModified(sender, e);
         }
+
 
 
         private void FrmUsers_FormClosing(object sender, FormClosingEventArgs e)

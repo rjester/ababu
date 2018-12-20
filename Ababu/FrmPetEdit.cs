@@ -206,7 +206,8 @@ namespace Ababu
 
             TxtColor.Text = Pet.Color;
 
-            DtpDateOfBirth.Value = Pet.DateOfBirth;
+            // if date is not set, get the Now
+            DtpDateOfBirth.Value = Utility.IfMinValue(Pet.DateOfBirth, DateTime.Now);
 
             if(Pet.DateOfDeath == null)
             {
