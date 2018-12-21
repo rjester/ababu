@@ -121,7 +121,7 @@ namespace OldAuntie
                 "FROM treatments a, venom_codes b " +
                 "WHERE a.procedure_id = b.id " +
                 "AND a.pet_id = " + pet_id + 
-                " ORDER BY a.created, a.id DESC";
+                " ORDER BY a.created DESC, a.id DESC";
 
             DataTable result = Globals.DBCon.Execute(query);
 

@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace OldAuntie
 {
-    public class BaseDatiMariaDB
+    public class BaseDatiMariaDB : IDisposable
     {
         private bool disposed = false;
 
@@ -65,12 +65,6 @@ namespace OldAuntie
             catch (MySqlException e)
             {
                 Globals.Log.Write(e.Message, Log.LOG_TYPE_ERROR);
-
-                /*
-                Log log = new Log();
-                log.Write(e.Message, Log.LOG_TYPE_ERROR);
-                */
-
             }
 
             return result;
@@ -298,6 +292,7 @@ namespace OldAuntie
                 if (disposing)
                 {
                     // Free other state (managed objects).
+                    Close();
                 }
                 // Free your own state (unmanaged objects).
                 // Set large fields to null.

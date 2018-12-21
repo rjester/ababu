@@ -32,7 +32,7 @@ namespace Ababu
             // test database connection
             TestConnection();
 
-            // add en hadler to check if something got changed inside the form
+            // add en handler to check if something got changed inside the form
             AddOnChangeHandlerToInputControls(this);
         }
 
@@ -108,23 +108,24 @@ namespace Ababu
 
         private void TestConnection()
         {
-            BaseDati dbcon = new BaseDati();
-
-            try
+            using (BaseDati dbcon = new BaseDati())
             {
-                if (dbcon.Connect(TxtDatabaseServer.Text, TxtDatabaseName.Text, TxtDatabaseUsername.Text, TxtDatabasePassword.Text))
+                try
                 {
-                    BtnTestConnection.BackColor = Color.Lime;
+                    if (dbcon.Connect(TxtDatabaseServer.Text, TxtDatabaseName.Text, TxtDatabaseUsername.Text, TxtDatabasePassword.Text))
+                    {
+                        BtnTestConnection.BackColor = Color.Lime;
 
+                    }
+                    else
+                    {
+                        BtnTestConnection.BackColor = Color.Orange;
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    BtnTestConnection.BackColor = Color.Orange;
+                    Globals.Log.Write(ex.ToString());
                 }
-            }
-            catch (Exception ex)
-            {
-                Globals.Log.Write(ex.ToString());
             }
         }
 

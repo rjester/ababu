@@ -47,7 +47,7 @@ namespace Ababu
 
         }
 
-        private void BtnPrescriptionSave_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
             Treatment.Notes = TxtNotes.Text;
 
@@ -68,6 +68,26 @@ namespace Ababu
         private void ChkRecall_CheckedChanged(object sender, EventArgs e)
         {
             DtpRecall.Enabled = ChkRecall.Checked;
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to delete selected treatment / procedure (operation cannot be undone) ?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                int affected_rows = Treatment.Delete();
+
+                if (affected_rows > 0)
+                {
+                    this.Close();
+                    this.Dispose();
+                }
+            }
+        }
+
+        private void BtnPrint_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

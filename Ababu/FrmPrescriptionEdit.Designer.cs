@@ -64,8 +64,8 @@
             this.PicInEvidence = new System.Windows.Forms.PictureBox();
             this.BtnPrescriptionSave = new System.Windows.Forms.Button();
             this.PicIsModified = new System.Windows.Forms.PictureBox();
-            this.BtnPrescriptionPrint = new System.Windows.Forms.Button();
-            this.BtnPrescriptionDelete = new System.Windows.Forms.Button();
+            this.BtnPrint = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
             this.StsPrescriptionEdit.SuspendLayout();
             this.GrbMedicineDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrPrescriptionEdit)).BeginInit();
@@ -399,7 +399,7 @@
             this.BtnPrescriptionSave.Text = "Save";
             this.BtnPrescriptionSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnPrescriptionSave.UseVisualStyleBackColor = true;
-            this.BtnPrescriptionSave.Click += new System.EventHandler(this.BtnPrescriptionSave_Click);
+            this.BtnPrescriptionSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // PicIsModified
             // 
@@ -412,30 +412,31 @@
             this.PicIsModified.TabIndex = 71;
             this.PicIsModified.TabStop = false;
             // 
-            // BtnPrescriptionPrint
+            // BtnPrint
             // 
-            this.BtnPrescriptionPrint.Image = global::Ababu.Properties.Resources.printer;
-            this.BtnPrescriptionPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPrescriptionPrint.Location = new System.Drawing.Point(290, 405);
-            this.BtnPrescriptionPrint.Name = "BtnPrescriptionPrint";
-            this.BtnPrescriptionPrint.Size = new System.Drawing.Size(75, 23);
-            this.BtnPrescriptionPrint.TabIndex = 73;
-            this.BtnPrescriptionPrint.Text = "Print";
-            this.BtnPrescriptionPrint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPrescriptionPrint.UseVisualStyleBackColor = true;
+            this.BtnPrint.Image = global::Ababu.Properties.Resources.printer;
+            this.BtnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnPrint.Location = new System.Drawing.Point(290, 405);
+            this.BtnPrint.Name = "BtnPrint";
+            this.BtnPrint.Size = new System.Drawing.Size(75, 23);
+            this.BtnPrint.TabIndex = 73;
+            this.BtnPrint.Text = "Print";
+            this.BtnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPrint.UseVisualStyleBackColor = true;
+            this.BtnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
             // 
-            // BtnPrescriptionDelete
+            // BtnDelete
             // 
-            this.BtnPrescriptionDelete.Image = global::Ababu.Properties.Resources.delete;
-            this.BtnPrescriptionDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPrescriptionDelete.Location = new System.Drawing.Point(209, 405);
-            this.BtnPrescriptionDelete.Name = "BtnPrescriptionDelete";
-            this.BtnPrescriptionDelete.Size = new System.Drawing.Size(75, 23);
-            this.BtnPrescriptionDelete.TabIndex = 58;
-            this.BtnPrescriptionDelete.Text = "Delete";
-            this.BtnPrescriptionDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPrescriptionDelete.UseVisualStyleBackColor = true;
-            this.BtnPrescriptionDelete.Click += new System.EventHandler(this.BtnPrescriptionDelete_Click);
+            this.BtnDelete.Image = global::Ababu.Properties.Resources.delete;
+            this.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnDelete.Location = new System.Drawing.Point(209, 405);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(75, 23);
+            this.BtnDelete.TabIndex = 58;
+            this.BtnDelete.Text = "Delete";
+            this.BtnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // FrmPrescriptionEdit
             // 
@@ -445,9 +446,9 @@
             this.ClientSize = new System.Drawing.Size(458, 456);
             this.Controls.Add(this.PicIsModified);
             this.Controls.Add(this.GrbPrescription);
-            this.Controls.Add(this.BtnPrescriptionPrint);
+            this.Controls.Add(this.BtnPrint);
             this.Controls.Add(this.GrbMedicineDetail);
-            this.Controls.Add(this.BtnPrescriptionDelete);
+            this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.BtnPrescriptionSave);
             this.Controls.Add(this.StsPrescriptionEdit);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -477,7 +478,7 @@
         private System.Windows.Forms.ToolStripStatusLabel StlRecordInfo;
         private System.Windows.Forms.CheckBox ChkInEvidence;
         private System.Windows.Forms.PictureBox PicInEvidence;
-        private System.Windows.Forms.Button BtnPrescriptionDelete;
+        private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.Button BtnPrescriptionSave;
         private System.Windows.Forms.Label LblQuantity;
         private System.Windows.Forms.Label LblDosage;
@@ -502,7 +503,7 @@
         private System.Windows.Forms.ErrorProvider ErrPrescriptionEdit;
         private System.Windows.Forms.PictureBox PicIsModified;
         private System.Windows.Forms.DateTimePicker DtpCreated;
-        private System.Windows.Forms.Button BtnPrescriptionPrint;
+        private System.Windows.Forms.Button BtnPrint;
         private System.Windows.Forms.Label LblCreated;
         private System.Windows.Forms.GroupBox GrbPrescription;
         private System.Windows.Forms.ComboBox CmbProblems;

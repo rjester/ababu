@@ -21,9 +21,6 @@ namespace Ababu
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-            // MessageBox.Show(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
-
-
             TestConnection();
         }
 
@@ -89,6 +86,14 @@ namespace Ababu
 
         private void TestConnection()
         {
+            // close Database connection if connected
+            if (Globals.DBCon.IsConnected() == true)
+            {
+                Globals.DBCon.Close();
+            }
+
+
+            // try to reopen with default (saved) parameters
             try
             {
                 // initialize and connect to database
@@ -112,6 +117,8 @@ namespace Ababu
             {
                 Globals.Log.Write(ex.ToString());
             }
+
+
         }
     }
 }

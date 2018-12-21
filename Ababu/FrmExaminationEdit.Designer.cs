@@ -49,9 +49,9 @@
             this.TxtResult = new System.Windows.Forms.TextBox();
             this.StsExaminationEdit = new System.Windows.Forms.StatusStrip();
             this.StlRecordInfo = new System.Windows.Forms.ToolStripStatusLabel();
-            this.BtnPrescriptionPrint = new System.Windows.Forms.Button();
-            this.BtnPrescriptionDelete = new System.Windows.Forms.Button();
-            this.BtnPrescriptionSave = new System.Windows.Forms.Button();
+            this.BtnPrint = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
+            this.BtnSave = new System.Windows.Forms.Button();
             this.PicIsModified = new System.Windows.Forms.PictureBox();
             this.ErrExaminationEdit = new System.Windows.Forms.ErrorProvider(this.components);
             this.GrbExamination.SuspendLayout();
@@ -255,43 +255,44 @@
             this.StlRecordInfo.Size = new System.Drawing.Size(23, 17);
             this.StlRecordInfo.Text = "Tss";
             // 
-            // BtnPrescriptionPrint
+            // BtnPrint
             // 
-            this.BtnPrescriptionPrint.Image = global::Ababu.Properties.Resources.printer;
-            this.BtnPrescriptionPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPrescriptionPrint.Location = new System.Drawing.Point(272, 406);
-            this.BtnPrescriptionPrint.Name = "BtnPrescriptionPrint";
-            this.BtnPrescriptionPrint.Size = new System.Drawing.Size(75, 23);
-            this.BtnPrescriptionPrint.TabIndex = 76;
-            this.BtnPrescriptionPrint.Text = "Print";
-            this.BtnPrescriptionPrint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPrescriptionPrint.UseVisualStyleBackColor = true;
+            this.BtnPrint.Image = global::Ababu.Properties.Resources.printer;
+            this.BtnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnPrint.Location = new System.Drawing.Point(272, 406);
+            this.BtnPrint.Name = "BtnPrint";
+            this.BtnPrint.Size = new System.Drawing.Size(75, 23);
+            this.BtnPrint.TabIndex = 76;
+            this.BtnPrint.Text = "Print";
+            this.BtnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPrint.UseVisualStyleBackColor = true;
+            this.BtnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
             // 
-            // BtnPrescriptionDelete
+            // BtnDelete
             // 
-            this.BtnPrescriptionDelete.Image = global::Ababu.Properties.Resources.delete;
-            this.BtnPrescriptionDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPrescriptionDelete.Location = new System.Drawing.Point(191, 406);
-            this.BtnPrescriptionDelete.Name = "BtnPrescriptionDelete";
-            this.BtnPrescriptionDelete.Size = new System.Drawing.Size(75, 23);
-            this.BtnPrescriptionDelete.TabIndex = 75;
-            this.BtnPrescriptionDelete.Text = "Delete";
-            this.BtnPrescriptionDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPrescriptionDelete.UseVisualStyleBackColor = true;
-            this.BtnPrescriptionDelete.Click += new System.EventHandler(this.BtnPrescriptionDelete_Click);
+            this.BtnDelete.Image = global::Ababu.Properties.Resources.delete;
+            this.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnDelete.Location = new System.Drawing.Point(191, 406);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(75, 23);
+            this.BtnDelete.TabIndex = 75;
+            this.BtnDelete.Text = "Delete";
+            this.BtnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
-            // BtnPrescriptionSave
+            // BtnSave
             // 
-            this.BtnPrescriptionSave.Image = global::Ababu.Properties.Resources.accept;
-            this.BtnPrescriptionSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPrescriptionSave.Location = new System.Drawing.Point(110, 406);
-            this.BtnPrescriptionSave.Name = "BtnPrescriptionSave";
-            this.BtnPrescriptionSave.Size = new System.Drawing.Size(75, 23);
-            this.BtnPrescriptionSave.TabIndex = 74;
-            this.BtnPrescriptionSave.Text = "Save";
-            this.BtnPrescriptionSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPrescriptionSave.UseVisualStyleBackColor = true;
-            this.BtnPrescriptionSave.Click += new System.EventHandler(this.BtnPrescriptionSave_Click);
+            this.BtnSave.Image = global::Ababu.Properties.Resources.accept;
+            this.BtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnSave.Location = new System.Drawing.Point(110, 406);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(75, 23);
+            this.BtnSave.TabIndex = 74;
+            this.BtnSave.Text = "Save";
+            this.BtnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // PicIsModified
             // 
@@ -310,15 +311,15 @@
             // 
             // FrmExaminationEdit
             // 
-            this.AcceptButton = this.BtnPrescriptionSave;
+            this.AcceptButton = this.BtnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 458);
             this.Controls.Add(this.PicIsModified);
             this.Controls.Add(this.StsExaminationEdit);
-            this.Controls.Add(this.BtnPrescriptionPrint);
-            this.Controls.Add(this.BtnPrescriptionDelete);
-            this.Controls.Add(this.BtnPrescriptionSave);
+            this.Controls.Add(this.BtnPrint);
+            this.Controls.Add(this.BtnDelete);
+            this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.GrbResults);
             this.Controls.Add(this.GrbExamination);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -350,9 +351,9 @@
         private System.Windows.Forms.GroupBox GrbResults;
         private System.Windows.Forms.CheckBox ChkLockProblemCombo;
         private System.Windows.Forms.ComboBox CmbProblems;
-        private System.Windows.Forms.Button BtnPrescriptionPrint;
-        private System.Windows.Forms.Button BtnPrescriptionDelete;
-        private System.Windows.Forms.Button BtnPrescriptionSave;
+        private System.Windows.Forms.Button BtnPrint;
+        private System.Windows.Forms.Button BtnDelete;
+        private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.CheckBox ChkInEvidence;
         private System.Windows.Forms.PictureBox PicInEvidence;
         private System.Windows.Forms.StatusStrip StsExaminationEdit;

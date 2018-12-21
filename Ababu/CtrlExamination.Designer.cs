@@ -93,9 +93,9 @@
             this.LblDiagnosticTest.AutoSize = true;
             this.LblDiagnosticTest.Location = new System.Drawing.Point(3, 1);
             this.LblDiagnosticTest.Name = "LblDiagnosticTest";
-            this.LblDiagnosticTest.Size = new System.Drawing.Size(81, 13);
+            this.LblDiagnosticTest.Size = new System.Drawing.Size(149, 13);
             this.LblDiagnosticTest.TabIndex = 11;
-            this.LblDiagnosticTest.Text = "Diagnostic Test";
+            this.LblDiagnosticTest.Text = "Examination / Diagnostic Test";
             // 
             // BtnDiagnosticTestSelect
             // 

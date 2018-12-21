@@ -69,7 +69,7 @@
             this.CalCalendar.Name = "CalCalendar";
             this.CalCalendar.Size = new System.Drawing.Size(574, 494);
             this.CalCalendar.TabIndex = 0;
-            this.CalCalendar.LoadItems += new WindowsFormsCalendar.Calendar.CalendarLoadEventHandler(this.CalCalendar_LoadItems);
+            this.CalCalendar.ItemTextEdited += new WindowsFormsCalendar.Calendar.CalendarItemCancelEventHandler(this.CalCalendar_ItemTextEdited);
             this.CalCalendar.ItemDatesChanged += new WindowsFormsCalendar.Calendar.CalendarItemEventHandler(this.CalCalendar_ItemDatesChanged);
             this.CalCalendar.ItemDoubleClick += new WindowsFormsCalendar.Calendar.CalendarItemEventHandler(this.CalCalendar_ItemDoubleClick);
             // 

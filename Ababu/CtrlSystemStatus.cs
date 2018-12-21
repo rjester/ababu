@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using OldAuntie;
+using System.Net;
+using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace Ababu
 {
@@ -26,6 +29,57 @@ namespace Ababu
 
         private void FillControl()
         {
+            // check Ababu version
+            try
+            {
+                string json = "";
+                bool is_updated = true;
+
+                LblVersionInstalled.Text = "Installed Version: " + Globals.VERSION_NUMBER + " (build " + Globals.VERSION_BUILD + ")";
+                LblVersionLatest.Text = "";
+                LblVersionMessage.Text = "";
+
+                // get the Json Object representing the version info
+                using (WebClient wc = new WebClient())
+                {
+                    json = wc.DownloadString(Globals.VERSION_CHECK_URL);
+                    // creo l'oggetto per getire la sincronizzazione
+                    JsonSync jsonSync = JsonConvert.DeserializeObject<JsonSync>(json);
+
+                    LblVersionLatest.Text = "Latest Version: " + jsonSync.Version + " (build " + jsonSync.Build + ")";
+                    if (Globals.VERSION_NUMBER == jsonSync.Version)
+                    {
+                        if (Globals.VERSION_BUILD != jsonSync.Build)
+                        {
+                            is_updated = false;
+                        }
+                    }
+                    else
+                    {
+                        is_updated = false;
+                    }
+
+                    // show a message
+                    if (is_updated == false)
+                    {
+                        // create a message for the user
+                        LblVersionMessage.Text = "A new version is available for download." + Environment.NewLine + "Please update at " + jsonSync.Url;
+                    }
+                    else
+                    {
+                        LblVersionMessage.Text = "Your version is up to date";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Globals.Log.Write(ex.ToString());
+            }
+
+
+
+
+
             // Database connection info
             if (IsDabaBaseConnected() == true)
             {
@@ -64,23 +118,24 @@ namespace Ababu
 
         private bool IsDabaBaseConnected()
         {
-            BaseDati dbcon = new BaseDati();
-
-            try
+            using(BaseDati dbcon = new BaseDati())
             {
-                if (dbcon.Connect(Properties.Settings.Default.database_server, Properties.Settings.Default.database_name, Properties.Settings.Default.database_username, Properties.Settings.Default.database_password))
+                try
                 {
-                    return true;
+                    if (dbcon.Connect(Properties.Settings.Default.database_server, Properties.Settings.Default.database_name, Properties.Settings.Default.database_username, Properties.Settings.Default.database_password))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
+                    Globals.Log.Write(ex.ToString());
                     return false;
                 }
-            }
-            catch (Exception ex)
-            {
-                Globals.Log.Write(ex.ToString());
-                return false;
             }
         }
 
@@ -92,6 +147,12 @@ namespace Ababu
         private void PicRefresh_Click(object sender, EventArgs e)
         {
             FillControl();
+        }
+
+        private void LblVersionUpdateUrl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Send the URL to the operating system.
+            Process.Start(e.Link.LinkData as string);
         }
     }
 }

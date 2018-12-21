@@ -87,8 +87,8 @@ namespace Ababu
             GrbPrescription.Enabled = false;
 
             BtnPrescriptionSave.Enabled = false;
-            BtnPrescriptionDelete.Enabled = false;
-            BtnPrescriptionPrint.Enabled = false;
+            BtnDelete.Enabled = false;
+            BtnPrint.Enabled = false;
             /*
             BtnPrescriptionSave.Enabled = false;
             NumQuantity.Enabled = false;
@@ -110,6 +110,7 @@ namespace Ababu
             // fill the problem combo
             // get the problem for a selected pet / patient
             DataTable DtProblems = Problem.GetProblemsByPetId(Pet.Id);
+
             // insert a new empty Row at 0 position for Problem indipendet prescription / Diary
             DataRow DrProblemIndependent = DtProblems.NewRow();
             DrProblemIndependent[0] = Pet.Id;
@@ -123,7 +124,8 @@ namespace Ababu
             CmbProblems.DataSource = DtProblems;
             CmbProblems.ValueMember = "diagnosis_id";
             CmbProblems.DisplayMember = "term_name";
-            CmbProblems.SelectedValue = Problem.DiagnosisId;
+            CmbProblems.SelectedValue = Prescription.DiagnosisId;
+
 
             TxtMid.Text = Medicine.Id;
             TxtMedicineName.Text = Medicine.Name;
@@ -136,8 +138,8 @@ namespace Ababu
             // avoid to delete or print a recod that not exists
             if (Prescription.Exists() == false)
             {
-                BtnPrescriptionDelete.Enabled = false;
-                BtnPrescriptionPrint.Enabled = false;
+                BtnDelete.Enabled = false;
+                BtnPrint.Enabled = false;
             }
 
             // check if Medicine is still available on the market to avoid modification
@@ -149,7 +151,7 @@ namespace Ababu
 
         }
 
-        private void BtnPrescriptionSave_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
             if (IsValidForm())
             {
@@ -221,7 +223,7 @@ namespace Ababu
 
 
 
-        private void BtnPrescriptionDelete_Click(object sender, EventArgs e)
+        private void BtnDelete_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to delete selected prescription (operation cannot be undone) ?", "Warning", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
@@ -249,6 +251,11 @@ namespace Ababu
             {
                 ChkLockProblemCombo.Image = Properties.Resources.lock_closed;
             }
+        }
+
+        private void BtnPrint_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

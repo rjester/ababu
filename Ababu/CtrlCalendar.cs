@@ -23,16 +23,6 @@ namespace Ababu
 
         private void CtrlCalendar_Load(object sender, EventArgs e)
         {
-            // @todo: eliminare
-            /*
-            DataGridViewCheckBoxColumn checkbox_column = new DataGridViewCheckBoxColumn();
-            checkbox_column.Name = "select";
-            checkbox_column.ValueType = typeof(bool);
-            checkbox_column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            checkbox_column.DefaultCellStyle.NullValue = true;
-            GrdCalendarSelection.Columns.Add(checkbox_column);
-            */
-
             FillControl();
         }
 
@@ -80,12 +70,7 @@ namespace Ababu
             }
         }
 
-
-
-        private void CalCalendar_LoadItems(object sender, CalendarLoadEventArgs e)
-        {
-        }
-
+        
         private void CalCalendar_ItemDatesChanged(object sender, CalendarItemEventArgs e)
         {
             int calendar_item_id = Convert.ToInt32(e.Item.Tag);
@@ -120,7 +105,7 @@ namespace Ababu
                 OldAuntie.CalendarItem calendar_item = new OldAuntie.CalendarItem(calendar_item_id);
 
                 // insert mode: get the calendar id from calendar list
-                if(calendar_item_id == 0)
+                if (calendar_item_id == 0)
                 {
                     calendar_item.CalendarId = calendar_id;
                 }
@@ -220,10 +205,28 @@ namespace Ababu
             }
         }
 
+        private void CalCalendar_ItemTextEdited(object sender, CalendarItemCancelEventArgs e)
+        {
+            int calendar_item_id = Convert.ToInt32(e.Item.Tag);
+
+            // create a CalendarItem object and passes to the edit form
+            OldAuntie.CalendarItem calendar_item = new OldAuntie.CalendarItem(calendar_item_id);
+
+            calendar_item.UserId = Globals.Me.Id;
+            calendar_item.Description = e.Item.Text.ToString();
+            calendar_item.Save();
+        }
+
         private void MonthViewSelection_SelectionChanged(object sender, EventArgs e)
         {
-            CalCalendar.SetViewRange(MonthViewSelection.SelectionStart, MonthViewSelection.SelectionEnd);
-            PlaceItems();
+            try
+            {
+                CalCalendar.SetViewRange(MonthViewSelection.SelectionStart, MonthViewSelection.SelectionEnd);
+                PlaceItems();
+            }catch(Exception ex)
+            {
+                Console.Write(ex.ToString());
+            }
         }
     }
 }

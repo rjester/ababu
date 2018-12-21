@@ -73,8 +73,8 @@
             this.LblPetName = new System.Windows.Forms.Label();
             this.TxtDiagnosis = new System.Windows.Forms.TextBox();
             this.LblDiagnosis = new System.Windows.Forms.Label();
-            this.BtnProblemSave = new System.Windows.Forms.Button();
-            this.BtnProblemDelete = new System.Windows.Forms.Button();
+            this.BtnSave = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
             this.PicIsModified = new System.Windows.Forms.PictureBox();
             this.StsProblemEdit.SuspendLayout();
             this.GrbProblemStatus.SuspendLayout();
@@ -522,31 +522,31 @@
             this.LblDiagnosis.TabIndex = 61;
             this.LblDiagnosis.Text = "Problem";
             // 
-            // BtnProblemSave
+            // BtnSave
             // 
-            this.BtnProblemSave.Image = global::Ababu.Properties.Resources.accept;
-            this.BtnProblemSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnProblemSave.Location = new System.Drawing.Point(351, 402);
-            this.BtnProblemSave.Name = "BtnProblemSave";
-            this.BtnProblemSave.Size = new System.Drawing.Size(75, 23);
-            this.BtnProblemSave.TabIndex = 11;
-            this.BtnProblemSave.Text = "Save";
-            this.BtnProblemSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnProblemSave.UseVisualStyleBackColor = true;
-            this.BtnProblemSave.Click += new System.EventHandler(this.BtnProblemSave_Click);
+            this.BtnSave.Image = global::Ababu.Properties.Resources.accept;
+            this.BtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnSave.Location = new System.Drawing.Point(351, 402);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(75, 23);
+            this.BtnSave.TabIndex = 11;
+            this.BtnSave.Text = "Save";
+            this.BtnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
-            // BtnProblemDelete
+            // BtnDelete
             // 
-            this.BtnProblemDelete.Image = global::Ababu.Properties.Resources.delete;
-            this.BtnProblemDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnProblemDelete.Location = new System.Drawing.Point(432, 402);
-            this.BtnProblemDelete.Name = "BtnProblemDelete";
-            this.BtnProblemDelete.Size = new System.Drawing.Size(75, 23);
-            this.BtnProblemDelete.TabIndex = 12;
-            this.BtnProblemDelete.Text = "Delete";
-            this.BtnProblemDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnProblemDelete.UseVisualStyleBackColor = true;
-            this.BtnProblemDelete.Click += new System.EventHandler(this.BtnProblemDelete_Click);
+            this.BtnDelete.Image = global::Ababu.Properties.Resources.delete;
+            this.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnDelete.Location = new System.Drawing.Point(432, 402);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(75, 23);
+            this.BtnDelete.TabIndex = 12;
+            this.BtnDelete.Text = "Delete";
+            this.BtnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // PicIsModified
             // 
@@ -561,7 +561,7 @@
             // 
             // FrmProblemEdit
             // 
-            this.AcceptButton = this.BtnProblemSave;
+            this.AcceptButton = this.BtnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
@@ -582,8 +582,8 @@
             this.Controls.Add(this.TxtSubjectiveAnalysis);
             this.Controls.Add(this.GrbProblemStatus);
             this.Controls.Add(this.StsProblemEdit);
-            this.Controls.Add(this.BtnProblemDelete);
-            this.Controls.Add(this.BtnProblemSave);
+            this.Controls.Add(this.BtnDelete);
+            this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.PicIsModified);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmProblemEdit";
@@ -614,8 +614,8 @@
         #endregion
 
         private System.Windows.Forms.PictureBox PicIsModified;
-        private System.Windows.Forms.Button BtnProblemDelete;
-        private System.Windows.Forms.Button BtnProblemSave;
+        private System.Windows.Forms.Button BtnDelete;
+        private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.StatusStrip StsProblemEdit;
         private System.Windows.Forms.ToolStripStatusLabel StlRecordInfo;
         private System.Windows.Forms.GroupBox GrbProblemStatus;

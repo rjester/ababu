@@ -104,13 +104,22 @@ namespace Ababu
             CmbProblems.DataSource = DtProblems;
             CmbProblems.ValueMember = "diagnosis_id";
             CmbProblems.DisplayMember = "term_name";
-            CmbProblems.SelectedValue = Problem.DiagnosisId;
+            CmbProblems.SelectedValue = Examination.DiagnosisId;
 
             ChkInEvidence.Checked = Examination.InEvidence;
             ChkIsPathologic.Checked = Examination.IsPathologic;
 
             TxtResult.Text = Examination.Result;
             TxtMedicalReport.Text = Examination.MedicalReport;
+
+            if (Examination.Exists() == false)
+            {
+                BtnDelete.Enabled = false;
+                BtnPrint.Enabled = false;
+            }
+
+
+
         }
 
         private void ChkLockProblemCombo_CheckedChanged(object sender, EventArgs e)
@@ -140,7 +149,7 @@ namespace Ababu
             }
         }
 
-        private void BtnPrescriptionSave_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
             if (IsValidForm())
             {
@@ -189,7 +198,22 @@ namespace Ababu
             return result;
         }
 
-        private void BtnPrescriptionDelete_Click(object sender, EventArgs e)
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to delete selected examination / dianogstic test (operation cannot be undone) ?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                int affected_rows = Examination.Delete();
+
+                if (affected_rows > 0)
+                {
+                    this.Close();
+                    this.Dispose();
+                }
+            }
+        }
+
+        private void BtnPrint_Click(object sender, EventArgs e)
         {
 
         }

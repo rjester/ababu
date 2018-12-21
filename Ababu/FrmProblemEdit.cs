@@ -75,7 +75,7 @@ namespace Ababu
 
             if(Problema.Exists() == false)
             {
-                BtnProblemDelete.Enabled = false;
+                BtnDelete.Enabled = false;
             }
         }
 
@@ -131,7 +131,7 @@ namespace Ababu
             PicIsModified.Image = Properties.Resources.bullet_green;
         }
 
-        private void BtnProblemSave_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
             if (IsValidForm())
             {
@@ -210,7 +210,7 @@ namespace Ababu
             }
         }
 
-        private void BtnProblemDelete_Click(object sender, EventArgs e)
+        private void BtnDelete_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to delete selected problem (operation cannot be undone) ?", "Warning", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
