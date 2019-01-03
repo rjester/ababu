@@ -50,25 +50,27 @@
             this.LblSubject.TabIndex = 0;
             this.LblSubject.TabStop = true;
             this.LblSubject.Text = "LblSubject";
+            this.LblSubject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LblSubject.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblSubject_LinkClicked);
             // 
             // TxtSummary
             // 
+            this.TxtSummary.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TxtSummary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
             this.TxtSummary.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtSummary.Location = new System.Drawing.Point(3, 16);
             this.TxtSummary.Multiline = true;
             this.TxtSummary.Name = "TxtSummary";
-            this.TxtSummary.Size = new System.Drawing.Size(294, 73);
+            this.TxtSummary.Size = new System.Drawing.Size(294, 53);
             this.TxtSummary.TabIndex = 1;
             // 
             // LblNew
             // 
-            this.LblNew.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.LblNew.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LblNew.AutoSize = true;
             this.LblNew.Font = new System.Drawing.Font("Miriam CLM", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.LblNew.ForeColor = System.Drawing.Color.OrangeRed;
-            this.LblNew.Location = new System.Drawing.Point(3, 0);
+            this.LblNew.Location = new System.Drawing.Point(3, 5);
             this.LblNew.Name = "LblNew";
             this.LblNew.Size = new System.Drawing.Size(27, 12);
             this.LblNew.TabIndex = 2;
@@ -76,9 +78,9 @@
             // 
             // LblPublishDate
             // 
-            this.LblPublishDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.LblPublishDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LblPublishDate.AutoSize = true;
-            this.LblPublishDate.Location = new System.Drawing.Point(36, 0);
+            this.LblPublishDate.Location = new System.Drawing.Point(36, 4);
             this.LblPublishDate.Name = "LblPublishDate";
             this.LblPublishDate.Size = new System.Drawing.Size(78, 13);
             this.LblPublishDate.TabIndex = 3;
@@ -100,7 +102,7 @@
             // 
             this.PanPubishDate.Controls.Add(this.LblPublishDate);
             this.PanPubishDate.Controls.Add(this.LblNew);
-            this.PanPubishDate.Location = new System.Drawing.Point(3, 95);
+            this.PanPubishDate.Location = new System.Drawing.Point(3, 75);
             this.PanPubishDate.Name = "PanPubishDate";
             this.PanPubishDate.Size = new System.Drawing.Size(294, 21);
             this.PanPubishDate.TabIndex = 4;

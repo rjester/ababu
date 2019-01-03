@@ -25,7 +25,7 @@ namespace Ababu.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ababu02")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ababu")]
         public string database_name {
             get {
                 return ((string)(this["database_name"]));

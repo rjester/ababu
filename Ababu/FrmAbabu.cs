@@ -37,6 +37,16 @@ namespace Ababu
 
                 // @todo: delete me ... for debug purpose only
                 // TsbCalendar_Click(this, new EventArgs());
+                // @delete begin
+                TabPage TpVisit = new TabPage("Visits");
+                CtrlVisit ctrlVisits = new CtrlVisit(new Pet(1));
+                ctrlVisits.Dock = DockStyle.Fill;
+                TpVisit.Controls.Add(ctrlVisits);
+
+                TabAbabu.TabPages.Add(TpVisit);
+                TabAbabu.SelectedTab = TpVisit;
+                // @delete end
+
             }
             else
             {

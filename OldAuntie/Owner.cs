@@ -25,6 +25,9 @@ namespace OldAuntie
         public DateTime? Updated { get; set; }
 
 
+        public DataRow Printables { get; private set; }
+
+
         public Owner(int id = 0)
         {
             Load(id);
@@ -37,6 +40,9 @@ namespace OldAuntie
 
             string query = "SELECT * FROM owners a WHERE a.id = " + id;
             DataRow result = Globals.DBCon.SelectOneRow(query);
+
+            // set the result into property for further use (printing)
+            this.Printables = result;
 
             if (result != null && result.ItemArray.Count() > 0)
             {

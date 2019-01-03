@@ -105,7 +105,7 @@
             // BtnRestoreDefaultSettings
             // 
             this.BtnRestoreDefaultSettings.Image = global::Ababu.Properties.Resources.cog;
-            this.BtnRestoreDefaultSettings.Location = new System.Drawing.Point(307, 154);
+            this.BtnRestoreDefaultSettings.Location = new System.Drawing.Point(313, 169);
             this.BtnRestoreDefaultSettings.Name = "BtnRestoreDefaultSettings";
             this.BtnRestoreDefaultSettings.Size = new System.Drawing.Size(22, 23);
             this.BtnRestoreDefaultSettings.TabIndex = 4;

@@ -18,7 +18,7 @@ namespace OldAuntie
 
         public const string VERSION_CHECK_URL = "http://www.oldauntie.org/ababu_latest_version.json";
         public const string VERSION_NUMBER = "0.3";
-        public const string VERSION_BUILD = "001";
+        public const string VERSION_BUILD = "002";
 
         static Globals()
         {

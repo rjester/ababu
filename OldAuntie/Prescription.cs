@@ -21,6 +21,9 @@ namespace OldAuntie
         public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
 
+        public const string PRINTABLE_ENTITY = "prescription";
+        public DataRow Printables { get; private set; }
+
         public Prescription(int id)
         {
             Load(id);
@@ -36,6 +39,10 @@ namespace OldAuntie
 
             DataRow result = Globals.DBCon.SelectOneRow(query);
 
+            // set the result into property for further use (printing)
+            this.Printables = result;
+
+            
             if (result != null && result.ItemArray.Count() > 0)
             {
                 Id = id;
@@ -63,6 +70,19 @@ namespace OldAuntie
             else
             {
                 return Insert();
+            }
+        }
+
+
+        public bool Exists()
+        {
+            if (Id > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -138,20 +158,11 @@ namespace OldAuntie
         }
 
         
-
-        public bool Exists()
+        // @todo delete
+        public Prescription Print()
         {
-            if(Id > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return this;
         }
-
-
 
 
 

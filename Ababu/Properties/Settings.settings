@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="database_name" Type="System.String" Scope="User">
-      <Value Profile="(Default)">ababu02</Value>
+      <Value Profile="(Default)">ababu</Value>
     </Setting>
     <Setting Name="database_server" Type="System.String" Scope="User">
       <Value Profile="(Default)">localhost</Value>
