@@ -265,7 +265,8 @@ namespace Ababu
             Layout layout = new Layout(1);
             layout.AddPrintables("prescription", Prescription.Printables);
             layout.AddPrintables("owner", owner.Printables);
-            layout.Render();
+            Printer printer = new Printer(Properties.Settings.Default.default_printer_name);
+            printer.Print(layout);
         }
     }
 }

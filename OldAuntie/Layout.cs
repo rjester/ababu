@@ -13,16 +13,18 @@ namespace OldAuntie
         private bool disposed = false;
 
         public int Id { get; set; }
-        public int TypeId { get; set; }
-        public string Description { get; set; }
+        public int EntityId { get; set; }
+        public string Name { get; set; }
         public string Xml { get; set; }
         public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
+        
+        // public string LayoutXml { get; set; }
 
-
-        public string LayoutXml { get; set; }
-
+        // public List<string> ENTITIES = ["Prescription", "Examination", "Note"];
+        
         private const string ENTITY_GLUE = "=>";
+
         private Dictionary<string, object> PrintableItems = new Dictionary<string, object>();
 
 
@@ -40,7 +42,7 @@ namespace OldAuntie
 
         public void AddPrintables(string entity_name, DataRow printables)
         {
-            // trnasform the datarow into a dictionary
+            // transform the datarow into a dictionary
             Dictionary<string, object> items = printables.Table.Columns
                 .Cast<DataColumn>()
                 .ToDictionary(col => col.ColumnName, col => printables[col.ColumnName]);
@@ -87,7 +89,6 @@ namespace OldAuntie
                         string item_value = printable_item.Value.ToString();
 
                         output = output.Replace("[" + entity_name + ENTITY_GLUE + item_name + "]", item_value);
-
                     }
                 }                
             }
@@ -102,8 +103,8 @@ namespace OldAuntie
             if (result.ItemArray.Count() > 0)
             {
                 Id = (int)result["id"];
-                TypeId = (int)result["type_id"];
-                Description = result["description"].ToString();
+                EntityId = (int)result["entity_id"];
+                Name = result["name"].ToString();
                 Xml = result["xml"].ToString();
                 Created = (DateTime)result["created"];
                 Updated = Utility.IfDBNull(result["updated"], null);
@@ -132,13 +133,13 @@ namespace OldAuntie
             using (BaseDati db = new BaseDati())
             {
                 int affetcedRows = 0;
-                string sql = "UPDATE layouts SET type_id=@type_id, description=@description, xml=@xml, update=@update " +
+                string sql = "UPDATE layouts SET entity_id=@entity_id, name=@name, xml=@xml, update=@update " +
                             "WHERE id=@id";
 
                 MySqlCommand cmd = db.CreateCommand(sql);
                 cmd.Parameters.AddWithValue("@id", (int)Id);
-                cmd.Parameters.AddWithValue("@type_id", (int)TypeId);
-                cmd.Parameters.AddWithValue("@description", Description);
+                cmd.Parameters.AddWithValue("@entity_id", (int)EntityId);
+                cmd.Parameters.AddWithValue("@name", Name);
                 cmd.Parameters.AddWithValue("@xml", Xml);
                 cmd.Parameters.AddWithValue("@updated", DateTime.Now);
 
@@ -156,12 +157,12 @@ namespace OldAuntie
             using (BaseDati db = new BaseDati())
             {
                 int affetcedRows = 0;
-                string sql = "INSERT INTO layouts (type_id, description, xml, created) " +
-                            "VALUES (@description, @xml, @lastupdate)";
+                string sql = "INSERT INTO layouts (entity_id, name, xml, created) " +
+                            "VALUES (@entity_id, @name, @xml, @created)";
 
                 MySqlCommand cmd = db.CreateCommand(sql);
-                cmd.Parameters.AddWithValue("@type_id", TypeId);
-                cmd.Parameters.AddWithValue("@description", Description);
+                cmd.Parameters.AddWithValue("@entity_id", EntityId);
+                cmd.Parameters.AddWithValue("@name", Name);
                 cmd.Parameters.AddWithValue("@xml", Xml);
                 cmd.Parameters.AddWithValue("@created", DateTime.Now);
 
@@ -189,18 +190,32 @@ namespace OldAuntie
         }
 
 
-        public static DataTable GetAllLayouts()
+        public DataTable GetLayoutsByEntity()
         {
-            using (BaseDati db = new BaseDati())
-            {
-                DataTable result = db.Execute("SELECT * FROM layouts");
-                return result;
-            }
+            string query = "SELECT a.* " +
+                "FROM layouts a, entities b " +
+                "WHERE a.entity_id = b.id " +
+                "AND a.entity_id = " + EntityId +
+                " ORDER BY a.created DESC, a.id DESC";
 
+            DataTable result = Globals.DBCon.Execute(query);
+
+            return result;
         }
 
 
+        static public DataTable GetLayoutsByEntityId(int entity_id)
+        {
+            string query = "SELECT a.* " +
+                "FROM layouts a, entities b " +
+                "WHERE a.entity_id = b.id " +
+                "AND a.entity_id = " + entity_id +
+                " ORDER BY a.created DESC, a.id DESC";
 
+            DataTable result = Globals.DBCon.Execute(query);
+
+            return result;
+        }
 
         public void Dispose()
         {

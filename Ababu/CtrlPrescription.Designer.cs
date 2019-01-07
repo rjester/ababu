@@ -34,6 +34,7 @@
             this.LblMedicines = new System.Windows.Forms.Label();
             this.BtnMedicineSelect = new System.Windows.Forms.Button();
             this.CmbMedicines = new System.Windows.Forms.ComboBox();
+            this.BtnPrescriptionPrint = new System.Windows.Forms.Button();
             this.TlpPrescription.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrdPrescriptions)).BeginInit();
             this.PanPrescription.SuspendLayout();
@@ -76,9 +77,11 @@
             this.GrdPrescriptions.Size = new System.Drawing.Size(479, 285);
             this.GrdPrescriptions.TabIndex = 5;
             this.GrdPrescriptions.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdPrescriptions_CellDoubleClick);
+            this.GrdPrescriptions.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GrdPrescriptions_KeyDown);
             // 
             // PanPrescription
             // 
+            this.PanPrescription.Controls.Add(this.BtnPrescriptionPrint);
             this.PanPrescription.Controls.Add(this.LblMedicines);
             this.PanPrescription.Controls.Add(this.BtnMedicineSelect);
             this.PanPrescription.Controls.Add(this.CmbMedicines);
@@ -117,6 +120,16 @@
             this.CmbMedicines.TabIndex = 5;
             this.CmbMedicines.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CmbMedicines_KeyDown);
             // 
+            // BtnPrescriptionPrint
+            // 
+            this.BtnPrescriptionPrint.Image = global::Ababu.Properties.Resources.printer;
+            this.BtnPrescriptionPrint.Location = new System.Drawing.Point(315, 13);
+            this.BtnPrescriptionPrint.Name = "BtnPrescriptionPrint";
+            this.BtnPrescriptionPrint.Size = new System.Drawing.Size(25, 23);
+            this.BtnPrescriptionPrint.TabIndex = 12;
+            this.BtnPrescriptionPrint.UseVisualStyleBackColor = true;
+            this.BtnPrescriptionPrint.Click += new System.EventHandler(this.BtnPrescriptionPrint_Click);
+            // 
             // CtrlPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,5 +154,6 @@
         private System.Windows.Forms.ComboBox CmbMedicines;
         private System.Windows.Forms.DataGridView GrdPrescriptions;
         private System.Windows.Forms.Label LblMedicines;
+        private System.Windows.Forms.Button BtnPrescriptionPrint;
     }
 }

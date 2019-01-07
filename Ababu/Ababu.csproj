@@ -250,6 +250,12 @@
     <Compile Include="FrmPrescriptionEdit.Designer.cs">
       <DependentUpon>FrmPrescriptionEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrint.Designer.cs">
+      <DependentUpon>FrmPrint.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmProblemEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -368,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrescriptionEdit.resx">
       <DependentUpon>FrmPrescriptionEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrint.resx">
+      <DependentUpon>FrmPrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProblemEdit.resx">
       <DependentUpon>FrmProblemEdit.cs</DependentUpon>

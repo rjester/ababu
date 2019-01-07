@@ -90,6 +90,38 @@ namespace Ababu
         }
 
 
+
+        private void OpenPrescriptionEdit(string medicine_id, int prescription_id = 0)
+        {
+            using (FrmPrescriptionEdit frmPrescriptionEdit = new FrmPrescriptionEdit(new Prescription(prescription_id), Pet, new Medicine(medicine_id), Problem))
+            {
+                frmPrescriptionEdit.FormClosing += new FormClosingEventHandler(PrescriptionEdit_FormClosing);
+                frmPrescriptionEdit.ShowDialog();
+            }
+        }
+
+
+
+        private void Print()
+        {
+            /*
+            int id = (int)GrdPrescriptions.SelectedRows[0].Cells["id"].Value;
+            Prescription prescription = new Prescription(id);
+            Owner owner = new Owner(Pet.OwnerId);
+            Layout layout = new Layout(1);
+
+            layout.AddPrintables("prescription", prescription.Printables);
+            layout.AddPrintables("owner", owner.Printables);
+            Printer printer = new Printer(Properties.Settings.Default.default_printer_name);
+            printer.Print(layout);
+            */
+
+            FrmPrint frmPrint = new FrmPrint();
+            frmPrint.ShowDialog();
+        }
+
+
+
         private void CmbMedicines_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -98,16 +130,6 @@ namespace Ababu
                 {
                     OpenPrescriptionEdit(CmbMedicines.SelectedValue.ToString());
                 }
-            }
-        }
-
-
-        private void OpenPrescriptionEdit(string id, int prescription_id = 0)
-        {
-            using (FrmPrescriptionEdit frmPrescriptionEdit = new FrmPrescriptionEdit(new Prescription(prescription_id), Pet, new Medicine(id), Problem))
-            {
-                frmPrescriptionEdit.FormClosing += new FormClosingEventHandler(PrescriptionEdit_FormClosing);
-                frmPrescriptionEdit.ShowDialog();
             }
         }
 
@@ -122,9 +144,9 @@ namespace Ababu
         {
             // DateTime created = (DateTime)GrdPrescriptions.Rows[e.RowIndex].Cells[0].Value;
             int prescription_id = (int)GrdPrescriptions.Rows[e.RowIndex].Cells[0].Value;
-            string id = GrdPrescriptions.Rows[e.RowIndex].Cells[1].Value.ToString();
+            string medicine_id = GrdPrescriptions.Rows[e.RowIndex].Cells[1].Value.ToString();
             
-            OpenPrescriptionEdit(id, prescription_id);
+            OpenPrescriptionEdit(medicine_id, prescription_id);
         }
 
 
@@ -133,6 +155,19 @@ namespace Ababu
         {
             Problem = e.Problem;
             FillGrid();
+        }
+
+        private void BtnPrescriptionPrint_Click(object sender, EventArgs e)
+        {
+            Print();
+        }
+
+        private void GrdPrescriptions_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F12)
+            {
+                Print();
+            }
         }
     }
 }
