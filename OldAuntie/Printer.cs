@@ -114,12 +114,12 @@ namespace OldAuntie
                         // @todo: 
                         // bool isPrintable = getOptionAttribute(layoutchildNode, printableOptions);
                         bool isVisible = getVisibility(layoutchildNode);
-                        bool isPrintable = true;
+                        // bool isPrintable = true;
                         switch (Type)
                         {
                             case "datetime":
                                 {
-                                    if (isVisible & isPrintable)
+                                    if (isVisible)
                                     {
                                         Font printFont = new Font(fontName, FontSize, fs);
                                         StringFormat stringFormat = new StringFormat();
@@ -137,7 +137,7 @@ namespace OldAuntie
 
                             case "text":
                                 {
-                                    if (isVisible & isPrintable)
+                                    if (isVisible)
                                     {
                                         Font printFont = new Font(fontName, FontSize, fs);
                                         StringFormat stringFormat = new StringFormat();
@@ -173,7 +173,7 @@ namespace OldAuntie
 
 
                             case "multiline":
-                                if (isVisible && isPrintable)
+                                if (isVisible)
                                 {
                                     // crea un oggetto Font da utilizzare per la stampa
                                     Font printFont = new Font(fontName, FontSize, fs);
@@ -217,7 +217,7 @@ namespace OldAuntie
 
                             case "image":
                                 {
-                                    if (isVisible & isPrintable)
+                                    if (isVisible)
                                     {
                                         Image img = loadLayoutImage(src);
                                         if (img != null)
@@ -229,15 +229,17 @@ namespace OldAuntie
 
                             case "shape":
                                 {
-                                    if (isVisible & isPrintable)
+                                    if (isVisible)
+                                    {
                                         // TODO mettere shape
                                         Console.WriteLine(5);
+                                    }
                                     break;
                                 }
 
                             case "barcode":
                                 {
-                                    if (isVisible & isPrintable)
+                                    if (isVisible)
                                     {
                                         BarcodeLib.Barcode BarCodeGenerator = new BarcodeLib.Barcode();
                                         Image bci = BarCodeGenerator.Encode(BarcodeLib.TYPE.CODE39, "*" + src + "*", System.Drawing.Color.Black, System.Drawing.Color.White, Width * 100, Height * 100);
@@ -249,7 +251,7 @@ namespace OldAuntie
 
                             case "qrcode":
                                 {
-                                    if (isVisible & isPrintable)
+                                    if (isVisible)
                                     {
                                         try
                                         {

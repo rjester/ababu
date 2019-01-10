@@ -31,10 +31,10 @@
             this.TlpPrescription = new System.Windows.Forms.TableLayoutPanel();
             this.GrdPrescriptions = new System.Windows.Forms.DataGridView();
             this.PanPrescription = new System.Windows.Forms.Panel();
+            this.BtnPrescriptionPrint = new System.Windows.Forms.Button();
             this.LblMedicines = new System.Windows.Forms.Label();
             this.BtnMedicineSelect = new System.Windows.Forms.Button();
             this.CmbMedicines = new System.Windows.Forms.ComboBox();
-            this.BtnPrescriptionPrint = new System.Windows.Forms.Button();
             this.TlpPrescription.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrdPrescriptions)).BeginInit();
             this.PanPrescription.SuspendLayout();
@@ -68,6 +68,7 @@
             this.GrdPrescriptions.ColumnHeadersVisible = false;
             this.GrdPrescriptions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrdPrescriptions.Location = new System.Drawing.Point(3, 48);
+            this.GrdPrescriptions.MultiSelect = false;
             this.GrdPrescriptions.Name = "GrdPrescriptions";
             this.GrdPrescriptions.ReadOnly = true;
             this.GrdPrescriptions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -91,6 +92,16 @@
             this.PanPrescription.Size = new System.Drawing.Size(479, 39);
             this.PanPrescription.TabIndex = 4;
             // 
+            // BtnPrescriptionPrint
+            // 
+            this.BtnPrescriptionPrint.Image = global::Ababu.Properties.Resources.printer;
+            this.BtnPrescriptionPrint.Location = new System.Drawing.Point(306, 14);
+            this.BtnPrescriptionPrint.Name = "BtnPrescriptionPrint";
+            this.BtnPrescriptionPrint.Size = new System.Drawing.Size(25, 23);
+            this.BtnPrescriptionPrint.TabIndex = 12;
+            this.BtnPrescriptionPrint.UseVisualStyleBackColor = true;
+            this.BtnPrescriptionPrint.Click += new System.EventHandler(this.BtnPrescriptionPrint_Click);
+            // 
             // LblMedicines
             // 
             this.LblMedicines.AutoSize = true;
@@ -103,11 +114,12 @@
             // BtnMedicineSelect
             // 
             this.BtnMedicineSelect.Image = global::Ababu.Properties.Resources.accept;
-            this.BtnMedicineSelect.Location = new System.Drawing.Point(284, 15);
+            this.BtnMedicineSelect.Location = new System.Drawing.Point(280, 14);
             this.BtnMedicineSelect.Name = "BtnMedicineSelect";
             this.BtnMedicineSelect.Size = new System.Drawing.Size(25, 23);
             this.BtnMedicineSelect.TabIndex = 6;
             this.BtnMedicineSelect.UseVisualStyleBackColor = true;
+            this.BtnMedicineSelect.Click += new System.EventHandler(this.BtnMedicineSelect_Click);
             // 
             // CmbMedicines
             // 
@@ -119,16 +131,6 @@
             this.CmbMedicines.Size = new System.Drawing.Size(275, 21);
             this.CmbMedicines.TabIndex = 5;
             this.CmbMedicines.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CmbMedicines_KeyDown);
-            // 
-            // BtnPrescriptionPrint
-            // 
-            this.BtnPrescriptionPrint.Image = global::Ababu.Properties.Resources.printer;
-            this.BtnPrescriptionPrint.Location = new System.Drawing.Point(315, 13);
-            this.BtnPrescriptionPrint.Name = "BtnPrescriptionPrint";
-            this.BtnPrescriptionPrint.Size = new System.Drawing.Size(25, 23);
-            this.BtnPrescriptionPrint.TabIndex = 12;
-            this.BtnPrescriptionPrint.UseVisualStyleBackColor = true;
-            this.BtnPrescriptionPrint.Click += new System.EventHandler(this.BtnPrescriptionPrint_Click);
             // 
             // CtrlPrescription
             // 

@@ -13,49 +13,65 @@ namespace OldAuntie
         private bool disposed = false;
 
         public int Id { get; set; }
-        public int EntityId { get; set; }
+        public Scope Scope { get; set; }
         public string Name { get; set; }
         public string Xml { get; set; }
         public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
-        
-        // public string LayoutXml { get; set; }
 
-        // public List<string> ENTITIES = ["Prescription", "Examination", "Note"];
-        
         private const string ENTITY_GLUE = "=>";
-
         private Dictionary<string, object> PrintableItems = new Dictionary<string, object>();
 
 
 
-        public Layout(int id = 0)
+        public Layout(Scope scope)
         {
-            Id = id;
-
-            if (id > 0)
+            if(scope != null)
             {
-                Load(id);
+                SetScope(scope);
             }
         }
 
+        public void SetScope(Scope scope)
+        {
+            Scope = scope;
+        }
 
-        public void AddPrintables(string entity_name, DataRow printables)
+
+        public Layout Load(int id)
+        {
+            DataRow result = Globals.DBCon.SelectOneRow("SELECT * FROM layouts WHERE id = " + id.ToString());
+
+            if (result.ItemArray.Count() > 0)
+            {
+                Id = (int)result["id"];
+                Scope = new Scope ((int)result["scope_id"]);
+                Name = result["name"].ToString();
+                Xml = result["xml"].ToString();
+                Created = (DateTime)result["created"];
+                Updated = Utility.IfDBNull(result["updated"], null);
+            }
+
+            return this;
+        }
+
+        
+
+        public void AddPrintables(string entity, DataRow printables)
         {
             // transform the datarow into a dictionary
             Dictionary<string, object> items = printables.Table.Columns
                 .Cast<DataColumn>()
                 .ToDictionary(col => col.ColumnName, col => printables[col.ColumnName]);
 
-            AddPrintables(entity_name, items);
+            AddPrintables(entity, items);
         }
 
 
-        public void AddPrintables(string entity_name, Dictionary<string, object> printables)
+        public void AddPrintables(string entity, Dictionary<string, object> printables)
         {
-            PrintableItems.Add(entity_name, printables);
+            PrintableItems.Add(entity, printables);
         }
-
 
 
         public string Render()
@@ -96,23 +112,6 @@ namespace OldAuntie
             return output;
         }
 
-        public DataRow Load(int id)
-        {
-            DataRow result = Globals.DBCon.SelectOneRow("SELECT * FROM layouts WHERE id = " + id.ToString());
-
-            if (result.ItemArray.Count() > 0)
-            {
-                Id = (int)result["id"];
-                EntityId = (int)result["entity_id"];
-                Name = result["name"].ToString();
-                Xml = result["xml"].ToString();
-                Created = (DateTime)result["created"];
-                Updated = Utility.IfDBNull(result["updated"], null);
-            }
-
-            return result;
-        }
-
 
         public int Save()
         {
@@ -133,12 +132,12 @@ namespace OldAuntie
             using (BaseDati db = new BaseDati())
             {
                 int affetcedRows = 0;
-                string sql = "UPDATE layouts SET entity_id=@entity_id, name=@name, xml=@xml, update=@update " +
+                string sql = "UPDATE layouts SET scope_id=@scope_id, name=@name, xml=@xml, update=@update " +
                             "WHERE id=@id";
 
                 MySqlCommand cmd = db.CreateCommand(sql);
                 cmd.Parameters.AddWithValue("@id", (int)Id);
-                cmd.Parameters.AddWithValue("@entity_id", (int)EntityId);
+                cmd.Parameters.AddWithValue("@scope_id", Scope.Id);
                 cmd.Parameters.AddWithValue("@name", Name);
                 cmd.Parameters.AddWithValue("@xml", Xml);
                 cmd.Parameters.AddWithValue("@updated", DateTime.Now);
@@ -157,11 +156,11 @@ namespace OldAuntie
             using (BaseDati db = new BaseDati())
             {
                 int affetcedRows = 0;
-                string sql = "INSERT INTO layouts (entity_id, name, xml, created) " +
-                            "VALUES (@entity_id, @name, @xml, @created)";
+                string sql = "INSERT INTO layouts (scope_id, name, xml, created) " +
+                            "VALUES (@scope_id, @name, @xml, @created)";
 
                 MySqlCommand cmd = db.CreateCommand(sql);
-                cmd.Parameters.AddWithValue("@entity_id", EntityId);
+                cmd.Parameters.AddWithValue("@scope_id", Scope.Id);
                 cmd.Parameters.AddWithValue("@name", Name);
                 cmd.Parameters.AddWithValue("@xml", Xml);
                 cmd.Parameters.AddWithValue("@created", DateTime.Now);
@@ -190,32 +189,18 @@ namespace OldAuntie
         }
 
 
-        public DataTable GetLayoutsByEntity()
+        public DataTable GetAllLayoutsByScope()
         {
-            string query = "SELECT a.* " +
-                "FROM layouts a, entities b " +
-                "WHERE a.entity_id = b.id " +
-                "AND a.entity_id = " + EntityId +
-                " ORDER BY a.created DESC, a.id DESC";
+            string query = "SELECT *" +
+                " FROM layouts" +
+                " WHERE scope_id = " + Scope.Id +
+                " ORDER BY created DESC, id DESC";
 
             DataTable result = Globals.DBCon.Execute(query);
 
             return result;
         }
-
-
-        static public DataTable GetLayoutsByEntityId(int entity_id)
-        {
-            string query = "SELECT a.* " +
-                "FROM layouts a, entities b " +
-                "WHERE a.entity_id = b.id " +
-                "AND a.entity_id = " + entity_id +
-                " ORDER BY a.created DESC, a.id DESC";
-
-            DataTable result = Globals.DBCon.Execute(query);
-
-            return result;
-        }
+        
 
         public void Dispose()
         {

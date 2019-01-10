@@ -255,18 +255,7 @@ namespace Ababu
 
         private void BtnPrint_Click(object sender, EventArgs e)
         {
-            // printable object
-            // what i Need ? Information about owner, pet, prescription
-            // 
-
-            Owner owner = new Owner(1);
-
-
-            Layout layout = new Layout(1);
-            layout.AddPrintables("prescription", Prescription.Printables);
-            layout.AddPrintables("owner", owner.Printables);
-            Printer printer = new Printer(Properties.Settings.Default.default_printer_name);
-            printer.Print(layout);
+            // @delete me.
         }
     }
 }

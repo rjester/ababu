@@ -39,6 +39,11 @@ namespace Ababu
         {
             FillCombo();
             FillGrid();
+
+            // set tooltips for buttons
+            ToolTip tip = new ToolTip();
+            tip.SetToolTip(BtnMedicineSelect, "Enter ...");
+            tip.SetToolTip(BtnPrescriptionPrint, "F12 ...");
         }
 
 
@@ -87,6 +92,16 @@ namespace Ababu
             GrdPrescriptions.Columns["date_of_withdrawal"].Visible = false;
 
             GrdPrescriptions.Columns["name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            // enable / disable print button if grid is empty
+            if(GrdPrescriptions.Rows.Count > 0)
+            {
+                BtnPrescriptionPrint.Enabled = true;
+            }
+            else
+            {
+                BtnPrescriptionPrint.Enabled = false;
+            }
         }
 
 
@@ -104,19 +119,19 @@ namespace Ababu
 
         private void Print()
         {
-            /*
+            // create a layout for prescriptiom scope
+            Layout layout = new Layout(new Scope(Scope.SCOPE_PRESCRIPTION));
+
+            // add printable object 
             int id = (int)GrdPrescriptions.SelectedRows[0].Cells["id"].Value;
             Prescription prescription = new Prescription(id);
             Owner owner = new Owner(Pet.OwnerId);
-            Layout layout = new Layout(1);
 
             layout.AddPrintables("prescription", prescription.Printables);
             layout.AddPrintables("owner", owner.Printables);
-            Printer printer = new Printer(Properties.Settings.Default.default_printer_name);
-            printer.Print(layout);
-            */
-
-            FrmPrint frmPrint = new FrmPrint();
+            
+            // open print form passing layout to print
+            FrmPrint frmPrint = new FrmPrint(layout);
             frmPrint.ShowDialog();
         }
 
@@ -167,6 +182,14 @@ namespace Ababu
             if(e.KeyCode == Keys.F12)
             {
                 Print();
+            }
+        }
+
+        private void BtnMedicineSelect_Click(object sender, EventArgs e)
+        {
+            if (CmbMedicines.SelectedItem != null && CmbMedicines.SelectedValue != null)
+            {
+                OpenPrescriptionEdit(CmbMedicines.SelectedValue.ToString());
             }
         }
     }
