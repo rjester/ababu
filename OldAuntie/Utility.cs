@@ -93,11 +93,11 @@ namespace OldAuntie
 
 
         // DATA CONVERSION
-        public static dynamic IfNullOrEmpty(dynamic what, dynamic return_value = null)
+        public static dynamic IfNullOrEmpty(dynamic what, dynamic default_value = null)
         {
             if (String.IsNullOrEmpty(what))
             {
-                return return_value;
+                return default_value;
             }
             else
             {
@@ -105,11 +105,11 @@ namespace OldAuntie
             }
         }
 
-        public static dynamic IfNull(dynamic what, dynamic return_value = null)
+        public static dynamic IfNull(dynamic what, dynamic default_value = null)
         {
             if (what == null)
             {
-                return return_value;
+                return default_value;
             }
             else
             {
@@ -118,11 +118,11 @@ namespace OldAuntie
         }
 
 
-        public static dynamic IfMinValue(DateTime date_time, dynamic return_value = null)
+        public static dynamic IfMinValue(DateTime date_time, dynamic default_value = null)
         {
             if (date_time == DateTime.MinValue)
             {
-                return return_value;
+                return default_value;
             }
             else
             {
@@ -133,11 +133,11 @@ namespace OldAuntie
 
 
 
-        public static dynamic IfDBNull(dynamic what, dynamic return_value = null)
+        public static dynamic IfDBNull(dynamic what, dynamic default_value = null)
         {
             if (Convert.IsDBNull(what))
             {
-                return return_value;
+                return default_value;
             }
             else
             {

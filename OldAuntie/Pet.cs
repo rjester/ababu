@@ -27,6 +27,8 @@ namespace OldAuntie
         public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
 
+        public DataRow Printables { get; private set; }
+
         // Properties / fields not in Database
         public int Years { get; set; }
         public int Months { get; set; }
@@ -51,6 +53,8 @@ namespace OldAuntie
             if (id > 0)
             {
                 DataRow result = Globals.DBCon.SelectOneRow("SELECT * FROM pets WHERE id = " + id.ToString());
+
+                this.Printables = result;
 
                 if (result != null && result.ItemArray.Count() > 0)
                 {

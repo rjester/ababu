@@ -127,6 +127,7 @@ namespace Ababu
             Prescription prescription = new Prescription(id);
             Owner owner = new Owner(Pet.OwnerId);
 
+            layout.AddPrintables("pet", Pet.Printables);
             layout.AddPrintables("prescription", prescription.Printables);
             layout.AddPrintables("owner", owner.Printables);
             

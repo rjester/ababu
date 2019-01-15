@@ -72,205 +72,164 @@ namespace OldAuntie
             {
                 e.Graphics.PageUnit = GraphicsUnit.Millimeter;
 
-                // xml layout parsing
+                // xml layout parsing. Replace fields with values inside xml layout
                 string layout_xml = Layout.Render();
 
 
                 // create the page and print it based on XML structure
                 XmlDocument xml = new XmlDocument();
                 xml.LoadXml(layout_xml);
-                XmlNode LayoutNode = xml.SelectSingleNode("layout");
+                XmlNode layout_node = xml.SelectSingleNode("layout");
 
-
-
-
-                foreach (XmlNode layoutchildNode in LayoutNode.ChildNodes)
+                foreach (XmlNode xml_node in layout_node.ChildNodes)
                 {
-                    if (layoutchildNode.Name == "object")
+                    if (xml_node.Name == "object")
                     {
-                        string Type = getSafeXMLStringAttribute(layoutchildNode, "type", "");
+                        // object type definition
+                        string Type = GetAttribute(xml_node, "type", "");
 
-                        // string Type = Utility.IfNull(layoutchildNode.Attributes["type"], "");
+                        // position definition
+                        float x = float.Parse(GetAttribute(xml_node, "x", "0.0F").ToString(), CultureInfo.InvariantCulture.NumberFormat);
+                        float y = float.Parse(GetAttribute(xml_node, "y", "0.0F").ToString(), CultureInfo.InvariantCulture.NumberFormat);
+                        Int32 width = Convert.ToInt32(GetAttribute(xml_node, "width", "123"));
+                        Int32 height = Convert.ToInt32(GetAttribute(xml_node, "height", "123"));
 
+                        // font definition
+                        string fontname = GetAttribute(xml_node, "fontname", "Arial");
+                        Int32 fontsize = Convert.ToInt32(GetAttribute(xml_node, "fontsize", "12"));
+                        string align = GetAttribute(xml_node, "align", "left");
 
-                        float X = float.Parse(getSafeXMLDoubleAttribute(layoutchildNode, "x", 0).ToString(), CultureInfo.InvariantCulture.NumberFormat); // * UnitCovert
-                        float Y = float.Parse(getSafeXMLDoubleAttribute(layoutchildNode, "y", 0).ToString(), CultureInfo.InvariantCulture.NumberFormat); // * UnitCovert
-                        Int32 Width = Convert.ToInt32(getSafeXMLDoubleAttribute(layoutchildNode, "width", 100)); // * UnitCovert
-                        Int32 Height = Convert.ToInt32(getSafeXMLDoubleAttribute(layoutchildNode, "height", 100)); // * UnitCovert
-                        string fontName = getSafeXMLStringAttribute(layoutchildNode, "fontname", "Arial");
-                        Int32 FontSize = Convert.ToInt32(getSafeXMLDoubleAttribute(layoutchildNode, "fontsize", 12));
-                        string align = getSafeXMLStringAttribute(layoutchildNode, "align", "left");
-                        string Color = getSafeXMLStringAttribute(layoutchildNode, "color", "FFFFFF");
-                        string src = getSafeXMLStringAttribute(layoutchildNode, "src", "");
-                        string datetimeformat = getSafeXMLStringAttribute(layoutchildNode, "datetimeformat", "");
+                        // set font color
+                        string hex_color = GetAttribute(xml_node, "color", "#000000");
+                        ColorConverter color_converter = new ColorConverter();
+                        Color color = (Color)color_converter.ConvertFromString(hex_color);
+                        SolidBrush brush = new SolidBrush(color);
+
+                        string src = GetAttribute(xml_node, "src", "");
+                        string datetimeformat = getSafeXMLStringAttribute(xml_node, "datetimeformat", "");
 
                         // @todo: controllare che venga davvero utilizzato
-                        string SlineSpace = getSafeXMLStringAttribute(layoutchildNode, "linespace", "");
+                        string SlineSpace = getSafeXMLStringAttribute(xml_node, "linespace", "");
 
-                        FontStyle fs = getFontStyle(layoutchildNode);
-                        // @todo: delete me ... (not used ???)
-                        // string[] printableOptions = Person.options.ToString().Split(';');
+                        // set font style
+                        FontStyle fs = FontStyle.Regular;
+                        if (GetAttribute(xml_node, "italic", "false") == "true")
+                        {
+                            fs = fs | FontStyle.Italic;
+                        }
 
-                        // @todo: 
-                        // bool isPrintable = getOptionAttribute(layoutchildNode, printableOptions);
-                        bool isVisible = getVisibility(layoutchildNode);
-                        // bool isPrintable = true;
+                        if (GetAttribute(xml_node, "bold", "false") == "true")
+                        {
+                            fs = fs | FontStyle.Bold;
+                        }
+
+                        
+                        Font font = new Font(fontname, fontsize, fs);
+                        StringFormat format = new StringFormat();
+                        if (align == "center")
+                        {
+                            format.Alignment = StringAlignment.Center;
+                        }
+
+                        // print items based on object type (datetime, text, multiline ecc.)
                         switch (Type)
                         {
                             case "datetime":
-                                {
-                                    if (isVisible)
-                                    {
-                                        Font printFont = new Font(fontName, FontSize, fs);
-                                        StringFormat stringFormat = new StringFormat();
-                                        if (align == "center")
-                                        {
-                                            stringFormat.Alignment = StringAlignment.Center;
-                                        }
-                                        src = DateTime.Now.ToString(datetimeformat);
-                                        e.Graphics.DrawString(src, printFont, Brushes.Black, X, Y, stringFormat);
-                                    }
-
-                                    break;
-                                }
+                                src = DateTime.Now.ToString(datetimeformat);
+                                e.Graphics.DrawString(src, font, brush, x, y, format);
+                                break;
 
 
                             case "text":
+                                string LetterCase = getSafeXMLStringAttribute(xml_node, "lettercase", "");
+                                switch (LetterCase.ToUpper())
                                 {
-                                    if (isVisible)
-                                    {
-                                        Font printFont = new Font(fontName, FontSize, fs);
-                                        StringFormat stringFormat = new StringFormat();
-                                        if (align == "center")
-                                        {
-                                            stringFormat.Alignment = StringAlignment.Center;
-                                        }
-                                        string LetterCase = getSafeXMLStringAttribute(layoutchildNode, "lettercase", "");
-                                        switch (LetterCase.ToUpper())
-                                        {
-                                            case "UPPER":
-                                                {
-                                                    e.Graphics.DrawString(src.ToUpper(), printFont, Brushes.Black, X, Y, stringFormat);
-                                                    break;
-                                                }
+                                    case "UPPER":
+                                        e.Graphics.DrawString(src.ToUpper(), font, brush, x, y, format);
+                                        break;
 
-                                            case "LOWER":
-                                                {
-                                                    e.Graphics.DrawString(src.ToLower(), printFont, Brushes.Black, X, Y, stringFormat);
-                                                    break;
-                                                }
+                                    case "LOWER":
+                                        e.Graphics.DrawString(src.ToLower(), font, brush, x, y, format);
+                                        break;
 
-                                            default:
-                                                {
-                                                    e.Graphics.DrawString(src, printFont, Brushes.Black, X, Y, stringFormat);
-                                                    break;
-                                                }
-                                        }
-                                    }
-
-                                    break;
+                                    default:
+                                        e.Graphics.DrawString(src, font, brush, x, y, format);
+                                        break;
                                 }
+
+                                break;
 
 
                             case "multiline":
-                                if (isVisible)
+                                // @todo: eliminare.recupera l'interlinea (non usata qui...)
+                                /*
+                                float linespace = font.GetHeight(e.Graphics);
+                                try
                                 {
-                                    // crea un oggetto Font da utilizzare per la stampa
-                                    Font printFont = new Font(fontName, FontSize, fs);
-
-                                    // @todo: eliminare.recupera l'interlinea (non usata qui...)
-                                    float linespace = printFont.GetHeight(e.Graphics);
-                                    try
+                                    if (SlineSpace == "" || SlineSpace == null)
                                     {
-                                        if (SlineSpace == "" || SlineSpace == null)
-                                        {
-                                            linespace = printFont.GetHeight(e.Graphics);
-                                        }
-                                        else
-                                        {
-                                            linespace = Convert.ToSingle(SlineSpace);
-                                        }
+                                        linespace = font.GetHeight(e.Graphics);
                                     }
-                                    catch
+                                    else
                                     {
-                                        linespace = printFont.GetHeight(e.Graphics);
+                                        linespace = Convert.ToSingle(SlineSpace);
                                     }
-
-                                    // allineo il testo al centro orizzontalmente
-                                    StringFormat stringFormat = new StringFormat();
-                                    if (align == "center")
-                                    {
-                                        stringFormat.Alignment = StringAlignment.Center;
-                                    }
-
-                                    // creo un rettangolo delle dimensioni del testo
-                                    RectangleF rectangle = new RectangleF();
-                                    rectangle.Location = new Point(Convert.ToInt32(X), Convert.ToInt32(Y));
-                                    // rectangle.Size = new Size(Convert.ToInt32(LayOutWidth), ((int)ev.Graphics.MeasureString(src, printFont, Convert.ToInt32(LayOutWidth), StringFormat.GenericTypographic).Height));
-                                    rectangle.Size = new Size(Width, Height);
-                                    // scrivo il testo (...dentro il rettangolo)
-                                    e.Graphics.DrawString(src, printFont, Brushes.Black, rectangle, stringFormat);
                                 }
+                                catch
+                                {
+                                    linespace = font.GetHeight(e.Graphics);
+                                }
+                                */
+                                // allineo il testo al centro orizzontalmente
+                                // stringFormat = new StringFormat();
+                                
+                                // create a rectangle of text dimensions
+                                RectangleF rectangle = new RectangleF();
+                                rectangle.Location = new Point(Convert.ToInt32(x), Convert.ToInt32(y));
+                                rectangle.Size = new Size(width, height);
+                                // write text inside the rectangle
+                                e.Graphics.DrawString(src, font, Brushes.Black, rectangle, format);
                                 break;
 
 
 
                             case "image":
-                                {
-                                    if (isVisible)
+                                    Image img = loadLayoutImage(src);
+                                    if (img != null)
                                     {
-                                        Image img = loadLayoutImage(src);
-                                        if (img != null)
-                                            e.Graphics.DrawImage(img, Convert.ToInt32(X), Convert.ToInt32(Y), Width, Height);
+                                        e.Graphics.DrawImage(img, Convert.ToInt32(x), Convert.ToInt32(y), width, height);
                                     }
 
                                     break;
-                                }
 
                             case "shape":
-                                {
-                                    if (isVisible)
-                                    {
-                                        // TODO mettere shape
-                                        Console.WriteLine(5);
-                                    }
+                                    // @todo: shape
+                                    Console.WriteLine(5);
                                     break;
-                                }
 
                             case "barcode":
-                                {
-                                    if (isVisible)
-                                    {
-                                        BarcodeLib.Barcode BarCodeGenerator = new BarcodeLib.Barcode();
-                                        Image bci = BarCodeGenerator.Encode(BarcodeLib.TYPE.CODE39, "*" + src + "*", System.Drawing.Color.Black, System.Drawing.Color.White, Width * 100, Height * 100);
-                                        e.Graphics.DrawImage(bci, Convert.ToInt32(X), Convert.ToInt32(Y), Width, Height);
-                                    }
-
+                                    BarcodeLib.Barcode BarCodeGenerator = new BarcodeLib.Barcode();
+                                    Image bci = BarCodeGenerator.Encode(BarcodeLib.TYPE.CODE39, "*" + src + "*", System.Drawing.Color.Black, System.Drawing.Color.White, width * 100, height * 100);
+                                    e.Graphics.DrawImage(bci, Convert.ToInt32(x), Convert.ToInt32(y), width, height);
                                     break;
-                                }
 
                             case "qrcode":
-                                {
-                                    if (isVisible)
+                                    try
                                     {
-                                        try
-                                        {
-                                            /*
-                                            QRCodeGenerator qrGenerator = new QRCodeGenerator();
-                                            QRCodeGenerator.QRCode qrCode;
-                                            qrCode = qrGenerator.CreateQrCode(src, QRCodeGenerator.ECCLevel.Q);
-                                            Bitmap qrbitMap = qrCode.GetGraphic(20);
-                                            using ((qrbitMap))
-                                                e.Graphics.DrawImage(qrbitMap, Convert.ToInt32(X), Convert.ToInt32(Y), Width, Height);
-                                            */
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                        }
+                                        /*
+                                        QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                                        QRCodeGenerator.QRCode qrCode;
+                                        qrCode = qrGenerator.CreateQrCode(src, QRCodeGenerator.ECCLevel.Q);
+                                        Bitmap qrbitMap = qrCode.GetGraphic(20);
+                                        using ((qrbitMap))
+                                            e.Graphics.DrawImage(qrbitMap, Convert.ToInt32(X), Convert.ToInt32(Y), Width, Height);
+                                        */
+                                    }
+                                    catch (Exception ex)
+                                    {
                                     }
 
                                     break;
-                                }
                         }
                     }
                 }
@@ -296,6 +255,29 @@ namespace OldAuntie
         }
 
 
+        public static string GetAttribute(XmlNode xml_node, string attribute, string default_value = null)
+        {
+            string result = String.Empty;
+            try
+            {
+                if (xml_node.Attributes[attribute] == null)
+                {
+                    result = default_value;
+                }
+                else
+                {
+                    result = xml_node.Attributes[attribute].Value;
+                }
+            }
+            catch
+            {
+                result = default_value;
+            }
+
+            return result;
+        }
+
+
         // @todo @delete @swap with Utility.IfNull
         public static string getSafeXMLStringAttribute(XmlNode xmlObject, string attributeName, string defaultValue = null)
         {
@@ -309,7 +291,6 @@ namespace OldAuntie
                 else
                 {
                     result = xmlObject.Attributes[attributeName].Value;
-
                 }
             }
             catch (Exception ex)
@@ -370,6 +351,7 @@ namespace OldAuntie
         }
 
 
+        /*
         public static bool getVisibility(XmlNode myNode)
         {
             return true;
@@ -390,22 +372,26 @@ namespace OldAuntie
                 return true;
             }
         }
+        */
 
-
-
+        /*
         public static FontStyle getFontStyle(XmlNode myXML)
         {
             FontStyle fs = FontStyle.Regular;
 
             if (getSafeXMLStringAttribute(myXML, "italic", "false") == "true")
+            {
                 fs = fs | FontStyle.Italic;
+            }
 
             if (getSafeXMLStringAttribute(myXML, "bold", "false") == "true")
+            {
                 fs = fs | FontStyle.Bold;
+            }
 
             return fs;
         }
-
+        */
 
 
 
