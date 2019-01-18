@@ -9,6 +9,7 @@ using System.Drawing.Printing;
 using System.Xml;
 using System.Globalization;
 using System.IO;
+using QRCoder;
 
 namespace OldAuntie
 {
@@ -209,26 +210,32 @@ namespace OldAuntie
 
                             case "barcode":
                                     BarcodeLib.Barcode BarCodeGenerator = new BarcodeLib.Barcode();
-                                    Image bci = BarCodeGenerator.Encode(BarcodeLib.TYPE.CODE39, "*" + src + "*", System.Drawing.Color.Black, System.Drawing.Color.White, width * 100, height * 100);
+                                    Image bci = BarCodeGenerator.Encode(BarcodeLib.TYPE.CODE39, "*" + src + "*", color, Color.White, width * 100, height * 100);
                                     e.Graphics.DrawImage(bci, Convert.ToInt32(x), Convert.ToInt32(y), width, height);
                                     break;
 
                             case "qrcode":
                                     try
                                     {
-                                        /*
-                                        QRCodeGenerator qrGenerator = new QRCodeGenerator();
-                                        QRCodeGenerator.QRCode qrCode;
-                                        qrCode = qrGenerator.CreateQrCode(src, QRCodeGenerator.ECCLevel.Q);
-                                        Bitmap qrbitMap = qrCode.GetGraphic(20);
-                                        using ((qrbitMap))
-                                            e.Graphics.DrawImage(qrbitMap, Convert.ToInt32(X), Convert.ToInt32(Y), Width, Height);
-                                        */
+                                        QRCodeGenerator qrcode_generator = new QRCodeGenerator();
+
+                                        using (QRCodeData qrCodeData = qrcode_generator.CreateQrCode(src, QRCodeGenerator.ECCLevel.Q))
+                                        {
+                                            using (QRCode qrCode = new QRCode(qrCodeData))
+                                            {
+                                                
+                                                using (Bitmap qrbitMap = qrCode.GetGraphic(20, color, Color.White, true))
+                                                {
+                                                    e.Graphics.DrawImage(qrbitMap, Convert.ToInt32(x), Convert.ToInt32(y), width, height);
+
+                                                }
+                                            }
+                                        }
                                     }
                                     catch (Exception ex)
                                     {
-                                    }
 
+                                    }
                                     break;
                         }
                     }
