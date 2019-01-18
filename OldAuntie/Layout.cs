@@ -24,7 +24,7 @@ namespace OldAuntie
 
 
 
-        public Layout(Scope scope)
+        public Layout(Scope scope = null)
         {
             if(scope != null)
             {
@@ -189,12 +189,15 @@ namespace OldAuntie
         }
 
 
-        public DataTable GetAllLayoutsByScope()
+        public DataTable GetAllLayoutsByScope(Scope scope = null)
         {
-            string query = "SELECT *" +
-                " FROM layouts" +
-                " WHERE scope_id = " + Scope.Id +
-                " ORDER BY created DESC, id DESC";
+            string query = "SELECT * FROM layouts WHERE 1=1";
+
+            if(scope != null)
+            {
+                query += " AND scope_id = " + Scope.Id;
+            }
+            query += " ORDER BY created DESC, id DESC";
 
             DataTable result = Globals.DBCon.Execute(query);
 
