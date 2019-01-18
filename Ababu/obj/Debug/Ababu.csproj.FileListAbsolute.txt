@@ -1,9 +1,0 @@
-C:\dev\Ababu\Ababu\bin\Debug\Ababu.exe
-C:\dev\Ababu\Ababu\bin\Debug\Ababu.pdb
-C:\dev\Ababu\Ababu\bin\Debug\Newtonsoft.Json.dll
-C:\dev\Ababu\Ababu\bin\Debug\OldAuntie.dll
-C:\dev\Ababu\Ababu\bin\Debug\BarcodeStandard.dll
-C:\dev\Ababu\Ababu\bin\Debug\QRCoder.dll
-C:\dev\Ababu\Ababu\bin\Debug\System.Drawing.Common.dll
-C:\dev\Ababu\Ababu\bin\Debug\OldAuntie.pdb
-C:\dev\Ababu\Ababu\bin\Debug\Newtonsoft.Json.pdb
