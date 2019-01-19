@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmDatabaseConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDatabaseConnection.Designer.cs">
+      <DependentUpon>FrmDatabaseConnection.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmFigaro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmDatabaseConnection.resx">
+      <DependentUpon>FrmDatabaseConnection.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmFigaro.resx">
       <DependentUpon>FrmFigaro.cs</DependentUpon>
     </EmbeddedResource>

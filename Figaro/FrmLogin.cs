@@ -61,5 +61,55 @@ namespace Figaro
 
         }
 
+        private void BtnDatabaseSettings_Click(object sender, EventArgs e)
+        {
+            FrmDatabaseConnection frmDatabaseConnection = new FrmDatabaseConnection();
+            frmDatabaseConnection.FormClosed += FrmDatabaseConnection_FormClosed;
+            frmDatabaseConnection.ShowDialog();
+        }
+
+        private void FrmDatabaseConnection_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            TestConnection();
+        }
+
+        private void BtnLogin_Click(object sender, EventArgs e)
+        {
+            if (IsValidForm())
+            {
+                bool IsUserLogged = User.Check(TxtUsername.Text, TxtPassword.Text);
+
+                if (IsUserLogged)
+                {
+                    Globals.Me = new User(User.GetUidByUsername(TxtUsername.Text));
+                    Globals.isUserLogged = true;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Wrong username or/and password");
+                }
+            }
+        }
+
+        private bool IsValidForm()
+        {
+            bool result = true;
+            ErrLogin.Clear();
+
+            if (TxtUsername.Text == "")
+            {
+                result = result & false;
+                ErrLogin.SetError(TxtUsername, "Username cannot be empty.");
+            }
+
+            if (TxtPassword.Text == "")
+            {
+                result = result & false;
+                ErrLogin.SetError(TxtPassword, "Password cannot be empty.");
+            }
+
+            return result;
+        }
     }
 }

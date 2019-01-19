@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LblTestConnection = new System.Windows.Forms.Label();
             this.PicTestConnection = new System.Windows.Forms.PictureBox();
             this.BtnDatabaseSettings = new System.Windows.Forms.Button();
@@ -36,7 +37,9 @@
             this.BtnLogin = new System.Windows.Forms.Button();
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.TxtUsername = new System.Windows.Forms.TextBox();
+            this.ErrLogin = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.PicTestConnection)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // LblTestConnection
@@ -65,6 +68,7 @@
             this.BtnDatabaseSettings.Size = new System.Drawing.Size(22, 23);
             this.BtnDatabaseSettings.TabIndex = 12;
             this.BtnDatabaseSettings.UseVisualStyleBackColor = true;
+            this.BtnDatabaseSettings.Click += new System.EventHandler(this.BtnDatabaseSettings_Click);
             // 
             // LblPassword
             // 
@@ -97,6 +101,7 @@
             this.BtnLogin.TabIndex = 9;
             this.BtnLogin.Text = "Login";
             this.BtnLogin.UseVisualStyleBackColor = true;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // TxtPassword
             // 
@@ -119,8 +124,13 @@
             this.TxtUsername.TabIndex = 7;
             this.TxtUsername.Text = "oldauntie@oldauntie.org";
             // 
+            // ErrLogin
+            // 
+            this.ErrLogin.ContainerControl = this;
+            // 
             // FrmLogin
             // 
+            this.AcceptButton = this.BtnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(341, 194);
@@ -132,10 +142,14 @@
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.TxtPassword);
             this.Controls.Add(this.TxtUsername);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmLogin";
-            this.Text = "FrmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PicTestConnection)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,5 +165,6 @@
         private System.Windows.Forms.Button BtnLogin;
         private System.Windows.Forms.TextBox TxtPassword;
         private System.Windows.Forms.TextBox TxtUsername;
+        private System.Windows.Forms.ErrorProvider ErrLogin;
     }
 }
