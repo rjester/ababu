@@ -21,6 +21,7 @@ Tp  TabControl->TabPage
 
 Ts  ToolStrip
 Tsb ToolStripButton
+Tsi ToolStripGenericItem
 Tsl	ToolStripLabel
 Tsm ToolStripMenuItem
 Tst	ToolStripText

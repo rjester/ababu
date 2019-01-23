@@ -37,5 +37,16 @@ namespace OldAuntie
 
             return this;
         }
+
+
+        public static DataTable GetAllScopes()
+        {
+            /*
+            DataTable result = null;
+            result = Globals.DBCon.Execute("SELECT * FROM scopes");
+            return result;
+            */
+            return Globals.DBCon.EntityLoad("scopes");
+        }
     }
 }

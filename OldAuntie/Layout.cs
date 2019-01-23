@@ -191,19 +191,34 @@ namespace OldAuntie
 
         public DataTable GetAllLayoutsByScope(Scope scope = null)
         {
+            return Search(scope);
+        }
+
+
+
+        public DataTable Search(Scope scope = null, string search = "")
+        {
             string query = "SELECT * FROM layouts WHERE 1=1";
 
-            if(scope != null)
+            if (scope != null)
             {
-                query += " AND scope_id = " + Scope.Id;
+                query += " AND scope_id = " + scope.Id;
             }
+
+            if(search != "")
+            {
+                query += " AND LOWER(name) LIKE LOWER('%" + search + "%')";
+            }
+
             query += " ORDER BY created DESC, id DESC";
 
             DataTable result = Globals.DBCon.Execute(query);
 
             return result;
         }
-        
+
+
+
 
         public void Dispose()
         {

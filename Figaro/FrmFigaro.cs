@@ -24,8 +24,8 @@ namespace Figaro
             frmLogin.FormClosed += FrmLogin_FormClosed;
             frmLogin.ShowDialog();
 
-
-            // TsbLayout_Click(this, new EventArgs());
+            // for easy @debug purpose only 
+            TsbLayout_Click(this, new EventArgs());
         }
 
 

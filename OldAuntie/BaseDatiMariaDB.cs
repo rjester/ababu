@@ -268,8 +268,8 @@ namespace OldAuntie
                 query += " ORDER BY " + order_by_clause;
             }
             
-            // execute the query
-            Connect();
+            // execute the query @delete me. double connection
+            // Connect();
             dtResults = Execute(query, BaseDati.RETURN_DATATABLE);
 
             return dtResults;
