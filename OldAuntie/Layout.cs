@@ -129,63 +129,53 @@ namespace OldAuntie
 
         public int Update()
         {
-            using (BaseDati db = new BaseDati())
-            {
-                int affetcedRows = 0;
-                string sql = "UPDATE layouts SET scope_id=@scope_id, name=@name, xml=@xml, update=@update " +
-                            "WHERE id=@id";
+            int affetced_rows = 0;
+            string sql = "UPDATE layouts SET scope_id=@scope_id, name=@name, xml=@xml, updated=@updated " +
+                        "WHERE id=@id";
 
-                MySqlCommand cmd = db.CreateCommand(sql);
-                cmd.Parameters.AddWithValue("@id", (int)Id);
-                cmd.Parameters.AddWithValue("@scope_id", Scope.Id);
-                cmd.Parameters.AddWithValue("@name", Name);
-                cmd.Parameters.AddWithValue("@xml", Xml);
-                cmd.Parameters.AddWithValue("@updated", DateTime.Now);
+            MySqlCommand cmd = Globals.DBCon.CreateCommand(sql);
+            cmd.Parameters.AddWithValue("@id", (int)Id);
+            cmd.Parameters.AddWithValue("@scope_id", Scope.Id);
+            cmd.Parameters.AddWithValue("@name", Name);
+            cmd.Parameters.AddWithValue("@xml", Xml);
+            cmd.Parameters.AddWithValue("@updated", DateTime.Now);
 
-                affetcedRows = cmd.ExecuteNonQuery();
+            affetced_rows = cmd.ExecuteNonQuery();
 
-                return affetcedRows;
-            }
-
+            return affetced_rows;
         }
 
 
 
         public int Insert()
         {
-            using (BaseDati db = new BaseDati())
-            {
-                int affetcedRows = 0;
-                string sql = "INSERT INTO layouts (scope_id, name, xml, created) " +
-                            "VALUES (@scope_id, @name, @xml, @created)";
+            int affetced_rows = 0;
+            string sql = "INSERT INTO layouts (scope_id, name, xml, created) " +
+                        "VALUES (@scope_id, @name, @xml, @created)";
 
-                MySqlCommand cmd = db.CreateCommand(sql);
-                cmd.Parameters.AddWithValue("@scope_id", Scope.Id);
-                cmd.Parameters.AddWithValue("@name", Name);
-                cmd.Parameters.AddWithValue("@xml", Xml);
-                cmd.Parameters.AddWithValue("@created", DateTime.Now);
+            MySqlCommand cmd = Globals.DBCon.CreateCommand(sql);
+            cmd.Parameters.AddWithValue("@scope_id", Scope.Id);
+            cmd.Parameters.AddWithValue("@name", Name);
+            cmd.Parameters.AddWithValue("@xml", Xml);
+            cmd.Parameters.AddWithValue("@created", DateTime.Now);
 
-                affetcedRows = cmd.ExecuteNonQuery();
+            affetced_rows = cmd.ExecuteNonQuery();
 
-                return affetcedRows;
-            }
+            return affetced_rows;
         }
 
 
         public int Delete()
         {
-            using (BaseDati db = new BaseDati())
-            {
-                int affetcedRows = 0;
-                string sql = "DELETE FROM layouts WHERE id=@id";
+            int affetced_rows = 0;
+            string sql = "DELETE FROM layouts WHERE id=@id";
 
-                MySqlCommand cmd = db.CreateCommand(sql);
-                cmd.Parameters.AddWithValue("@id", (int)Id);
+            MySqlCommand cmd = Globals.DBCon.CreateCommand(sql);
+            cmd.Parameters.AddWithValue("@id", (int)Id);
 
-                affetcedRows = cmd.ExecuteNonQuery();
+            affetced_rows = cmd.ExecuteNonQuery();
 
-                return affetcedRows;
-            }
+            return affetced_rows;
         }
 
 

@@ -161,5 +161,14 @@
   <ItemGroup>
     <None Include="Resources\layout_edit.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_tile_vertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drive_disk.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

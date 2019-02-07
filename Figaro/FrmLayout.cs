@@ -13,6 +13,7 @@ namespace Figaro
 {
     public partial class FrmLayout : Form
     {
+        private Layout Layout { get; set; }
         private bool IsModified = false;
 
         public FrmLayout()
@@ -30,7 +31,13 @@ namespace Figaro
         private void FillForm()
         {
             FillTree();
+
+            CmbScope.DataSource = Scope.GetAllScopes();
+            CmbScope.DisplayMember = "name";
+            CmbScope.ValueMember = "id";
         }
+
+
 
 
         private void FillTree(string search = "")
@@ -72,23 +79,32 @@ namespace Figaro
 
             // expand all nodes
             TreeLayout.ExpandAll();
-
         }
 
-        private void FillLayoutEditForm(int id)
+
+        private void FillSourceForm(int layout_id = 0)
         {
-            Layout layout = new Layout();
-            layout.Load(id);
-
-            CmbScope.DataSource = Scope.GetAllScopes();
-            CmbScope.DisplayMember = "name";
-            CmbScope.ValueMember = "id";
-
-            TxtId.Text = layout.Id.ToString();
-            TxtName.Text = layout.Name;
-            TxtSource.Text = layout.Xml;
-            CmbScope.SelectedValue = layout.Scope.Id;
+            Layout = new Layout();
+            if(layout_id > 0)
+            {
+                Layout.Load(layout_id);
+                TxtId.Text = Layout.Id.ToString();
+                TxtName.Text = Layout.Name;
+                TxtSource.Text = Layout.Xml;
+                CmbScope.SelectedValue = Layout.Scope.Id;
+            }
         }
+
+
+        private void EmptySourceForm()
+        {
+            Layout = new Layout();
+
+            TxtId.Text = "0";
+            TxtName.Text = "New Layout";
+            TxtSource.Text = "";
+        }
+
 
 
         void AddOnChangeHandlerToInputControls(Control ctrl)
@@ -131,33 +147,135 @@ namespace Figaro
             IsModified = true;
         }
 
+
+
+        private bool IsValidForm()
+        {
+            bool result = true;
+            ErrLayout.Clear();
+
+            if (TxtName.Text.Trim() == string.Empty)
+            {
+                result = result & false;
+                ErrLayout.SetError(LblName, "Layout name cannot be empty");
+            }
+
+            if (TxtSource.Text.Trim() == string.Empty)
+            {
+                result = result & false;
+                ErrLayout.SetError(TpSource, "Layout (source) cannot be empty");
+            }
+
+            if (CmbScope.SelectedItem == null)
+            {
+                result = result & false;
+                ErrLayout.SetError(LblScope, "Select a scope / context to wich associate current layout");
+            }
+
+            return result;
+        }
+
+
         private void TstSearch_TextChanged(object sender, EventArgs e)
         {
             FillTree(TstSearch.Text);
         }
 
-        private void TreeLayout_AfterSelect(object sender, TreeViewEventArgs e)
+        
+        private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (TreeLayout.SelectedNode.Tag != null)
+            if (IsValidForm() == true)
             {
-                int id = (int)TreeLayout.SelectedNode.Tag;
-                FillLayoutEditForm(id);
-                IsModified = false;
+                Layout.Id = Convert.ToInt32(TxtId.Text);
+                Layout.Name = TxtName.Text;
+                Layout.Scope = new Scope((int)CmbScope.SelectedValue);
+                Layout.Xml = TxtSource.Text;
+
+                int affected_rows = 0;
+                try
+                {
+                    affected_rows = Layout.Save();
+                    if(affected_rows > 0)
+                    {
+                        FillForm();
+                        IsModified = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
-
-        private void TreeLayout_BeforeSelect(object sender, TreeViewCancelEventArgs e)
+        
+        
+        private void TreeLayout_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (IsModified == true)
             {
                 DialogResult result = MessageBox.Show("Form has been modified. Would you like to discard changes ?", "Warning", MessageBoxButtons.YesNo);
                 if (result == DialogResult.No)
                 {
-                    //code for No
-                    e.Cancel = true;
                     return;
                 }
             }
+
+            int id = Utility.IfNull(TreeLayout.SelectedNode.Tag, 0);
+
+            if (id > 0)
+            {
+                TsbClone.Enabled = true;
+            }
+            else
+            {
+                TsbClone.Enabled = false;
+            }
+
+            FillSourceForm(id);
+            IsModified = false;
+
+        }
+
+        private void TsbAdd_Click(object sender, EventArgs e)
+        {
+            EmptySourceForm();
+        }
+
+        
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            // MessageBox.Show(Layout.Id.ToString());
+            DialogResult result = MessageBox.Show("Do want to delete layout number " + TxtId.Text + " (" + TxtName.Text + ")", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                int affected_rows = 0;
+                try
+                {
+                    affected_rows = Layout.Delete();
+                    if (affected_rows > 0)
+                    {
+                        FillForm();
+                        EmptySourceForm();
+                        IsModified = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+            }
+        }
+
+        private void TsbClone_Click(object sender, EventArgs e)
+        {
+            TxtId.Text = "0";
+            TxtName.Text = "Untitled";
+        }
+
+        private void TsbExport_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

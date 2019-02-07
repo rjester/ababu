@@ -453,6 +453,7 @@
             this.Controls.Add(this.StsPrescriptionEdit);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPrescriptionEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prescription";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPrescriptionEdit_FormClosing);
             this.Load += new System.EventHandler(this.FrmPrescriptionEdit_Load);
