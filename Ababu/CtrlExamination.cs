@@ -17,12 +17,19 @@ namespace Ababu
         public Pet Pet { get; set; }
         public Problem Problem { get; set; }
 
+        public int RowIndex { get; set; }
+
+
         public CtrlExamination(Pet pet)
         {
             // set the pet to visit
             Pet = pet;
             // initialize an empty problem for the pet
             Problem = new Problem(0, Pet.Id);
+
+            // @todo: set RowId to prevent full grid refresh 
+            RowIndex = 0;
+
             // initialize the rest of the components
             InitializeComponent();
         }
@@ -113,6 +120,13 @@ namespace Ababu
             GrdExaminations.Columns["is_pathologic"].Visible = false;
             
             GrdExaminations.Columns["term_name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            // set selected row to last selected one
+            if(GrdExaminations.Rows.Count > 0)
+            {
+                GrdExaminations.Rows[RowIndex].Selected = true;
+                GrdExaminations.Rows[RowIndex].Cells["term_name"].Selected = true;
+            }
         }
         
 
@@ -125,9 +139,35 @@ namespace Ababu
             }
         }
 
+        
+
+        private void Print()
+        {
+            // create a layout for prescriptiom scope
+            Layout layout = new Layout();
+            layout.SetScope(new Scope(Scope.SCOPE_EXAMINATION));
+
+            // add printable object 
+            int id = (int)GrdExaminations.SelectedRows[0].Cells["id"].Value;
+            Examination examination = new Examination(id);
+            Venom venom = new Venom(examination.DiagnosticTestId);
+            Owner owner = new Owner(Pet.OwnerId);
+
+            layout.AddPrintables("pet", Pet.Printables);
+            layout.AddPrintables("examination", examination.Printables);
+            layout.AddPrintables("venom", venom.Printables);
+            layout.AddPrintables("owner", owner.Printables);
+
+            // open print form passing layout to print
+            FrmPrint frmPrint = new FrmPrint(layout);
+            frmPrint.ShowDialog();
+        }
+
+
         private void FrmExaminationEdit_FormClosing(object sender, FormClosingEventArgs e)
         {
-            FillControl();
+            // FillControl();
+            FillGrid();
         }
 
         private void CmbDiagnosticTests_KeyDown(object sender, KeyEventArgs e)
@@ -154,7 +194,35 @@ namespace Ababu
             int id = (int)GrdExaminations.Rows[e.RowIndex].Cells[0].Value;
             int diagnostic_test_id = (int)GrdExaminations.Rows[e.RowIndex].Cells[2].Value;
 
+            RowIndex = e.RowIndex;
+
             OpenExaminationEdit(diagnostic_test_id, id);
+        }
+
+        private void BtnPrint_Click(object sender, EventArgs e)
+        {
+            Print();
+        }
+
+        private void GrdExaminations_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F12)
+            {
+                Print();
+            }
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                int id = (int)GrdExaminations.SelectedRows[0].Cells[0].Value;
+                int diagnostic_test_id = (int)GrdExaminations.SelectedRows[0].Cells[2].Value;
+
+                RowIndex = (int)GrdExaminations.SelectedRows[0].Index;
+                OpenExaminationEdit(diagnostic_test_id, id);
+
+                // prevent next row
+                e.SuppressKeyPress = true;
+            }
+
         }
     }
 }

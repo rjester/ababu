@@ -324,6 +324,7 @@
             this.Controls.Add(this.GrbExamination);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmExaminationEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Examination Edit";
             this.Load += new System.EventHandler(this.FrmExaminationEdit_Load);
             this.GrbExamination.ResumeLayout(false);

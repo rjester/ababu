@@ -25,6 +25,9 @@ namespace OldAuntie
         public string TermName { get; set; }
         public string TopLevelModeling { get; set; }
 
+        public DataRow Printables { get; private set; }
+
+
         public Venom(int id)
         {
             Load(id);
@@ -35,6 +38,9 @@ namespace OldAuntie
         {
             string query = "SELECT * FROM venom_codes WHERE id = " + id.ToString();
             DataRow result = Globals.DBCon.SelectOneRow(query);
+
+            Printables = result;
+
             if (result != null && result.ItemArray.Count() > 0)
             {
                 Id = id;

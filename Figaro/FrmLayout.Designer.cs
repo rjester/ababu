@@ -39,6 +39,7 @@
             this.TstSearch = new System.Windows.Forms.ToolStripTextBox();
             this.TsbAdd = new System.Windows.Forms.ToolStripButton();
             this.TsbImport = new System.Windows.Forms.ToolStripButton();
+            this.TsbExport = new System.Windows.Forms.ToolStripButton();
             this.TsbClone = new System.Windows.Forms.ToolStripButton();
             this.TlpLayoutSource = new System.Windows.Forms.TableLayoutPanel();
             this.TabLayout = new System.Windows.Forms.TabControl();
@@ -57,7 +58,7 @@
             this.BtnExport = new System.Windows.Forms.Button();
             this.StsLayout = new System.Windows.Forms.StatusStrip();
             this.StlRecord = new System.Windows.Forms.ToolStripStatusLabel();
-            this.TsbExport = new System.Windows.Forms.ToolStripButton();
+            this.ChkWordWrap = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.ErrLayout)).BeginInit();
             this.TlpLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpcLayout)).BeginInit();
@@ -174,6 +175,16 @@
             this.TsbImport.Size = new System.Drawing.Size(23, 22);
             this.TsbImport.Text = "Import from XML file";
             // 
+            // TsbExport
+            // 
+            this.TsbExport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbExport.Image = global::Figaro.Properties.Resources.folder_go;
+            this.TsbExport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbExport.Name = "TsbExport";
+            this.TsbExport.Size = new System.Drawing.Size(23, 22);
+            this.TsbExport.Text = "toolStripButton1";
+            this.TsbExport.Click += new System.EventHandler(this.TsbExport_Click);
+            // 
             // TsbClone
             // 
             this.TsbClone.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -228,6 +239,7 @@
             this.TxtSource.Location = new System.Drawing.Point(3, 3);
             this.TxtSource.Multiline = true;
             this.TxtSource.Name = "TxtSource";
+            this.TxtSource.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.TxtSource.Size = new System.Drawing.Size(819, 344);
             this.TxtSource.TabIndex = 0;
             // 
@@ -298,6 +310,7 @@
             // 
             // PanActions
             // 
+            this.PanActions.Controls.Add(this.ChkWordWrap);
             this.PanActions.Controls.Add(this.BtnDelete);
             this.PanActions.Controls.Add(this.BtnSave);
             this.PanActions.Controls.Add(this.BtnExport);
@@ -358,19 +371,21 @@
             this.StlRecord.Size = new System.Drawing.Size(44, 17);
             this.StlRecord.Text = "Record";
             // 
-            // TsbExport
+            // ChkWordWrap
             // 
-            this.TsbExport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TsbExport.Image = global::Figaro.Properties.Resources.folder_go;
-            this.TsbExport.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TsbExport.Name = "TsbExport";
-            this.TsbExport.Size = new System.Drawing.Size(23, 22);
-            this.TsbExport.Text = "toolStripButton1";
-            this.TsbExport.Click += new System.EventHandler(this.TsbExport_Click);
+            this.ChkWordWrap.AutoSize = true;
+            this.ChkWordWrap.Checked = true;
+            this.ChkWordWrap.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkWordWrap.Location = new System.Drawing.Point(342, 5);
+            this.ChkWordWrap.Name = "ChkWordWrap";
+            this.ChkWordWrap.Size = new System.Drawing.Size(78, 17);
+            this.ChkWordWrap.TabIndex = 12;
+            this.ChkWordWrap.Text = "Word wrap";
+            this.ChkWordWrap.UseVisualStyleBackColor = true;
+            this.ChkWordWrap.CheckedChanged += new System.EventHandler(this.ChkWordWrap_CheckedChanged);
             // 
             // FrmLayout
             // 
-            this.AcceptButton = this.BtnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1141, 499);
@@ -398,6 +413,7 @@
             this.PanLayoutActions.ResumeLayout(false);
             this.PanLayoutActions.PerformLayout();
             this.PanActions.ResumeLayout(false);
+            this.PanActions.PerformLayout();
             this.StsLayout.ResumeLayout(false);
             this.StsLayout.PerformLayout();
             this.ResumeLayout(false);
@@ -433,5 +449,6 @@
         private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.Panel PanActions;
         private System.Windows.Forms.ToolStripButton TsbExport;
+        private System.Windows.Forms.CheckBox ChkWordWrap;
     }
 }

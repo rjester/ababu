@@ -18,9 +18,12 @@ namespace OldAuntie
         public string MedicalReport { get; set; }
         public bool IsPathologic { get; set; }
         public bool InEvidence { get; set; }
-        public DateTime? Created { get; set; }
+        public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
 
+
+        public const string PRINTABLE_ENTITY = "examination";
+        public DataRow Printables { get; private set; }
 
         public Examination(int id)
         {
@@ -35,6 +38,9 @@ namespace OldAuntie
 
 
             DataRow result = Globals.DBCon.SelectOneRow(query);
+            
+            // set the result into property for further use (printing)
+            this.Printables = result;
 
             if (result != null && result.ItemArray.Count() > 0)
             {

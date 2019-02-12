@@ -88,6 +88,8 @@ namespace Ababu
             TxtDiagnosticTestId.Text = Venom.Id.ToString();
             TxtDiagnosticTest.Text = Venom.TermName;
 
+            DtpCreated.Value = Utility.IfMinValue((DateTime)Examination.Created, DateTime.Now);
+
             // fill the problem combo
             // get the problem for a selected pet / patient
             DataTable DtProblems = Problem.GetProblemsByPetId(Pet.Id);

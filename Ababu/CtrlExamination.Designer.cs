@@ -31,8 +31,9 @@
             this.TlpExamination = new System.Windows.Forms.TableLayoutPanel();
             this.GrdExaminations = new System.Windows.Forms.DataGridView();
             this.PanDiagnosticTest = new System.Windows.Forms.Panel();
+            this.BtnPrint = new System.Windows.Forms.Button();
             this.LblDiagnosticTest = new System.Windows.Forms.Label();
-            this.BtnDiagnosticTestSelect = new System.Windows.Forms.Button();
+            this.BtnSelect = new System.Windows.Forms.Button();
             this.CmbDiagnosticTests = new System.Windows.Forms.ComboBox();
             this.TlpExamination.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrdExaminations)).BeginInit();
@@ -67,6 +68,7 @@
             this.GrdExaminations.ColumnHeadersVisible = false;
             this.GrdExaminations.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrdExaminations.Location = new System.Drawing.Point(3, 48);
+            this.GrdExaminations.MultiSelect = false;
             this.GrdExaminations.Name = "GrdExaminations";
             this.GrdExaminations.ReadOnly = true;
             this.GrdExaminations.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -76,17 +78,29 @@
             this.GrdExaminations.Size = new System.Drawing.Size(503, 264);
             this.GrdExaminations.TabIndex = 5;
             this.GrdExaminations.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdExaminations_CellDoubleClick);
+            this.GrdExaminations.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GrdExaminations_KeyDown);
             // 
             // PanDiagnosticTest
             // 
+            this.PanDiagnosticTest.Controls.Add(this.BtnPrint);
             this.PanDiagnosticTest.Controls.Add(this.LblDiagnosticTest);
-            this.PanDiagnosticTest.Controls.Add(this.BtnDiagnosticTestSelect);
+            this.PanDiagnosticTest.Controls.Add(this.BtnSelect);
             this.PanDiagnosticTest.Controls.Add(this.CmbDiagnosticTests);
             this.PanDiagnosticTest.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanDiagnosticTest.Location = new System.Drawing.Point(3, 3);
             this.PanDiagnosticTest.Name = "PanDiagnosticTest";
             this.PanDiagnosticTest.Size = new System.Drawing.Size(503, 39);
             this.PanDiagnosticTest.TabIndex = 4;
+            // 
+            // BtnPrint
+            // 
+            this.BtnPrint.Image = global::Ababu.Properties.Resources.printer;
+            this.BtnPrint.Location = new System.Drawing.Point(315, 15);
+            this.BtnPrint.Name = "BtnPrint";
+            this.BtnPrint.Size = new System.Drawing.Size(25, 23);
+            this.BtnPrint.TabIndex = 13;
+            this.BtnPrint.UseVisualStyleBackColor = true;
+            this.BtnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
             // 
             // LblDiagnosticTest
             // 
@@ -97,14 +111,14 @@
             this.LblDiagnosticTest.TabIndex = 11;
             this.LblDiagnosticTest.Text = "Examination / Diagnostic Test";
             // 
-            // BtnDiagnosticTestSelect
+            // BtnSelect
             // 
-            this.BtnDiagnosticTestSelect.Image = global::Ababu.Properties.Resources.accept;
-            this.BtnDiagnosticTestSelect.Location = new System.Drawing.Point(284, 15);
-            this.BtnDiagnosticTestSelect.Name = "BtnDiagnosticTestSelect";
-            this.BtnDiagnosticTestSelect.Size = new System.Drawing.Size(25, 23);
-            this.BtnDiagnosticTestSelect.TabIndex = 6;
-            this.BtnDiagnosticTestSelect.UseVisualStyleBackColor = true;
+            this.BtnSelect.Image = global::Ababu.Properties.Resources.accept;
+            this.BtnSelect.Location = new System.Drawing.Point(284, 15);
+            this.BtnSelect.Name = "BtnSelect";
+            this.BtnSelect.Size = new System.Drawing.Size(25, 23);
+            this.BtnSelect.TabIndex = 6;
+            this.BtnSelect.UseVisualStyleBackColor = true;
             // 
             // CmbDiagnosticTests
             // 
@@ -139,7 +153,8 @@
         private System.Windows.Forms.DataGridView GrdExaminations;
         private System.Windows.Forms.Panel PanDiagnosticTest;
         private System.Windows.Forms.Label LblDiagnosticTest;
-        private System.Windows.Forms.Button BtnDiagnosticTestSelect;
+        private System.Windows.Forms.Button BtnSelect;
         private System.Windows.Forms.ComboBox CmbDiagnosticTests;
+        private System.Windows.Forms.Button BtnPrint;
     }
 }

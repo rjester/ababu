@@ -24,13 +24,15 @@ namespace OldAuntie
 
 
 
-        public Layout(Scope scope = null)
+        public Layout(int id = 0)
         {
-            if(scope != null)
+            if(id > 0)
             {
-                SetScope(scope);
+                Load(id);
             }
         }
+
+
 
         public void SetScope(Scope scope)
         {
@@ -179,9 +181,9 @@ namespace OldAuntie
         }
 
 
-        public DataTable GetAllLayoutsByScope(Scope scope = null)
+        public DataTable GetAllLayoutsByScope()
         {
-            return Search(scope);
+            return Search(this.Scope);
         }
 
 

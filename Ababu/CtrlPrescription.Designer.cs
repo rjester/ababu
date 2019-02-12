@@ -31,9 +31,9 @@
             this.TlpPrescription = new System.Windows.Forms.TableLayoutPanel();
             this.GrdPrescriptions = new System.Windows.Forms.DataGridView();
             this.PanPrescription = new System.Windows.Forms.Panel();
-            this.BtnPrescriptionPrint = new System.Windows.Forms.Button();
+            this.BtnPrint = new System.Windows.Forms.Button();
             this.LblMedicines = new System.Windows.Forms.Label();
-            this.BtnMedicineSelect = new System.Windows.Forms.Button();
+            this.BtnSelect = new System.Windows.Forms.Button();
             this.CmbMedicines = new System.Windows.Forms.ComboBox();
             this.TlpPrescription.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrdPrescriptions)).BeginInit();
@@ -82,9 +82,9 @@
             // 
             // PanPrescription
             // 
-            this.PanPrescription.Controls.Add(this.BtnPrescriptionPrint);
+            this.PanPrescription.Controls.Add(this.BtnPrint);
             this.PanPrescription.Controls.Add(this.LblMedicines);
-            this.PanPrescription.Controls.Add(this.BtnMedicineSelect);
+            this.PanPrescription.Controls.Add(this.BtnSelect);
             this.PanPrescription.Controls.Add(this.CmbMedicines);
             this.PanPrescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanPrescription.Location = new System.Drawing.Point(3, 3);
@@ -92,15 +92,15 @@
             this.PanPrescription.Size = new System.Drawing.Size(479, 39);
             this.PanPrescription.TabIndex = 4;
             // 
-            // BtnPrescriptionPrint
+            // BtnPrint
             // 
-            this.BtnPrescriptionPrint.Image = global::Ababu.Properties.Resources.printer;
-            this.BtnPrescriptionPrint.Location = new System.Drawing.Point(306, 14);
-            this.BtnPrescriptionPrint.Name = "BtnPrescriptionPrint";
-            this.BtnPrescriptionPrint.Size = new System.Drawing.Size(25, 23);
-            this.BtnPrescriptionPrint.TabIndex = 12;
-            this.BtnPrescriptionPrint.UseVisualStyleBackColor = true;
-            this.BtnPrescriptionPrint.Click += new System.EventHandler(this.BtnPrescriptionPrint_Click);
+            this.BtnPrint.Image = global::Ababu.Properties.Resources.printer;
+            this.BtnPrint.Location = new System.Drawing.Point(306, 14);
+            this.BtnPrint.Name = "BtnPrint";
+            this.BtnPrint.Size = new System.Drawing.Size(25, 23);
+            this.BtnPrint.TabIndex = 12;
+            this.BtnPrint.UseVisualStyleBackColor = true;
+            this.BtnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
             // 
             // LblMedicines
             // 
@@ -111,15 +111,15 @@
             this.LblMedicines.TabIndex = 11;
             this.LblMedicines.Text = "Medicine";
             // 
-            // BtnMedicineSelect
+            // BtnSelect
             // 
-            this.BtnMedicineSelect.Image = global::Ababu.Properties.Resources.accept;
-            this.BtnMedicineSelect.Location = new System.Drawing.Point(280, 14);
-            this.BtnMedicineSelect.Name = "BtnMedicineSelect";
-            this.BtnMedicineSelect.Size = new System.Drawing.Size(25, 23);
-            this.BtnMedicineSelect.TabIndex = 6;
-            this.BtnMedicineSelect.UseVisualStyleBackColor = true;
-            this.BtnMedicineSelect.Click += new System.EventHandler(this.BtnMedicineSelect_Click);
+            this.BtnSelect.Image = global::Ababu.Properties.Resources.accept;
+            this.BtnSelect.Location = new System.Drawing.Point(280, 14);
+            this.BtnSelect.Name = "BtnSelect";
+            this.BtnSelect.Size = new System.Drawing.Size(25, 23);
+            this.BtnSelect.TabIndex = 6;
+            this.BtnSelect.UseVisualStyleBackColor = true;
+            this.BtnSelect.Click += new System.EventHandler(this.BtnMedicineSelect_Click);
             // 
             // CmbMedicines
             // 
@@ -152,10 +152,10 @@
 
         private System.Windows.Forms.TableLayoutPanel TlpPrescription;
         private System.Windows.Forms.Panel PanPrescription;
-        private System.Windows.Forms.Button BtnMedicineSelect;
+        private System.Windows.Forms.Button BtnSelect;
         private System.Windows.Forms.ComboBox CmbMedicines;
         private System.Windows.Forms.DataGridView GrdPrescriptions;
         private System.Windows.Forms.Label LblMedicines;
-        private System.Windows.Forms.Button BtnPrescriptionPrint;
+        private System.Windows.Forms.Button BtnPrint;
     }
 }

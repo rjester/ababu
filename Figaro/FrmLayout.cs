@@ -35,6 +35,7 @@ namespace Figaro
             CmbScope.DataSource = Scope.GetAllScopes();
             CmbScope.DisplayMember = "name";
             CmbScope.ValueMember = "id";
+
         }
 
 
@@ -84,15 +85,17 @@ namespace Figaro
 
         private void FillSourceForm(int layout_id = 0)
         {
-            Layout = new Layout();
             if(layout_id > 0)
             {
-                Layout.Load(layout_id);
+                Layout = new Layout(layout_id);
                 TxtId.Text = Layout.Id.ToString();
                 TxtName.Text = Layout.Name;
                 TxtSource.Text = Layout.Xml;
                 CmbScope.SelectedValue = Layout.Scope.Id;
             }
+
+
+            TxtSource.WordWrap = ChkWordWrap.Checked;
         }
 
 
@@ -276,6 +279,11 @@ namespace Figaro
         private void TsbExport_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ChkWordWrap_CheckedChanged(object sender, EventArgs e)
+        {
+            TxtSource.WordWrap = ChkWordWrap.Checked;
         }
     }
 }

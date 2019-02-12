@@ -42,8 +42,8 @@ namespace Ababu
 
             // set tooltips for buttons
             ToolTip tip = new ToolTip();
-            tip.SetToolTip(BtnMedicineSelect, "Enter ...");
-            tip.SetToolTip(BtnPrescriptionPrint, "F12 ...");
+            tip.SetToolTip(BtnSelect, "Enter ...");
+            tip.SetToolTip(BtnPrint, "F12 ...");
         }
 
 
@@ -96,11 +96,11 @@ namespace Ababu
             // enable / disable print button if grid is empty
             if(GrdPrescriptions.Rows.Count > 0)
             {
-                BtnPrescriptionPrint.Enabled = true;
+                BtnPrint.Enabled = true;
             }
             else
             {
-                BtnPrescriptionPrint.Enabled = false;
+                BtnPrint.Enabled = false;
             }
         }
 
@@ -120,11 +120,13 @@ namespace Ababu
         private void Print()
         {
             // create a layout for prescriptiom scope
-            Layout layout = new Layout(new Scope(Scope.SCOPE_PRESCRIPTION));
+            Layout layout = new Layout();
+            layout.SetScope(new Scope(Scope.SCOPE_PRESCRIPTION));
 
             // add printable object 
             int id = (int)GrdPrescriptions.SelectedRows[0].Cells["id"].Value;
             Prescription prescription = new Prescription(id);
+            Venom venom = new Venom(prescription.DiagnosisId);
             Owner owner = new Owner(Pet.OwnerId);
 
             layout.AddPrintables("pet", Pet.Printables);
@@ -173,7 +175,7 @@ namespace Ababu
             FillGrid();
         }
 
-        private void BtnPrescriptionPrint_Click(object sender, EventArgs e)
+        private void BtnPrint_Click(object sender, EventArgs e)
         {
             Print();
         }

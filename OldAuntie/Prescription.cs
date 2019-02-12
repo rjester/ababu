@@ -36,13 +36,11 @@ namespace OldAuntie
                     "WHERE a.medicine_id = b.id " +
                     "AND a.id = " + id;
 
-
             DataRow result = Globals.DBCon.SelectOneRow(query);
 
             // set the result into property for further use (printing)
             this.Printables = result;
 
-            
             if (result != null && result.ItemArray.Count() > 0)
             {
                 Id = id;
