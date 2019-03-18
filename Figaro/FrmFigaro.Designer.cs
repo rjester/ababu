@@ -79,7 +79,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmFigaro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Figaro";
+            this.Text = "Ababu Figaro (beta)";
             this.Load += new System.EventHandler(this.FrmFigaro_Load);
             this.TlpFigaro.ResumeLayout(false);
             this.TlpFigaro.PerformLayout();

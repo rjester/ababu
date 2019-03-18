@@ -128,11 +128,13 @@ namespace Ababu
             Prescription prescription = new Prescription(id);
             Venom venom = new Venom(prescription.DiagnosisId);
             Owner owner = new Owner(Pet.OwnerId);
+            Medicine medicine = new Medicine(prescription.MedicineId);
 
             layout.AddPrintables("pet", Pet.Printables);
             layout.AddPrintables("prescription", prescription.Printables);
             layout.AddPrintables("owner", owner.Printables);
-            
+            layout.AddPrintables("medicine", medicine.Printables);
+
             // open print form passing layout to print
             FrmPrint frmPrint = new FrmPrint(layout);
             frmPrint.ShowDialog();

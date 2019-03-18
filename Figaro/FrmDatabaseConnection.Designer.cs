@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDatabaseConnection));
             this.BtnApply = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.TabPreferences = new System.Windows.Forms.TabControl();
@@ -209,6 +210,7 @@
             this.Controls.Add(this.BtnApply);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.TabPreferences);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDatabaseConnection";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmDatabaseConnection";

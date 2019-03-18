@@ -231,7 +231,7 @@
             this.Controls.Add(this.TlpAbabu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAbabu";
-            this.Text = "Ababu";
+            this.Text = "Ababu (beta)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAbabu_FormClosing);
             this.Load += new System.EventHandler(this.FrmAbabu_Load);
             this.TlpAbabu.ResumeLayout(false);

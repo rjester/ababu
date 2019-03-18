@@ -18,6 +18,9 @@ namespace OldAuntie
         public string TargetSpecies { get; set; }
         public string AdditionalInfo{ get; set; }
 
+        public DataRow Printables { get; private set; }
+
+
         public Medicine(string id)
         {
             Load(id);
@@ -29,6 +32,9 @@ namespace OldAuntie
             string query = "SELECT * FROM medicines a " +
                     "WHERE a.id = '" + id.ToString() + "'";
             DataRow result = Globals.DBCon.SelectOneRow(query);
+
+            // set the result into property for further use (printing)
+            this.Printables = result;
 
             if (result != null && result.ItemArray.Count() > 0)
             {

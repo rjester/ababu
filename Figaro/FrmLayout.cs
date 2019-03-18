@@ -16,6 +16,8 @@ namespace Figaro
         private Layout Layout { get; set; }
         private bool IsModified = false;
 
+        TreeNode SelectedNode { get; set; }
+
         public FrmLayout()
         {
             InitializeComponent();
@@ -30,12 +32,11 @@ namespace Figaro
 
         private void FillForm()
         {
-            FillTree();
-
             CmbScope.DataSource = Scope.GetAllScopes();
             CmbScope.DisplayMember = "name";
             CmbScope.ValueMember = "id";
 
+            FillTree();
         }
 
 
@@ -85,15 +86,17 @@ namespace Figaro
 
         private void FillSourceForm(int layout_id = 0)
         {
-            if(layout_id > 0)
+            if (layout_id > 0)
             {
                 Layout = new Layout(layout_id);
                 TxtId.Text = Layout.Id.ToString();
                 TxtName.Text = Layout.Name;
                 TxtSource.Text = Layout.Xml;
                 CmbScope.SelectedValue = Layout.Scope.Id;
-            }
 
+                // it's in edit mode. enable related buttons
+                BtnDelete.Enabled = true;
+            }
 
             TxtSource.WordWrap = ChkWordWrap.Checked;
         }
@@ -106,6 +109,9 @@ namespace Figaro
             TxtId.Text = "0";
             TxtName.Text = "New Layout";
             TxtSource.Text = "";
+
+            // disable delete button
+            BtnDelete.Enabled = false;
         }
 
 
@@ -195,13 +201,15 @@ namespace Figaro
                 Layout.Xml = TxtSource.Text;
 
                 int affected_rows = 0;
+
                 try
                 {
                     affected_rows = Layout.Save();
                     if(affected_rows > 0)
                     {
-                        FillForm();
                         IsModified = false;
+                        MessageBox.Show("Layout saved");
+                        FillTree();
                     }
                 }
                 catch (Exception ex)
@@ -210,24 +218,34 @@ namespace Figaro
                 }
             }
         }
-        
-        
-        private void TreeLayout_AfterSelect(object sender, TreeViewEventArgs e)
+
+        private void TreeLayout_BeforeSelect(object sender, TreeViewCancelEventArgs e)
         {
             if (IsModified == true)
             {
                 DialogResult result = MessageBox.Show("Form has been modified. Would you like to discard changes ?", "Warning", MessageBoxButtons.YesNo);
                 if (result == DialogResult.No)
                 {
+                    e.Cancel = true;
                     return;
                 }
             }
+
+
+        }
+
+
+        private void TreeLayout_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            TlpLayoutSource.Visible = false;
+
 
             int id = Utility.IfNull(TreeLayout.SelectedNode.Tag, 0);
 
             if (id > 0)
             {
                 TsbClone.Enabled = true;
+                TlpLayoutSource.Visible = true;
             }
             else
             {
@@ -237,14 +255,16 @@ namespace Figaro
             FillSourceForm(id);
             IsModified = false;
 
+            SelectedNode = e.Node;
         }
+
 
         private void TsbAdd_Click(object sender, EventArgs e)
         {
             EmptySourceForm();
         }
 
-        
+
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             // MessageBox.Show(Layout.Id.ToString());

@@ -53,12 +53,12 @@
             this.CmbScope = new System.Windows.Forms.ComboBox();
             this.LblName = new System.Windows.Forms.Label();
             this.PanActions = new System.Windows.Forms.Panel();
+            this.ChkWordWrap = new System.Windows.Forms.CheckBox();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
             this.BtnExport = new System.Windows.Forms.Button();
             this.StsLayout = new System.Windows.Forms.StatusStrip();
             this.StlRecord = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ChkWordWrap = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.ErrLayout)).BeginInit();
             this.TlpLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpcLayout)).BeginInit();
@@ -133,6 +133,7 @@
             this.TreeLayout.Name = "TreeLayout";
             this.TreeLayout.Size = new System.Drawing.Size(286, 433);
             this.TreeLayout.TabIndex = 0;
+            this.TreeLayout.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.TreeLayout_BeforeSelect);
             this.TreeLayout.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeLayout_AfterSelect);
             // 
             // TsLayoutTree
@@ -320,6 +321,19 @@
             this.PanActions.Size = new System.Drawing.Size(833, 25);
             this.PanActions.TabIndex = 3;
             // 
+            // ChkWordWrap
+            // 
+            this.ChkWordWrap.AutoSize = true;
+            this.ChkWordWrap.Checked = true;
+            this.ChkWordWrap.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkWordWrap.Location = new System.Drawing.Point(342, 5);
+            this.ChkWordWrap.Name = "ChkWordWrap";
+            this.ChkWordWrap.Size = new System.Drawing.Size(78, 17);
+            this.ChkWordWrap.TabIndex = 12;
+            this.ChkWordWrap.Text = "Word wrap";
+            this.ChkWordWrap.UseVisualStyleBackColor = true;
+            this.ChkWordWrap.CheckedChanged += new System.EventHandler(this.ChkWordWrap_CheckedChanged);
+            // 
             // BtnDelete
             // 
             this.BtnDelete.Image = global::Figaro.Properties.Resources.delete;
@@ -370,19 +384,6 @@
             this.StlRecord.Name = "StlRecord";
             this.StlRecord.Size = new System.Drawing.Size(44, 17);
             this.StlRecord.Text = "Record";
-            // 
-            // ChkWordWrap
-            // 
-            this.ChkWordWrap.AutoSize = true;
-            this.ChkWordWrap.Checked = true;
-            this.ChkWordWrap.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ChkWordWrap.Location = new System.Drawing.Point(342, 5);
-            this.ChkWordWrap.Name = "ChkWordWrap";
-            this.ChkWordWrap.Size = new System.Drawing.Size(78, 17);
-            this.ChkWordWrap.TabIndex = 12;
-            this.ChkWordWrap.Text = "Word wrap";
-            this.ChkWordWrap.UseVisualStyleBackColor = true;
-            this.ChkWordWrap.CheckedChanged += new System.EventHandler(this.ChkWordWrap_CheckedChanged);
             // 
             // FrmLayout
             // 

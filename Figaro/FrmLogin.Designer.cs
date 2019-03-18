@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.LblTestConnection = new System.Windows.Forms.Label();
             this.PicTestConnection = new System.Windows.Forms.PictureBox();
             this.BtnDatabaseSettings = new System.Windows.Forms.Button();
@@ -142,11 +143,12 @@
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.TxtPassword);
             this.Controls.Add(this.TxtUsername);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
+            this.Text = "Figaro Login";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PicTestConnection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrLogin)).EndInit();

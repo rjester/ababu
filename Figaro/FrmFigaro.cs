@@ -24,7 +24,7 @@ namespace Figaro
             frmLogin.FormClosed += FrmLogin_FormClosed;
             frmLogin.ShowDialog();
 
-            // for easy @debug purpose only 
+            // for easy @debug purpose only (generate an exception when closing login form w/o signing in)
             TsbLayout_Click(this, new EventArgs());
         }
 
