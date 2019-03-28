@@ -23,7 +23,8 @@ namespace Ababu
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.FormClosed += FrmLogin_FormClosed;
             frmLogin.ShowDialog();
-            
+
+            this.Text = Globals.APP_NAME + " " + Globals.VERSION_NUMBER + " [build " + Globals.VERSION_BUILD + "]";
         }
 
         // when login windows is closed, verify if user is connected and thus go on or close Ababu
@@ -36,8 +37,8 @@ namespace Ababu
                 FillDashboard();
 
                 // @todo: delete me ... for debug purpose only
-                // TsbCalendar_Click(this, new EventArgs());
                 // @delete begin
+                /*
                 TabPage TpVisit = new TabPage("Visits");
                 CtrlVisit ctrlVisits = new CtrlVisit(new Pet(1));
                 ctrlVisits.Dock = DockStyle.Fill;
@@ -45,6 +46,7 @@ namespace Ababu
 
                 TabAbabu.TabPages.Add(TpVisit);
                 TabAbabu.SelectedTab = TpVisit;
+                */
                 // @delete end
 
             }
@@ -262,10 +264,9 @@ namespace Ababu
 
         private void TabAbabu_DrawItem(object sender, DrawItemEventArgs e)
         {
-            // var tabPage = this.TabAbabu.TabPages[e.Index];
             var tab_rect = this.TabAbabu.GetTabRect(e.Index);
             
-            Bitmap close_image = new Bitmap(Properties.Resources.bullet_red);
+            Bitmap close_image = new Bitmap(Properties.Resources.bullet_black);
 
             // don't draw close image for Dashboard
             if(e.Index > 0)

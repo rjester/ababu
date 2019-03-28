@@ -54,6 +54,7 @@
             this.BtnSave = new System.Windows.Forms.Button();
             this.PicIsModified = new System.Windows.Forms.PictureBox();
             this.ErrExaminationEdit = new System.Windows.Forms.ErrorProvider(this.components);
+            this.BtnClose = new System.Windows.Forms.Button();
             this.GrbExamination.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicInEvidence)).BeginInit();
             this.GrbResults.SuspendLayout();
@@ -96,7 +97,7 @@
             this.ChkInEvidence.Location = new System.Drawing.Point(338, 82);
             this.ChkInEvidence.Name = "ChkInEvidence";
             this.ChkInEvidence.Size = new System.Drawing.Size(82, 17);
-            this.ChkInEvidence.TabIndex = 81;
+            this.ChkInEvidence.TabIndex = 1;
             this.ChkInEvidence.Text = "In evidence";
             this.ChkInEvidence.UseVisualStyleBackColor = true;
             // 
@@ -119,7 +120,7 @@
             this.ChkLockProblemCombo.Location = new System.Drawing.Point(401, 105);
             this.ChkLockProblemCombo.Name = "ChkLockProblemCombo";
             this.ChkLockProblemCombo.Size = new System.Drawing.Size(22, 22);
-            this.ChkLockProblemCombo.TabIndex = 80;
+            this.ChkLockProblemCombo.TabIndex = 2;
             this.ChkLockProblemCombo.UseVisualStyleBackColor = true;
             this.ChkLockProblemCombo.CheckedChanged += new System.EventHandler(this.ChkLockProblemCombo_CheckedChanged);
             // 
@@ -207,7 +208,7 @@
             this.TxtMedicalReport.Multiline = true;
             this.TxtMedicalReport.Name = "TxtMedicalReport";
             this.TxtMedicalReport.Size = new System.Drawing.Size(414, 138);
-            this.TxtMedicalReport.TabIndex = 85;
+            this.TxtMedicalReport.TabIndex = 5;
             // 
             // ChkIsPathologic
             // 
@@ -216,7 +217,7 @@
             this.ChkIsPathologic.Location = new System.Drawing.Point(333, 24);
             this.ChkIsPathologic.Name = "ChkIsPathologic";
             this.ChkIsPathologic.Size = new System.Drawing.Size(87, 17);
-            this.ChkIsPathologic.TabIndex = 83;
+            this.ChkIsPathologic.TabIndex = 3;
             this.ChkIsPathologic.Text = "Is Pathologic";
             this.ChkIsPathologic.UseVisualStyleBackColor = true;
             this.ChkIsPathologic.CheckedChanged += new System.EventHandler(this.ChkIsPathologic_CheckedChanged);
@@ -237,7 +238,7 @@
             this.TxtResult.Location = new System.Drawing.Point(9, 48);
             this.TxtResult.Name = "TxtResult";
             this.TxtResult.Size = new System.Drawing.Size(414, 20);
-            this.TxtResult.TabIndex = 0;
+            this.TxtResult.TabIndex = 4;
             // 
             // StsExaminationEdit
             // 
@@ -259,10 +260,10 @@
             // 
             this.BtnPrint.Image = global::Ababu.Properties.Resources.printer;
             this.BtnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPrint.Location = new System.Drawing.Point(272, 406);
+            this.BtnPrint.Location = new System.Drawing.Point(230, 406);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(75, 23);
-            this.BtnPrint.TabIndex = 76;
+            this.BtnPrint.TabIndex = 8;
             this.BtnPrint.Text = "Print";
             this.BtnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnPrint.UseVisualStyleBackColor = true;
@@ -272,10 +273,10 @@
             // 
             this.BtnDelete.Image = global::Ababu.Properties.Resources.delete;
             this.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnDelete.Location = new System.Drawing.Point(191, 406);
+            this.BtnDelete.Location = new System.Drawing.Point(147, 406);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(75, 23);
-            this.BtnDelete.TabIndex = 75;
+            this.BtnDelete.TabIndex = 7;
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnDelete.UseVisualStyleBackColor = true;
@@ -285,10 +286,10 @@
             // 
             this.BtnSave.Image = global::Ababu.Properties.Resources.accept;
             this.BtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnSave.Location = new System.Drawing.Point(110, 406);
+            this.BtnSave.Location = new System.Drawing.Point(64, 406);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(75, 23);
-            this.BtnSave.TabIndex = 74;
+            this.BtnSave.TabIndex = 6;
             this.BtnSave.Text = "Save";
             this.BtnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnSave.UseVisualStyleBackColor = true;
@@ -309,12 +310,28 @@
             // 
             this.ErrExaminationEdit.ContainerControl = this;
             // 
+            // BtnClose
+            // 
+            this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BtnClose.Image = global::Ababu.Properties.Resources.bullet_black;
+            this.BtnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnClose.Location = new System.Drawing.Point(313, 406);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(75, 23);
+            this.BtnClose.TabIndex = 9;
+            this.BtnClose.Text = "Close";
+            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
             // FrmExaminationEdit
             // 
             this.AcceptButton = this.BtnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BtnClose;
             this.ClientSize = new System.Drawing.Size(450, 458);
+            this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.PicIsModified);
             this.Controls.Add(this.StsExaminationEdit);
             this.Controls.Add(this.BtnPrint);
@@ -323,6 +340,10 @@
             this.Controls.Add(this.GrbResults);
             this.Controls.Add(this.GrbExamination);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(466, 497);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(466, 497);
             this.Name = "FrmExaminationEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Examination Edit";
@@ -368,5 +389,6 @@
         private System.Windows.Forms.PictureBox PicIsModified;
         private System.Windows.Forms.ErrorProvider ErrExaminationEdit;
         private System.Windows.Forms.TextBox TxtDiagnosticTestId;
+        private System.Windows.Forms.Button BtnClose;
     }
 }

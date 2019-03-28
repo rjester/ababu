@@ -48,6 +48,7 @@
             this.ErrExaminationEdit = new System.Windows.Forms.ErrorProvider(this.components);
             this.StsExaminationEdit = new System.Windows.Forms.StatusStrip();
             this.StlRecordInfo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.BtnClose = new System.Windows.Forms.Button();
             this.GrbTreatment.SuspendLayout();
             this.GrbNotes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrExaminationEdit)).BeginInit();
@@ -173,9 +174,10 @@
             // 
             // BtnPrint
             // 
+            this.BtnPrint.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnPrint.Image = global::Ababu.Properties.Resources.printer;
             this.BtnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPrint.Location = new System.Drawing.Point(274, 347);
+            this.BtnPrint.Location = new System.Drawing.Point(234, 347);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(75, 23);
             this.BtnPrint.TabIndex = 79;
@@ -188,7 +190,7 @@
             // 
             this.BtnDelete.Image = global::Ababu.Properties.Resources.delete;
             this.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnDelete.Location = new System.Drawing.Point(193, 347);
+            this.BtnDelete.Location = new System.Drawing.Point(153, 347);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(75, 23);
             this.BtnDelete.TabIndex = 78;
@@ -199,9 +201,10 @@
             // 
             // BtnSave
             // 
+            this.BtnSave.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnSave.Image = global::Ababu.Properties.Resources.accept;
             this.BtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnSave.Location = new System.Drawing.Point(112, 347);
+            this.BtnSave.Location = new System.Drawing.Point(72, 347);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(75, 23);
             this.BtnSave.TabIndex = 77;
@@ -230,11 +233,28 @@
             this.StlRecordInfo.Size = new System.Drawing.Size(23, 17);
             this.StlRecordInfo.Text = "Tss";
             // 
+            // BtnClose
+            // 
+            this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BtnClose.Image = global::Ababu.Properties.Resources.bullet_black;
+            this.BtnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnClose.Location = new System.Drawing.Point(315, 347);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(75, 23);
+            this.BtnClose.TabIndex = 81;
+            this.BtnClose.Text = "Close";
+            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
             // FrmTreatmentEdit
             // 
+            this.AcceptButton = this.BtnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BtnClose;
             this.ClientSize = new System.Drawing.Size(475, 398);
+            this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.StsExaminationEdit);
             this.Controls.Add(this.BtnPrint);
             this.Controls.Add(this.BtnDelete);
@@ -242,6 +262,10 @@
             this.Controls.Add(this.GrbNotes);
             this.Controls.Add(this.GrbTreatment);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(491, 437);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(491, 437);
             this.Name = "FrmTreatmentEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Treatment Edit";
@@ -278,5 +302,6 @@
         private System.Windows.Forms.StatusStrip StsExaminationEdit;
         private System.Windows.Forms.ToolStripStatusLabel StlRecordInfo;
         private System.Windows.Forms.CheckBox ChkRecall;
+        private System.Windows.Forms.Button BtnClose;
     }
 }

@@ -205,8 +205,26 @@ namespace Ababu
             return result;
         }
 
-        
-        
+        private void Print()
+        {
+            // create a layout for prescriptiom scope
+            Layout layout = new Layout();
+            layout.SetScope(new Scope(Scope.SCOPE_PRESCRIPTION));
+
+            // Venom venom = new Venom(Prescription.DiagnosisId);
+            Owner owner = new Owner(Pet.OwnerId);
+
+            layout.AddPrintables("pet", Pet.Printables);
+            layout.AddPrintables("prescription", Prescription.Printables);
+            layout.AddPrintables("owner", owner.Printables);
+            layout.AddPrintables("medicine", Medicine.Printables);
+
+            // open print form passing layout to print
+            FrmPrint frmPrint = new FrmPrint(layout);
+            frmPrint.ShowDialog();
+        }
+
+
         private void FrmPrescriptionEdit_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (IsModified == true)
@@ -255,7 +273,12 @@ namespace Ababu
 
         private void BtnPrint_Click(object sender, EventArgs e)
         {
-            // @delete me.
+            Print();
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

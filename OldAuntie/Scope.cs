@@ -14,6 +14,7 @@ namespace OldAuntie
 
         public const int SCOPE_PRESCRIPTION = 1;
         public const int SCOPE_EXAMINATION = 2;
+        public const int SCOPE_TREATMENT = 3;
 
 
         public Scope(int id = 0)

@@ -162,7 +162,6 @@ namespace Ababu
 
         private void GrdPrescriptions_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            // DateTime created = (DateTime)GrdPrescriptions.Rows[e.RowIndex].Cells[0].Value;
             int prescription_id = (int)GrdPrescriptions.Rows[e.RowIndex].Cells[0].Value;
             string medicine_id = GrdPrescriptions.Rows[e.RowIndex].Cells[1].Value.ToString();
             
@@ -187,6 +186,15 @@ namespace Ababu
             if(e.KeyCode == Keys.F12)
             {
                 Print();
+            }
+
+            // ENTER: open edit form
+            if (e.KeyCode == Keys.Enter)
+            {
+                int prescription_id = (int)GrdPrescriptions.Rows[0].Cells[0].Value;
+                string medicine_id = GrdPrescriptions.Rows[0].Cells[1].Value.ToString();
+
+                OpenPrescriptionEdit(medicine_id, prescription_id);
             }
         }
 

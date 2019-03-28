@@ -18,6 +18,8 @@ namespace OldAuntie
         public DateTime? Recall { get; set; }
         public DateTime? Updated { get; set; }
 
+        public DataRow Printables { get; private set; }
+
         public Treatment(int id)
         {
             Load(id);
@@ -30,7 +32,11 @@ namespace OldAuntie
             string query = "SELECT * FROM treatments WHERE id = " + id;
 
             DataRow result = Globals.DBCon.SelectOneRow(query);
-            if( result != null && result.ItemArray.Count() > 0)
+
+            // set the result into property for further use (printing)
+            this.Printables = result;
+
+            if ( result != null && result.ItemArray.Count() > 0)
             {
                 ProcedureId = (int)result["procedure_id"];
                 PetId = (int)result["pet_id"];

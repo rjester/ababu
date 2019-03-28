@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -104,14 +105,20 @@ namespace Figaro
 
         private void EmptySourceForm()
         {
+            // move tree selected node to the root
+            TreeLayout.SelectedNode = TreeLayout.Nodes[0];
+
             Layout = new Layout();
 
             TxtId.Text = "0";
             TxtName.Text = "New Layout";
             TxtSource.Text = "";
 
+            TlpLayoutSource.Visible = true;
+
             // disable delete button
             BtnDelete.Enabled = false;
+
         }
 
 
@@ -245,10 +252,12 @@ namespace Figaro
             if (id > 0)
             {
                 TsbClone.Enabled = true;
+                TsbExport.Enabled = true;
                 TlpLayoutSource.Visible = true;
             }
             else
             {
+                TsbExport.Enabled = false;
                 TsbClone.Enabled = false;
             }
 
@@ -298,12 +307,45 @@ namespace Figaro
 
         private void TsbExport_Click(object sender, EventArgs e)
         {
+            // Displays a SaveFileDialog so the user can save the Image  
+            // assigned to Button2.  
+            SaveFileDialog export_dialog = new SaveFileDialog();
+            export_dialog.Filter = "XML File|*.xml";
+            export_dialog.Title = "Export tamplate as XML File";
+            export_dialog.FileName = TxtName.Text;
 
+
+            export_dialog.ShowDialog();
+
+            // If the file name is not an empty string open it for saving.  
+            if (export_dialog.FileName != "")
+            {
+                using (StreamWriter sw = new StreamWriter(export_dialog.OpenFile()))
+                {
+                    sw.Write(TxtSource.Text);
+                }
+            }
         }
 
         private void ChkWordWrap_CheckedChanged(object sender, EventArgs e)
         {
             TxtSource.WordWrap = ChkWordWrap.Checked;
+        }
+
+        private void TsbImport_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog import_dialog = new OpenFileDialog();
+            import_dialog.Title = "Open XML File";
+            import_dialog.Filter = "XML files|*.xml";
+            import_dialog.InitialDirectory = @"C:\";
+            if (import_dialog.ShowDialog() == DialogResult.OK)
+            {
+                // create an empty form for a new layout
+                EmptySourceForm();
+
+                // fill the form with the xml source
+                TxtSource.Text = File.ReadAllText(import_dialog.FileName.ToString());
+            }
         }
     }
 }

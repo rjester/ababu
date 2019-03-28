@@ -27,6 +27,7 @@ Tsm ToolStripMenuItem
 Tst	ToolStripText
 Tsp ToolStripProgressBar
 
+Tt	ToolTip
 
 Tlp TableLayoutPanel
 Btn	Button

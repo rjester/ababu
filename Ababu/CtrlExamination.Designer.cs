@@ -95,7 +95,7 @@
             // BtnPrint
             // 
             this.BtnPrint.Image = global::Ababu.Properties.Resources.printer;
-            this.BtnPrint.Location = new System.Drawing.Point(315, 15);
+            this.BtnPrint.Location = new System.Drawing.Point(307, 14);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(25, 23);
             this.BtnPrint.TabIndex = 13;
@@ -114,11 +114,12 @@
             // BtnSelect
             // 
             this.BtnSelect.Image = global::Ababu.Properties.Resources.accept;
-            this.BtnSelect.Location = new System.Drawing.Point(284, 15);
+            this.BtnSelect.Location = new System.Drawing.Point(281, 14);
             this.BtnSelect.Name = "BtnSelect";
             this.BtnSelect.Size = new System.Drawing.Size(25, 23);
             this.BtnSelect.TabIndex = 6;
             this.BtnSelect.UseVisualStyleBackColor = true;
+            this.BtnSelect.Click += new System.EventHandler(this.BtnSelect_Click);
             // 
             // CmbDiagnosticTests
             // 

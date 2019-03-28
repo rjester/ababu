@@ -63,9 +63,32 @@ namespace Ababu
 
         }
 
+        private void Print()
+        {
+            // create a layout for prescriptiom scope
+            Layout layout = new Layout();
+            layout.SetScope(new Scope(Scope.SCOPE_TREATMENT));
+
+            // add printable object 
+            int id = (int)GrdTreatments.SelectedRows[0].Cells["id"].Value;
+            Treatment treatment = new Treatment(id);
+            Venom venom = new Venom(treatment.ProcedureId);
+            Owner owner = new Owner(Pet.OwnerId);
+
+            layout.AddPrintables("pet", Pet.Printables);
+            layout.AddPrintables("treatment", treatment.Printables);
+            layout.AddPrintables("venom", venom.Printables);
+            layout.AddPrintables("owner", owner.Printables);
+
+            // open print form passing layout to print
+            FrmPrint frmPrint = new FrmPrint(layout);
+            frmPrint.ShowDialog();
+        }
+
+
         private void CmbProcedures_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 if(CmbProcedures.SelectedItem != null && CmbProcedures.SelectedValue != null)
                 {
@@ -98,6 +121,32 @@ namespace Ababu
             {
                 frmTreatmentEdit.FormClosed += FrmTreatmentEdit_FormClosed;
                 frmTreatmentEdit.ShowDialog();
+            }
+        }
+
+        private void BtnPrint_Click(object sender, EventArgs e)
+        {
+            Print();
+        }
+
+        private void GrdTreatments_KeyDown(object sender, KeyEventArgs e)
+        {
+            // F12: print selected row
+            if (e.KeyCode == Keys.F12)
+            {
+                Print();
+            }
+
+            // ENTER: open edit form
+            if (e.KeyCode == Keys.Enter)
+            {
+                int id = (int)GrdTreatments.Rows[0].Cells[0].Value;
+                int procedure_id = (int)GrdTreatments.Rows[0].Cells[1].Value;
+
+                OpenTreatmentEdit(procedure_id, id);
+
+                // prevent next row
+                e.SuppressKeyPress = true;
             }
         }
     }

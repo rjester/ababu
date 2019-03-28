@@ -175,6 +175,7 @@
             this.TsbImport.Name = "TsbImport";
             this.TsbImport.Size = new System.Drawing.Size(23, 22);
             this.TsbImport.Text = "Import from XML file";
+            this.TsbImport.Click += new System.EventHandler(this.TsbImport_Click);
             // 
             // TsbExport
             // 
@@ -183,7 +184,7 @@
             this.TsbExport.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsbExport.Name = "TsbExport";
             this.TsbExport.Size = new System.Drawing.Size(23, 22);
-            this.TsbExport.Text = "toolStripButton1";
+            this.TsbExport.Text = "Export to XML file";
             this.TsbExport.Click += new System.EventHandler(this.TsbExport_Click);
             // 
             // TsbClone

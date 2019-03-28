@@ -66,6 +66,7 @@
             this.PicIsModified = new System.Windows.Forms.PictureBox();
             this.BtnPrint = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
+            this.BtnClose = new System.Windows.Forms.Button();
             this.StsPrescriptionEdit.SuspendLayout();
             this.GrbMedicineDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrPrescriptionEdit)).BeginInit();
@@ -81,7 +82,8 @@
             this.TxtMedicine.Name = "TxtMedicine";
             this.TxtMedicine.ReadOnly = true;
             this.TxtMedicine.Size = new System.Drawing.Size(421, 20);
-            this.TxtMedicine.TabIndex = 62;
+            this.TxtMedicine.TabIndex = 0;
+            this.TxtMedicine.TabStop = false;
             // 
             // StsPrescriptionEdit
             // 
@@ -89,7 +91,7 @@
             this.StlRecordInfo});
             this.StsPrescriptionEdit.Location = new System.Drawing.Point(0, 434);
             this.StsPrescriptionEdit.Name = "StsPrescriptionEdit";
-            this.StsPrescriptionEdit.Size = new System.Drawing.Size(458, 22);
+            this.StsPrescriptionEdit.Size = new System.Drawing.Size(459, 22);
             this.StsPrescriptionEdit.TabIndex = 63;
             this.StsPrescriptionEdit.Text = "statusStrip1";
             // 
@@ -106,7 +108,7 @@
             this.ChkInEvidence.Location = new System.Drawing.Point(348, 76);
             this.ChkInEvidence.Name = "ChkInEvidence";
             this.ChkInEvidence.Size = new System.Drawing.Size(82, 17);
-            this.ChkInEvidence.TabIndex = 1;
+            this.ChkInEvidence.TabIndex = 3;
             this.ChkInEvidence.Text = "In evidence";
             this.ChkInEvidence.UseVisualStyleBackColor = true;
             // 
@@ -133,7 +135,7 @@
             this.TxtDosage.Location = new System.Drawing.Point(176, 74);
             this.TxtDosage.Name = "TxtDosage";
             this.TxtDosage.Size = new System.Drawing.Size(130, 20);
-            this.TxtDosage.TabIndex = 66;
+            this.TxtDosage.TabIndex = 2;
             // 
             // LblMedicine
             // 
@@ -176,7 +178,8 @@
             this.TxtMedicineAdditionalForm.Name = "TxtMedicineAdditionalForm";
             this.TxtMedicineAdditionalForm.ReadOnly = true;
             this.TxtMedicineAdditionalForm.Size = new System.Drawing.Size(338, 55);
-            this.TxtMedicineAdditionalForm.TabIndex = 69;
+            this.TxtMedicineAdditionalForm.TabIndex = 0;
+            this.TxtMedicineAdditionalForm.TabStop = false;
             // 
             // LblMedicineAdditionalForm
             // 
@@ -194,7 +197,8 @@
             this.TxtMedicineDateOfWithDrawal.Name = "TxtMedicineDateOfWithDrawal";
             this.TxtMedicineDateOfWithDrawal.ReadOnly = true;
             this.TxtMedicineDateOfWithDrawal.Size = new System.Drawing.Size(103, 13);
-            this.TxtMedicineDateOfWithDrawal.TabIndex = 67;
+            this.TxtMedicineDateOfWithDrawal.TabIndex = 0;
+            this.TxtMedicineDateOfWithDrawal.TabStop = false;
             // 
             // LblMedicineDateOfWithDrawal
             // 
@@ -212,7 +216,8 @@
             this.TxtMedicineDateOfIssue.Name = "TxtMedicineDateOfIssue";
             this.TxtMedicineDateOfIssue.ReadOnly = true;
             this.TxtMedicineDateOfIssue.Size = new System.Drawing.Size(103, 13);
-            this.TxtMedicineDateOfIssue.TabIndex = 65;
+            this.TxtMedicineDateOfIssue.TabIndex = 0;
+            this.TxtMedicineDateOfIssue.TabStop = false;
             // 
             // TxtMedicineCompany
             // 
@@ -221,7 +226,8 @@
             this.TxtMedicineCompany.Name = "TxtMedicineCompany";
             this.TxtMedicineCompany.ReadOnly = true;
             this.TxtMedicineCompany.Size = new System.Drawing.Size(357, 13);
-            this.TxtMedicineCompany.TabIndex = 64;
+            this.TxtMedicineCompany.TabIndex = 0;
+            this.TxtMedicineCompany.TabStop = false;
             // 
             // LblMedicineCompany
             // 
@@ -239,7 +245,8 @@
             this.TxtMedicinePharmaceuticalForm.Name = "TxtMedicinePharmaceuticalForm";
             this.TxtMedicinePharmaceuticalForm.ReadOnly = true;
             this.TxtMedicinePharmaceuticalForm.Size = new System.Drawing.Size(363, 13);
-            this.TxtMedicinePharmaceuticalForm.TabIndex = 62;
+            this.TxtMedicinePharmaceuticalForm.TabIndex = 0;
+            this.TxtMedicinePharmaceuticalForm.TabStop = false;
             // 
             // LblPharmaceuticalForm
             // 
@@ -266,7 +273,7 @@
             this.TxtMid.Name = "TxtMid";
             this.TxtMid.ReadOnly = true;
             this.TxtMid.Size = new System.Drawing.Size(74, 13);
-            this.TxtMid.TabIndex = 59;
+            this.TxtMid.TabIndex = 0;
             this.TxtMid.TabStop = false;
             // 
             // TxtDateOfIssue
@@ -285,7 +292,8 @@
             this.TxtMedicineName.Name = "TxtMedicineName";
             this.TxtMedicineName.ReadOnly = true;
             this.TxtMedicineName.Size = new System.Drawing.Size(371, 13);
-            this.TxtMedicineName.TabIndex = 3;
+            this.TxtMedicineName.TabIndex = 0;
+            this.TxtMedicineName.TabStop = false;
             // 
             // LblMedicineDateOfIssue
             // 
@@ -316,7 +324,8 @@
             this.DtpCreated.Location = new System.Drawing.Point(7, 74);
             this.DtpCreated.Name = "DtpCreated";
             this.DtpCreated.Size = new System.Drawing.Size(96, 20);
-            this.DtpCreated.TabIndex = 72;
+            this.DtpCreated.TabIndex = 0;
+            this.DtpCreated.TabStop = false;
             // 
             // LblCreated
             // 
@@ -353,7 +362,7 @@
             this.NumQuantity.Location = new System.Drawing.Point(109, 74);
             this.NumQuantity.Name = "NumQuantity";
             this.NumQuantity.Size = new System.Drawing.Size(44, 20);
-            this.NumQuantity.TabIndex = 79;
+            this.NumQuantity.TabIndex = 1;
             // 
             // ChkLockProblemCombo
             // 
@@ -363,7 +372,7 @@
             this.ChkLockProblemCombo.Location = new System.Drawing.Point(392, 107);
             this.ChkLockProblemCombo.Name = "ChkLockProblemCombo";
             this.ChkLockProblemCombo.Size = new System.Drawing.Size(22, 22);
-            this.ChkLockProblemCombo.TabIndex = 78;
+            this.ChkLockProblemCombo.TabIndex = 4;
             this.ChkLockProblemCombo.UseVisualStyleBackColor = true;
             this.ChkLockProblemCombo.CheckedChanged += new System.EventHandler(this.ChkLockProblemCombo_CheckedChanged);
             // 
@@ -375,7 +384,8 @@
             this.CmbProblems.Location = new System.Drawing.Point(6, 108);
             this.CmbProblems.Name = "CmbProblems";
             this.CmbProblems.Size = new System.Drawing.Size(380, 21);
-            this.CmbProblems.TabIndex = 77;
+            this.CmbProblems.TabIndex = 0;
+            this.CmbProblems.TabStop = false;
             // 
             // PicInEvidence
             // 
@@ -392,10 +402,10 @@
             // 
             this.BtnPrescriptionSave.Image = global::Ababu.Properties.Resources.accept;
             this.BtnPrescriptionSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPrescriptionSave.Location = new System.Drawing.Point(128, 405);
+            this.BtnPrescriptionSave.Location = new System.Drawing.Point(76, 405);
             this.BtnPrescriptionSave.Name = "BtnPrescriptionSave";
             this.BtnPrescriptionSave.Size = new System.Drawing.Size(75, 23);
-            this.BtnPrescriptionSave.TabIndex = 57;
+            this.BtnPrescriptionSave.TabIndex = 5;
             this.BtnPrescriptionSave.Text = "Save";
             this.BtnPrescriptionSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnPrescriptionSave.UseVisualStyleBackColor = true;
@@ -416,10 +426,10 @@
             // 
             this.BtnPrint.Image = global::Ababu.Properties.Resources.printer;
             this.BtnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPrint.Location = new System.Drawing.Point(290, 405);
+            this.BtnPrint.Location = new System.Drawing.Point(238, 405);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(75, 23);
-            this.BtnPrint.TabIndex = 73;
+            this.BtnPrint.TabIndex = 7;
             this.BtnPrint.Text = "Print";
             this.BtnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnPrint.UseVisualStyleBackColor = true;
@@ -429,21 +439,37 @@
             // 
             this.BtnDelete.Image = global::Ababu.Properties.Resources.delete;
             this.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnDelete.Location = new System.Drawing.Point(209, 405);
+            this.BtnDelete.Location = new System.Drawing.Point(157, 405);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(75, 23);
-            this.BtnDelete.TabIndex = 58;
+            this.BtnDelete.TabIndex = 6;
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BtnClose.Image = global::Ababu.Properties.Resources.bullet_black;
+            this.BtnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnClose.Location = new System.Drawing.Point(319, 405);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(75, 23);
+            this.BtnClose.TabIndex = 8;
+            this.BtnClose.Text = "Close";
+            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // FrmPrescriptionEdit
             // 
             this.AcceptButton = this.BtnPrescriptionSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 456);
+            this.CancelButton = this.BtnClose;
+            this.ClientSize = new System.Drawing.Size(459, 456);
+            this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.PicIsModified);
             this.Controls.Add(this.GrbPrescription);
             this.Controls.Add(this.BtnPrint);
@@ -452,6 +478,10 @@
             this.Controls.Add(this.BtnPrescriptionSave);
             this.Controls.Add(this.StsPrescriptionEdit);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(475, 495);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(475, 495);
             this.Name = "FrmPrescriptionEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prescription";
@@ -510,5 +540,6 @@
         private System.Windows.Forms.ComboBox CmbProblems;
         private System.Windows.Forms.CheckBox ChkLockProblemCombo;
         private System.Windows.Forms.NumericUpDown NumQuantity;
+        private System.Windows.Forms.Button BtnClose;
     }
 }

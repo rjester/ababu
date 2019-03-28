@@ -14,15 +14,12 @@ namespace Ababu
     public partial class FrmTreatmentEdit : Form
     {
         public Treatment Treatment { get; set; }
-        // @todo @delete
-        // public Pet Pet { get; set; }
         public Venom Venom { get; set; }
 
 
         public FrmTreatmentEdit(Treatment treatment)
         {
             Treatment = treatment;
-            // Pet = new Pet(treatment.PetId);
             Venom = new Venom(treatment.ProcedureId);
 
             InitializeComponent();
@@ -45,6 +42,26 @@ namespace Ababu
                 DtpRecall.Value = (DateTime)Treatment.Recall;
             }
 
+        }
+
+        private void Print()
+        {
+            // create a layout for prescriptiom scope
+            Layout layout = new Layout();
+            layout.SetScope(new Scope(Scope.SCOPE_TREATMENT));
+
+            // add printable objects 
+            Pet pet = new Pet(Treatment.PetId);
+            Owner owner = new Owner(pet.OwnerId);
+
+            layout.AddPrintables("pet", pet.Printables);
+            layout.AddPrintables("treatment", Treatment.Printables);
+            layout.AddPrintables("venom", Venom.Printables);
+            layout.AddPrintables("owner", owner.Printables);
+
+            // open print form passing layout to print
+            FrmPrint frmPrint = new FrmPrint(layout);
+            frmPrint.ShowDialog();
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -87,7 +104,12 @@ namespace Ababu
 
         private void BtnPrint_Click(object sender, EventArgs e)
         {
+            Print();
+        }
 
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

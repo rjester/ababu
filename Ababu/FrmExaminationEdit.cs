@@ -119,9 +119,33 @@ namespace Ababu
                 BtnDelete.Enabled = false;
                 BtnPrint.Enabled = false;
             }
+        }
 
+        private bool IsValidForm()
+        {
+            bool result = true;
+            ErrExaminationEdit.Clear();
 
+            return result;
+        }
 
+        private void Print()
+        {
+            // create a layout for prescriptiom scope
+            Layout layout = new Layout();
+            layout.SetScope(new Scope(Scope.SCOPE_EXAMINATION));
+
+            // add printable object 
+            Owner owner = new Owner(Pet.OwnerId);
+
+            layout.AddPrintables("pet", Pet.Printables);
+            layout.AddPrintables("examination", Examination.Printables);
+            layout.AddPrintables("venom", Venom.Printables);
+            layout.AddPrintables("owner", owner.Printables);
+
+            // open print form passing layout to print
+            FrmPrint frmPrint = new FrmPrint(layout);
+            frmPrint.ShowDialog();
         }
 
         private void ChkLockProblemCombo_CheckedChanged(object sender, EventArgs e)
@@ -182,24 +206,7 @@ namespace Ababu
             }
         }
 
-
-        private bool IsValidForm()
-        {
-            bool result = true;
-            ErrExaminationEdit.Clear();
-
-            /*
-            if (NumQuantity.Value == 0)
-            {
-                result = result & false;
-                ErrPrescriptionEdit.SetError(NumQuantity, "Quantity cannot be empty");
-            }
-            */
-
-
-            return result;
-        }
-
+        
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to delete selected examination / dianogstic test (operation cannot be undone) ?", "Warning", MessageBoxButtons.YesNo);
@@ -217,7 +224,12 @@ namespace Ababu
 
         private void BtnPrint_Click(object sender, EventArgs e)
         {
+            Print();
+        }
 
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

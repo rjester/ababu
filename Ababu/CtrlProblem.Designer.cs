@@ -100,7 +100,7 @@
             // BtnProblemSelect
             // 
             this.BtnProblemSelect.Image = global::Ababu.Properties.Resources.accept;
-            this.BtnProblemSelect.Location = new System.Drawing.Point(270, 14);
+            this.BtnProblemSelect.Location = new System.Drawing.Point(264, 14);
             this.BtnProblemSelect.Name = "BtnProblemSelect";
             this.BtnProblemSelect.Size = new System.Drawing.Size(25, 23);
             this.BtnProblemSelect.TabIndex = 6;

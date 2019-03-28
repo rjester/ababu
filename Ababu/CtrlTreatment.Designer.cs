@@ -31,6 +31,7 @@
             this.TlpTreatment = new System.Windows.Forms.TableLayoutPanel();
             this.GrdTreatments = new System.Windows.Forms.DataGridView();
             this.PanProcedure = new System.Windows.Forms.Panel();
+            this.BtnPrint = new System.Windows.Forms.Button();
             this.CmbProcedures = new System.Windows.Forms.ComboBox();
             this.TlpTreatment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrdTreatments)).BeginInit();
@@ -64,25 +65,37 @@
             this.GrdTreatments.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GrdTreatments.ColumnHeadersVisible = false;
             this.GrdTreatments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GrdTreatments.Location = new System.Drawing.Point(3, 40);
+            this.GrdTreatments.Location = new System.Drawing.Point(3, 39);
             this.GrdTreatments.Name = "GrdTreatments";
             this.GrdTreatments.ReadOnly = true;
             this.GrdTreatments.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.GrdTreatments.RowHeadersVisible = false;
             this.GrdTreatments.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GrdTreatments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GrdTreatments.Size = new System.Drawing.Size(503, 272);
+            this.GrdTreatments.Size = new System.Drawing.Size(503, 273);
             this.GrdTreatments.TabIndex = 6;
             this.GrdTreatments.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdTreatments_CellDoubleClick);
+            this.GrdTreatments.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GrdTreatments_KeyDown);
             // 
             // PanProcedure
             // 
+            this.PanProcedure.Controls.Add(this.BtnPrint);
             this.PanProcedure.Controls.Add(this.CmbProcedures);
             this.PanProcedure.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanProcedure.Location = new System.Drawing.Point(3, 3);
             this.PanProcedure.Name = "PanProcedure";
-            this.PanProcedure.Size = new System.Drawing.Size(503, 31);
+            this.PanProcedure.Size = new System.Drawing.Size(503, 30);
             this.PanProcedure.TabIndex = 0;
+            // 
+            // BtnPrint
+            // 
+            this.BtnPrint.Image = global::Ababu.Properties.Resources.printer;
+            this.BtnPrint.Location = new System.Drawing.Point(460, 2);
+            this.BtnPrint.Name = "BtnPrint";
+            this.BtnPrint.Size = new System.Drawing.Size(25, 23);
+            this.BtnPrint.TabIndex = 13;
+            this.BtnPrint.UseVisualStyleBackColor = true;
+            this.BtnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
             // 
             // CmbProcedures
             // 
@@ -91,7 +104,7 @@
             this.CmbProcedures.FormattingEnabled = true;
             this.CmbProcedures.Location = new System.Drawing.Point(3, 3);
             this.CmbProcedures.Name = "CmbProcedures";
-            this.CmbProcedures.Size = new System.Drawing.Size(497, 21);
+            this.CmbProcedures.Size = new System.Drawing.Size(457, 21);
             this.CmbProcedures.TabIndex = 12;
             this.CmbProcedures.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CmbProcedures_KeyDown);
             // 
@@ -116,5 +129,6 @@
         private System.Windows.Forms.Panel PanProcedure;
         private System.Windows.Forms.ComboBox CmbProcedures;
         private System.Windows.Forms.DataGridView GrdTreatments;
+        private System.Windows.Forms.Button BtnPrint;
     }
 }

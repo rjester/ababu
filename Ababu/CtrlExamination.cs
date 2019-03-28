@@ -206,11 +206,13 @@ namespace Ababu
 
         private void GrdExaminations_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.F12)
+            // F12: print selected row
+            if (e.KeyCode == Keys.F12)
             {
                 Print();
             }
 
+            // ENTER: open edit form
             if (e.KeyCode == Keys.Enter)
             {
                 int id = (int)GrdExaminations.SelectedRows[0].Cells[0].Value;
@@ -222,7 +224,14 @@ namespace Ababu
                 // prevent next row
                 e.SuppressKeyPress = true;
             }
+        }
 
+        private void BtnSelect_Click(object sender, EventArgs e)
+        {
+            if (CmbDiagnosticTests.SelectedItem != null && CmbDiagnosticTests.SelectedValue != null)
+            {
+                OpenExaminationEdit((int)CmbDiagnosticTests.SelectedValue);
+            }
         }
     }
 }

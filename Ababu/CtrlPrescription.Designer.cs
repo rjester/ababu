@@ -107,9 +107,9 @@
             this.LblMedicines.AutoSize = true;
             this.LblMedicines.Location = new System.Drawing.Point(3, 1);
             this.LblMedicines.Name = "LblMedicines";
-            this.LblMedicines.Size = new System.Drawing.Size(50, 13);
+            this.LblMedicines.Size = new System.Drawing.Size(116, 13);
             this.LblMedicines.TabIndex = 11;
-            this.LblMedicines.Text = "Medicine";
+            this.LblMedicines.Text = "Prescription / Medicine";
             // 
             // BtnSelect
             // 
