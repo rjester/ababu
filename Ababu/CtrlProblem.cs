@@ -181,8 +181,15 @@ namespace Ababu
             }
         }
 
+        private void BtnProblemSelect_Click(object sender, EventArgs e)
+        {
+            if (CmbProblems.SelectedItem != null && CmbProblems.SelectedValue != null)
+            {
+                OpenProblemEdit((int)CmbProblems.SelectedValue, Pet.Id);
+            }
+        }
+
         // define an event to be raised on selection
         public event EventHandler<ProblemEventArgs> OnProblemSelection;
-
     }
 }

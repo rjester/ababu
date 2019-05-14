@@ -76,6 +76,7 @@
             this.BtnSave = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.PicIsModified = new System.Windows.Forms.PictureBox();
+            this.BtnClose = new System.Windows.Forms.Button();
             this.StsProblemEdit.SuspendLayout();
             this.GrbProblemStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicInEvidence)).BeginInit();
@@ -526,7 +527,7 @@
             // 
             this.BtnSave.Image = global::Ababu.Properties.Resources.accept;
             this.BtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnSave.Location = new System.Drawing.Point(351, 402);
+            this.BtnSave.Location = new System.Drawing.Point(303, 402);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(75, 23);
             this.BtnSave.TabIndex = 11;
@@ -539,7 +540,7 @@
             // 
             this.BtnDelete.Image = global::Ababu.Properties.Resources.delete;
             this.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnDelete.Location = new System.Drawing.Point(432, 402);
+            this.BtnDelete.Location = new System.Drawing.Point(384, 402);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(75, 23);
             this.BtnDelete.TabIndex = 12;
@@ -559,12 +560,28 @@
             this.PicIsModified.TabIndex = 2;
             this.PicIsModified.TabStop = false;
             // 
+            // BtnClose
+            // 
+            this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BtnClose.Image = global::Ababu.Properties.Resources.bullet_black;
+            this.BtnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnClose.Location = new System.Drawing.Point(465, 402);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(75, 23);
+            this.BtnClose.TabIndex = 62;
+            this.BtnClose.Text = "Close";
+            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
             // FrmProblemEdit
             // 
             this.AcceptButton = this.BtnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BtnClose;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.LblDiagnosis);
             this.Controls.Add(this.TxtDiagnosis);
             this.Controls.Add(this.GrbPetDetail);
@@ -586,7 +603,12 @@
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.PicIsModified);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(816, 489);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "FrmProblemEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Problem Edit";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmProblemEdit_FormClosing);
             this.Load += new System.EventHandler(this.FrmProblemEdit_Load);
@@ -659,5 +681,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TxtDateOfBirth;
         private System.Windows.Forms.Label LblDateOfBirth;
+        private System.Windows.Forms.Button BtnClose;
     }
 }

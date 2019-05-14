@@ -231,5 +231,10 @@ namespace Ababu
 
             TxtAge.Text = AtAge.ToString();
         }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

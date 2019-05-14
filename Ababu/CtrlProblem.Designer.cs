@@ -105,6 +105,7 @@
             this.BtnProblemSelect.Size = new System.Drawing.Size(25, 23);
             this.BtnProblemSelect.TabIndex = 6;
             this.BtnProblemSelect.UseVisualStyleBackColor = true;
+            this.BtnProblemSelect.Click += new System.EventHandler(this.BtnProblemSelect_Click);
             // 
             // CmbProblems
             // 

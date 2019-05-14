@@ -31,6 +31,12 @@
             this.SpcOwner = new System.Windows.Forms.SplitContainer();
             this.TlpOwner = new System.Windows.Forms.TableLayoutPanel();
             this.GrdOwner = new System.Windows.Forms.DataGridView();
+            this.TsOwner = new System.Windows.Forms.ToolStrip();
+            this.TsbOwnerAdd = new System.Windows.Forms.ToolStripButton();
+            this.TsbOwnerDelete = new System.Windows.Forms.ToolStripButton();
+            this.TsbOwnerEdit = new System.Windows.Forms.ToolStripButton();
+            this.TstOwnerSearch = new System.Windows.Forms.ToolStripTextBox();
+            this.TsbOwnerRefreshList = new System.Windows.Forms.ToolStripButton();
             this.TabOwnerDetail = new System.Windows.Forms.TabControl();
             this.TpOwnerPetOwned = new System.Windows.Forms.TabPage();
             this.TlpOwnerPetDetail = new System.Windows.Forms.TableLayoutPanel();
@@ -38,24 +44,18 @@
             this.TsPet = new System.Windows.Forms.ToolStrip();
             this.TsbPetVisit = new System.Windows.Forms.ToolStripButton();
             this.TpOwnerDetail = new System.Windows.Forms.TabPage();
-            this.TsbOwnerAdd = new System.Windows.Forms.ToolStripButton();
-            this.TsbOwnerDelete = new System.Windows.Forms.ToolStripButton();
-            this.TsbOwnerEdit = new System.Windows.Forms.ToolStripButton();
-            this.TstOwnerSearch = new System.Windows.Forms.ToolStripTextBox();
-            this.TsbOwnerRefreshList = new System.Windows.Forms.ToolStripButton();
-            this.TsOwner = new System.Windows.Forms.ToolStrip();
             ((System.ComponentModel.ISupportInitialize)(this.SpcOwner)).BeginInit();
             this.SpcOwner.Panel1.SuspendLayout();
             this.SpcOwner.Panel2.SuspendLayout();
             this.SpcOwner.SuspendLayout();
             this.TlpOwner.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrdOwner)).BeginInit();
+            this.TsOwner.SuspendLayout();
             this.TabOwnerDetail.SuspendLayout();
             this.TpOwnerPetOwned.SuspendLayout();
             this.TlpOwnerPetDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrdOwnerPets)).BeginInit();
             this.TsPet.SuspendLayout();
-            this.TsOwner.SuspendLayout();
             this.SuspendLayout();
             // 
             // SpcOwner
@@ -114,6 +114,70 @@
             this.GrdOwner.Size = new System.Drawing.Size(870, 267);
             this.GrdOwner.TabIndex = 3;
             this.GrdOwner.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdOwner_CellEnter);
+            // 
+            // TsOwner
+            // 
+            this.TsOwner.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsbOwnerAdd,
+            this.TsbOwnerDelete,
+            this.TsbOwnerEdit,
+            this.TstOwnerSearch,
+            this.TsbOwnerRefreshList});
+            this.TsOwner.Location = new System.Drawing.Point(0, 0);
+            this.TsOwner.Name = "TsOwner";
+            this.TsOwner.Size = new System.Drawing.Size(876, 25);
+            this.TsOwner.TabIndex = 2;
+            this.TsOwner.Text = "toolStrip1";
+            // 
+            // TsbOwnerAdd
+            // 
+            this.TsbOwnerAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbOwnerAdd.Image = global::Ababu.Properties.Resources.add;
+            this.TsbOwnerAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbOwnerAdd.Name = "TsbOwnerAdd";
+            this.TsbOwnerAdd.Size = new System.Drawing.Size(23, 22);
+            this.TsbOwnerAdd.Text = "Add a new owner";
+            this.TsbOwnerAdd.Click += new System.EventHandler(this.TsbOwnerAdd_Click);
+            // 
+            // TsbOwnerDelete
+            // 
+            this.TsbOwnerDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbOwnerDelete.Image = global::Ababu.Properties.Resources.delete;
+            this.TsbOwnerDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbOwnerDelete.Name = "TsbOwnerDelete";
+            this.TsbOwnerDelete.Size = new System.Drawing.Size(23, 22);
+            this.TsbOwnerDelete.Text = "Delete selected owner";
+            this.TsbOwnerDelete.Click += new System.EventHandler(this.TsbOwnerDelete_Click);
+            // 
+            // TsbOwnerEdit
+            // 
+            this.TsbOwnerEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbOwnerEdit.Image = global::Ababu.Properties.Resources.application_form_edit;
+            this.TsbOwnerEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbOwnerEdit.Name = "TsbOwnerEdit";
+            this.TsbOwnerEdit.Size = new System.Drawing.Size(23, 22);
+            this.TsbOwnerEdit.Text = "Edit selected owner";
+            this.TsbOwnerEdit.Click += new System.EventHandler(this.TsbOwnerEdit_Click);
+            // 
+            // TstOwnerSearch
+            // 
+            this.TstOwnerSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.TstOwnerSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.TstOwnerSearch.AutoToolTip = true;
+            this.TstOwnerSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.TstOwnerSearch.Name = "TstOwnerSearch";
+            this.TstOwnerSearch.Size = new System.Drawing.Size(225, 25);
+            this.TstOwnerSearch.ToolTipText = "Filter Pets by Name, Owner, Breed";
+            this.TstOwnerSearch.TextChanged += new System.EventHandler(this.TstOwnerSearch_TextChanged_1);
+            // 
+            // TsbOwnerRefreshList
+            // 
+            this.TsbOwnerRefreshList.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TsbOwnerRefreshList.Image = global::Ababu.Properties.Resources.arrow_refresh_small;
+            this.TsbOwnerRefreshList.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbOwnerRefreshList.Name = "TsbOwnerRefreshList";
+            this.TsbOwnerRefreshList.Size = new System.Drawing.Size(23, 22);
+            this.TsbOwnerRefreshList.Text = "Refresh";
             // 
             // TabOwnerDetail
             // 
@@ -193,6 +257,7 @@
             this.TsbPetVisit.Name = "TsbPetVisit";
             this.TsbPetVisit.Size = new System.Drawing.Size(23, 17);
             this.TsbPetVisit.Text = "Visit Pet";
+            this.TsbPetVisit.Click += new System.EventHandler(this.TsbPetVisit_Click);
             // 
             // TpOwnerDetail
             // 
@@ -203,70 +268,6 @@
             this.TpOwnerDetail.TabIndex = 1;
             this.TpOwnerDetail.Text = "Owner Detail";
             this.TpOwnerDetail.UseVisualStyleBackColor = true;
-            // 
-            // TsbOwnerAdd
-            // 
-            this.TsbOwnerAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TsbOwnerAdd.Image = global::Ababu.Properties.Resources.add;
-            this.TsbOwnerAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TsbOwnerAdd.Name = "TsbOwnerAdd";
-            this.TsbOwnerAdd.Size = new System.Drawing.Size(23, 22);
-            this.TsbOwnerAdd.Text = "Add a new owner";
-            this.TsbOwnerAdd.Click += new System.EventHandler(this.TsbOwnerAdd_Click);
-            // 
-            // TsbOwnerDelete
-            // 
-            this.TsbOwnerDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TsbOwnerDelete.Image = global::Ababu.Properties.Resources.delete;
-            this.TsbOwnerDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TsbOwnerDelete.Name = "TsbOwnerDelete";
-            this.TsbOwnerDelete.Size = new System.Drawing.Size(23, 22);
-            this.TsbOwnerDelete.Text = "Delete selected owner";
-            this.TsbOwnerDelete.Click += new System.EventHandler(this.TsbOwnerDelete_Click);
-            // 
-            // TsbOwnerEdit
-            // 
-            this.TsbOwnerEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TsbOwnerEdit.Image = global::Ababu.Properties.Resources.application_form_edit;
-            this.TsbOwnerEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TsbOwnerEdit.Name = "TsbOwnerEdit";
-            this.TsbOwnerEdit.Size = new System.Drawing.Size(23, 22);
-            this.TsbOwnerEdit.Text = "Edit selected owner";
-            this.TsbOwnerEdit.Click += new System.EventHandler(this.TsbOwnerEdit_Click);
-            // 
-            // TstOwnerSearch
-            // 
-            this.TstOwnerSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.TstOwnerSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.TstOwnerSearch.AutoToolTip = true;
-            this.TstOwnerSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.TstOwnerSearch.Name = "TstOwnerSearch";
-            this.TstOwnerSearch.Size = new System.Drawing.Size(225, 25);
-            this.TstOwnerSearch.ToolTipText = "Filter Pets by Name, Owner, Breed";
-            this.TstOwnerSearch.TextChanged += new System.EventHandler(this.TstOwnerSearch_TextChanged_1);
-            // 
-            // TsbOwnerRefreshList
-            // 
-            this.TsbOwnerRefreshList.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TsbOwnerRefreshList.Image = global::Ababu.Properties.Resources.arrow_refresh_small;
-            this.TsbOwnerRefreshList.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TsbOwnerRefreshList.Name = "TsbOwnerRefreshList";
-            this.TsbOwnerRefreshList.Size = new System.Drawing.Size(23, 22);
-            this.TsbOwnerRefreshList.Text = "Refresh";
-            // 
-            // TsOwner
-            // 
-            this.TsOwner.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TsbOwnerAdd,
-            this.TsbOwnerDelete,
-            this.TsbOwnerEdit,
-            this.TstOwnerSearch,
-            this.TsbOwnerRefreshList});
-            this.TsOwner.Location = new System.Drawing.Point(0, 0);
-            this.TsOwner.Name = "TsOwner";
-            this.TsOwner.Size = new System.Drawing.Size(876, 25);
-            this.TsOwner.TabIndex = 2;
-            this.TsOwner.Text = "toolStrip1";
             // 
             // CtrlOwner
             // 
@@ -284,6 +285,8 @@
             this.TlpOwner.ResumeLayout(false);
             this.TlpOwner.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrdOwner)).EndInit();
+            this.TsOwner.ResumeLayout(false);
+            this.TsOwner.PerformLayout();
             this.TabOwnerDetail.ResumeLayout(false);
             this.TpOwnerPetOwned.ResumeLayout(false);
             this.TlpOwnerPetDetail.ResumeLayout(false);
@@ -291,8 +294,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.GrdOwnerPets)).EndInit();
             this.TsPet.ResumeLayout(false);
             this.TsPet.PerformLayout();
-            this.TsOwner.ResumeLayout(false);
-            this.TsOwner.PerformLayout();
             this.ResumeLayout(false);
 
         }

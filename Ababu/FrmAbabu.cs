@@ -78,8 +78,9 @@ namespace Ababu
         // open 
         protected void OpenVisitTab(object sender, PetEventArgs e)
         {
-            TabPage TpVisit = new TabPage("Visits");
-            CtrlVisit ctrlVisits = new CtrlVisit(new Pet(e.PetId));
+            Pet pet = new Pet(e.PetId);
+            TabPage TpVisit = new TabPage(pet.Name);
+            CtrlVisit ctrlVisits = new CtrlVisit(pet);
             ctrlVisits.Dock = DockStyle.Fill;
             TpVisit.Controls.Add(ctrlVisits);
 
