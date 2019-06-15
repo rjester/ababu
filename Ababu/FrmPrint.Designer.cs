@@ -95,6 +95,7 @@
             // 
             // BtnCancel
             // 
+            this.BtnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnCancel.Image = global::Ababu.Properties.Resources.bullet_black;
             this.BtnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnCancel.Location = new System.Drawing.Point(184, 116);
@@ -133,6 +134,7 @@
             this.AcceptButton = this.BtnPrint;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BtnCancel;
             this.ClientSize = new System.Drawing.Size(347, 150);
             this.Controls.Add(this.LblPrinterSetDefault);
             this.Controls.Add(this.ChkPrinterSetDefault);

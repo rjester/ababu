@@ -113,6 +113,7 @@
             this.GrdOwner.ShowEditingIcon = false;
             this.GrdOwner.Size = new System.Drawing.Size(870, 267);
             this.GrdOwner.TabIndex = 3;
+            this.GrdOwner.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdOwner_CellDoubleClick);
             this.GrdOwner.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdOwner_CellEnter);
             // 
             // TsOwner

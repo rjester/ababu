@@ -8,9 +8,6 @@ namespace Ababu
 {
     public partial class FrmAbabu : Form
     {
-        // public DataTable medicines;
-
-
         public FrmAbabu()
         {
             InitializeComponent();

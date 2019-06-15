@@ -56,7 +56,7 @@ namespace OldAuntie
 
             try
             {
-                string connstring = string.Format("Server={0}; database={1}; UID={2}; password={3}; Pooling=true; SslMode=none; Convert Zero Datetime=True;", server, database, username, password);
+                string connstring = string.Format("Server={0}; database={1}; UID={2}; password={3}; Pooling=true; SslMode=none; Convert Zero Datetime=True;Charset=utf8;", server, database, username, password);
                 connection = new MySqlConnection(connstring);
                 connection.Open();
                 result = true;

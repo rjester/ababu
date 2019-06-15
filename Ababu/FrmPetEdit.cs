@@ -100,7 +100,7 @@ namespace Ababu
 
 
 
-        private void BtnPetSave_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
             if (IsValidForm())
             {
@@ -243,7 +243,7 @@ namespace Ababu
             DtpDateOfDeath.Enabled = ChkDateOfDeath.Checked;
         }
 
-        private void BtnPetDelete_Click(object sender, EventArgs e)
+        private void BtnDelete_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("*** This cannot be undone ***" + Environment.NewLine + "Do you want to delete selected patient and related information (Problems, prescription etc. ) ?", "Warning", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
@@ -252,6 +252,11 @@ namespace Ababu
                 IsModified = false;
                 PicIsModified.Image = Properties.Resources.bullet_green;
             }
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

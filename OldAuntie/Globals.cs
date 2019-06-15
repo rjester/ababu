@@ -17,8 +17,8 @@ namespace OldAuntie
         public const string FEED_URL_GET_STARTED = "http://www.oldauntie.org/category/get-started/feed/";
 
         public const string VERSION_CHECK_URL = "http://www.oldauntie.org/ababu_latest_version.json";
-        public const string VERSION_NUMBER = "0.3.2";
-        public const string VERSION_BUILD = "005";
+        public const string VERSION_NUMBER = "0.3.3";
+        public const string VERSION_BUILD = "007";
 
         static Globals()
         {

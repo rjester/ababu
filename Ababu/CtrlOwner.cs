@@ -181,5 +181,10 @@ namespace Ababu
         {
             FillControl();
         }
+
+        private void GrdOwner_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TsbOwnerEdit_Click(this, new EventArgs());
+        }
     }
 }

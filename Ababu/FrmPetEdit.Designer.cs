@@ -40,7 +40,7 @@
             this.CmbGender = new System.Windows.Forms.ComboBox();
             this.LblGender = new System.Windows.Forms.Label();
             this.ErrPetEdit = new System.Windows.Forms.ErrorProvider(this.components);
-            this.BtnPetSave = new System.Windows.Forms.Button();
+            this.BtnSave = new System.Windows.Forms.Button();
             this.LblDescription = new System.Windows.Forms.Label();
             this.LblColor = new System.Windows.Forms.Label();
             this.TxtColor = new System.Windows.Forms.TextBox();
@@ -71,7 +71,8 @@
             this.TxtDays = new System.Windows.Forms.TextBox();
             this.TxtMonths = new System.Windows.Forms.TextBox();
             this.TxtYears = new System.Windows.Forms.TextBox();
-            this.BtnPetDelete = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
+            this.BtnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PicIsModified)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrPetEdit)).BeginInit();
             this.GrbMicrochip.SuspendLayout();
@@ -180,18 +181,18 @@
             // 
             this.ErrPetEdit.ContainerControl = this;
             // 
-            // BtnPetSave
+            // BtnSave
             // 
-            this.BtnPetSave.Image = global::Ababu.Properties.Resources.accept;
-            this.BtnPetSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPetSave.Location = new System.Drawing.Point(442, 402);
-            this.BtnPetSave.Name = "BtnPetSave";
-            this.BtnPetSave.Size = new System.Drawing.Size(75, 23);
-            this.BtnPetSave.TabIndex = 16;
-            this.BtnPetSave.Text = "Save";
-            this.BtnPetSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPetSave.UseVisualStyleBackColor = true;
-            this.BtnPetSave.Click += new System.EventHandler(this.BtnPetSave_Click);
+            this.BtnSave.Image = global::Ababu.Properties.Resources.accept;
+            this.BtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnSave.Location = new System.Drawing.Point(442, 402);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(75, 23);
+            this.BtnSave.TabIndex = 16;
+            this.BtnSave.Text = "Save";
+            this.BtnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // LblDescription
             // 
@@ -491,26 +492,41 @@
             this.TxtYears.TabIndex = 0;
             this.TxtYears.TabStop = false;
             // 
-            // BtnPetDelete
+            // BtnDelete
             // 
-            this.BtnPetDelete.Image = global::Ababu.Properties.Resources.delete;
-            this.BtnPetDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPetDelete.Location = new System.Drawing.Point(523, 402);
-            this.BtnPetDelete.Name = "BtnPetDelete";
-            this.BtnPetDelete.Size = new System.Drawing.Size(75, 23);
-            this.BtnPetDelete.TabIndex = 47;
-            this.BtnPetDelete.Text = "Delete";
-            this.BtnPetDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPetDelete.UseVisualStyleBackColor = true;
-            this.BtnPetDelete.Click += new System.EventHandler(this.BtnPetDelete_Click);
+            this.BtnDelete.Image = global::Ababu.Properties.Resources.delete;
+            this.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnDelete.Location = new System.Drawing.Point(523, 402);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(75, 23);
+            this.BtnDelete.TabIndex = 47;
+            this.BtnDelete.Text = "Delete";
+            this.BtnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BtnClose.Image = global::Ababu.Properties.Resources.bullet_black;
+            this.BtnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnClose.Location = new System.Drawing.Point(604, 402);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(75, 23);
+            this.BtnClose.TabIndex = 48;
+            this.BtnClose.Text = "Close";
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // FrmPetEdit
             // 
-            this.AcceptButton = this.BtnPetSave;
+            this.AcceptButton = this.BtnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BtnClose;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.BtnPetDelete);
+            this.Controls.Add(this.BtnClose);
+            this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.GrbAge);
             this.Controls.Add(this.CmbOwner);
             this.Controls.Add(this.LblOwner);
@@ -521,7 +537,7 @@
             this.Controls.Add(this.TxtColor);
             this.Controls.Add(this.LblDescription);
             this.Controls.Add(this.TxtDescription);
-            this.Controls.Add(this.BtnPetSave);
+            this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.LblGender);
             this.Controls.Add(this.CmbGender);
             this.Controls.Add(this.CmbSpecies);
@@ -566,7 +582,7 @@
         private System.Windows.Forms.ComboBox CmbGender;
         private System.Windows.Forms.Label LblGender;
         private System.Windows.Forms.ErrorProvider ErrPetEdit;
-        private System.Windows.Forms.Button BtnPetSave;
+        private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.Label LblDescription;
         private System.Windows.Forms.Label LblDateOfBirth;
         private System.Windows.Forms.DateTimePicker DtpDateOfBirth;
@@ -597,6 +613,7 @@
         private System.Windows.Forms.Label LblDays;
         private System.Windows.Forms.Label LblMonths;
         private System.Windows.Forms.Label LblYears;
-        private System.Windows.Forms.Button BtnPetDelete;
+        private System.Windows.Forms.Button BtnDelete;
+        private System.Windows.Forms.Button BtnClose;
     }
 }

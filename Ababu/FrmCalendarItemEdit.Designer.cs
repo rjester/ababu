@@ -63,6 +63,7 @@
             // 
             // BtnClose
             // 
+            this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnClose.Image = global::Ababu.Properties.Resources.bullet_black;
             this.BtnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnClose.Location = new System.Drawing.Point(235, 126);
@@ -151,6 +152,7 @@
             this.AcceptButton = this.BtnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BtnClose;
             this.ClientSize = new System.Drawing.Size(384, 166);
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.LblEndDate);
